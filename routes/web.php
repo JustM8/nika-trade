@@ -24,5 +24,5 @@ Route::get('/locale/{lang}', [\App\Http\Controllers\LanguageController::class,'i
 
 Auth::routes(['register' => false]);
 
-Route::get('/',[App\Http\Controllers\HomeController::class,'index'])->name('home');
-//Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/',[App\Http\Controllers\MainController::class,'index'])->name('main');
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
