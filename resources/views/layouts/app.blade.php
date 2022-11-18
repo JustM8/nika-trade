@@ -13,7 +13,7 @@
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.bunny.net/css?family=Nunito" rel="stylesheet">
 {{--    <link href="{{ asset('css/iziToast.css') }}" rel="stylesheet">--}}
-    <link href="{{ asset('resources/sass/app.scss') }}" rel="stylesheet">
+    <link href="{{ asset('css/main.css') }}" rel="stylesheet">
 
 </head>
 <body>
@@ -41,6 +41,9 @@
                                 <a class="dropdown-item" href="{{ url('/locale/en') }}">
                                    EN
                                 </a>
+                                <a class="dropdown-item" href="{{ url('/locale/ru') }}">
+                                   RU
+                                </a>
                             </div>
                         </li>
                     </ul>
@@ -56,7 +59,7 @@
         </main>
     </div>
 {{--    <script src="{{ asset('js/iziToast.js') }}"></script>--}}
-    <script src="{{ asset('resources/js/app.js') }}"></script>
+    <script src="{{ asset('js/index.js') }}"></script>
 {{--@include('vendor.lara-izitoast.toast')--}}
 @stack('footer-scripts')
 </body>
