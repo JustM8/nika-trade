@@ -2,12 +2,11 @@
 
 namespace Database\Seeders;
 
-use App\Helpers\Enums\RolesEnum;
-use App\Models\Role;
+use App\Models\User;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 
-class RoleSeeder extends Seeder
+class UserSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -16,7 +15,7 @@ class RoleSeeder extends Seeder
      */
     public function run()
     {
-        $roles = collect(RolesEnum::cases());
-        $roles->each(fn($role)=> Role::firstOrCreate(['name'=>$role->value]));
+        User::factory()->admin()->withEmail('admin@admin.com')->create();
+        User::factory(1)->withEmail('testet@nika.com')->create();
     }
 }
