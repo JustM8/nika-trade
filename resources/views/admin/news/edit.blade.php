@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <br>
-                <h3 class="text-center">{{ __('Create product') }}</h3>
+                <h3 class="text-center">{{ __('Update news') }}</h3>
                 <hr>
             </div>
             <div class="col-md-12">

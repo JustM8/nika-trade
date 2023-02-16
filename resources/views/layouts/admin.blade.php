@@ -43,6 +43,9 @@
                                 <a class="dropdown-item" href="{{ url('/locale/en') }}">
                                     EN
                                 </a>
+                                <a class="dropdown-item" href="{{ url('/locale/ru') }}">
+                                    RU
+                                </a>
                             </div>
                         </li>
                     </ul>

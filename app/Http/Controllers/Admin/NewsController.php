@@ -51,19 +51,23 @@ class NewsController extends Controller
     {
         $locale = App::currentLocale();
         $langs = config('app.available_locales');
-
+//dd($request,$news->description);
         foreach ($langs as $lang){
             if ($lang == $locale){
                 $dataContent[$lang] = $request->row;
             }else{
-                $dataContent[$lang] = $news->content[$lang];
+                if(!empty($news->description[$lang])) {
+                    $dataContent[$lang] = $news->description[$lang];
+                }
             }
-            $count = count($dataContent[$lang]);
+            if(!empty( $dataContent[$lang])) {
+                $count = count($dataContent[$lang]);
+            }
         }
 
         $data = [
             'slug'=>$request->slug,
-            'content' => array_merge($dataContent,['count'=>$count])
+            'description' => array_merge($dataContent,['count'=>$count])
         ];
 
         if($news->update($data)){
