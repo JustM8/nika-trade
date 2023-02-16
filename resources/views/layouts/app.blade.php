@@ -52,6 +52,20 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
+                        <li class="nav-item dropdown">
+                            <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
+                                {{ __('News') }}
+                            </a>
+
+                            <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="{{ route('admin.news.index') }}">
+                                    {{ __('All news') }}
+                                </a>
+                                <a class="dropdown-item" href="{{ route('admin.news.create') }}">
+                                    {{ __('Create new') }}
+                                </a>
+                            </div>
+                        </li>
                         <!-- Authentication Links -->
                         @guest
                             @if (Route::has('login'))
