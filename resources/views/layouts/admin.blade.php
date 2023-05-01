@@ -37,13 +37,13 @@
                                 Lang
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" data-bs-popper="static">
-                                <a class="dropdown-item" href="{{ url('/locale/ua') }}">
+                                <a class="dropdown-item @if(App::currentLocale()=='ua'){{'active'}}@endif" href="{{ url('/locale/ua') }}">
                                     UA
                                 </a>
-                                <a class="dropdown-item" href="{{ url('/locale/en') }}">
+                                <a class="dropdown-item @if(App::currentLocale()=='en'){{'active'}}@endif" href="{{ url('/locale/en') }}">
                                     EN
                                 </a>
-                                <a class="dropdown-item" href="{{ url('/locale/ru') }}">
+                                <a class="dropdown-item @if(App::currentLocale()=='ru'){{'active'}}@endif" href="{{ url('/locale/ru') }}">
                                     RU
                                 </a>
                             </div>
