@@ -23,10 +23,10 @@ Route::get('/locale/{lang}', [\App\Http\Controllers\LanguageController::class,'i
 
 Auth::routes(['register' => false]);
 
-Route::get('/',[App\Http\Controllers\MainController::class,'index'])->name('home');
+Route::get('/',[App\Http\Controllers\MainController::class,'index'])->name('main');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
-Route::get('news', [\App\Http\Controllers\Admin\NewsController::class, 'index']);
+Route::get('news', [\App\Http\Controllers\NewsController::class, 'index']);
 
 Route::name('admin.')->prefix('admin')->middleware(['auth','admin'])->group(function (){
     Route::get('dashboard', \App\Http\Controllers\Admin\DashboardController::class)->name('dashboard');

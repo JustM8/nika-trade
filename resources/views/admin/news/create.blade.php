@@ -34,6 +34,7 @@
                                    value="{{ old('slug') }}"
                                    autocomplete="title"
                                    autofocus
+                                   required
                             >
                         </div>
                     </div>
@@ -134,7 +135,8 @@
                         'name="row['+x+']"'+
                         'value=""'+
                         'autocomplete="row['+x+']"'+
-                        'autofocus>'+
+                        'autofocus' +
+                        'required>'+
                         '</div>'+
                         '</div>');
 
@@ -145,6 +147,8 @@
 
             $(wrapper).on("click", ".delete", function(e) {
                 e.preventDefault();
+                // console.log($(this));
+                // console.log($(this).parentNode);
                 $(this).parent('div').remove();
                 x--;
             })
