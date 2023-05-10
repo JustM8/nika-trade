@@ -127,7 +127,7 @@
     <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon.ico"><script>document.documentElement.className = "js"; var supportsCssVars = function() { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e;}; supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables."); </script>
     <title>{{ $title.' - '.config('app.name', 'Laravel') }}</title>
     <meta name="description" content="">
-    <link rel="stylesheet" href="./assets/styles/main.min.css">
+    <link rel="stylesheet" href="{{asset('/assets/styles/main.min.css')}}">
 </head>
 <body class="home-page" id="id-home-page">
 <!-- START SVG SPRITE-->
@@ -274,7 +274,12 @@
                 <div class="footer-social-list"> <a class="footer-social-list__item text-14" href="#">Telegram</a><a class="footer-social-list__item text-14" href="#">Viber</a><a class="footer-social-list__item text-14" href="#">Instagram</a><a class="footer-social-list__item text-14" href="#">Facebook</a></div>
             </div>
         </div>
-        <div class="footer-bottom"> <span class="footer-all-rights text-14">© Nika-Trade усі права захищено</span><a class="footer-bottom__link" href="https://smarto.agency/?utm_source=referral&amp;amp;utm_medium=giza-wp.smarto.com.ua"><img class="footer-bottom__img" src="./assets/images/logo-smart-orange.jpg" alt="Smart Orange"></a></div>
+        <div class="footer-bottom">
+            <span class="footer-all-rights text-14">© Nika-Trade усі права захищено</span>
+            <a class="footer-bottom__link" href="https://smarto.agency/?utm_source=referral&amp;amp;utm_medium=giza-wp.smarto.com.ua">
+                <img class="footer-bottom__img" src="{{asset('/assets/images/logo-smart-orange.jpg')}}" alt="Smart Orange">
+            </a>
+        </div>
     </div>
 </footer>
 <div class="thank-you-popup overlay">
@@ -335,9 +340,9 @@
     </div>
 </div>
 
-<script defer src="./assets/scripts/vendors.bundle.js"></script>
-<script defer src="./assets/scripts/index.bundle.js"></script>
-<script defer src="./assets/scripts/libs.js"></script>
-<script defer src="./assets/scripts/homepage.bundle.js"></script>
+<script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
+<script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
+<script defer src="{{asset('/assets/scripts/libs.js')}}"></script>
+<script defer src="{{asset('/assets/scripts/homepage.bundle.js')}}"></script>
 </body>
 </html>

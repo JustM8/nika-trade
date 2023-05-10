@@ -45,7 +45,10 @@ class NewsController extends Controller
      */
     public function show($id)
     {
-        //
+        if($id == 111){
+//            echo  'qwe';
+            return view('news.show',['title'=>__('Test news.Title')]);
+        }
     }
 
     /**
