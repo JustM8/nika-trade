@@ -17,12 +17,17 @@ return new class extends Migration
             $table->id();
             $table->foreignId('status_id')->constrained('order_statuses');
 
-            $table->string('name',45);
-            $table->string('email');
+            $table->text('company_name');
             $table->string('phone',15);
+            $table->string('email');
+
+            $table->string('name',45);
+            $table->string('phone_delivery',15);
+            $table->string('city',255);
             $table->string('address',255);
             $table->text('comment');
             $table->tinyInteger('delivery_type');
+            $table->string('delivery_info',255);
 
 
             $table->unsignedFloat('total');
