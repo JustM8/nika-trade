@@ -1,6 +1,7 @@
-@extends('layouts.app')
+@extends('layouts.theme')
 
 @section('content')
+{{--    {{$news->title[App::currentLocale()]}}--}}
     <section class="single-news page-container">
         <div class="single-news-wrap">
             <div class="page-intro">

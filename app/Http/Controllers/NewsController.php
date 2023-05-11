@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\News;
 
 class NewsController extends Controller
 {
@@ -43,11 +44,13 @@ class NewsController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($show)
     {
-        if($id == 111){
+        $news = News::where('slug','=',$show)->first();
+//        print_r($news);
+        if($show == 'building'){
 //            echo  'qwe';
-            return view('news.show',['title'=>__('Test news.Title')]);
+            return view('news.show',['title'=>__('Test news.Title')],compact('news'));
         }
     }
 

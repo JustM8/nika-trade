@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.theme')
 
 @section('content')
     <section class="news-page page-container">
