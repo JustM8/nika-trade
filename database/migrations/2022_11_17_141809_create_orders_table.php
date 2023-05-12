@@ -25,9 +25,9 @@ return new class extends Migration
             $table->string('phone_delivery',15);
             $table->string('city',255);
             $table->string('address',255);
-            $table->text('comment');
-            $table->tinyInteger('delivery_type');
-            $table->string('delivery_info',255);
+            $table->text('comment')->nullable();
+            $table->tinyInteger('delivery_type')->nullable();
+            $table->string('delivery_info',255)->nullable();
 
 
             $table->unsignedFloat('total');

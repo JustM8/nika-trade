@@ -23,13 +23,13 @@ return new class extends Migration
             $table->json('description');
             $table->string('slug')->unique();
             $table->string('SKU',35)->unique();
-            $table->json('size');
+            $table->json('size')->nullable();
             $table->float('price')->startingValue(1);
             $table->integer('discount')->nullable()->comment('discount in %');
             $table->unsignedInteger('in_stock')->default(0);
             $table->string('thumbnail');
-            $table->string('obj_model');
-            $table->string('pdf');
+            $table->string('obj_model')->nullable();
+            $table->string('pdf')->nullable();
 
 
             $table->timestamps();
