@@ -8,4 +8,26 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+
+    protected $guarded = [];
+
+
+    /**
+     * @return \Illuminate\Database\Eloquent\Relations\BelongsTo
+     */
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
+
+    public function status()
+    {
+        return $this->belongsTo(OrderStatus::class);
+    }
+
+    public function products()
+    {
+        return $this->belongsToMany(Product::class)->withPivot(['quantity','single_price']);
+    }
+
 }

@@ -19,6 +19,7 @@ return new class extends Migration
             $table->json('name');
             $table->unsignedBigInteger('parent_id')->nullable();
             $table->foreign('parent_id')->nullable()->references('id')->on('categories');
+            $table->unsignedBigInteger('order')->nullable();
             $table->timestamps();
         });
     }

@@ -25,7 +25,7 @@ Auth::routes(['register' => false]);
 
 Route::get('/',[App\Http\Controllers\MainController::class,'index'])->name('main');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
+Route::get('/{slug}', [\App\Http\Controllers\PagesController::class,'show'])->name('page');
 
 //Route::resource('news', \App\Http\Controllers\NewsController::class);
 Route::get('news',[App\Http\Controllers\NewsController::class,'index']);

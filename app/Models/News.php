@@ -10,6 +10,9 @@ class News extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
+
     /**
      * Write code on Method
      *
@@ -34,5 +37,10 @@ class News extends Model
             get: fn ($value) => json_decode($value, true),
             set: fn ($value) => json_encode($value),
         );
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
     }
 }
