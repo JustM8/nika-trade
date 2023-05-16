@@ -59,4 +59,9 @@ class User extends Authenticatable
             get: fn() => $this->role->id === Role::admin()->first()->id
         );
     }
+
+    public function orders(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Order::class);
+    }
 }
