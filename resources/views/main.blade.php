@@ -1,6 +1,7 @@
 @extends('layouts.theme')
 
 @section('content')
+
     <section class="intro-main-screen">
         <div class="intro-swiper-wrap">
             <div class="swiper intro-swiper">
