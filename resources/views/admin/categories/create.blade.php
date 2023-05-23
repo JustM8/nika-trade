@@ -23,20 +23,35 @@
                                     </span>
                                     @enderror
                                 </div>
-                            </div>
 
+                            </div>
                             <div class="row mb-3">
-                                <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Slug') }}</label>
 
                                 <div class="col-md-6">
-                                    <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description" cols="30" rows="10">{{ old('description') }}</textarea>
-                                    @error('description')
+                                    <input id="name" type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" value="{{ old('slug') }}" required>
+
+                                    @error('slug')
                                     <span class="invalid-feedback" role="alert">
                                         <strong>{{ $message }}</strong>
                                     </span>
                                     @enderror
                                 </div>
+
                             </div>
+
+{{--                            <div class="row mb-3">--}}
+{{--                                <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>--}}
+
+{{--                                <div class="col-md-6">--}}
+{{--                                    <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description" cols="30" rows="10">{{ old('description') }}</textarea>--}}
+{{--                                    @error('description')--}}
+{{--                                    <span class="invalid-feedback" role="alert">--}}
+{{--                                        <strong>{{ $message }}</strong>--}}
+{{--                                    </span>--}}
+{{--                                    @enderror--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">

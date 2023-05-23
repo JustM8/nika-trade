@@ -14,6 +14,10 @@ class Category extends Model
     protected $fillable = [
         'name',
         'parent_id',
+        'slug'
+    ];
+    protected $casts = [
+        'name' => 'array',
     ];
 
     /**

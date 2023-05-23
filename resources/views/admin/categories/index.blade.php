@@ -18,7 +18,7 @@
                     <tr>
                         <th class="text-center" scope="col">ID</th>
                         <th class="text-center" scope="col">Name</th>
-                        <th class="text-center" scope="col">Description</th>
+{{--                        <th class="text-center" scope="col">Description</th>--}}
                         <th class="text-center" scope="col">Products</th>
                         <th class="text-center" scope="col">Actions</th>
                     </tr>
@@ -27,8 +27,7 @@
                     @foreach($categories as $category)
                         <tr>
                             <td class="text-center" scope="col">{{ $category->id }}</td>
-                            <td class="text-center" scope="col">{{ $category->name }}</td>
-                            <td class="text-center" scope="col">{{ $category->description }}</td>
+                            <td class="text-center" scope="col">{{ $category->name[App::currentLocale()] }}</td>
                             <td class="text-center" scope="col">{{ $category->products_count }}</td>
                             <td class="text-center" scope="col">
                                 <a href="{{ route('admin.categories.edit', $category) }}" class="btn btn-info form-control">Edit</a>

@@ -35,7 +35,8 @@ Route::get('/news/{slug}',[App\Http\Controllers\NewsController::class,'show']);
 Route::name('admin.')->prefix('admin')->middleware(['auth','admin'])->group(function (){
     Route::get('dashboard', \App\Http\Controllers\Admin\DashboardController::class)->name('dashboard');
 
+    Route::resource('categories',\App\Http\Controllers\Admin\CategoriesController::class)->except(['show']);
     Route::resource('products',\App\Http\Controllers\Admin\ProductsController::class)->except(['show']);
+
     Route::resource('news',\App\Http\Controllers\Admin\NewsController::class)->except(['show']);
-//    Route::resource('categories',\App\Http\Controllers\Admin\CategoriesController::class)->except(['show']);
 });
