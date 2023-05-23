@@ -84,9 +84,11 @@ class CategoriesController extends Controller
                 }
             }
         }
+//dd($request);
 
         $data = [
             'slug'=>$request->slug,
+            'parent_id'=>$request->category_id,
             'name' => $nameContent
         ];
 

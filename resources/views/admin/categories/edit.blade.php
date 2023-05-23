@@ -52,7 +52,7 @@
                                             ?>
                                           @if($child['id'] != $category->id)
                                                 <option value="{{ $child['id'] }}"
-                                                    {{ $child['id'] === $category->category_id ? 'selected' : '' }}
+                                                    {{ $child['id'] === $category->parent_id ? 'selected' : '' }}
                                                 >{{ $child['name'][App::currentLocale()] }}</option>
                                             @endif
                                         @endforeach

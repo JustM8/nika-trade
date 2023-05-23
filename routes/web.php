@@ -32,6 +32,13 @@ Route::get('/{slug}', [\App\Http\Controllers\PagesController::class,'show'])->na
 Route::get('news',[App\Http\Controllers\NewsController::class,'index']);
 Route::get('/news/{slug}',[App\Http\Controllers\NewsController::class,'show']);
 
+//categories index
+Route::get('categories', [\App\Http\Controllers\CategoriesController::class, 'index'])->name('categories.index');
+
+//categories show
+Route::get('categories/{params?}', [\App\Http\Controllers\CategoriesController::class, 'show'])->name('categories.show')
+    ->where('params', '(.*)');
+
 Route::name('admin.')->prefix('admin')->middleware(['auth','admin'])->group(function (){
     Route::get('dashboard', \App\Http\Controllers\Admin\DashboardController::class)->name('dashboard');
 

@@ -35,6 +35,20 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Slug') }}</label>
+                        <div class="col-md-6">
+                            <input id="title"
+                                   type="text"
+                                   class="form-control @error('slug') is-invalid @enderror"
+                                   name="slug"
+                                   value="{{ old('slug') }}"
+                                   autocomplete="slug"
+                                   autofocus
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="category"
                                class="col-md-4 col-form-label text-md-right">{{ __('Categories') }}</label>
                         <div class="col-md-6">
@@ -43,11 +57,12 @@
                                     class="form-control @error('category') is-invalid @enderror"
                             >
                                 @foreach($categories as $category)
-                                    <option value="{{ $category['id'] }}">{{ $category['name'] }}</option>
+                                    <option value="{{ $category['id'] }}">{{ $category['name'][App::currentLocale()] }}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
+{{--                    sku--}}
                     <div class="form-group row">
                         <label for="SKU" class="col-md-4 col-form-label text-md-right">{{ __('SKU') }}</label>
                         <div class="col-md-6">
@@ -61,6 +76,7 @@
                             >
                         </div>
                     </div>
+{{--                    price--}}
                     <div class="form-group row">
                         <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Price') }}</label>
                         <div class="col-md-6">
@@ -74,6 +90,7 @@
                             >
                         </div>
                     </div>
+{{--                    discount--}}
                     <div class="form-group row">
                         <label for="discount" class="col-md-4 col-form-label text-md-right">{{ __('Discount') }}</label>
                         <div class="col-md-6">
@@ -87,6 +104,7 @@
                             >
                         </div>
                     </div>
+{{--                    in stock--}}
                     <div class="form-group row">
                         <label for="in_stock"
                                class="col-md-4 col-form-label text-md-right">{{ __('In Stock (Quantity)') }}</label>
@@ -101,6 +119,7 @@
                             >
                         </div>
                     </div>
+{{--                    decsription--}}
                     <div class="form-group row">
                         <label for="description"
                                class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
@@ -112,18 +131,8 @@
                                       rows="10">{{ old('description') }}</textarea>
                         </div>
                     </div>
-                    <div class="form-group row">
-                        <label for="short_description"
-                               class="col-md-4 col-form-label text-md-right">{{ __('Short Description') }}</label>
-                        <div class="col-md-6">
-                            <textarea name="short_description"
-                                      class="form-control @error('short_description') is-invalid @enderror"
-                                      id="short_description"
-                                      cols="30"
-                                      rows="10">{{ old('short_description') }}</textarea>
-                        </div>
-                    </div>
 
+{{--img--}}
                     <div class="form-group row">
                         <label for="thumbnail"
                                class="col-md-4 col-form-label text-md-right">{{ __('Thumbnail') }}</label>
@@ -134,6 +143,36 @@
                                 </div>
                                 <div class="col-md-6">
                                     <input type="file" name="thumbnail" id="thumbnail">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+{{--                    obj_model--}}
+                    <div class="form-group row">
+                        <label for="thumbnail"
+                               class="col-md-4 col-form-label text-md-right">{{ __('obj_model') }}</label>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="#" id="obj_model-preview" alt="">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="file" name="obj_model" id="obj_model">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+{{--                    pdf--}}
+                    <div class="form-group row">
+                        <label for="thumbnail"
+                               class="col-md-4 col-form-label text-md-right">{{ __('pdf') }}</label>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="#" id="pdf-preview" alt="">
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="file" name="pdf" id="pdf">
                                 </div>
                             </div>
                         </div>

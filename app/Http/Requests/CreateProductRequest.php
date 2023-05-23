@@ -26,13 +26,15 @@ class CreateProductRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'min:3', 'unique:products'],
             'description' => ['required', 'string', 'min:10'],
-            'short_description' => ['required', 'string', 'min:10', 'max:150'],
+//            'short_description' => ['required', 'string', 'min:10', 'max:150'],
             'SKU' => ['required', 'string', 'min:1', 'max:35', 'unique:products'],
             'price' => ['required', 'numeric', 'min:1'],
             'discount' => ['required', 'numeric', 'min:0', 'max:99'],
             'in_stock' => ['required', 'numeric', 'min:0'],
             'category' => ['required', 'numeric'],
             'thumbnail' => ['required', 'image:jpeg,png'],
+            'obj_model' => [ 'file'],
+            'pdf' => [ 'pdf'],
             'images.*' => ['image:jpeg,png']
         ];
     }
