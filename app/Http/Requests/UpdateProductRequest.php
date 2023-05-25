@@ -30,7 +30,7 @@ class UpdateProductRequest extends FormRequest
         return [
             'title' => ['required', 'string', 'min:3', Rule::unique('products','title')->ignore($productId)],
             'description' => ['required', 'string', 'min:10'],
-            'short_description' => ['required', 'string', 'min:10', 'max:150'],
+//            'short_description' => ['required', 'string', 'min:10', 'max:150'],
             'SKU' => ['required', 'string', 'min:1', 'max:35', Rule::unique('products','SKU')->ignore($productId)],
             'price' => ['required', 'numeric', 'min:1'],
             'discount' => ['required', 'numeric', 'min:0', 'max:99'],

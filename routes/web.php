@@ -26,7 +26,7 @@ Auth::routes(['register' => false]);
 
 Route::get('/',[App\Http\Controllers\MainController::class,'index'])->name('main');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/{slug}', [\App\Http\Controllers\PagesController::class,'show'])->name('page');
+
 
 //Route::resource('news', \App\Http\Controllers\NewsController::class);
 Route::get('news',[App\Http\Controllers\NewsController::class,'index']);
@@ -47,3 +47,9 @@ Route::name('admin.')->prefix('admin')->middleware(['auth','admin'])->group(func
 
     Route::resource('news',\App\Http\Controllers\Admin\NewsController::class)->except(['show']);
 });
+
+
+//pages
+
+//Route::get('/services', [App\Http\Controllers\PagesController::class, 'index'])->name('services');
+Route::get('/{slug}', [\App\Http\Controllers\PagesController::class,'show'])->name('services');

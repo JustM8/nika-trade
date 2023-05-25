@@ -8,9 +8,14 @@ use App\Models\Category;
 use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
+use App\Repositories\ProductRepository;
 
 class ProductsController extends Controller
 {
+    public function __construct(protected ProductRepository $repository)
+    {
+    }
+
     public function index()
     {
         $products = Product::with('category')->paginate(5);
@@ -40,14 +45,15 @@ class ProductsController extends Controller
 
     public function store(CreateProductRequest $request)
     {
-        dd($request->validated());
+//        dd($request->validated());
 
-        /*
-        if($this->repository->create($request)){
-            return redirect()->route('admin.products.index');
-        }else{
-            return redirect()->back()->withInput();
-        } */
+        dd($this->repository->create($request));
+
+//        if($this->repository->create($request)){
+//            return redirect()->route('admin.products.index');
+//        }else{
+//            return redirect()->back()->withInput();
+//        }
 
     }
 

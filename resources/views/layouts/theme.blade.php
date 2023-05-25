@@ -102,11 +102,11 @@
                     <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/')}}">Головна</a></li>
                     <li class="header-list-item"><a class="header-list-link text-s" href="about.html">Компанія</a></li>
                     <li class="header-list-item"><a class="header-list-link text-s" href="catalog.html">Каталог</a></li>
-                    <li class="header-list-item"><a class="header-list-link text-s" href="gallery.html">Галерея</a></li>
-                    <li class="header-list-item"><a class="header-list-link text-s" href="services.html">Послуги</a></li>
+                    <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/gallery') }}">Галерея</a></li>
+                    <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/services') }}">Послуги</a></li>
                     <li class="header-list-item"><a class="header-list-link text-s" href="contacts.html">Клієнти</a></li>
                     <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/news') }}">Новини</a></li>
-                    <li class="header-list-item"><a class="header-list-link text-s" href="contacts.html">Контакти     </a></li>
+                    <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/contacts') }}">Контакти     </a></li>
                 </ul>
             </div>
             <div class="header-call-wrap">
