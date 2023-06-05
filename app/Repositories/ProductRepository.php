@@ -42,11 +42,9 @@ class ProductRepository implements ProductRepositoryContract
             $data['description'] = $dataJson['description'];
             $data['size'] = $dataJson['size'];
 
-
             $images = $data['images'] ?? [];
             $category = Category::find($data['category']);
             $product = $category->products()->create($data);
-//            dd($data);
             ImageRepository::attach($product, 'images',$images);
 
             DB::commit();
