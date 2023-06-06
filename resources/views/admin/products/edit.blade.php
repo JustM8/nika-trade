@@ -35,6 +35,20 @@
                             >
                         </div>
                     </div>
+
+                    <div class="form-group row">
+                        <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Slug') }}</label>
+                        <div class="col-md-6">
+                            <input id="title"
+                                   type="text"
+                                   class="form-control @error('slug') is-invalid @enderror"
+                                   name="slug"
+                                   value="{{ $product->slug }}"
+                                   autocomplete="slug"
+                                   autofocus
+                            >
+                        </div>
+                    </div>
                     <div class="form-group row">
                         <label for="category"
                                class="col-md-4 col-form-label text-md-right">{{ __('Categories') }}</label>
@@ -132,6 +146,41 @@
                     </div>
 
                     <div class="form-group row">
+                        <label for="thumbnail"
+                               class="col-md-4 col-form-label text-md-right">{{ __('Obj_Model') }}</label>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="card-img-top" data-object-container style="width: 200px; height: 300px; margin: 0 auto; display: block;">
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="file" name="obj_model" id="obj_model">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+                        <div class="form-group row">
+                        <label for="thumbnail"
+                               class="col-md-4 col-form-label text-md-right">{{ __('pdf') }}</label>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div class="columns download">
+                                        <p>
+                                            <a href="{{ $product->pdflUrl  }}" class="button" download>
+                                                <i class="fa fa-download"></i>Download PDF</a>
+                                        </p>
+                                    </div>
+
+                                    </div>
+                                    <div class="col-md-6">
+                                        <input type="file" name="pdf" id="pdf">
+                                    </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('Images') }}</label>
                         <div class="col-md-6">
                             <div class="row">
@@ -141,8 +190,8 @@
                                             @if(Storage::has($image->path))
                                                 <div class="col-sm-12 d-flex justify-content-center align-items-center">
                                                     <img src="{{ $image->url }}" class="card-img-top" style="max-width: 80%; margin: 0 auto; display: block;">
-{{--                                                    <a data-route="{{ route('ajax.images.delete', $image->id) }}"--}}
-{{--                                                       class="btn btn-danger remove-product-image">x</a>--}}
+                                                    <a data-route="{{ route('ajax.images.delete', $image->id) }}"
+                                                       class="btn btn-danger remove-product-image">x</a>
                                                 </div>
                                             @endif
                                         @endforeach
@@ -155,9 +204,10 @@
                         </div>
                     </div>
 
-                    <div class="form-group row">
-                        <div class="col-md-10 text-right">
-                            <input type="submit" class="btn btn-info" value="Update">
+                        <div class="form-group row">
+                            <div class="col-md-10 text-right">
+                                <input type="submit" class="btn btn-info" value="Update">
+                            </div>
                         </div>
                     </div>
                 </form>
@@ -167,5 +217,11 @@
 @endsection
 
 @push('footer-scripts')
-    @vite(['resources/js/images-preview.js', 'resources/js/images-actions.js'])
+    @vite(['resources/js/images-preview.js', 'resources/js/images-actions.js', 'resources/js/nikaModel.build.js'])
 @endpush
+<script>
+    window.addEventListener('DOMContentLoaded',function(evt){
+        window.obj3d(document.querySelector('[data-object-container]'), "{{ $product->objmodelUrl  }}");
+    });
+    console.log(document.querySelector('[data-object-container]'));
+</script>

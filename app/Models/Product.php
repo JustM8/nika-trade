@@ -21,7 +21,9 @@ class Product extends Model
         'thumbnail',
         'in_stock',
         'SKU',
-        'slug'
+        'slug',
+        'pdf',
+        'obj_model'
     ];
 
     protected $guarded = [];
@@ -50,9 +52,34 @@ class Product extends Model
 
         $this->attributes['thumbnail'] = FileStorageService::upload($image);
     }
+    public function setPdfAttribute($image)
+    {
+        if(!empty($this->attributes['pdf'])){
+            FileStorageService::remove($this->attributes['pdf']);
+        }
+
+        $this->attributes['pdf'] = FileStorageService::upload($image);
+    }
+    public function setObjModelAttribute($image)
+    {
+        if(!empty($this->attributes['obj_model'])){
+            FileStorageService::remove($this->attributes['obj_model']);
+        }
+
+        $this->attributes['obj_model'] = FileStorageService::upload($image);
+    }
 
     public function thumbnailUrl(): Attribute
     {
         return new Attribute(get: fn() => Storage::url($this->attributes['thumbnail']));
+    }
+
+    public function objmodelUrl(): Attribute
+    {
+        return new Attribute(get: fn() => Storage::url($this->attributes['obj_model']));
+    }
+    public function pdflUrl(): Attribute
+    {
+        return new Attribute(get: fn() => Storage::url($this->attributes['pdf']));
     }
 }

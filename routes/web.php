@@ -27,6 +27,11 @@ Auth::routes(['register' => false]);
 Route::get('/',[App\Http\Controllers\MainController::class,'index'])->name('main');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::delete(
+    'ajax/images/{image}',
+        \App\Http\Controllers\Ajax\RemoveImageController::class
+)->middleware(['auth','admin'])->name('ajax.images.delete');
+
 
 //Route::resource('news', \App\Http\Controllers\NewsController::class);
 Route::get('news',[App\Http\Controllers\NewsController::class,'index']);

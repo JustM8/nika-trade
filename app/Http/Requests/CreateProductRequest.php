@@ -33,8 +33,8 @@ class CreateProductRequest extends FormRequest
             'in_stock' => ['required', 'numeric', 'min:0'],
             'category' => ['required', 'numeric'],
             'thumbnail' => ['required', 'image:jpeg,png,jpg'],
-//            'obj_model' => [ 'file'],
-//            'pdf' => [ 'pdf'],
+            'obj_model' => [ 'file'],
+            'pdf' => [ 'mimes:pdf'],
             'images.*' => ['image:jpeg,png,jpg']
         ];
     }

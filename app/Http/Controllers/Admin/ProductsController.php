@@ -36,6 +36,7 @@ class ProductsController extends Controller
 
     public function update(UpdateProductRequest $request,Product $product )
     {
+
         if($this->repository->update($product,$request)){
             return redirect()->route('admin.products.index');
         }else{
@@ -46,14 +47,13 @@ class ProductsController extends Controller
     public function store(CreateProductRequest $request)
     {
 //        dd($request->validated());
+//        dd($this->repository->create($request));
 
-        dd($this->repository->create($request));
-
-//        if($this->repository->create($request)){
-//            return redirect()->route('admin.products.index');
-//        }else{
-//            return redirect()->back()->withInput();
-//        }
+        if($this->repository->create($request)){
+            return redirect()->route('admin.products.index');
+        }else{
+            return redirect()->back()->withInput();
+        }
 
     }
 
