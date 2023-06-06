@@ -37,8 +37,19 @@ class CategoriesController extends Controller
     public function store(CreateCategoryRequest $request)
     {
         $locale = App::currentLocale();
+        $langs = config('app.available_locales');
+        $nameContent = [];
+
+        foreach ($langs as $lang){
+            if($lang == $locale) {
+                $nameContent[$lang] = $request->name;
+            }else{
+                $nameContent[$lang] = '';
+            }
+        }
+
         $data = [
-            'name' => [$locale=> $request->name],
+            'name' => $nameContent,
             'slug' => $request->slug,
         ];
 
