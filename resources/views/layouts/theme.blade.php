@@ -230,5 +230,6 @@
 <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
 <script defer src="{{asset('/assets/scripts/libs.js')}}"></script>
 <script defer src="{{asset('/assets/scripts/homepage.bundle.js')}}"></script>
+@stack('footer-scripts')
 </body>
 </html>

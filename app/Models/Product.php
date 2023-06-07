@@ -82,4 +82,23 @@ class Product extends Model
     {
         return new Attribute(get: fn() => Storage::url($this->attributes['pdf']));
     }
+
+
+    public function endPrice(): Attribute
+    {
+        return new Attribute(
+            get: function () {
+                $price = is_null($this->attributes['discount']) || $this->attributes['discount'] === 0
+                ? $this->attributes['price']
+                : ($this->attributes['price'] - ($this->attributes['price'] * ($this->attributes['discount'] / 100)));
+
+                return $price < 0 ? 1 : round($price,2);
+            }
+        );
+    }
+
+//    public function getRouteKeyName()
+//    {
+//        return 'slug';
+//    }
 }

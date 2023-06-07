@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 
+use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -25,6 +27,15 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+
+        $categories = Category::all()->take(4);
+        $products = Product::all()->where('in_stock','>', '0')->take(6);
+
+//        foreach ($categories as $category){
+//            dd($category,$category->products);
+//        }
+
+
+        return view('home', compact('products', 'categories'));
     }
 }

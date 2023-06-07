@@ -20,8 +20,6 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/locale/{lang}', [\App\Http\Controllers\LanguageController::class,'index'])->name('index');
-
-
 Auth::routes(['register' => false]);
 
 Route::get('/',[App\Http\Controllers\MainController::class,'index'])->name('main');
@@ -37,12 +35,24 @@ Route::delete(
 Route::get('news',[App\Http\Controllers\NewsController::class,'index']);
 Route::get('/news/{slug}',[App\Http\Controllers\NewsController::class,'show']);
 
+
+Route::get('cart', [\App\Http\Controllers\CartController::class, 'index'])->name('cart');
+Route::post('cart/{product}', [\App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
+Route::delete('cart', [\App\Http\Controllers\CartController::class, 'remove'])->name('cart.remove');
+Route::post('cart/{product}/count', [\App\Http\Controllers\CartController::class, 'countUpdate'])->name('cart.count.update');
+
+
+
 //categories index
 Route::get('categories', [\App\Http\Controllers\CategoriesController::class, 'index'])->name('categories.index');
 
 //categories show
 Route::get('categories/{params?}', [\App\Http\Controllers\CategoriesController::class, 'show'])->name('categories.show')
     ->where('params', '(.*)');
+
+//product
+Route::get('products/{product:slug}',[App\Http\Controllers\ProductsController::class,'show'])->name('products.show');
+//Route::resource('products', \App\Http\Controllers\ProductsController::class)->only(['show','index']);
 
 Route::name('admin.')->prefix('admin')->middleware(['auth','admin'])->group(function (){
     Route::get('dashboard', \App\Http\Controllers\Admin\DashboardController::class)->name('dashboard');
