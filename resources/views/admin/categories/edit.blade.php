@@ -44,7 +44,7 @@
                                 <div class="col-md-6">
                                     <select id="category"
                                             class="form-control @error('category') is-invalid @enderror"
-                                            name="category_id"
+                                            name="parent_id"
                                     ><option value="">No parent</option>
                                         @foreach($parents as $child)
                                             <?php

@@ -7,10 +7,14 @@ use App\Http\Requests\CreateCategoryRequest;
 use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
+use App\Repositories\CategoryRepository;
 use Illuminate\Support\Facades\App;
 
 class CategoriesController extends Controller
 {
+    public function __construct(protected CategoryRepository $repository)
+    {
+    }
     public function index()
     {
         $categories = Category::withCount('products')->paginate(5);
@@ -23,9 +27,10 @@ class CategoriesController extends Controller
      *
      * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Contracts\View\View
      */
-    public function create()
+    public function create( Category $category)
     {
-        return view('admin/categories/create');
+        $parents = Category::all()->except($category->id);
+        return view('admin/categories/create', compact('parents'));
     }
 
     /**
@@ -36,24 +41,7 @@ class CategoriesController extends Controller
      */
     public function store(CreateCategoryRequest $request)
     {
-        $locale = App::currentLocale();
-        $langs = config('app.available_locales');
-        $nameContent = [];
-
-        foreach ($langs as $lang){
-            if($lang == $locale) {
-                $nameContent[$lang] = $request->name;
-            }else{
-                $nameContent[$lang] = '';
-            }
-        }
-
-        $data = [
-            'name' => $nameContent,
-            'slug' => $request->slug,
-        ];
-
-        if(Category::create($data)){
+        if($this->repository->create($request)){
             return redirect()->route('admin.categories.index');
         }else{
             return redirect()->back()->withInput();
@@ -81,29 +69,8 @@ class CategoriesController extends Controller
      */
     public function update(UpdateCategoryRequest $request, Category $category)
     {
-        $locale = App::currentLocale();
-        $langs = config('app.available_locales');
 
-        foreach ($langs as $lang){
-            if($lang == $locale) {
-                $nameContent[$lang] = $request->name;
-            }else{
-                if(!empty($category->name[$lang])) {
-                    $nameContent[$lang] = $category->name[$lang];
-                }else{
-                    $nameContent[$lang] = '';
-                }
-            }
-        }
-//dd($request);
-
-        $data = [
-            'slug'=>$request->slug,
-            'parent_id'=>$request->category_id,
-            'name' => $nameContent
-        ];
-
-        if($category->update($data)){
+        if($this->repository->update($category,$request)){
             return redirect()->route('admin.categories.index');
         }
         return redirect()->back()->withInput();
