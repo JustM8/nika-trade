@@ -41,7 +41,10 @@ Route::post('cart/{product}', [\App\Http\Controllers\CartController::class, 'add
 Route::delete('cart', [\App\Http\Controllers\CartController::class, 'remove'])->name('cart.remove');
 Route::post('cart/{product}/count', [\App\Http\Controllers\CartController::class, 'countUpdate'])->name('cart.count.update');
 
-
+Route::middleware('auth')->group(function() {
+    Route::get('checkout', \App\Http\Controllers\CheckoutController::class)->name('checkout');
+    Route::post('order', \App\Http\Controllers\OrdersController::class)->name('orders');
+});
 
 //categories index
 Route::get('categories', [\App\Http\Controllers\CategoriesController::class, 'index'])->name('categories.index');

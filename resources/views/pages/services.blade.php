@@ -1,4 +1,7 @@
 @extends('layouts.theme')
+@php
+    $title = $page['title'];
+@endphp
 
 @section('content')
     <section class="services page-container">
@@ -14,6 +17,7 @@
                 <h2 class="page-title text-title">Послуги</h2>
             </div>
             <div class="services-list">
+{{--                start item--}}
                 <div class="services-item">
                     <h3 class="services-item__title text-m">Консультації</h3>
                     <div class="services-item__img-wrap"> <img class="services-item__img" src="./assets/images/services/1.jpg" alt="">
@@ -41,6 +45,7 @@
                         <button class="btn btn--full">Замовити індивідуальний проєкт</button>
                     </div>
                 </div>
+{{--                end item --}}
                 <div class="services-item">
                     <h3 class="services-item__title text-m">Консультації</h3>
                     <div class="services-item__img-wrap"> <img class="services-item__img" src="./assets/images/services/2.jpg" alt="">

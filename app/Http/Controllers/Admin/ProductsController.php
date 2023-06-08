@@ -36,7 +36,6 @@ class ProductsController extends Controller
 
     public function update(UpdateProductRequest $request,Product $product )
     {
-
         if($this->repository->update($product,$request)){
             return redirect()->route('admin.products.index');
         }else{

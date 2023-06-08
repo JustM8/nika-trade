@@ -18,7 +18,9 @@ class CartController extends Controller
             $product->id,
             $product->title,
             $request->product_count,
-            $product->endPrice
+            $product->endPrice,
+            0,
+            ['slug'=>$product->slug],
         )->associate(Product::class);
 
         notify()->success("Product was added to the cart", position: "topRight");

@@ -9,11 +9,11 @@
     <hr>
     <div class="row">
         <div class="col-md-6">
-{{--            @if(Storage::has($product->thumbnail))--}}
-
+            @if(Storage::has($product->thumbnail))
                 <img src="{{ $product->thumbnailUrl  }}" style="height: 350px" id="thumbnail-preview" alt="">
+            @endif
                 <div class="card-img-top" data-object-container style="width: 200px; height: 300px; margin: 0 auto; display: block;"></div>
-{{--            @endif--}}
+
         </div>
         <div class="col-md-6">
             @if ($product->price !== $product->end_price)

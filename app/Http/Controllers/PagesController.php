@@ -21,7 +21,7 @@ class PagesController extends Controller
                 'image' => 'company.jpg',
             ],
             'services' => [
-                'title' => 'Про компанію',
+                'title' => 'Послуги',
                 'content' => 'Тут буде контент сторінки "Про компанію"',
                 'image' => 'company.jpg',
             ],

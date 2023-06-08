@@ -18,6 +18,14 @@ class UpdateProductRequest extends FormRequest
         return auth()->user()->isAdmin();
     }
 
+    public function messages()
+    {
+        return array_merge(parent::messages(), [
+            'title' => 'Title should be more than 3 symbols',
+            'description' => 'Description should be more than 10 symbols',
+
+        ]);
+    }
     /**
      * Get the validation rules that apply to the request.
      *
