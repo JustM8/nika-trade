@@ -43,7 +43,9 @@ Route::post('cart/{product}/count', [\App\Http\Controllers\CartController::class
 
 Route::middleware('auth')->group(function() {
     Route::get('checkout', \App\Http\Controllers\CheckoutController::class)->name('checkout');
-    Route::post('order', \App\Http\Controllers\OrdersController::class)->name('orders');
+    Route::post('order', [\App\Http\Controllers\OrdersController::class,'index'])->name('orders');
+    Route::post('order/create', [\App\Http\Controllers\OrdersController::class,'create'])->name('order.create');
+    Route::get('order/{orderId}/thankyou',[\App\Http\Controllers\OrdersController::class,'thankYou'])->name('thankYou');
 });
 
 //categories index

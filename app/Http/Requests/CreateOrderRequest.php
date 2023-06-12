@@ -26,20 +26,24 @@ class CreateOrderRequest extends FormRequest
     {
         return [
             'name' => ['required', 'string', 'min:2', 'max: 35'],
-            'surname' => ['required', 'string', 'min:2', 'max: 50'],
-            'phone' => ['required', 'string', new Phone()],
+            'company_name' => ['required', 'string', 'min:2', 'max: 35'],
+            'phone' => ['required', 'string'],
+            'phone_delivery' => ['required', 'string'],
             'email' => ['required', 'email'],
             'city' => ['required', 'string', 'min:2', 'max:50'],
             'address' => ['required', 'string', 'min:2', 'max:50'],
+            'comment' => ['nullable','string'],
+            'delivery_type' => [ 'int'],
+            'delivery_info' => [ 'text'],
         ];
     }
 
-    public function all($keys = null)
-    {
-        if (empty($keys)) {
-            return parent::json()->all();
-        }
-
-        return collect(parent::json()->all())->only($keys)->toArray();
-    }
+//    public function all($keys = null)
+//    {
+//        if (empty($keys)) {
+//            return parent::json()->all();
+//        }
+//
+//        return collect(parent::json()->all())->only($keys)->toArray();
+//    }
 }
