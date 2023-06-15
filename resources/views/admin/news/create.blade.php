@@ -38,71 +38,130 @@
                             >
                         </div>
                     </div>
-                    <div class="container1">
-                        <button class="add_form_field">Add New Field
-                            <span style="font-size:16px; font-weight:bold;">+</span>
-                        </button>
-                        <div class="form-group row" id="father">
-                            <label for="row[1]" class="col-md-4 col-form-label text-md-right">{{ __('row[1]') }}</label>
-                            <div class="col-md-6">
-                                <input id="row[1]"
-                                       type="text"
-                                       class="form-control @error('row[1]') is-invalid @enderror"
-                                       name="row[1]"
-                                       value="{{ old('row[1]') }}"
-                                       autocomplete="row[1]"
-                                       autofocus
-                                >
+                    <div class="form-group row">
+                        <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
+                        <div class="col-md-6">
+                            <input id="title"
+                                   type="text"
+                                   class="form-control @error('title') is-invalid @enderror"
+                                   name="title"
+                                   value="{{ old('title') }}"
+                                   autocomplete="title"
+                                   autofocus
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="subtitle_1" class="col-md-4 col-form-label text-md-right">{{ __('Subtitle 1') }}</label>
+                        <div class="col-md-6">
+                            <input id="subtitle_1"
+                                   type="text"
+                                   class="form-control @error('subtitle_1') is-invalid @enderror"
+                                   name="subtitle_1"
+                                   value="{{ old('subtitle_1') }}"
+                                   autocomplete="subtitle_1"
+                                   autofocus
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="subtitle_2" class="col-md-4 col-form-label text-md-right">{{ __('Subtitle 2') }}</label>
+                        <div class="col-md-6">
+                            <input id="subtitle_2"
+                                   type="text"
+                                   class="form-control @error('subtitle_2') is-invalid @enderror"
+                                   name="subtitle_2"
+                                   value="{{ old('subtitle_2') }}"
+                                   autocomplete="subtitle_2"
+                                   autofocus
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="priority" class="col-md-4 col-form-label text-md-right">{{ __('Priority') }}</label>
+                        <div class="col-md-6">
+                            <input id="priority"
+                                   type="number"
+                                   class="form-control @error('priority') is-invalid @enderror"
+                                   name="priority"
+                                   value="{{ old('priority') }}"
+                                   autocomplete="priority"
+                                   autofocus
+                                   min="0"
+                                   step="1"
+                            >
+                        </div>
+                    </div>
+
+{{--                    <div class="container1">--}}
+{{--                        <button class="btn btn-primary add_form_field ">Add New Field--}}
+{{--                            <span style="font-size:16px; font-weight:bold;">+</span>--}}
+{{--                        </button>--}}
+{{--                        <div class="form-group row" id="father">--}}
+{{--                            <label for="row[1]" class="col-md-4 col-form-label text-md-right">{{ __('row[1]') }}</label>--}}
+{{--                            <div class="col-md-6">--}}
+{{--                                <input id="row[1]"--}}
+{{--                                       type="text"--}}
+{{--                                       class="form-control @error('row[1]') is-invalid @enderror"--}}
+{{--                                       name="row[1]"--}}
+{{--                                       value="{{ old('row[1]') }}"--}}
+{{--                                       autocomplete="row[1]"--}}
+{{--                                       autofocus--}}
+{{--                                >--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+                    <div class="form-group row">
+                        <label for="video" class="col-md-4 col-form-label text-md-right">{{ __('Video(url)') }}</label>
+                        <div class="col-md-6">
+                            <input id="video"
+                                   type="text"
+                                   class="form-control @error('video') is-invalid @enderror"
+                                   name="video"
+                                   value="{{ old('video') }}"
+                                   autocomplete="video"
+                                   autofocus
+                                   required
+                            >
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
+                        <label for="description_top" class="col-md-4 col-form-label text-md-right">{{ __('Description top') }}</label>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <textarea name="description_top" id="description_top" class="form-control  @error('description_top') is-invalid @enderror" placeholder="Leave a comment here" id="description_top" style="height: 250px">{{ old('description_top') }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="description_bottom" class="col-md-4 col-form-label text-md-right">{{ __('Description bottom') }}</label>
+                        <div class="col-md-6">
+                            <div class="form-floating">
+                                <textarea name="description_bottom" id="description_bottom" class="form-control  @error('description_bottom') is-invalid @enderror" placeholder="Leave a comment here" id="description_bottom" style="height: 250px">{{ old('description_bottom') }}</textarea>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="thumbnail" class="col-md-4 col-form-label text-md-right">{{ __('Thumbnail') }}</label>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-3">
+                                    <img src="#" id="thumbnail-preview" alt="">
+                                </div>
+                                <div class="mb-3">
+                                    <input  class="form-control" type="file" name="thumbnail" id="thumbnail">
+                                </div>
                             </div>
                         </div>
                     </div>
 
-{{--                    <div class="form-group row">--}}
-{{--                        <label for="row[2]" class="col-md-4 col-form-label text-md-right">{{ __('row[2]') }}</label>--}}
-{{--                        <div class="col-md-6">--}}
-{{--                            <input id="row[2]"--}}
-{{--                                   type="text"--}}
-{{--                                   class="form-control @error('row[2]') is-invalid @enderror"--}}
-{{--                                   name="row[2]"--}}
-{{--                                   value="{{ old('row[2]') }}"--}}
-{{--                                   autocomplete="row[2]"--}}
-{{--                                   autofocus--}}
-{{--                            >--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
-{{--                    <div class="form-group row">--}}
-{{--                        <label for="row[3]" class="col-md-4 col-form-label text-md-right">{{ __('row[3]') }}</label>--}}
-{{--                        <div class="col-md-6">--}}
-{{--                            <input id="row[3]"--}}
-{{--                                   type="text"--}}
-{{--                                   class="form-control @error('row[3]') is-invalid @enderror"--}}
-{{--                                   name="row[3]"--}}
-{{--                                   value="{{ old('row[3]') }}"--}}
-{{--                                   autocomplete="row[3]"--}}
-{{--                                   autofocus--}}
-{{--                            >--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
-{{--                    <div class="form-group row">--}}
-{{--                        <label for="row[4]" class="col-md-4 col-form-label text-md-right">{{ __('row[4]') }}</label>--}}
-{{--                        <div class="col-md-6">--}}
-{{--                            <input id="row[4]"--}}
-{{--                                   type="text"--}}
-{{--                                   class="form-control @error('row[4]') is-invalid @enderror"--}}
-{{--                                   name="row[4]"--}}
-{{--                                   value="{{ old('row[4]') }}"--}}
-{{--                                   autocomplete="row[4]"--}}
-{{--                                   autofocus--}}
-{{--                            >--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-
-
                     <div class="form-group row">
                         <div class="col-md-10 text-right">
-                            <input type="submit" class="btn btn-info" value="Create">
+                            <input type="submit" class="btn btn-success" value="Create">
                         </div>
                     </div>
                 </form>
@@ -165,7 +224,28 @@
         }
 
     </script>
+    <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
+    <script>
+        ClassicEditor
+            .create(document.querySelector('#description_top'))
+            .then( editor => {
+                editor.ui.view.editable.element.style.height = '250px';
+            } )
+            .catch(error => {
+                console.error(error);
+            });
+        ClassicEditor
+            .create(document.querySelector('#description_bottom'))
+            .then( editor => {
+                editor.ui.view.editable.element.style.height = '250px';
+            } )
+            .catch(error => {
+                console.error(error);
+            });
+
+    </script>
 @endsection
 @push('footer-scripts')
-
+    @vite(['resources/js/images-preview.js'])
 @endpush
+

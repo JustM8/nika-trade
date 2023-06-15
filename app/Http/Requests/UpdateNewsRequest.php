@@ -3,8 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
-class CreateNewRequest extends FormRequest
+class UpdateNewsRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -23,8 +24,9 @@ class CreateNewRequest extends FormRequest
      */
     public function rules()
     {
+        $newsId = $this->route('news')->id;
         return [
-            //
+            'slug' => ['required', 'string', 'min:3', Rule::unique('news','slug')->ignore($newsId)],
         ];
     }
 }

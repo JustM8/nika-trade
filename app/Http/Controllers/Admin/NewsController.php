@@ -3,15 +3,18 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\CreateNewRequest;
-use App\Http\Requests\UpdateNewRequest;
+use App\Http\Requests\CreateNewsRequest;
+use App\Http\Requests\UpdateNewsRequest;
 use App\Models\News;
+use App\Repositories\NewsRepository;
 use Illuminate\Support\Facades\App;
 
 class NewsController extends Controller
 {
 
-
+    public function __construct(protected NewsRepository $repository)
+    {
+    }
     public function index()
     {
         $news = News::all();
@@ -24,17 +27,10 @@ class NewsController extends Controller
         return view('admin/news/create');
     }
 
-    public function store(CreateNewRequest $request)
+    public function store(CreateNewsRequest $request)
     {
-        $locale = App::currentLocale();
-        $data = [
-            'slug' => $request->slug,
-            'title' => [$locale,'qwe'],
-            'description' => [$locale=>$request->row,'count'=>count($request->row)],
-            'thumbnail' => 'img.png'
-        ];
-
-        if(News::create($data)){
+        dd($request);
+        if($this->repository->create($request)){
             return redirect()->route('admin.news.index');
         }else{
             return redirect()->back()->withInput();
