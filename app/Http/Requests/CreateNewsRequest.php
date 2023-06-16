@@ -24,9 +24,17 @@ class CreateNewsRequest extends FormRequest
     public function rules()
     {
         return [
+            'title' => ['required', 'string'],
             'slug' => ['required', 'string', 'min:2', 'max:50', 'unique:news'],
-            'row' => ['nullable', 'array'],
-            'description' => ['nullable'],
+//            'row' => ['nullable', 'array'],
+//            'description' => ['nullable'],
+            'subtitle_1' => ['nullable'],
+            'subtitle_2' => ['nullable'],
+            'priority' => ['nullable'],
+            'video_url' => ['nullable','string'],
+            'description_top' => ['nullable'],
+            'description_bottom' => ['nullable'],
+            'thumbnail' => ['required', 'image:jpeg,png,jpg'],
         ];
     }
 }

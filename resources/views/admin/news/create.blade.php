@@ -120,7 +120,7 @@
                             <input id="video"
                                    type="text"
                                    class="form-control @error('video') is-invalid @enderror"
-                                   name="video"
+                                   name="video_url"
                                    value="{{ old('video') }}"
                                    autocomplete="video"
                                    autofocus
@@ -133,7 +133,9 @@
                         <label for="description_top" class="col-md-4 col-form-label text-md-right">{{ __('Description top') }}</label>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <textarea name="description_top" id="description_top" class="form-control  @error('description_top') is-invalid @enderror" placeholder="Leave a comment here" id="description_top" style="height: 250px">{{ old('description_top') }}</textarea>
+                                <textarea name="description_top" id="description_top" class="form-control  @error('description_top') is-invalid @enderror" placeholder="Leave a comment here" style="height: 250px">
+                                    {{ old('description_top') }}
+                                </textarea>
                             </div>
                         </div>
                     </div>
@@ -141,7 +143,7 @@
                         <label for="description_bottom" class="col-md-4 col-form-label text-md-right">{{ __('Description bottom') }}</label>
                         <div class="col-md-6">
                             <div class="form-floating">
-                                <textarea name="description_bottom" id="description_bottom" class="form-control  @error('description_bottom') is-invalid @enderror" placeholder="Leave a comment here" id="description_bottom" style="height: 250px">{{ old('description_bottom') }}</textarea>
+                                <textarea name="description_bottom" id="description_bottom" class="form-control  @error('description_bottom') is-invalid @enderror" placeholder="Leave a comment here" style="height: 250px">{{ old('description_bottom') }}</textarea>
                             </div>
                         </div>
                     </div>
@@ -222,28 +224,29 @@
                 data : $('#form').serialize()
             });
         }
-
     </script>
-    <script src="https://cdn.ckeditor.com/ckeditor5/35.1.0/classic/ckeditor.js"></script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+
     <script>
-        ClassicEditor
-            .create(document.querySelector('#description_top'))
-            .then( editor => {
-                editor.ui.view.editable.element.style.height = '250px';
-            } )
-            .catch(error => {
-                console.error(error);
-            });
-        ClassicEditor
-            .create(document.querySelector('#description_bottom'))
-            .then( editor => {
-                editor.ui.view.editable.element.style.height = '250px';
-            } )
-            .catch(error => {
-                console.error(error);
-            });
 
+            $('#description_top, #description_bottom').summernote({
+                tabsize: 2,
+                height: 250,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
     </script>
+
 @endsection
 @push('footer-scripts')
     @vite(['resources/js/images-preview.js'])

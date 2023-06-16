@@ -29,7 +29,7 @@ class NewsController extends Controller
 
     public function store(CreateNewsRequest $request)
     {
-        dd($request);
+//        dd($request);
         if($this->repository->create($request)){
             return redirect()->route('admin.news.index');
         }else{
@@ -43,30 +43,10 @@ class NewsController extends Controller
         return view('admin/news/edit',compact('news'));
     }
 
-    public function update(UpdateNewRequest $request, News $news)
+    public function update(UpdateNewsRequest $request, News $news)
     {
-        $locale = App::currentLocale();
-        $langs = config('app.available_locales');
-//dd($request,$news->description);
-        foreach ($langs as $lang){
-            if ($lang == $locale){
-                $dataContent[$lang] = $request->row;
-            }else{
-                if(!empty($news->description[$lang])) {
-                    $dataContent[$lang] = $news->description[$lang];
-                }
-            }
-            if(!empty( $dataContent[$lang])) {
-                $count = count($dataContent[$lang]);
-            }
-        }
 
-        $data = [
-            'slug'=>$request->slug,
-            'description' => array_merge($dataContent,['count'=>$count])
-        ];
-
-        if($news->update($data)){
+        if($this->repository->update($news,$request)){
             return redirect()->route('admin.news.index');
         }
         return redirect()->back()->withInput();

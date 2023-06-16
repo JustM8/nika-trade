@@ -2,9 +2,11 @@
 
 namespace App\Models;
 
+use App\Services\FileStorageService;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Support\Facades\Storage;
 
 class News extends Model
 {
@@ -19,7 +21,7 @@ class News extends Model
      * @return response()
      */
     protected $fillable = [
-        'slug','title','description','thumbnail'
+        'slug','title','description','thumbnail','video_url','priority'
     ];
 
     protected $casts = [
@@ -42,5 +44,19 @@ class News extends Model
     public function images()
     {
         return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function setThumbnailAttribute($image)
+    {
+        if(!empty($this->attributes['thumbnail'])){
+            FileStorageService::remove($this->attributes['thumbnail']);
+        }
+
+        $this->attributes['thumbnail'] = FileStorageService::upload($image);
+    }
+
+    public function thumbnailUrl(): Attribute
+    {
+        return new Attribute(get: fn() => Storage::url($this->attributes['thumbnail']));
     }
 }
