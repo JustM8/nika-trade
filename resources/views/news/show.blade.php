@@ -1,5 +1,5 @@
 @extends('layouts.theme')
-
+@php $title = $news->title[App::currentLocale()]; @endphp
 @section('content')
 {{--    {{$news->title[App::currentLocale()]}}--}}
     <section class="single-news page-container">
@@ -8,7 +8,7 @@
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
                         <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{url('/')}}">Homepage</a></li>
-                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="{{url('/news')}}">singleNews</a></li>
+                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="{{url('/news')}}">News</a></li>
                         <li class="breadcrumbs-item__current--color breadcrumbs-item">singleNews</li>
                     </ul>
                 </div>
@@ -31,7 +31,11 @@
 {{--                    </ul>--}}
 {{--                    <a class="single-news-item__btn btn" href="#">Перейти на офіційний сайт </a>--}}
                 </div>
-                <div class="single-news-item__date"><span class="single-news-item__date-day text-14">15</span><span class="single-news-item__date-month text-14">Січня</span><span class="single-news-item__date-year text-14">2023</span></div>
+                <div class="single-news-item__date">
+                    <span class="single-news-item__date-day text-14">{{$date[2]}}</span>
+                    <span class="single-news-item__date-month text-14">{{$month}}</span>
+                    <span class="single-news-item__date-year text-14">{{$date[0]}}</span>
+                </div>
             </div>
             <h4 class="single-news__subtitle text-m">Останні новини</h4>
             <div class="news-page-list">

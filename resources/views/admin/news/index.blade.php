@@ -3,14 +3,14 @@
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
-            {{ App::currentLocale() }}
+{{--            {{ App::currentLocale() }}--}}
             <br>
         <div class="col-md-12">
                 <table class="table align-self-center">
                     <thead>
                     <tr>
                         <th class="text-center" scope="col">ID</th>
-        {{--                <th class="text-center" scope="col">Thumbnail</th>--}}
+                        <th class="text-center" scope="col">Thumbnail</th>
                         <th class="text-center" scope="col">Slug</th>
                         <th class="text-center" scope="col">Actions</th>
                     </tr>
@@ -20,10 +20,10 @@
 {{--                        @dd($new);--}}
                         <tr>
                             <td class="text-center" scope="col">{{ $new->id }}</td>
-        {{--                    <td class="text-center" scope="col"><img src="{{ $product->thumbnailUrl }}" width="100" height="100" alt=""></td>--}}
+                            <td class="text-center" scope="col"><img src="{{ $new->thumbnailUrl }}" width="100" height="100" alt=""></td>
                             <td class="text-center" scope="col">{{ $new->slug }}-
-                                @if(array_key_exists( App::currentLocale(), $new->description))
-                                    {{$new->description[App::currentLocale()][1]}}
+                                @if(array_key_exists( App::currentLocale(), $new->title))
+                                    {{$new->title[App::currentLocale()]}}
                                 @else
                                     Empty lang for that lang
                                 @endif
@@ -40,7 +40,7 @@
                     @endforeach
                     </tbody>
                 </table>
-        {{--        {{ $news->links() }}--}}
+{{--                {{ $news->links() }}--}}
         </div>
     </div>
 </div>

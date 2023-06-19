@@ -34,7 +34,7 @@ Route::delete(
 //Route::resource('news', \App\Http\Controllers\NewsController::class);
 Route::get('news',[App\Http\Controllers\NewsController::class,'index']);
 Route::get('/news/{slug}',[App\Http\Controllers\NewsController::class,'show']);
-
+Route::get('/news/{slug}',[App\Http\Controllers\NewsController::class,'show'])->name('news.show');
 
 Route::get('cart', [\App\Http\Controllers\CartController::class, 'index'])->name('cart');
 Route::post('cart/{product}', [\App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
