@@ -1,7 +1,7 @@
 @extends('layouts.theme')
 
 @section('content')
-
+{{--@dd($news);--}}
     <section class="intro-main-screen">
         <div class="intro-swiper-wrap">
             <div class="swiper intro-swiper">
@@ -67,18 +67,12 @@
                 <div class="news-gallery-swiper-wrap">
                     <div class="news-gallery-swiper swiper">
                         <div class="swiper-wrapper news-gallery-swiper-wrapper">
+                            @foreach($news as $new)
                             <div class="swiper-slide news-gallery-slide">
-                                <div class="news-gallery-slide__img"> <img src="./assets/images/homepage/news/1.jpg" alt="" img-paralax></div>
-                                <p class="news-gallery-slide__text text-m">Новий магазин «ARBER» </p>
+                                <div class="news-gallery-slide__img"> <img src="{{ $new->thumbnailUrl  }}" alt="" img-paralax></div>
+                                <p class="news-gallery-slide__text text-m">{{$new->title[App::currentLocale()]}}</p>
                             </div>
-                            <div class="swiper-slide news-gallery-slide">
-                                <div class="news-gallery-slide-img"> <img src="./assets/images/homepage/news/2.jpg" alt="" img-paralax></div>
-                                <p class="news-gallery-slide__text text-m">Мережа магазинів «Family»</p>
-                            </div>
-                            <div class="swiper-slide news-gallery-slide">
-                                <div class="news-gallery-slide-img"> <img src="./assets/images/homepage/news/1.jpg" alt="" img-paralax></div>
-                                <p class="news-gallery-slide__text text-m">Новий магазин «ARBER» </p>
-                            </div>
+                            @endforeach
                         </div>
                     </div>
                 </div>

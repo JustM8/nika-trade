@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\News;
+use Illuminate\Support\Facades\App;
 
 class NewsController extends Controller
 {
@@ -26,11 +27,25 @@ class NewsController extends Controller
     public function show($show)
     {
         $news = News::where('slug','=',$show)->first();
+
         $dataTime = explode(' ',$news->created_at);
         $date = explode('-',$dataTime[0]);
-        $month = $this->monthName($date[1]);
-//        print_r($news);
-        return view('news.show',['title'=>__('Test news.Title')],compact('news','month','date'));
+
+        $news->day = $date[2];
+        $news->month = $this->monthName($date[1]);
+        $news->year = $date[0];
+
+        $otherNews = News::all()->except($news->id)->take(2);
+        foreach ($otherNews as $item){
+            $dataTime = explode(' ',$item->created_at);
+            $date = explode('-',$dataTime[0]);
+            $item->day = $date[2];
+            $item->month = $this->monthName($date[1]);
+            $item->year = $date[0];
+        }
+//        dd($otherNews);
+
+        return view('news.show',['title'=>$news->title[App::currentLocale()]],compact('news','otherNews'));
     }
 
     public function monthName($month):string
