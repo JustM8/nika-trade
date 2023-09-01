@@ -46,7 +46,7 @@
                                     <select id="category"
                                             class="form-control @error('category') is-invalid @enderror"
                                             name="parent_id">
-                                        <option value="NULL">No parent</option>
+                                        <option value="">No parent</option>
                                         @foreach($parents as $child)
                                                 <option value="{{ $child['id'] }}">{{ $child['name'][App::currentLocale()] }}</option>
                                         @endforeach
