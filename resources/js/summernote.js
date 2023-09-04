@@ -1,6 +1,8 @@
 import './bootstrap';
+import 'jquery';
 import 'summernote';
 import 'summernote/dist/summernote-lite.min.js';
+
 
     $('#description_top, #description_bottom').summernote({
         tabsize: 2,
