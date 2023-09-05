@@ -69,6 +69,10 @@ Route::name('admin.')->prefix('admin')->middleware(['auth','admin'])->group(func
 });
 
 
+Route::get('catalog', [\App\Http\Controllers\CatalogController::class, 'index'])->name('catalog.index');
+Route::get('catalog/{slug}', [\App\Http\Controllers\CatalogController::class, 'show'])->name('catalog.show');
+Route::get('product/{slug}', [\App\Http\Controllers\CatalogController::class, 'show'])->name('product.show');
+
 //pages
 
 //Route::get('/services', [App\Http\Controllers\PagesController::class, 'index'])->name('services');

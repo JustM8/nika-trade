@@ -10,7 +10,8 @@
     <meta name="format-detection" content="address=no">
     <meta name="format-detection" content="email=no">
     <meta content="notranslate" name="google">
-    <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon.ico"><script>document.documentElement.className = "js"; var supportsCssVars = function() { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e;}; supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables."); </script>
+{{--    <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon.ico">--}}
+    <script>document.documentElement.className = "js"; var supportsCssVars = function() { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e;}; supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables."); </script>
     <title>{{ @$title.' - '.config('app.name', 'Laravel') }}</title>
     <meta name="description" content="">
     <link rel="stylesheet" href="{{asset('/assets/styles/main.min.css')}}">
@@ -101,7 +102,7 @@
                 <ul class="header-list">
                     <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/')}}">Головна</a></li>
                     <li class="header-list-item"><a class="header-list-link text-s" href="about.html">Компанія</a></li>
-                    <li class="header-list-item"><a class="header-list-link text-s" href="catalog.html">Каталог</a></li>
+                    <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/catalog') }}">Каталог</a></li>
                     <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/gallery') }}">Галерея</a></li>
                     <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/services') }}">Послуги</a></li>
                     <li class="header-list-item"><a class="header-list-link text-s" href="contacts.html">Клієнти</a></li>
