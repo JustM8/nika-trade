@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -20,14 +21,24 @@ class CatalogController extends Controller
         $category = Category::where('slug','=',$slug)->first();
         $childrens = $this->getChildCategories($category->id);
         $childrensOfChildrens = [];
+        $products = collect();
 
         foreach ($childrens as $children)
         {
             $childrensOfChildrens[$children->id] = $this->getChildCategories($children->id);
         }
+
+        if($category->hasProducts() == true)
+        {
+            $products = $category->products;
+            if($products->isEmpty()){
+                $products = $products->collect();
+            }
+        }
+
         $menu = $this->getMenu();
 
-        return view('catalog.show',['title'=>__('catalog.Title').' - '.$category->name[App::currentLocale()]], compact('category','childrens','childrensOfChildrens','menu'));
+        return view('catalog.show',['title'=>__('catalog.Title').' - '.$category->name[App::currentLocale()]], compact('category','childrens','childrensOfChildrens','menu','products'));
     }
 
     public function getChildCategories($parentId)

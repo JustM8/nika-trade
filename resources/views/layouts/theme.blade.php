@@ -83,7 +83,7 @@
 <header class="header">
     <div class="header-inner container">
         <div class="header-top">
-            <div class="header-logo-wrap"><a class="header-logo" href="index.html">
+            <div class="header-logo-wrap"><a class="header-logo" href="{{ url('/')}}">
                     <svg class="icon--logo" role="presentation">
                         <use xlink:href="#icon-logo"></use>
                     </svg></a>
@@ -226,11 +226,6 @@
         </div>
     </div>
 </div>
-
-<script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
-<script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
-<script defer src="{{asset('/assets/scripts/libs.js')}}"></script>
-<script defer src="{{asset('/assets/scripts/homepage.bundle.js')}}"></script>
 @stack('footer-scripts')
 </body>
 </html>

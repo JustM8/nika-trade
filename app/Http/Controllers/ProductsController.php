@@ -9,9 +9,9 @@ use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
-    public function show(Product $product)
+    public function show($slug)
     {
-//        dd($product);
+        $product = Product::where('slug','=',$slug)->first();
         return view('products.show', compact('product'));
     }
 }

@@ -97,8 +97,8 @@ class Product extends Model
         );
     }
 
-//    public function getRouteKeyName()
-//    {
-//        return 'slug';
-//    }
+    public function recommendedProducts()
+    {
+        return $this->belongsToMany(Product::class, 'recommended_products', 'product_id', 'recommended_id');
+    }
 }

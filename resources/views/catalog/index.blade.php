@@ -6,7 +6,7 @@
         <div class="page-intro">
             <div class="page-breadcrumbs">
                 <ul class="breadcrumbs">
-                    <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="index.html">Homepage</a></li>
+                    <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Homepage</a></li>
                     <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">catalog</a></li>
                     <li class="breadcrumbs-item__current--color breadcrumbs-item">Catalog</li>
                 </ul>
@@ -44,3 +44,9 @@
     </div>
 </section>
 @endsection
+@push('footer-scripts')
+    <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
+    <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
+    <script defer src="{{asset('/assets/scripts/catalog.bundle.js')}}"></script>
+    <script defer src="{{asset('/assets/scripts/libs.js')}}"></script>
+@endpush

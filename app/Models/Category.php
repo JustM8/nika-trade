@@ -2,8 +2,11 @@
 
 namespace App\Models;
 
+use App\Services\FileStorageService;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Category extends Model
 {
@@ -14,10 +17,13 @@ class Category extends Model
     protected $fillable = [
         'name',
         'parent_id',
-        'slug'
+        'slug',
+        'description',
+        'thumbnail'
     ];
     protected $casts = [
         'name' => 'array',
+        'description' => 'array',
     ];
 
     /**
@@ -28,9 +34,31 @@ class Category extends Model
         return $this->hasMany(Product::class);
     }
 
-    public function image()
+    protected function data(): Attribute
     {
-        return $this->morphOne(Image::class,'imageable');
+        return Attribute::make(
+            get: fn ($value) => json_decode($value, true),
+            set: fn ($value) => json_encode($value),
+        );
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
+
+    public function setThumbnailAttribute($image)
+    {
+        if(!empty($this->attributes['thumbnail'])){
+            FileStorageService::remove($this->attributes['thumbnail']);
+        }
+
+        $this->attributes['thumbnail'] = FileStorageService::upload($image);
+    }
+
+    public function thumbnailUrl(): Attribute
+    {
+        return new Attribute(get: fn() => Storage::url($this->attributes['thumbnail']));
     }
 
     public function parent()

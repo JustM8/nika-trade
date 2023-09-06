@@ -1,7 +1,6 @@
 @extends('layouts.theme')
 
 @section('content')
-{{--@dd($news);--}}
     <section class="intro-main-screen">
         <div class="intro-swiper-wrap">
             <div class="swiper intro-swiper">
@@ -120,17 +119,10 @@
             </div>
         </div>
     </section>
-{{--    <div class="container">--}}
-{{--        <div class="row justify-content-center">--}}
-{{--            <div class="col-md-8">--}}
-{{--                <div class="card">--}}
-{{--                    <div class="card-header">{{ __('Main Page') }}</div>--}}
-
-{{--                    <div class="card-body">--}}
-
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
-{{--    </div>--}}
 @endsection
+@push('footer-scripts')
+<script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
+<script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
+<script defer src="{{asset('/assets/scripts/libs.js')}}"></script>
+<script defer src="{{asset('/assets/scripts/homepage.bundle.js')}}"></script>
+@endpush

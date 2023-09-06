@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Edit Category') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.categories.update', $category) }}">
+                        <form method="POST" action="{{ route('admin.categories.update', $category) }}"  enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 
@@ -47,9 +47,6 @@
                                             name="parent_id"
                                     ><option value="">No parent</option>
                                         @foreach($parents as $child)
-                                            <?php
-//                                                $childName =    json_decode($child['name'],true);
-                                            ?>
                                           @if($child['id'] != $category->id)
                                                 <option value="{{ $child['id'] }}"
                                                     {{ $child['id'] === $category->parent_id ? 'selected' : '' }}
@@ -57,6 +54,32 @@
                                             @endif
                                         @endforeach
                                     </select>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                <textarea name="description" id="description" class="form-control  @error('description') is-invalid @enderror" placeholder="Leave a comment here" id="description" style="height: 250px">
+                                    {{$category->description[App::currentLocale()]}}
+                                </textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="thumbnail"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Thumbnail') }}</label>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <img src="{{ $category->thumbnailUrl  }}" id="thumbnail-preview" alt="">
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input type="file" name="thumbnail" id="thumbnail">
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
 
@@ -74,3 +97,25 @@
         </div>
     </div>
 @endsection
+@push('footer-scripts')
+    @vite(['resources/js/images-preview.js','resources/js/images-actions.js'])
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+        $('#description').summernote({
+            tabsize: 2,
+            height: 250,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
+@endpush

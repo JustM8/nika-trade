@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Create Category') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.categories.store') }}">
+                        <form method="POST" action="{{ route('admin.categories.store') }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row mb-3">
@@ -54,18 +54,32 @@
                                 </div>
                             </div>
 
-{{--                            <div class="row mb-3">--}}
-{{--                                <label for="description" class="col-md-4 col-form-label text-md-end">{{ __('Description') }}</label>--}}
+                            <div class="form-group row">
+                                <label for="description"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+                                <div class="col-md-6">
+                            <textarea name="description"
+                                      class="form-control @error('description') is-invalid @enderror"
+                                      id="description"
+                                      cols="30"
+                                      rows="10">{{ old('description') }}</textarea>
+                                </div>
+                            </div>
 
-{{--                                <div class="col-md-6">--}}
-{{--                                    <textarea name="description" class="form-control @error('description') is-invalid @enderror" id="description" cols="30" rows="10">{{ old('description') }}</textarea>--}}
-{{--                                    @error('description')--}}
-{{--                                    <span class="invalid-feedback" role="alert">--}}
-{{--                                        <strong>{{ $message }}</strong>--}}
-{{--                                    </span>--}}
-{{--                                    @enderror--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                            <div class="form-group row">
+                                <label for="thumbnail" class="col-md-4 col-form-label text-md-right">{{ __('Thumbnail') }}</label>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-3">
+                                            <img src="#" id="thumbnail-preview" alt="">
+                                        </div>
+                                        <div class="mb-3">
+                                            <input  class="form-control" type="file" name="thumbnail" id="thumbnail">
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
@@ -79,3 +93,26 @@
         </div>
     </div>
 @endsection
+
+@push('footer-scripts')
+    @vite(['resources/js/images-preview.js'])
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+        $('#description').summernote({
+            tabsize: 2,
+            height: 250,
+            toolbar: [
+                ['style', ['style']],
+                ['font', ['bold', 'underline', 'clear']],
+                ['color', ['color']],
+                ['para', ['ul', 'ol', 'paragraph']],
+                ['table', ['table']],
+                ['insert', ['link', 'picture', 'video']],
+                ['view', ['fullscreen', 'codeview', 'help']]
+            ]
+        });
+    </script>
+@endpush

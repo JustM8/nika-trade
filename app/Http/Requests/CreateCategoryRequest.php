@@ -15,7 +15,6 @@ class CreateCategoryRequest extends FormRequest
     {
         return auth()->check() && auth()->user()->is_admin;
     }
-
     /**
      * Get the validation rules that apply to the request.
      *
@@ -24,9 +23,11 @@ class CreateCategoryRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'unique:categories'],
+            'name' => ['required', 'string'],
             'slug' => ['required', 'string', 'min:2', 'max:50', 'unique:categories'],
             'parent_id' => ['nullable'],
+            'description' => ['nullable'],
+            'thumbnail' => ['image:jpeg,png,jpg'],
         ];
     }
 }

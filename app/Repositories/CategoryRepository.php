@@ -24,15 +24,20 @@ class CategoryRepository implements CategoryRepositoryContract
             $locale = App::currentLocale();
             $langs = config('app.available_locales');
             $nameContent = [];
+            $descriptionContent = [];
 
             foreach ($langs as $lang){
                 if($lang == $locale) {
                     $nameContent[$lang] = $request->name;
+                    $descriptionContent[$lang] = $request->description;
                 }else{
                     $nameContent[$lang] = '';
+                    $descriptionContent[$lang] = '';
                 }
             }
             $data['name'] = $nameContent;
+            $data['description'] = $descriptionContent;
+
             $category = Category::create($data);
 
             DB::commit();
@@ -53,19 +58,22 @@ class CategoryRepository implements CategoryRepositoryContract
             $locale = App::currentLocale();
             $langs = config('app.available_locales');
 
-
             foreach ($langs as $lang){
                 if($lang == $locale) {
                     $nameContent[$lang] = $request->name;
+                    $descriptionContent[$lang] = $request->description;
                 }else{
                     if(!empty($category->name[$lang])) {
                         $nameContent[$lang] = $category->name[$lang];
+                        $descriptionContent[$lang] = $category->description[$lang];
                     }else{
                         $nameContent[$lang] = '';
+                        $descriptionContent[$lang] = '';
                     }
                 }
             }
             $data['name'] = $nameContent;
+            $data['description'] = $descriptionContent;
             $category->update($data);
 
             DB::commit();

@@ -8,18 +8,19 @@
                 <div class="page-intro">
                     <div class="page-breadcrumbs">
                         <ul class="breadcrumbs">
-                            <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="index.html">Homepage</a></li>
+                            <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Homepage</a></li>
                             <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">catalog-single</a></li>
                             <li class="breadcrumbs-item__current--color breadcrumbs-item">Catalog-single</li>
                         </ul>
                     </div>
-                    <h2 class="page-title text-title">Стійки та стяжки</h2>
+                    <h2 class="page-title text-title"><?=$category['name'][App::currentLocale()]?></h2>
                 </div>
                 <div class="catalog-single-main">
                     <div class="catalog-single-filters-wrap">
                     @foreach($menu as $item)
                         <div class="catalog-single-filter">
                             <span class="catalog-single-filter__title text-s"> <?=$item['name']?></span>
+                            @if(!empty($item['children']))
                             @foreach($item['children'] as $underItem)
                             <div class="catalog-single-filter-card">
                                 <div class="catalog-single-filter-card__title text-14"><?=$underItem['name']?></div>
@@ -32,16 +33,20 @@
                                 </div>
                             </div>
                             @endforeach
+                            @endif
                         </div>
                         @endforeach
 
                     </div>
                     <div class="catalog-single-list">
-
-                        <a class="catalog-single-card" href="product.html">
-                            <div class="catalog-single-card__img"> <img src="{{asset('/assets/images/catalog-single/1.jpg')}}" alt=""></div>
-                            <div class="catalog-single-card-intro"><span class="catalog-single-card-intro__title text-24">L-стійка</span></div>
-                        </a>
+                        @if($products->isNotEmpty())
+                            @foreach($products as $product)
+                            <a class="catalog-single-card" href="{{ route('product.show', $product->slug) }}">
+                                <div class="catalog-single-card__img"> <img src="{{ $product->thumbnailUrl }}" alt=""></div>
+                                <div class="catalog-single-card-intro"><span class="catalog-single-card-intro__title text-24">{{ $product->title[App::currentLocale()] }}</span></div>
+                            </a>
+                            @endforeach
+                        @endif
 
                     </div>
                 </div>
@@ -66,7 +71,7 @@
             <div class="page-intro">
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
-                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="index.html">Homepage</a></li>
+                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Homepage</a></li>
                         <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">equipment</a></li>
                         <li class="breadcrumbs-item__current--color breadcrumbs-item">Equipment</li>
                     </ul>
