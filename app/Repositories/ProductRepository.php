@@ -6,6 +6,7 @@ use App\Http\Requests\CreateProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Models\Category;
 use App\Models\Product;
+use App\Models\RecommendedProduct;
 use App\Repositories\Contracts\ProductRepositoryContract;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
@@ -42,10 +43,26 @@ class ProductRepository implements ProductRepositoryContract
             $data['title'] = $dataJson['title'];
             $data['description'] = $dataJson['description'];
             $data['size'] = $dataJson['size'];
-
+//dd($data);
             $images = $data['images'] ?? [];
             $category = Category::find($data['category']);
             $product = $category->products()->create($data);
+
+            // Перевірте, чи існує рекомендований продукт з переданим recommended_id
+            if ($request->has('recommended_id')) {
+                $recommendedProductIds = $request->input('recommended_id');
+
+                foreach ($recommendedProductIds as $recommendedProductId) {
+                    $recommendedProduct = Product::find($recommendedProductId);
+
+                    if ($recommendedProduct) {
+                        // Створіть запис для рекомендованого продукту
+                        $recommendedProduct = new RecommendedProduct(['product_id' => $product->id, 'recommended_id' => $recommendedProductId]);
+                        $recommendedProduct->save();
+                    }
+                }
+            }
+
             ImageRepository::attach($product, 'images',$images);
 
             DB::commit();
@@ -86,6 +103,15 @@ class ProductRepository implements ProductRepositoryContract
             $data['size'] = $dataJson['size'];
 
             $product->update($data);
+
+            $product->recommendedProducts()->detach();
+
+            // Додавання нових рекомендованих продуктів
+            if ($request->has('recommended_id')) {
+                $recommendedProductIds = $request->input('recommended_id');
+                $product->recommendedProducts()->attach($recommendedProductIds);
+            }
+
             ImageRepository::attach($product, 'images',$request->images ?? []);
 
             DB::commit();

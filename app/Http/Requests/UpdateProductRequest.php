@@ -47,7 +47,8 @@ class UpdateProductRequest extends FormRequest
             'thumbnail' => ['nullable', 'image:jpeg,png,jpg'],
             'obj_model' => ['nullable', 'file'],
             'pdf' => ['nullable', 'mimes:pdf'],
-            'images.*' => ['image:jpeg,png,jpg']
+            'images.*' => ['image:jpeg,png,jpg'],
+            'recommended_id' => ['nullable'],
         ];
     }
 }

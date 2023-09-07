@@ -29,13 +29,11 @@ class NewsController extends Controller
 
     public function store(CreateNewsRequest $request)
     {
-//        dd($request);
         if($this->repository->create($request)){
             return redirect()->route('admin.news.index');
         }else{
             return redirect()->back()->withInput();
         }
-
     }
 
     public function edit(News $news)
@@ -45,7 +43,6 @@ class NewsController extends Controller
 
     public function update(UpdateNewsRequest $request, News $news)
     {
-
         if($this->repository->update($news,$request)){
             return redirect()->route('admin.news.index');
         }

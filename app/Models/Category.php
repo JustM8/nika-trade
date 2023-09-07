@@ -91,4 +91,14 @@ class Category extends Model
     {
         return $query->whereDoesntHave('children')->whereHas('products');
     }
+
+//    public function rootCategories()
+//    {
+//        return $this->whereNotNull('parent_id')->get();
+//    }
+
+    public function scopeNonRootCategories($query)
+    {
+        return $query->whereNotNull('parent_id');
+    }
 }

@@ -62,7 +62,9 @@
                                 <div class="col-md-6">
                                     <div class="form-floating">
                                 <textarea name="description" id="description" class="form-control  @error('description') is-invalid @enderror" placeholder="Leave a comment here" id="description" style="height: 250px">
-                                    {{$category->description[App::currentLocale()]}}
+                                    @if(!empty($category->description))
+                                        {{$category->description[App::currentLocale()]}}
+                                    @endif
                                 </textarea>
                                     </div>
                                 </div>
@@ -74,10 +76,12 @@
                                 <div class="col-md-6">
                                     <div class="row">
                                         <div class="col-md-6">
-                                            <img src="{{ $category->thumbnailUrl  }}" id="thumbnail-preview" alt="">
+                                            @if(Storage::has($category->thumbnail) && !empty($category->thumbnail))
+                                            <img src="{{ $category->thumbnailUrl}}" id="thumbnail-preview" alt="">
+                                            @endif
                                         </div>
-                                        <div class="col-md-6">
-                                            <input type="file" name="thumbnail" id="thumbnail">
+                                        <div class="mb-3">
+                                            <input class="form-control" type="file" name="thumbnail" id="thumbnail">
                                         </div>
                                     </div>
                                 </div>
@@ -99,23 +103,4 @@
 @endsection
 @push('footer-scripts')
     @vite(['resources/js/images-preview.js','resources/js/images-actions.js'])
-
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-    <script>
-        $('#description').summernote({
-            tabsize: 2,
-            height: 250,
-            toolbar: [
-                ['style', ['style']],
-                ['font', ['bold', 'underline', 'clear']],
-                ['color', ['color']],
-                ['para', ['ul', 'ol', 'paragraph']],
-                ['table', ['table']],
-                ['insert', ['link', 'picture', 'video']],
-                ['view', ['fullscreen', 'codeview', 'help']]
-            ]
-        });
-    </script>
 @endpush

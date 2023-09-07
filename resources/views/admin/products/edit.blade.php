@@ -10,7 +10,6 @@
             <div class="col-md-12">
 
                 @if ($errors->any())
-{{--                    @dd($errors);--}}
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)
@@ -133,6 +132,22 @@
                     </div>
 
                     <div class="form-group row">
+                        <label for="recommended_id" class="col-md-4 col-form-label text-md-right">{{ __('Recommended product') }}</label>
+                        <div class="col-md-6">
+                            <select class="form-select" name="recommended_id[]" id="recommended_id" multiple>
+                                <option value="">Open this select menu</option>
+                                @foreach($products as $product)
+                                    @if( $recommendedProducts->contains($product->id))
+                                        <option selected value="{{$product->id}}">{{$product->title[App::currentLocale()]}}</option>
+                                    @else
+                                        <option value="{{$product->id}}">{{$product->title[App::currentLocale()]}}</option>
+                                    @endif
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
+
+                    <div class="form-group row">
                         <label for="thumbnail"
                                class="col-md-4 col-form-label text-md-right">{{ __('Thumbnail') }}</label>
                         <div class="col-md-6">
@@ -226,23 +241,5 @@
         });
         console.log(document.querySelector('[data-object-container]'));
     </script>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
-    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
-{{--    <script>--}}
-{{--        $('#description').summernote({--}}
-{{--            tabsize: 2,--}}
-{{--            height: 250,--}}
-{{--            toolbar: [--}}
-{{--                ['style', ['style']],--}}
-{{--                ['font', ['bold', 'underline', 'clear']],--}}
-{{--                ['color', ['color']],--}}
-{{--                ['para', ['ul', 'ol', 'paragraph']],--}}
-{{--                ['table', ['table']],--}}
-{{--                ['insert', ['link', 'picture', 'video']],--}}
-{{--                ['view', ['fullscreen', 'codeview', 'help']]--}}
-{{--            ]--}}
-{{--        });--}}
-{{--    </script>--}}
 @endpush
 

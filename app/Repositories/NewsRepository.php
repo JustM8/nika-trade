@@ -24,7 +24,6 @@ class NewsRepository implements NewRepositoryContract
             $locale = App::currentLocale();
             $langs = config('app.available_locales');
             $title = [];
-            $description = [];
             $subtitle_1 = [];
             $subtitle_2 = [];
             $description_top = [];
@@ -58,7 +57,6 @@ class NewsRepository implements NewRepositoryContract
             $data['description'] =  $d;
 
             $data['title'] = $title;
-//            dd($data);
             $news = News::create($data);
 
             DB::commit();
@@ -67,7 +65,7 @@ class NewsRepository implements NewRepositoryContract
         } catch (\Exception $e) {
             DB::rollBack();
             logs()->warning($e);
-
+            return false;
         }
     }
 
@@ -79,10 +77,6 @@ class NewsRepository implements NewRepositoryContract
             $data = $request->validated();
             $locale = App::currentLocale();
             $langs = config('app.available_locales');
-
-
-
-//dd($news);
 
             foreach ($langs as $lang){
 
@@ -101,9 +95,7 @@ class NewsRepository implements NewRepositoryContract
                 }
             }
             $data = array_merge($data,$dataJson);
-//            dd($data);
             $news->update($data);
-
 
             DB::commit();
 

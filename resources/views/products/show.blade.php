@@ -67,11 +67,8 @@
                     </div>
                     <div class="product-page-info-container">
                         <div class="product-page-info active" data-info="details">
-                            <span class="product-page-info-descr__title text-m text-black-100">L-стійка</span>
-
-
+                            <span class="product-page-info-descr__title text-m text-black-100">{{ $product->title[App::currentLocale()] }}</span>
                                 {!! $product->description[App::currentLocale()] !!}
-
                         </div>
                         <div class="product-page-info" data-info="shipping"><span class="product-page-info-descr__title text-m text-black-100">Умови</span>
                             <div class="product-page-info-list">
@@ -82,16 +79,16 @@
                     </div>
                 </div>
             </div>
-            <div class="product-page-more"><span class="product-page-more__title text-m text-black-100">Рекомендовані товари</span>
-                <div class="product-page-more-list"> <a class="catalog-single-card" href="#">
-                        <div class="catalog-single-card__img"> <img src="./assets/images/catalog-single/1.jpg" alt=""></div>
-                        <div class="catalog-single-card-intro"><span class="catalog-single-card-intro__title text-24">L-стійка</span></div></a><a class="catalog-single-card" href="#">
-                        <div class="catalog-single-card__img"> <img src="./assets/images/catalog-single/1.jpg" alt=""></div>
-                        <div class="catalog-single-card-intro"><span class="catalog-single-card-intro__title text-24">L-стійка</span></div></a><a class="catalog-single-card" href="#">
-                        <div class="catalog-single-card__img"> <img src="./assets/images/catalog-single/1.jpg" alt=""></div>
-                        <div class="catalog-single-card-intro"><span class="catalog-single-card-intro__title text-24">L-стійка</span></div></a><a class="catalog-single-card" href="#">
-                        <div class="catalog-single-card__img"> <img src="./assets/images/catalog-single/1.jpg" alt=""></div>
-                        <div class="catalog-single-card-intro"><span class="catalog-single-card-intro__title text-24">L-стійка</span></div></a></div>
+            <div class="product-page-more">
+                <span class="product-page-more__title text-m text-black-100">Рекомендовані товари</span>
+                <div class="product-page-more-list">
+                    @foreach($recommendedProducts as $item)
+                    <a class="catalog-single-card" href="{{ route('product.show', $item->slug) }}">
+                        <div class="catalog-single-card__img"> <img src="{{ $item->thumbnailUrl }}" alt=""></div>
+                        <div class="catalog-single-card-intro"><span class="catalog-single-card-intro__title text-24">{{ $item->title[App::currentLocale()] }}</span></div>
+                    </a>
+                    @endforeach
+                </div>
             </div>
         </div>
     </section>

@@ -24,14 +24,18 @@ class ProductsController extends Controller
 
     public function create()
     {
-        $categories = Category::all();
-        return view('admin/products/create', compact('categories'));
+        $categories = Category::nonRootCategories()->get();
+        $products = Product::all();
+        return view('admin/products/create', compact('categories','products'));
     }
 
     public function edit(Product $product)
     {
-        $categories = Category::all();
-        return view('admin/products/edit', compact('product','categories'));
+        $categories = Category::nonRootCategories()->get();
+        $products = Product::all();
+        $recommendedProducts = $product->recommendedProducts;
+
+        return view('admin/products/edit', compact('product','categories','recommendedProducts','products'));
     }
 
     public function update(UpdateProductRequest $request,Product $product )
@@ -45,15 +49,11 @@ class ProductsController extends Controller
 
     public function store(CreateProductRequest $request)
     {
-//        dd($request->validated());
-//        dd($this->repository->create($request));
-
         if($this->repository->create($request)){
             return redirect()->route('admin.products.index');
         }else{
             return redirect()->back()->withInput();
         }
-
     }
 
     public function destroy(Product $product)

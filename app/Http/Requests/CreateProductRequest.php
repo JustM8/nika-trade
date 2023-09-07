@@ -16,6 +16,13 @@ class CreateProductRequest extends FormRequest
         return auth()->user()->isAdmin();
     }
 
+
+    public function messages()
+    {
+        return array_merge(parent::messages(), [
+            'title:min' => 'Title should be more than 3 symbols',
+        ]);
+    }
     /**
      * Get the validation rules that apply to the request.
      *
@@ -35,7 +42,8 @@ class CreateProductRequest extends FormRequest
             'thumbnail' => ['required', 'image:jpeg,png,jpg'],
             'obj_model' => [ 'file'],
             'pdf' => [ 'mimes:pdf'],
-            'images.*' => ['image:jpeg,png,jpg']
+            'images.*' => ['image:jpeg,png,jpg'],
+            'recommended_id' => ['nullable'],
         ];
     }
 }
