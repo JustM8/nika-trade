@@ -78,7 +78,7 @@
             </div>
         </div>
     </section>
-    <section class="about">
+    <section class="about" id="about">
         <div class="about-wrap section-container">
             <h2 class="about-title text-title">Про компанію</h2>
             <div class="about-list">
@@ -88,7 +88,7 @@
             </div>
         </div>
     </section>
-    <section class="clients">
+    <section class="clients" id="clients">
         <div class="clients-wrap section-container">
             <h2 class="clients-title text-title">Наші клієнти</h2>
             <div class="clients-swiper-wrap">

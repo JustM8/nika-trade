@@ -20,7 +20,7 @@ use Illuminate\Support\Facades\Route;
 
 
 Route::get('/locale/{lang}', [\App\Http\Controllers\LanguageController::class,'index'])->name('index');
-Auth::routes(['register' => false]);
+Auth::routes();
 
 Route::get('/',[App\Http\Controllers\MainController::class,'index'])->name('main');
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
@@ -46,6 +46,22 @@ Route::middleware('auth')->group(function() {
     Route::post('order', [\App\Http\Controllers\OrdersController::class,'index'])->name('orders');
     Route::post('order/create', [\App\Http\Controllers\OrdersController::class,'create'])->name('order.create');
     Route::get('order/{orderId}/thankyou',[\App\Http\Controllers\OrdersController::class,'thankYou'])->name('thankYou');
+
+    Route::name('account.')->prefix('account')->group(function (){
+        Route::get('/',[\App\Http\Controllers\Account\UsersController::class,'index'])->name('index');
+        Route::get('orders',[\App\Http\Controllers\Account\UsersController::class,'orders'])->name('orders');
+        Route::get('orders/{order?}',[\App\Http\Controllers\Account\UsersController::class,'show'])
+            ->middleware('can:show,order')
+            ->name('orders.show');
+
+        Route::get('{user}/edit',[\App\Http\Controllers\Account\UsersController::class,'edit'])
+            ->middleware('can:view,user')
+            ->name('edit');
+        Route::put('{user}',[\App\Http\Controllers\Account\UsersController::class,'update'])
+            ->middleware('can:update,user')
+            ->name('update');
+    });
+
 });
 
 //categories index

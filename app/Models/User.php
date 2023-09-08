@@ -64,4 +64,11 @@ class User extends Authenticatable
     {
         return $this->hasMany(Order::class);
     }
+
+    public function fullName():Attribute
+    {
+        return new Attribute(
+            get: fn() => ucfirst($this->attributes['name']).' '.ucfirst($this->attributes['surname'])
+        );
+    }
 }

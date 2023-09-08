@@ -68,5 +68,7 @@
     </section>
 @endsection
 @push('footer-scripts')
-    {{--    @vite(['resources/js/product-actions.js'])--}}
+    <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
+    <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
+    <script defer src="{{asset('/assets/scripts/libs.js')}}"></script>
 @endpush

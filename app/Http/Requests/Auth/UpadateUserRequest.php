@@ -5,6 +5,7 @@ namespace App\Http\Requests\Auth;
 use App\Rules\Phone;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
+use Illuminate\Validation\Rules\Password;
 
 class UpadateUserRequest extends FormRequest
 {
@@ -33,6 +34,7 @@ class UpadateUserRequest extends FormRequest
             'email' => ['required', 'string', 'email', 'max:255',  Rule::unique('users', 'email')->ignore($userId)],
             'phone' => ['required', 'string', 'max:15', new Phone,Rule::unique('users', 'phone')->ignore($userId)],
             'birthdate' => ['required', 'date', 'before_or_equal:-18 years'],
+            'password' => ['nullable','confirmed', Password::default()]
 
         ];
     }

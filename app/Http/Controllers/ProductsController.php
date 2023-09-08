@@ -6,6 +6,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class ProductsController extends Controller
 {
@@ -14,6 +15,6 @@ class ProductsController extends Controller
         $product = Product::where('slug','=',$slug)->first();
         $recommendedProducts = $product->recommendedProducts;
 
-        return view('products.show', compact('product','recommendedProducts'));
+        return view('products.show',['title'=>__('catalog.Title').' - '.$product->title[App::currentLocale()]], compact('product','recommendedProducts'));
     }
 }
