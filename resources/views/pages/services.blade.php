@@ -1,8 +1,4 @@
 @extends('layouts.theme')
-@php
-    $title = $page['title'];
-@endphp
-
 @section('content')
     <section class="services page-container">
         <div class="services-wrap">
@@ -107,3 +103,8 @@
         </div>
     </section>
 @endsection
+@push('footer-scripts')
+    <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
+    <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
+    <script defer src="{{asset('/assets/scripts/services.bundle.js')}}"></script>
+@endpush

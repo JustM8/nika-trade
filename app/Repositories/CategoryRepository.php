@@ -46,7 +46,7 @@ class CategoryRepository implements CategoryRepositoryContract
         } catch (\Exception $e) {
             DB::rollBack();
             logs()->warning($e);
-
+            return false;
         }
     }
 
@@ -82,7 +82,7 @@ class CategoryRepository implements CategoryRepositoryContract
         } catch (\Exception $e) {
             DB::rollBack();
             logs()->warning($e);
-
+            return false;
         }
     }
 }

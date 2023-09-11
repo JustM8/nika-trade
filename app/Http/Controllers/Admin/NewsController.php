@@ -18,13 +18,13 @@ class NewsController extends Controller
     public function index()
     {
         $news = News::all();
-        return view('admin/news/index',compact('news'));
+        return view('admin/news/index',['title'=>__('news.Title')],compact('news'));
     }
 
 
     public function create()
     {
-        return view('admin/news/create');
+        return view('admin/news/create',['title'=>__('news.Title')]);
     }
 
     public function store(CreateNewsRequest $request)
@@ -38,7 +38,7 @@ class NewsController extends Controller
 
     public function edit(News $news)
     {
-        return view('admin/news/edit',compact('news'));
+        return view('admin/news/edit',['title'=>__('news.Title')],compact('news'));
     }
 
     public function update(UpdateNewsRequest $request, News $news)

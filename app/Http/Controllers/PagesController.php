@@ -15,18 +15,13 @@ class PagesController extends Controller
                 'content' => 'Тут буде контент сторінки "Контакти"',
                 'image' => 'contacts.jpg',
             ],
-            'about-company' => [
-                'title' => 'Про компанію',
-                'content' => 'Тут буде контент сторінки "Про компанію"',
-                'image' => 'company.jpg',
-            ],
             'services' => [
                 'title' => 'Послуги',
                 'content' => 'Тут буде контент сторінки "Про компанію"',
                 'image' => 'company.jpg',
             ],
             'gallery' => [
-                'title' => 'Про компанію',
+                'title' => 'Галерея',
                 'content' => 'Тут буде контент сторінки "Про компанію"',
                 'image' => 'company.jpg',
             ],
@@ -35,7 +30,7 @@ class PagesController extends Controller
 
         if (array_key_exists($slug, $pages)) {
             $page = $pages[$slug];
-            return view('pages.'.$slug,compact('page'));
+            return view('pages.'.$slug,['title'=>$page['title']],compact('page'));
         } else {
             abort(404);
         }
