@@ -83,6 +83,7 @@ Route::name('admin.')->prefix('admin')->middleware(['auth','admin'])->group(func
 
     Route::resource('news',\App\Http\Controllers\Admin\NewsController::class)->except(['show']);
     Route::resource('galleries',\App\Http\Controllers\Admin\GalleriesController::class)->except(['show']);
+    Route::resource('services',\App\Http\Controllers\Admin\ServicesController::class)->except(['show']);
 });
 
 
