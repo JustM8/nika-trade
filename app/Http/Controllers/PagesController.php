@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Gallery;
 use App\Models\Page;
+use App\Models\Service;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -19,11 +21,13 @@ class PagesController extends Controller
                 'title' => 'Послуги',
                 'content' => 'Тут буде контент сторінки "Про компанію"',
                 'image' => 'company.jpg',
+                'data' => Service::all()
             ],
             'gallery' => [
                 'title' => 'Галерея',
                 'content' => 'Тут буде контент сторінки "Про компанію"',
                 'image' => 'company.jpg',
+                'data' => Gallery::all()
             ],
             // Додайте інші сторінки тут
         ];

@@ -8,6 +8,7 @@
             <div class="col-md-12">
                 <h3 class="text-center">{{ __('Cart') }}</h3>
             </div>
+{{--            @dd(Cart::instance('cart')->content());--}}
             <div class="col-md-12">
                 @if(Cart::instance('cart')->count() > 0)
                     <table class="table table-light">

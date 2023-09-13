@@ -14,86 +14,20 @@
                 <h2 class="page-title text-title">Галерея</h2>
             </div>
             <div class="gallery-list">
-                <div class="gallery-item"><img class="gallery-item__img" src="./assets/images/gallery/1.jpg" alt="">
+                @foreach($page['data'] as $item)
+                <div class="gallery-item">
+                    @if(Storage::has($item->thumbnail) && !empty($item->thumbnail))
+                        <img src="{{ $item->thumbnailUrl}}" class="gallery-item__img" id="thumbnail-preview" alt="">
+                    @endif
                     <div class="gallery-item__overlay">
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Магазин: </span><span class="gallery-item__overlay-info--light text-14">Мілітарі</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Адреса: </span><span class="gallery-item__overlay-info--light text-14">м. Київ, ТЦ «Епіцентр», вул. Полярна, 20Д</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Рік: </span><span class="gallery-item__overlay-info--light text-14">2014</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Система: </span><span class="gallery-item__overlay-info--light text-14">Експопанелі</span></div>
+                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Магазин: </span><span class="gallery-item__overlay-info--light text-14">{{$item->data[App::currentLocale()][0]['row']}}</span></div>
+                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Адреса: </span><span class="gallery-item__overlay-info--light text-14">{{$item->data[App::currentLocale()][1]['row']}}</span></div>
+                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Рік: </span><span class="gallery-item__overlay-info--light text-14">{{$item->data[App::currentLocale()][2]['row']}}</span></div>
+                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Система: </span><span class="gallery-item__overlay-info--light text-14">{{$item->data[App::currentLocale()][3]['row']}}</span></div>
                     </div>
                 </div>
-                <div class="gallery-item"><img class="gallery-item__img" src="./assets/images/gallery/2.jpg" alt="">
-                    <div class="gallery-item__overlay">
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Магазин: </span><span class="gallery-item__overlay-info--light text-14">Мілітарі</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Адреса: </span><span class="gallery-item__overlay-info--light text-14">м. Київ, ТЦ «Епіцентр», вул. Полярна, 20Д</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Рік: </span><span class="gallery-item__overlay-info--light text-14">2014</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Система: </span><span class="gallery-item__overlay-info--light text-14">Експопанелі</span></div>
-                    </div>
-                </div>
-                <div class="gallery-item"><img class="gallery-item__img" src="./assets/images/gallery/3.jpg" alt="">
-                    <div class="gallery-item__overlay">
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Магазин: </span><span class="gallery-item__overlay-info--light text-14">Мілітарі</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Адреса: </span><span class="gallery-item__overlay-info--light text-14">м. Київ, ТЦ «Епіцентр», вул. Полярна, 20Д</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Рік: </span><span class="gallery-item__overlay-info--light text-14">2014</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Система: </span><span class="gallery-item__overlay-info--light text-14">Експопанелі</span></div>
-                    </div>
-                </div>
-                <div class="gallery-item"><img class="gallery-item__img" src="./assets/images/gallery/4.jpg" alt="">
-                    <div class="gallery-item__overlay">
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Магазин: </span><span class="gallery-item__overlay-info--light text-14">Мілітарі</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Адреса: </span><span class="gallery-item__overlay-info--light text-14">м. Київ, ТЦ «Епіцентр», вул. Полярна, 20Д</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Рік: </span><span class="gallery-item__overlay-info--light text-14">2014</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Система: </span><span class="gallery-item__overlay-info--light text-14">Експопанелі</span></div>
-                    </div>
-                </div>
-                <div class="gallery-item"><img class="gallery-item__img" src="./assets/images/gallery/5.jpg" alt="">
-                    <div class="gallery-item__overlay">
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Магазин: </span><span class="gallery-item__overlay-info--light text-14">Мілітарі</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Адреса: </span><span class="gallery-item__overlay-info--light text-14">м. Київ, ТЦ «Епіцентр», вул. Полярна, 20Д</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Рік: </span><span class="gallery-item__overlay-info--light text-14">2014</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Система: </span><span class="gallery-item__overlay-info--light text-14">Експопанелі</span></div>
-                    </div>
-                </div>
-                <div class="gallery-item"><img class="gallery-item__img" src="./assets/images/gallery/6.jpg" alt="">
-                    <div class="gallery-item__overlay">
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Магазин: </span><span class="gallery-item__overlay-info--light text-14">Мілітарі</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Адреса: </span><span class="gallery-item__overlay-info--light text-14">м. Київ, ТЦ «Епіцентр», вул. Полярна, 20Д</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Рік: </span><span class="gallery-item__overlay-info--light text-14">2014</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Система: </span><span class="gallery-item__overlay-info--light text-14">Експопанелі</span></div>
-                    </div>
-                </div>
-                <div class="gallery-item"><img class="gallery-item__img" src="./assets/images/gallery/7.jpg" alt="">
-                    <div class="gallery-item__overlay">
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Магазин: </span><span class="gallery-item__overlay-info--light text-14">Мілітарі</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Адреса: </span><span class="gallery-item__overlay-info--light text-14">м. Київ, ТЦ «Епіцентр», вул. Полярна, 20Д</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Рік: </span><span class="gallery-item__overlay-info--light text-14">2014</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Система: </span><span class="gallery-item__overlay-info--light text-14">Експопанелі</span></div>
-                    </div>
-                </div>
-                <div class="gallery-item"><img class="gallery-item__img" src="./assets/images/gallery/8.jpg" alt="">
-                    <div class="gallery-item__overlay">
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Магазин: </span><span class="gallery-item__overlay-info--light text-14">Мілітарі</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Адреса: </span><span class="gallery-item__overlay-info--light text-14">м. Київ, ТЦ «Епіцентр», вул. Полярна, 20Д</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Рік: </span><span class="gallery-item__overlay-info--light text-14">2014</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Система: </span><span class="gallery-item__overlay-info--light text-14">Експопанелі</span></div>
-                    </div>
-                </div>
-                <div class="gallery-item"><img class="gallery-item__img" src="./assets/images/gallery/9.jpg" alt="">
-                    <div class="gallery-item__overlay">
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Магазин: </span><span class="gallery-item__overlay-info--light text-14">Мілітарі</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Адреса: </span><span class="gallery-item__overlay-info--light text-14">м. Київ, ТЦ «Епіцентр», вул. Полярна, 20Д</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Рік: </span><span class="gallery-item__overlay-info--light text-14">2014</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Система: </span><span class="gallery-item__overlay-info--light text-14">Експопанелі</span></div>
-                    </div>
-                </div>
-                <div class="gallery-item"><img class="gallery-item__img" src="./assets/images/gallery/10.jpg" alt="">
-                    <div class="gallery-item__overlay">
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Магазин: </span><span class="gallery-item__overlay-info--light text-14">Мілітарі</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Адреса: </span><span class="gallery-item__overlay-info--light text-14">м. Київ, ТЦ «Епіцентр», вул. Полярна, 20Д</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Рік: </span><span class="gallery-item__overlay-info--light text-14">2014</span></div>
-                        <div class="gallery-item__overlay-info"> <span class="gallery-item__overlay-info--bold text-14">Система: </span><span class="gallery-item__overlay-info--light text-14">Експопанелі</span></div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
         </div>
     </section>

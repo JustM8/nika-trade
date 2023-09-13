@@ -92,8 +92,8 @@
             </div>
         </div>
     </section>
-<?php
-/*
+
+
 {{--    @dd($product)--}}
     <div class="row justify-content-center">
         <div class="col-md-12">
@@ -156,7 +156,7 @@
         </div>
     </div>
     <hr>
-    */?>
+
 @endsection
 @push('footer-scripts')
     @vite(['resources/js/images-actions.js', 'resources/js/nikaModel.build.js'])

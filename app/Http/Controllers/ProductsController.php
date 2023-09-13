@@ -14,7 +14,7 @@ class ProductsController extends Controller
     {
         $product = Product::where('slug','=',$slug)->first();
         $recommendedProducts = $product->recommendedProducts;
-
+//dd($product,$recommendedProducts);
         return view('products.show',['title'=>__('catalog.Title').' - '.$product->title[App::currentLocale()]], compact('product','recommendedProducts'));
     }
 }
