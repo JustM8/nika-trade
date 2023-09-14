@@ -10,9 +10,9 @@ use Illuminate\Support\Facades\App;
 
 class ProductsController extends Controller
 {
-    public function show($slug)
+    public function show(Product $product)
     {
-        $product = Product::where('slug','=',$slug)->first();
+//        $product = Product::where('slug','=',$slug)->first();
         $recommendedProducts = $product->recommendedProducts;
 //dd($product,$recommendedProducts);
         return view('products.show',['title'=>__('catalog.Title').' - '.$product->title[App::currentLocale()]], compact('product','recommendedProducts'));

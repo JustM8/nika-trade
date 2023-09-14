@@ -18,7 +18,6 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-
 Route::get('/locale/{lang}', [\App\Http\Controllers\LanguageController::class,'index'])->name('index');
 Auth::routes();
 
@@ -31,9 +30,7 @@ Route::delete(
 )->middleware(['auth','admin'])->name('ajax.images.delete');
 
 
-//Route::resource('news', \App\Http\Controllers\NewsController::class);
 Route::get('news',[App\Http\Controllers\NewsController::class,'index']);
-Route::get('/news/{slug}',[App\Http\Controllers\NewsController::class,'show']);
 Route::get('/news/{slug}',[App\Http\Controllers\NewsController::class,'show'])->name('news.show');
 
 Route::get('cart', [\App\Http\Controllers\CartController::class, 'index'])->name('cart');
@@ -72,7 +69,6 @@ Route::get('categories/{params?}', [\App\Http\Controllers\CategoriesController::
     ->where('params', '(.*)');
 
 //product
-Route::get('products/{product:slug}',[App\Http\Controllers\ProductsController::class,'show'])->name('products.show');
 //Route::resource('products', \App\Http\Controllers\ProductsController::class)->only(['show','index']);
 
 Route::name('admin.')->prefix('admin')->middleware(['auth','admin'])->group(function (){
@@ -84,14 +80,17 @@ Route::name('admin.')->prefix('admin')->middleware(['auth','admin'])->group(func
     Route::resource('news',\App\Http\Controllers\Admin\NewsController::class)->except(['show']);
     Route::resource('galleries',\App\Http\Controllers\Admin\GalleriesController::class)->except(['show']);
     Route::resource('services',\App\Http\Controllers\Admin\ServicesController::class)->except(['show']);
+    Route::resource('main',\App\Http\Controllers\Admin\MainPageController::class)->except(['show','edit','update','destroy']);
+    Route::get('/main/{mainPage}/edit',[App\Http\Controllers\Admin\MainPageController::class,'edit'])->name('main.edit');
+    Route::put('/main/{mainPage}',[App\Http\Controllers\Admin\MainPageController::class,'update'])->name('main.update');
+    Route::delete('/main/{mainPage}',[App\Http\Controllers\Admin\MainPageController::class,'destroy'])->name('main.destroy');
 });
 
-
+//catalog
 Route::get('catalog', [\App\Http\Controllers\CatalogController::class, 'index'])->name('catalog.index');
 Route::get('catalog/{slug}', [\App\Http\Controllers\CatalogController::class, 'show'])->name('catalog.show');
-Route::get('product/{slug}', [\App\Http\Controllers\ProductsController::class, 'show'])->name('product.show');
+Route::get('product/{product:slug}',[App\Http\Controllers\ProductsController::class,'show'])->name('product.show');
+//Route::get('product/{slug}', [\App\Http\Controllers\ProductsController::class, 'show'])->name('product.show');
 
 //pages
-
-//Route::get('/services', [App\Http\Controllers\PagesController::class, 'index'])->name('services');
 Route::get('/{slug}', [\App\Http\Controllers\PagesController::class,'show'])->name('services');

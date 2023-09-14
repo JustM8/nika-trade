@@ -41,7 +41,7 @@
                     <div class="catalog-single-list">
                         @if($products->isNotEmpty())
                             @foreach($products as $product)
-                            <a class="catalog-single-card" href="{{ route('product.show', $product->slug) }}">
+                            <a class="catalog-single-card" href="{{ route('product.show', $product) }}">
                                 <div class="catalog-single-card__img"> <img src="{{ $product->thumbnailUrl }}" alt=""></div>
                                 <div class="catalog-single-card-intro"><span class="catalog-single-card-intro__title text-24">{{ $product->title[App::currentLocale()] }}</span></div>
                             </a>
