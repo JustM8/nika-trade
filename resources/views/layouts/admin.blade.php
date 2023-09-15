@@ -58,7 +58,7 @@
                         <!-- Authentication Links -->
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ __('main.Man page') }}
+                                {{ __('main.Main page') }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
@@ -66,7 +66,7 @@
                                     {{ __('main.Main page') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('admin.main.create') }}">
-                                    {{ __('main.Main page') }}
+                                    {{ __('main.Main page create') }}
                                 </a>
                             </div>
                         </li>

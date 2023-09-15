@@ -17,7 +17,7 @@ class MainPageRepository implements MainPageRepositoryContract
             if (is_array($value)) {
                 $result[$key] = $this->clearValues($value);
             } else {
-                $result[$key] = is_string($value) ? "" : [];
+                $result[$key] = "";
             }
         }
         return $result;
@@ -36,12 +36,15 @@ class MainPageRepository implements MainPageRepositoryContract
             $locale = App::currentLocale();
             $langs = config('app.available_locales');
             $descriptionContent = [];
+//            dd($data);
 
             foreach ($langs as $lang){
                 if($lang == $locale) {
-                    $descriptionContent[$lang] = $data['data']['slider'];
+                    $descriptionContent[$lang]['slider'] = $data['data']['slider'];
+                    $descriptionContent[$lang]['fields'] = $data['data']['fields'];
                 }else{
-                    $descriptionContent[$lang] = $this->clearValues($data['data']['slider'],true);
+                    $descriptionContent[$lang]['slider'] = $this->clearValues($data['data']['slider']);
+                    $descriptionContent[$lang]['fields'] = $this->clearValues($data['data']['fields']);
                 }
             }
             $images = $data['images'] ?? [];
@@ -74,19 +77,36 @@ class MainPageRepository implements MainPageRepositoryContract
 
             $descriptionContent = [];
 
-            foreach ($langs as $lang) {
-                if ($lang == $locale) {
-                    $descriptionContent[$lang] = array_values($data['data']['slider']);
-                } else {
-                    if (!empty($mainPage->data[$lang])) {
-                        // Обрізаємо "en" і "ru" до довжини "ua"
-                        $descriptionContent[$lang] = $this->trimToLength($mainPage->data[$lang], count($data['data']['slider']));
-                    } else {
-                        $descriptionContent[$lang] = $this->clearValues($data['data']['slider']);
+//            foreach ($langs as $lang) {
+//                if ($lang == $locale) {
+//                    $descriptionContent[$lang]['slider'] = $data['data']['slider'];
+//                    $descriptionContent[$lang]['fields'] = $data['data']['fields'];
+////                    $descriptionContent[$lang] = array_values($data['data']);
+//                } else {
+//                    if (!empty($mainPage->data[$lang])) {
+//                        // Обрізаємо "en" і "ru" до довжини "ua"
+//                        $descriptionContent[$lang]['slider'] = $this->trimToLength($mainPage->data[$lang], count($data['data']['slider']));
+//                        $descriptionContent[$lang]['fields'] = $this->trimToLength($mainPage->data[$lang], count($data['data']['fields']));
+//                    } else {
+//                        $descriptionContent[$lang]['slider'] = $this->clearValues($data['data']['slider']);
+//                        $descriptionContent[$lang]['fields'] = $this->clearValues($data['data']['fields']);
+//                    }
+//                }
+//            }
+
+            foreach ($langs as $lang){
+                if($lang == $locale) {
+                    $descriptionContent[$lang]['fields'] = $data['data']['fields'];
+                    $descriptionContent[$lang]['slider'] = $data['data']['slider'];
+                }else{
+                    if(!empty($mainPage->data[$lang])) {
+                        $descriptionContent[$lang] = $mainPage->data[$lang];
+                    }else{
+                        $descriptionContent[$lang] = '';
                     }
                 }
             }
-
+//dd($data);
             $data['data'] = $descriptionContent;
             $mainPage->update($data);
 

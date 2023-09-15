@@ -35,7 +35,7 @@ class ProductsController extends Controller
         $products = Product::all();
         $recommendedProducts = $product->recommendedProducts;
 
-        return view('admin/products/edit', compact('product','categories','recommendedProducts','products'));
+        return view('admin/products/edit',['title'=>__('product.Title')], compact('product','categories','recommendedProducts','products'));
     }
 
     public function update(UpdateProductRequest $request,Product $product )
