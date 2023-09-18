@@ -9,7 +9,7 @@
             </div>
             <div class="col-md-12">
                 @if ($errors->any())
-                    @dd($errors->all())
+{{--                    @dd($errors->all())--}}
                     <div class="alert alert-danger">
                         <ul>
                             @foreach ($errors->all() as $error)

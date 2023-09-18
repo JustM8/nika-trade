@@ -85,7 +85,6 @@ class ProductRepository implements ProductRepositoryContract
 
             $data = $request->validated();
             $dataJson = [];
-
             foreach ($langs as $lang) {
                 $dataJson['title'][$lang] = !empty($product->title[$lang]) ? $product->title[$lang] : '';
                 $dataJson['description'][$lang] = !empty($product->description[$lang]) ? $product->description[$lang] : '';
@@ -101,13 +100,10 @@ class ProductRepository implements ProductRepositoryContract
             $data['title'] = $dataJson['title'];
             $data['description'] = $dataJson['description'];
             $data['size'] = $dataJson['size'];
-
-            $product->update($data);
-
             $product->recommendedProducts()->detach();
 
             // Додавання нових рекомендованих продуктів
-            if ($request->has('recommended_id')) {
+            if ($request->has('recommended_id') && !in_array(null, $request->input('recommended_id'))) {
                 $recommendedProductIds = $request->input('recommended_id');
                 $product->recommendedProducts()->attach($recommendedProductIds);
             }
