@@ -100,6 +100,9 @@ class ProductRepository implements ProductRepositoryContract
             $data['title'] = $dataJson['title'];
             $data['description'] = $dataJson['description'];
             $data['size'] = $dataJson['size'];
+
+            $product->update($data);
+
             $product->recommendedProducts()->detach();
 
             // Додавання нових рекомендованих продуктів
