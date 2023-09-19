@@ -106,6 +106,7 @@
     <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
     <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
     <script defer src="{{asset('/assets/scripts/productPage.bundle.js')}}"></script>
+    <script defer src="{{asset('/assets/scripts/cartPage.bundle.js')}}"></script>
 @endpush
 
 
