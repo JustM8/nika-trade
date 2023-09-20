@@ -12,8 +12,6 @@ class ProductsController extends Controller
     protected $result = [];
     public function index(Product $product)
     {
-        $recommendedProducts = $product->recommendedProducts;
-
         $data['cur'] =
             [
                 'id'=> $product->id,
@@ -35,7 +33,6 @@ class ProductsController extends Controller
     {
         $ids = $request->all();
         $products = Product::whereIn('id', $ids)->get();
-//        $result = [];
         foreach ($products as $product)
         {
             $this->result[] = [
@@ -55,9 +52,9 @@ class ProductsController extends Controller
         return response()->json($this->result);
     }
 
-//    public function getCart(Request $request)
-//    {
-//        return response()->json($this->result);
-//    }
+    public function getCart()
+    {
+        return response()->json($this->result);
+    }
 }
 
