@@ -1,7 +1,7 @@
 @extends('layouts.theme')
 
 @section('content')
-    <section class="product-page page-container">
+    <section class="product-page page-container" data-product-id="{{$product->id}}">
         <div class="product-page-wrap">
             <div class="page-intro">
                 <div class="page-breadcrumbs">
@@ -67,7 +67,7 @@
                     </div>
                     <div class="product-page-info-container">
                         <div class="product-page-info active" data-info="details">
-                            
+
                             <span class="product-page-info-descr__title text-m text-black-100">{{ $product->title[App::currentLocale()] }}</span>
                                 {!! $product->description[App::currentLocale()] !!}
                         </div>
