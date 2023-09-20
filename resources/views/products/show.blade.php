@@ -67,10 +67,12 @@
                     </div>
                     <div class="product-page-info-container">
                         <div class="product-page-info active" data-info="details">
+                            
                             <span class="product-page-info-descr__title text-m text-black-100">{{ $product->title[App::currentLocale()] }}</span>
                                 {!! $product->description[App::currentLocale()] !!}
                         </div>
-                        <div class="product-page-info" data-info="shipping"><span class="product-page-info-descr__title text-m text-black-100">Умови</span>
+                        <div class="product-page-info" data-info="shipping">
+                            <span class="product-page-info-descr__title text-m text-black-100">Умови</span>
                             <div class="product-page-info-list">
                                 <div class="product-page-info-item text-14 text-text">L-стійка висотою 2420 мм — це конструкція з труби, що має 60х30 мм в перетині й складається із зварених між собою вертикальної стійки з двома рядами перфорованих прорізів по всій висоті та нижньої горизонтальної балки з регульованими опорами. Прорізи використовуються для встановлення різноманітного навісного обладнання: полиць, кронштейнів-вішалок, штанг, гачків, панелей та ін. Стійку можна закріпити до стіни за допомогою спеціальних кронштейнів У 117.</div>
                                 <div class="product-page-info-item text-14 text-text">Під час збирання каркасу стійки з'єдуються між собою за допомогою стяжок У 100, У 102 або У 103, по дві стяжки на кожний просвіт. Стандартні розміри просвітів системи (650 мм, 1000 мм і 1200 мм) забезпечуються відповідною довжиною цих стяжок. Кронштейни У 117 мають спеціальні пази, що дозволяють під час встановлення каркасу компенсувати нерівності стіни. Регульовані опори надають можливість компенсувати нерівності підлоги. Передбачена можливість встановлення подіумів з ДСП на нижні горизонтальні балки.</div>
