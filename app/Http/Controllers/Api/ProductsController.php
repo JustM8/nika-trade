@@ -27,6 +27,6 @@ class ProductsController extends Controller
                 'thumbnail'=> $product->thumbnailUrl,
             ];
 
-        return response()->json([$data]);
+        return response()->json($data);
     }
 }
