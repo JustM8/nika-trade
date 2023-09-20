@@ -99,12 +99,12 @@
 @endsection
 @push('footer-scripts')
     @vite(['resources/js/images-actions.js', 'resources/js/nikaModel.build.js'])
-    <script>
+    <!-- <script>
         window.addEventListener('DOMContentLoaded',function(evt){
             window.obj3d(document.querySelector('[data-object-container]'), "{{ $product->objmodelUrl  }}");
         });
         console.log(document.querySelector('[data-object-container]'));
-    </script>
+    </script> -->
     <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
     <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
     <script defer src="{{asset('/assets/scripts/productPage.bundle.js')}}"></script>
