@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\App;
 
 class ProductsController extends Controller
 {
+    protected $result = [];
     public function index(Product $product)
     {
         $recommendedProducts = $product->recommendedProducts;
@@ -32,6 +33,31 @@ class ProductsController extends Controller
 
     public function cart(Request $request)
     {
-        return response()->json($request);
+        $ids = $request->all();
+        $products = Product::whereIn('id', $ids)->get();
+//        $result = [];
+        foreach ($products as $product)
+        {
+            $this->result[] = [
+                  'id'=> $product->id,
+                  'category_id'=> $product->category_id,
+                  'parent_id' => $product->parent_id,
+                  'title'=> $product->title[App::currentLocale()],
+                  'slug' => $product->slug,
+                  'SKU' =>  $product->SKU,
+                  'size'=>  $product->size,
+                  'price' =>  $product->price,
+                  'discount' => $product->discount,
+                  'in_stock' =>  $product->in_stock,
+                  'thumbnail' =>  $product->thumbnailUrl,
+            ];
+        }
+        return response()->json($this->result);
     }
+
+//    public function getCart(Request $request)
+//    {
+//        return response()->json($this->result);
+//    }
 }
+
