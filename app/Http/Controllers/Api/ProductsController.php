@@ -12,6 +12,8 @@ class ProductsController extends Controller
     public function index(Product $product)
     {
         $recommendedProducts = $product->recommendedProducts;
+        $product->thumbnail = $product->thumbnailUrl;
+        $product->obj_model = $product->objmodelUrl;
         return response()->json(['cur'=>$product,'recommended'=>$recommendedProducts,'lang'=>App::currentLocale()]);
     }
 }
