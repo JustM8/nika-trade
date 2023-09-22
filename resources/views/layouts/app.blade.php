@@ -55,7 +55,7 @@
                     <ul class="navbar-nav ms-auto">
                         <li class="nav-item">
                             <a href="{{ route('cart') }}" class="nav-link">
-                                {{ __('Cart') }}
+                                {{ __('cart.Title') }}
                                 @if (Cart::instance('cart')->count() > 0)
                                     ({{ Cart::instance('cart')->content()->count() }})
                                 @endif

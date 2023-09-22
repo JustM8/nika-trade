@@ -9,7 +9,7 @@ class CartController extends Controller
 {
     public function index()
     {
-        return view('cart/index');
+        return view('cart/index',['title'=>__('cart.Title')]);
     }
 
     public function add(Request $request, Product $product)
