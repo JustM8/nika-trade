@@ -13,7 +13,7 @@ class DashboardController extends Controller
 //        $orders = Order::with('order_product')
 //            ->where('order_id','id');
 //        dd($orders);
-        return view('admin/dashboard/index');
+        return view('admin/dashboard/index',['title'=>'dashboard.Title']);
     }
 
 }
