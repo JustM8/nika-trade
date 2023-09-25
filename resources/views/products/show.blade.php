@@ -50,11 +50,14 @@
                           </button>
                         </div>
                       </div></span>
-                                    <form action="{{ route('cart.add', $product) }}" method="POST" class="form-inline">
+                                   
+                                    <div class="product-page-item-info__row-btn">
+                                        
+
+                                        <form action="{{ route('cart.add', $product) }}" method="POST" class="form-inline">
                                         @csrf
                                         @method('post')
                                         <div class="form-group col-sm-3 mb-2">
-                                            <label for="product_count" class="sr-only">Count: </label>
                                             <input type="hidden"
                                                    name="product_count"
                                                    class="form-control"
@@ -64,13 +67,13 @@
                                                    value="1"
                                             >
                                         </div>
-                                        <button type="submit" class="btn btn-primary mb-2">Buy</button>
-                                    </form>
-                                    <button class="product-page-item-info__row-btn">
-                                        <svg class="icon--cart" role="presentation">
+                                        <button type="submit">
+                                            <svg class="icon--cart" role="presentation">
                                             <use xlink:href="#icon-cart"></use>
                                         </svg><span class="text-14 text-white">Купити</span>
                                     </button>
+                                    </form>
+</div>
                                 </div>
                             </div>
                         </div><a class="product-page-item-btn text-14 text-black-100" href="">Завантажити каталог продукції</a>
