@@ -41,19 +41,21 @@ class CartController extends Controller
 
     public function countUpdate(Request $request, Product $product)
     {
+//        dd($request->count,$request->rowId);
         if ($product->in_stock < $request->product_count) {
-            notify()->error("Max count of current product is {$product->in_stock}", position: "topRight");
-            return redirect()->back();
+//            notify()->error("Max count of current product is {$product->in_stock}", position: "topRight");
+//            return redirect()->back();
+            return response()->json(['message'=>"Max count of current product is {$product->in_stock}"]);
         }
 
         Cart::instance('cart')->update(
             $request->rowId,
-            $request->product_count
+            $request->count
         );
+        return response()->json(['message'=>'Product count was updated']);
+//        notify()->success("Product count was updated", position: "topRight");
 
-        notify()->success("Product count was updated", position: "topRight");
-
-        return redirect()->back();
+//        return redirect()->back();
     }
 
 }

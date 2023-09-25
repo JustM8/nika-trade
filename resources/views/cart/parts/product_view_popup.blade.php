@@ -1,23 +1,23 @@
 {{--@dd($row)--}}
 
-<div class="cart-list-item"> 
-                <div class="cart-list-item-img"> 
+<div class="cart-list-item">
+                <div class="cart-list-item-img">
                   <img src="{{ $row->model->thumbnailUrl }}" alt="">
                 </div>
-                <div class="cart-list-item-descr-wrap"> 
+                <div class="cart-list-item-descr-wrap">
                   <span class="cart-list-item-descr__name text-24 text-black-100">{{ $row->name[App::currentLocale()] }}</span>
-                  <div class="cart-list-item-descr__row"> 
+                  <div class="cart-list-item-descr__row">
                     <span class="cart-list-item-descr__row-size text-14 text-black-100"></span>
                     <span class="cart-list-item-descr__row-size text-14 text-black-100"></span>
                   </div>
-                  <div class="cart-list-item-descr__row"> 
+                  <div class="cart-list-item-descr__row">
                     <div class="cart-list-item-descr__row-code text-14 text-black-100">Артикул:</div>
                     <div class="cart-list-item-descr__row-code text-14 text-black-100"> {{ $row->options->SKU }}</div>
                   </div>
                 </div>
-                <span class="cart-list-item-descr__quantity"> 
+                <span class="cart-list-item-descr__quantity">
                     <div class="cart-list-item-descr__quantity-container">
-                    <form action="{{ route('cart.count.update', $row->id) }}" data-route="{{ route('cart.count.update', $row->id) }}" method="POST">
+                    <form action="{{ route('ajax.cart.count.update', $row->id) }}" data-route="{{ route('ajax.cart.count.update', $row->id) }}" data-row-id="{{$row->rowId}}" method="POST">
                         @csrf
                         <input type="hidden" value="{{ $row->rowId }}" name="rowId">
                         <input type="number"
@@ -26,7 +26,7 @@
                             max="{{ $row->model->in_stock }}"
                             name="product_count"
                         >
-                        <input type="submit" class="btn btn-outline-success" value="Update count">
+{{--                        <input type="submit" class="btn btn-outline-success" value="Update count">--}}
                     </form>
                     <div class="cart-list-item-descr__quantity-buttons">
                       <button  class="cart-increment-btn product-page-item-info__row-quantity-increment text-14 text-black">
@@ -45,14 +45,14 @@
                 <span class="cart-list-item-descr__price text-18 text-black-100">  </span>
                 <button class="cart-list-item-delete">
                 <form action="{{ route('cart.remove') }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <input type="hidden" value="{{ $row->rowId }}" name="rowId">
-            <input type="submit" class="btn btn-outline-danger" value="{{ __('') }}">
-        </form>
-                    
+                    @csrf
+                    @method('DELETE')
+                    <input type="hidden" value="{{ $row->rowId }}" name="rowId">
+                    <input type="submit" class="btn btn-outline-danger" value="{{ __('') }}">
+                </form>
+
                   <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
-                    
+
                     <path d="M1 11L11 1L1 11ZM11 11L1 1L11 11Z" fill="#C8102E"></path>
                     <path d="M11 11L1 1M1 11L11 1L1 11Z" stroke="white" stroke-width="2"></path>
                   </svg>

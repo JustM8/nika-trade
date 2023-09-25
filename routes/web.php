@@ -35,9 +35,11 @@ Route::get('/news/{slug}',[App\Http\Controllers\NewsController::class,'show'])->
 
 Route::get('cart', [\App\Http\Controllers\CartController::class, 'index'])->name('cart');
 Route::post('cart/{product}', [\App\Http\Controllers\CartController::class, 'add'])->name('cart.add');
-Route::post('ajax/cart/{product}', [\App\Http\Controllers\Ajax\CartController::class, 'add'])->name('cart.add');
 Route::delete('cart', [\App\Http\Controllers\CartController::class, 'remove'])->name('cart.remove');
 Route::post('cart/{product}/count', [\App\Http\Controllers\CartController::class, 'countUpdate'])->name('cart.count.update');
+
+Route::post('ajax/cart/{product}', [\App\Http\Controllers\Ajax\CartController::class, 'add'])->name('cart.add');
+Route::post('ajax/cart/{product}/count', [\App\Http\Controllers\Ajax\CartController::class, 'countUpdate'])->name('ajax.cart.count.update');
 
 Route::middleware('auth')->group(function() {
     Route::get('checkout', \App\Http\Controllers\CheckoutController::class)->name('checkout');

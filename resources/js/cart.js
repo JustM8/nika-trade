@@ -27,7 +27,7 @@ $(document).on('click', '.add-to-cart', function (e){
                 },
                 element: ref,
               });
-              
+
 
             const cartPopup = popupFactory(document.querySelector('.cart-overlay'));
             const closeBtnRef = document.querySelector('.cart-close');
@@ -46,7 +46,7 @@ $(document).on('click', '.add-to-cart', function (e){
             };
 
             openCartPopup();
-              
+
         },
         error: function (data){
             console.log('Error:',data);
@@ -58,5 +58,22 @@ $(document).on('click', '.add-to-cart', function (e){
 
 $(":input").bind('keyup mouseup', function () {
   let $btn = $(this);
-  console.log($btn.val(),$btn.parent().data('route'))
+
+  console.log($btn.val(),$btn.parent().data('row-id'))
+
+    $.ajax({
+        url: $btn.parent().data('route'),
+        type: 'POST',
+        dataType: 'json',
+        data: {count:$btn.val(),rowId:$btn.parent().data('row-id')},
+        headers: {
+            'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
+        },
+        success: function (data){
+            console.log('data',data);
+        },
+        error: function (data){
+            console.log('Error:',data);
+        }
+    })
 });
