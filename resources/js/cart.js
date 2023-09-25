@@ -54,3 +54,9 @@ $(document).on('click', '.add-to-cart', function (e){
     })
 
 });
+
+
+$(":input").bind('keyup mouseup', function () {
+  let $btn = $(this);
+  console.log($btn.val(),$btn.parent().data('route'))
+});

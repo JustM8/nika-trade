@@ -17,7 +17,7 @@
                 </div>
                 <span class="cart-list-item-descr__quantity"> 
                     <div class="cart-list-item-descr__quantity-container">
-                    <form action="{{ route('cart.count.update', $row->id) }}" method="POST">
+                    <form action="{{ route('cart.count.update', $row->id) }}" data-route="{{ route('cart.count.update', $row->id) }}" method="POST">
                         @csrf
                         <input type="hidden" value="{{ $row->rowId }}" name="rowId">
                         <input type="number"
