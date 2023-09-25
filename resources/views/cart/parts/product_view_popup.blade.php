@@ -3,6 +3,9 @@
         <img src="{{ $row->model->thumbnailUrl }}" height="100" alt="">
     </td>
     <td>
+    {{ $row->SKU }}
+</td>
+    <td>
         <a href="{{ route('product.show', $row->options['slug']) }}"><strong>{{ $row->name[App::currentLocale()] }}</strong></a>
     </td>
     <td>
