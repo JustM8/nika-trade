@@ -132,7 +132,7 @@
 
                         <tbody>
 
-                        @each('cart.parts.product_view', Cart::instance('cart')->content(), 'row')
+                        @each('cart.parts.product_view_popup', Cart::instance('cart')->content(), 'row')
 
                         </tbody>
                     </table>
