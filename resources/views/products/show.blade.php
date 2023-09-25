@@ -119,11 +119,29 @@
             </button>
             <div class="cart-title text-m text-black-100">Додано у кошик</div>
             <div class="cart-list">
+                @if(Cart::instance('cart')->count() > 0)
+                    <table class="table table-light">
+                        <thead>
+                        <tr>
+                            <th colspan="2">Product</th>
+                            <th>Qty</th>
+                            <th>Price</th>
+                            <th>Subtotal</th>
+                        </tr>
+                        </thead>
+
+                        <tbody>
+
+                        @each('cart.parts.product_view', Cart::instance('cart')->content(), 'row')
+
+                        </tbody>
+                    </table>
+                @endif
                 <div class="cart-list-item">
                     <div class="cart-list-item-img"> <img src="" alt=""></div>
-                    <div class="cart-list-item-descr-wrap"> 
+                    <div class="cart-list-item-descr-wrap">
                         <span class="cart-list-item-descr__name text-24 text-black-100">Стійка</span>
-                        <div class="cart-list-item-descr__row"> 
+                        <div class="cart-list-item-descr__row">
                             <span class="cart-list-item-descr__row-size text-14 text-black-100">Розмір товару: </span>
                             <span class="cart-list-item-descr__row-size text-14 text-black-100"></span>
                         </div>
@@ -156,12 +174,12 @@
                     </button>
                 </div>
             </div>
-            <div class="cart-descr"> 
+            <div class="cart-descr">
                 <span class="cart-descr-title text-14 text-black-100">Діючі ціни можуть не збігатися з вказаними на сайті. Уточнюйте, будь ласка.</span>
                 <span class="cart-descr-price text-18 text-black-100"> Разом</span>
                 <span class="cart-descr-price-sum text-18 text-black-100"> </span>
             </div>
-            <div class="cart-buttons-wrap"> 
+            <div class="cart-buttons-wrap">
                 <a class="cart-buttons__back" href="">
                     <svg class="icon--arrow" role="presentation">
                         <use xlink:href="#icon-arrow"></use>
