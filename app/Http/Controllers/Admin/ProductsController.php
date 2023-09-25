@@ -34,7 +34,7 @@ class ProductsController extends Controller
         $categories = Category::nonRootCategories()->get();
         $products = Product::all();
         $recommendedProducts = $product->recommendedProducts;
-
+//dd($product->images);
         return view('admin/products/edit',['title'=>__('product.Title')], compact('product','categories','recommendedProducts','products'));
     }
 

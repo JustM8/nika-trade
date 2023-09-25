@@ -136,11 +136,11 @@
                         <div class="col-md-6">
                             <select class="form-select" name="recommended_id[]" id="recommended_id" multiple>
                                 <option value="">Open this select menu</option>
-                                @foreach($products as $product)
-                                    @if( $recommendedProducts->contains($product->id))
-                                        <option selected value="{{$product->id}}">{{$product->title[App::currentLocale()]}}</option>
+                                @foreach($products as $item)
+                                    @if( $recommendedProducts->contains($item->id))
+                                        <option selected value="{{$item->id}}">{{$item->title[App::currentLocale()]}}</option>
                                     @else
-                                        <option value="{{$product->id}}">{{$product->title[App::currentLocale()]}}</option>
+                                        <option value="{{$item->id}}">{{$item->title[App::currentLocale()]}}</option>
                                     @endif
                                 @endforeach
                             </select>
@@ -203,6 +203,7 @@
                             <div class="row">
                                 <div class="col-md-12">
                                     <div class="row images-wrapper">
+{{--                                        @dd($product->images);--}}
                                         @foreach($product->images as $image)
                                             @if(Storage::has($image->path))
                                                 <div class="col-sm-12 d-flex justify-content-center align-items-center">

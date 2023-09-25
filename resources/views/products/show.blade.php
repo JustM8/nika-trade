@@ -61,27 +61,14 @@
                                 </span> -->
 
                                 <div class="product-page-item-info__row-btn">
-                                    <form action="{{ route('cart.add', $product) }}" method="POST" class="form-inline">
-                                        @csrf
-                                        @method('post')
-                                        <div class="form-group col-sm-3 mb-2">
-                                            <input type="hidden"
-                                                   name="product_count"
-                                                   class="form-control"
-                                                   id="product_count"
-                                                    {{-- min="1"--}}
-                                                    {{--max="{{ $product->in_stock }}"--}}
-                                                   value="1"
-                                            >
-                                        </div>
-                                        <button type="submit" class="add-to-cart">
+                                        <a data-route="{{ route('cart.add', $product) }}" type="submit" class="add-to-cart">
                                             <svg class="icon--cart" role="presentation">
                                                 <use xlink:href="#icon-cart"></use>
                                             </svg>
                                             <span class="text-14 text-white">Купити</span>
-                                        </button>
-                                    </form>
+                                        </a>
                                 </div>
+
                             </div>
                         </div>
                     </div>

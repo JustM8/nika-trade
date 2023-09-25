@@ -39,7 +39,7 @@ class MainPageController extends Controller
 
     public function edit(MainPage $mainPage)
     {
-//        dd($mainPage->data);
+//        dd($mainPage->images);
         return view('admin/main/edit',['title'=>__('service.Title')], compact('mainPage'));
     }
 
