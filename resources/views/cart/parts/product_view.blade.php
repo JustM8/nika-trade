@@ -4,7 +4,7 @@
         <img src="{{ $row->model->thumbnailUrl }}" height="100" alt="">
     </td>
     <td>
-        <a href="{{ route('products.show', $row->options['slug']) }}"><strong>{{ $row->name[App::currentLocale()] }}</strong></a>
+        <a href="{{ route('product.show', $row->options['slug']) }}"><strong>{{ $row->name[App::currentLocale()] }}</strong></a>
     </td>
     <td>
         <form action="{{ route('cart.count.update', $row->id) }}" method="POST">

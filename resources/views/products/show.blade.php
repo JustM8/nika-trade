@@ -50,6 +50,22 @@
                           </button>
                         </div>
                       </div></span>
+                                    <form action="{{ route('cart.add', $product) }}" method="POST" class="form-inline">
+                                        @csrf
+                                        @method('post')
+                                        <div class="form-group col-sm-3 mb-2">
+                                            <label for="product_count" class="sr-only">Count: </label>
+                                            <input type="hidden"
+                                                   name="product_count"
+                                                   class="form-control"
+                                                   id="product_count"
+{{--                                                   min="1"--}}
+{{--                                                   max="{{ $product->in_stock }}"--}}
+                                                   value="1"
+                                            >
+                                        </div>
+                                        <button type="submit" class="btn btn-primary mb-2">Buy</button>
+                                    </form>
                                     <button class="product-page-item-info__row-btn">
                                         <svg class="icon--cart" role="presentation">
                                             <use xlink:href="#icon-cart"></use>
@@ -107,7 +123,7 @@
     </script> -->
     <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
     <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
-    <script defer src="{{asset('/assets/scripts/productPage.bundle.js')}}"></script>
+{{--    <script defer src="{{asset('/assets/scripts/productPage.bundle.js')}}"></script>--}}
 {{--    <script defer src="{{asset('/assets/scripts/cartPage.bundle.js')}}"></script>--}}
 @endpush
 
