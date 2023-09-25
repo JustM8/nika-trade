@@ -22,7 +22,7 @@ class CartController extends Controller
             1,
             $product->endPrice,
             0,
-            ['slug' => $product->slug],
+            ['slug' => $product->slug,'SKU'=>$product->SKU],
         )->associate(Product::class);
 
 //        notify()->success("Product was added to the cart", position: "topRight");

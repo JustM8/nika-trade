@@ -124,6 +124,7 @@
                         <thead>
                         <tr>
                             <th colspan="2">Product</th>
+                            <th>sku</th>
                             <th>Qty</th>
                             <th>Price</th>
                             <th>Subtotal</th>
