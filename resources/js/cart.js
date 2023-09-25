@@ -37,7 +37,7 @@ $(document).on('click', '.add-to-cart', function (e){
             });
 
             const openCartPopup = () => {
-                const openBtnRef = document.querySelectorAll('.product-page-item-info__row-btn');
+                const openBtnRef = document.querySelectorAll('.add-to-cart');
                 openBtnRef.forEach(el => {
                   el.addEventListener('click', () => {
                     cartPopup.open();
