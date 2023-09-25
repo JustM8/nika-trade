@@ -50,9 +50,9 @@
                           </button>
                         </div>
                       </div></span>
-                                   
+
                                     <div class="product-page-item-info__row-btn">
-                                        
+
 
                                         <form action="{{ route('cart.add', $product) }}" method="POST" class="form-inline">
                                         @csrf
@@ -67,7 +67,7 @@
                                                    value="1"
                                             >
                                         </div>
-                                        <button type="submit">
+                                        <button type="submit" class="add-to-cart">
                                             <svg class="icon--cart" role="presentation">
                                             <use xlink:href="#icon-cart"></use>
                                         </svg><span class="text-14 text-white">Купити</span>
@@ -117,7 +117,7 @@
 
 @endsection
 @push('footer-scripts')
-    @vite(['resources/js/images-actions.js', 'resources/js/nikaModel.build.js'])
+    @vite(['resources/js/images-actions.js', 'resources/js/nikaModel.build.js','resources/js/cart.js'])
     <!-- <script>
         window.addEventListener('DOMContentLoaded',function(evt){
             window.obj3d(document.querySelector('[data-object-container]'), "{{ $product->objmodelUrl  }}");

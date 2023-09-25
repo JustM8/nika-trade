@@ -23,9 +23,9 @@ class CartController extends Controller
             ['slug'=>$product->slug],
         )->associate(Product::class);
 
-        notify()->success("Product was added to the cart", position: "topRight");
-
+//        notify()->success("Product was added to the cart", position: "topRight");
         return redirect()->back();
+//        return response()->json(['message'=>'Product added']);
     }
 
     public function remove(Request $request)
