@@ -16,6 +16,13 @@
                     <h2 class="page-title text-title"><?=$category['name'][App::currentLocale()]?></h2>
                 </div>
                 <div class="catalog-single-main">
+                    <div class="catalog-single-btn-mobile-wrap"> 
+                        <button class="catalog-single-btn-mobile btn"> 
+                        <svg class="icon--equipment-btn" role="presentation">
+                            <use xlink:href="#icon-equipment-btn"></use>
+                        </svg><span>Обладнання</span>
+                        </button>
+                    </div>
                     <div class="catalog-single-filters-wrap">
                     @foreach($menu as $item)
                         <div class="catalog-single-filter">

@@ -25,6 +25,7 @@
                             value="{{ $row->qty }}"
                             max="{{ $row->model->in_stock }}"
                             name="product_count"
+                            class="cart-list-item-descr__quantity-container__input-value"
                         >
 {{--                        <input type="submit" class="btn btn-outline-success" value="Update count">--}}
                     </form>
@@ -44,18 +45,18 @@
                 </span>
                 <span class="cart-list-item-descr__price text-18 text-black-100">  </span>
                 <button class="cart-list-item-delete">
-                <form action="{{ route('cart.remove') }}" method="POST">
-                    @csrf
-                    @method('DELETE')
-                    <input type="hidden" value="{{ $row->rowId }}" name="rowId">
-                    <input type="submit" class="btn btn-outline-danger" value="{{ __('') }}">
-                </form>
+                  <form action="{{ route('cart.remove') }}" method="POST">
+                      @csrf
+                      @method('DELETE')
+                      <input type="hidden" value="{{ $row->rowId }}" name="rowId">
+                      <input type="submit" class="cart-list-item-delete__input" value="{{ __('') }}">
+                  </form>
 
-                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
 
-                    <path d="M1 11L11 1L1 11ZM11 11L1 1L11 11Z" fill="#C8102E"></path>
-                    <path d="M11 11L1 1M1 11L11 1L1 11Z" stroke="white" stroke-width="2"></path>
-                  </svg>
+                      <path d="M1 11L11 1L1 11ZM11 11L1 1L11 11Z" fill="#C8102E"></path>
+                      <path d="M11 11L1 1M1 11L11 1L1 11Z" stroke="white" stroke-width="2"></path>
+                    </svg>
                 </button>
             </div>
 <!-- <tr>
