@@ -21,7 +21,11 @@
                                 <img class="product-page-image" src="{{ $product->thumbnailUrl  }}" alt="">
                             @endif
 
-                            <model-viewer class="product-page-image hidden" camera-controls alt="A 3D model of an astronaut" src="./assets/images/product/plant.glb"></model-viewer>
+                           
+                            <model-viewer class="product-page-image hidden" camera-controls alt="A 3D model of an astronaut" src="{{ $product->thumbnailUrl  }}"></model-viewer>
+                       
+
+                            
                         </div>
                         <div class="product-page-item-img-switch"><span class="product-page__theme--2d text-14 text-black-100">2D схема</span>
                             <div class="product-page__theme js-product-page__theme">
@@ -39,9 +43,9 @@
                             <span class="product-page-item-info__title-row-blank"></span></div>
                             <div class="product-page-list">
                                 <div class="product-page-item-info__row">
-                                <span class="product-page-item-info__row-code text-14 text-black">У 005</span>
-                                <span class="product-page-item-info__row-name text-14 text-black">L-стійка Н=1220мм</span>
-                                <span class="product-page-item-info__row-price text-14 text-black">810.00 грн</span>
+                                <span class="product-page-item-info__row-code text-14 text-black">{{ $product->SKU }}</span>
+                                <span class="product-page-item-info__row-name text-14 text-black">{{ $product->title[App::currentLocale()] }}</span>
+                                <span class="product-page-item-info__row-price text-14 text-black">{{ $product->price }} грн</span>
                                 <!-- <span class="product-page-item-info__row-quantity">
                                     <div class="buttons product-page-item-info__row-quantity-container">
                                         <div class="quantity product-page-item-info__row-quantity-num text-14 text-black">0</div>
@@ -61,12 +65,12 @@
                                 </span> -->
 
                                 <div class="product-page-item-info__row-btn">
-                                        <button data-route="{{ route('cart.add', $product) }}" type="submit" class="add-to-cart">
+                                        <a data-route="{{ route('cart.add', $product) }}" type="submit" class="product-page-item-info__row-btn-link add-to-cart">
                                             <svg class="icon--cart" role="presentation">
                                                 <use xlink:href="#icon-cart"></use>
                                             </svg>
                                             <span class="text-14 text-white">Купити</span>
-                                        </button>
+                                        </a>
                                 </div>
 
                             </div>
