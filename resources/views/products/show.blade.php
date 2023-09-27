@@ -21,11 +21,11 @@
                                 <img class="product-page-image" src="{{ $product->thumbnailUrl  }}" alt="">
                             @endif
 
-                           
-                            <model-viewer class="product-page-image hidden" camera-controls alt="A 3D model of an astronaut" src="{{ $product->thumbnailUrl  }}"></model-viewer>
-                       
 
-                            
+                            <model-viewer class="product-page-image hidden" camera-controls alt="A 3D model of an astronaut" src="{{ $product->thumbnailUrl  }}"></model-viewer>
+
+
+
                         </div>
                         <div class="product-page-item-img-switch"><span class="product-page__theme--2d text-14 text-black-100">2D схема</span>
                             <div class="product-page__theme js-product-page__theme">
@@ -138,7 +138,7 @@
                     </svg>
                     <span class="text-14 text-black-100">Продовжити покупки</span>
                 </a>
-                <a class="cart-buttons__cart" href="cart-page.html">
+                <a class="cart-buttons__cart" href="{{url('/cart')}}">
                     <span class="text-14 text-white">Перейти у кошик</span>
                     <svg class="icon--cart" role="presentation">
                         <use xlink:href="#icon-cart"></use>
