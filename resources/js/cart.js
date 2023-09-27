@@ -1,5 +1,20 @@
 import "./bootstrap";
 
+const popupFactory = (ref) => ({
+    open() {
+        this.element.classList.add("modal-open");
+    },
+    close() {
+        this.element.classList.remove("modal-open");
+    },
+    toggle() {
+        this.element.classList.toggleClass("modal-open");
+    },
+    element: ref,
+});
+
+const cartPopup = popupFactory(document.querySelector(".cart-overlay"));
+
 $(document).on("click", ".add-to-cart", function (e) {
     e.preventDefault();
     let $btn = $(this);
@@ -12,38 +27,33 @@ $(document).on("click", ".add-to-cart", function (e) {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
         },
         success: function (data) {
-            const popupFactory = (ref) => ({
-                open() {
-                    this.element.classList.add("modal-open");
-                },
-                close() {
-                    this.element.classList.remove("modal-open");
-                },
-                toggle() {
-                    this.element.classList.toggleClass("modal-open");
-                },
-                element: ref,
-            });
+            cartPopup.open();
+        },
+        error: function (data) {
+            console.log("Error:", data);
+        },
+    });
+});
 
-            const cartPopup = popupFactory(
-                document.querySelector(".cart-overlay")
-            );
-            const closeBtnRef = document.querySelector(".cart-close");
+const closeBtnRef = document.querySelector(".cart-close");
 
-            closeBtnRef.addEventListener("click", () => {
-                cartPopup.close();
-            });
+closeBtnRef.addEventListener("click", () => {
+    cartPopup.close();
+});
 
-            const openCartPopup = () => {
-                const openBtnRef = document.querySelectorAll(".add-to-cart");
-                openBtnRef.forEach((el) => {
-                    el.addEventListener("click", () => {
-                        cartPopup.open();
-                    });
-                });
-            };
+$(document).on("click", ".cart-list-item-delete__input", function (e) {
+    e.preventDefault();
+    let $form = $(this).closest("form"); // Find the parent form
 
-            openCartPopup();
+    $.ajax({
+        url: $form.data("route"),
+        type: "POST",
+        data: $form.serialize(),
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+        success: function (data) {
+            // Handle success, if needed
         },
         error: function (data) {
             console.log("Error:", data);
