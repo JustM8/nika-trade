@@ -126,7 +126,7 @@ function decrementQuantity($input) {
 }
 
 // Bind keyup and mouseup events to inputs
-$(document).on("keyup mouseup", ":input", function () {
+$(document).on("keyup", 'input[type="number"]', function () {
     updateQuantity($(this));
 });
 
