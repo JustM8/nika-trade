@@ -132,7 +132,7 @@
                                 <img src="{{ $cartItem->model->thumbnailUrl }}" alt="{{ $cartItem->name[App::currentLocale()] }}" style="width: 50px;">
                             </td>
                             <td>
-                                <a href="{{ route('products.show', $cartItem->id) }}"><strong>{{ $cartItem->name[App::currentLocale()] }}</strong></a>
+                                <a href="{{ route('product.show', $cartItem->id) }}"><strong>{{ $cartItem->name[App::currentLocale()] }}</strong></a>
                             </td>
                             <td>{{ $cartItem->qty }}</td>
                             <td>{{ $cartItem->price }}$</td>

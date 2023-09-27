@@ -28,6 +28,7 @@ class OrdersController extends Controller
 
     public function create(CreateOrderRequest $request)
     {
+//        dd($request->all(),Cart::instance('cart')->total(2, '.', ''));
         try {
             DB::beginTransaction();
 

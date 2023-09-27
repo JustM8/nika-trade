@@ -27,7 +27,6 @@
                             name="product_count"
                             class="cart-list-item-descr__quantity-container__input-value"
                         >
-{{--                        <input type="submit" class="btn btn-outline-success" value="Update count">--}}
                     </form>
                     <div class="cart-list-item-descr__quantity-buttons">
                       <button  class="cart-increment-btn product-page-item-info__row-quantity-increment text-14 text-black">
@@ -59,37 +58,3 @@
                     </svg>
                 </button>
             </div>
-<!-- <tr>
-    <td>
-        <img src="{{ $row->model->thumbnailUrl }}" height="100" alt="">
-    </td>
-    <td>
-    {{ $row->options->SKU }}
-</td>
-    <td>
-        <a href="{{ route('product.show', $row->options['slug']) }}"><strong>{{ $row->name[App::currentLocale()] }}</strong></a>
-    </td>
-    <td>
-        <form action="{{ route('cart.count.update', $row->id) }}" method="POST">
-            @csrf
-            <input type="hidden" value="{{ $row->rowId }}" name="rowId">
-            <input type="number"
-                   min="1"
-                   value="{{ $row->qty }}"
-                   max="{{ $row->model->in_stock }}"
-                   name="product_count"
-            >
-            <input type="submit" class="btn btn-outline-success" value="Update count">
-        </form>
-    </td>
-    <td>{{ $row->price }}$</td>
-    <td>{{ $row->subtotal }}$</td>
-    <td>
-        <form action="{{ route('cart.remove') }}" method="POST">
-            @csrf
-            @method('DELETE')
-            <input type="hidden" value="{{ $row->rowId }}" name="rowId">
-            <input type="submit" class="btn btn-outline-danger" value="{{ __('Delete') }}">
-        </form>
-    </td>
-</tr> -->

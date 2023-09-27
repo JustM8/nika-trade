@@ -120,7 +120,7 @@
             <div class="cart-title text-m text-black-100">Додано у кошик</div>
             @if(Cart::instance('cart')->count() > 0)
                 @each('cart.parts.product_view_popup', Cart::instance('cart')->content(), 'row')
-                
+
             @endif
             <div class="cart-descr">
                 <span class="cart-descr-title text-14 text-black-100">Діючі ціни можуть не збігатися з вказаними на сайті. Уточнюйте, будь ласка.</span>
@@ -150,7 +150,7 @@
 
 @endsection
 @push('footer-scripts')
-    @vite(['resources/js/images-actions.js', 'resources/js/nikaModel.build.js','resources/js/cart.js'])
+    @vite([ 'resources/js/nikaModel.build.js','resources/js/cart.js'])
     <!-- <script>
         window.addEventListener('DOMContentLoaded',function(evt){
             window.obj3d(document.querySelector('[data-object-container]'), "{{ $product->objmodelUrl  }}");

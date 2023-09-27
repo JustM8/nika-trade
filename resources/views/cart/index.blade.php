@@ -1,60 +1,60 @@
 @extends('layouts.theme')
 @section('content')
 
-    <div class="container">
-        <div class="row justify-content-center">
-            <div class="col-md-12">
-                <h3 class="text-center">{{ __('cart.Title') }}</h3>
-            </div>
-            <div class="col-md-12">
-                @if(Cart::instance('cart')->count() > 0)
-                    <table class="table table-light">
-                        <thead>
-                        <tr>
-                            <th colspan="2">Product</th>
-                            <th>Qty</th>
-                            <th>Price</th>
-                            <th>Subtotal</th>
-                        </tr>
-                        </thead>
+{{--    <div class="container">--}}
+{{--        <div class="row justify-content-center">--}}
+{{--            <div class="col-md-12">--}}
+{{--                <h3 class="text-center">{{ __('cart.Title') }}</h3>--}}
+{{--            </div>--}}
+{{--            <div class="col-md-12">--}}
+{{--                @if(Cart::instance('cart')->count() > 0)--}}
+{{--                    <table class="table table-light">--}}
+{{--                        <thead>--}}
+{{--                        <tr>--}}
+{{--                            <th colspan="2">Product</th>--}}
+{{--                            <th>Qty</th>--}}
+{{--                            <th>Price</th>--}}
+{{--                            <th>Subtotal</th>--}}
+{{--                        </tr>--}}
+{{--                        </thead>--}}
 
-                        <tbody>
+{{--                        <tbody>--}}
 
-                        @each('cart.parts.product_view', Cart::instance('cart')->content(), 'row')
+{{--                        @each('cart.parts.product_view', Cart::instance('cart')->content(), 'row')--}}
 
-                        </tbody>
-                    </table>
-                @else
-                    <h3 class="text-center">There are no products in cart</h3>
-                @endif
-                <hr>
-                <table class="table table-dark" style="width: 50%; float: right;">
-                    <tbody>
-                    <tr>
-                        <td colspan="2">&nbsp</td>
-                        <td>Subtotal</td>
-                        <td>{{ Cart::subtotal() }}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">&nbsp</td>
-                        <td>Tax</td>
-                        <td>{{ Cart::tax() }}</td>
-                    </tr>
-                    <tr>
-                        <td colspan="2">&nbsp</td>
-                        <td>Total</td>
-                        <td>{{ Cart::total() }}</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            @auth
-                <div class="col-md-12 text-right">
-                    <a href="{{ route('checkout') }}" class="btn btn-outline-success">{{ __('Proceed to checkout') }}</a>
-                </div>
-            @endauth
-        </div>
-    </div>
+{{--                        </tbody>--}}
+{{--                    </table>--}}
+{{--                @else--}}
+{{--                    <h3 class="text-center">There are no products in cart</h3>--}}
+{{--                @endif--}}
+{{--                <hr>--}}
+{{--                <table class="table table-dark" style="width: 50%; float: right;">--}}
+{{--                    <tbody>--}}
+{{--                    <tr>--}}
+{{--                        <td colspan="2">&nbsp</td>--}}
+{{--                        <td>Subtotal</td>--}}
+{{--                        <td>{{ Cart::subtotal() }}</td>--}}
+{{--                    </tr>--}}
+{{--                    <tr>--}}
+{{--                        <td colspan="2">&nbsp</td>--}}
+{{--                        <td>Tax</td>--}}
+{{--                        <td>{{ Cart::tax() }}</td>--}}
+{{--                    </tr>--}}
+{{--                    <tr>--}}
+{{--                        <td colspan="2">&nbsp</td>--}}
+{{--                        <td>Total</td>--}}
+{{--                        <td>{{ Cart::total() }}</td>--}}
+{{--                    </tr>--}}
+{{--                    </tbody>--}}
+{{--                </table>--}}
+{{--            </div>--}}
+{{--            @auth--}}
+{{--                <div class="col-md-12 text-right">--}}
+{{--                    <a href="{{ route('checkout') }}" class="btn btn-outline-success">{{ __('Proceed to checkout') }}</a>--}}
+{{--                </div>--}}
+{{--            @endauth--}}
+{{--        </div>--}}
+{{--    </div>--}}
 
 <section class="cart-page page-container">
     <div class="cart-page-wrap">
@@ -69,11 +69,19 @@
             <h2 class="page-title text-title">Корзина</h2>
         </div>
         <div class="cart-page-main">
-            <form data-cart-popup id="cart-page-form">
+            <form data-cart-popup id="cart-page-form" action="{{ route('order.create') }}">
+                @csrf
                 <div class="cart-page-items cart-page-card"><span class="cart-page-card-title text-m text-balck-100">Товарів у кошику:</span>
                     <div class="cart-page-card-content">
-                        <div class="cart-list"> </div>
-                        <div class="cart-descr"> <span class="cart-descr-title text-14 text-black-100">Діючі ціни можуть не збігатися з вказаними на сайті. Уточнюйте, будь ласка.</span><span class="cart-descr-price text-18 text-black-100"> Разом</span><span class="cart-descr-price-sum text-18 text-black-100"> </span></div>
+                        <div class="cart-list">
+                            @if(Cart::instance('cart')->count() > 0)
+                                @each('cart.parts.product_view', Cart::instance('cart')->content(), 'row')
+
+                            @endif
+                        </div>
+                        <div class="cart-descr"> <span class="cart-descr-title text-14 text-black-100">Діючі ціни можуть не збігатися з вказаними на сайті. Уточнюйте, будь ласка.</span>
+                            <span class="cart-descr-price text-18 text-black-100"> Разом</span>
+                            <span class="cart-descr-price-sum text-18 text-black-100">{{Cart::total()}}</span></div>
                     </div>
                 </div>
                 <div class="cart-page-checkup cart-page-card"> <span class="cart-page-card-title text-m text-balck-100">Оформлення товару:</span>
@@ -194,7 +202,8 @@
                             <div class="cart-input-message text-14" data-input-message> </div>
                         </div>
                         <div class="btn-container btn-container-border">
-                            <button class="btn" type="submit" data-btn-submit onClick="window.location.href='https://nika-verstka.smarto.com.ua/thank-you-page.html';"><span class="link__text usn" data-btn-submit-text>Підтвердити замовлення </span></button>
+{{--                            <button class="btn" type="submit" data-btn-submit><span class="link__text usn" data-btn-submit-text>Підтвердити замовлення </span></button>--}}
+                            <button type="submit">Make order</button>
                         </div>
                     </div>
                 </div>
@@ -203,6 +212,7 @@
     </div>
 </section>
 @endsection
+@vite(['resources/js/cart.js'])
 @push('footer-scripts')
     <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
     <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>

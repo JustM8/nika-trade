@@ -50,6 +50,7 @@ class OrderRepository implements OrderRepositoryContract
     {
         Cart::instance('cart')->content()->groupBy('id')->each( function ($item) use ($order){
             $cartItem  = $item->first();
+//            dd($cartItem);
             $order->products()->attach(
                 $cartItem->model,//product if ->model
                 [
