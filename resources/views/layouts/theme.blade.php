@@ -181,6 +181,8 @@
               <div class="header-cart-amount text-10 text-white" id="cartAmount">
                   @if (Cart::instance('cart')->count() > 0)
                       {{ Cart::instance('cart')->content()->count() }}
+ @else
+ 0                     
                   @endif</div>
               </a></div>
         </div>
