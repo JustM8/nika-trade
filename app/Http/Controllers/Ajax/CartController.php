@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\View;
 
 class CartController extends Controller
 {
@@ -32,11 +33,13 @@ class CartController extends Controller
 
     public function remove(Request $request)
     {
+
         Cart::instance('cart')->remove($request->rowId);
 
         notify()->success("Product was removed", position: "topRight");
 
-        return redirect()->back();
+        return response()->json(['message'=>'Product delete']);
+//        return redirect()->back();
     }
 
     public function countUpdate(Request $request, Product $product)
@@ -58,4 +61,13 @@ class CartController extends Controller
 //        return redirect()->back();
     }
 
+    public function getCardPopup()
+    {
+        if(Cart::instance('cart')->count() > 0) {
+            $row = Cart::instance('cart')->content();
+            $html = View::make('cart.parts.cart_popup', compact('row'))->render();
+
+            return response()->json(['html' => $html]);
+        }
+    }
 }

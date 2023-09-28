@@ -27,6 +27,7 @@ $(document).on("click", ".add-to-cart", function (e) {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
         },
         success: function (data) {
+            updateCartPopup();
             cartPopup.open();
         },
         error: function (data) {
@@ -53,6 +54,7 @@ $(document).on("click", ".cart-list-item-delete__input", function (e) {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
         },
         success: function (data) {
+
             // Handle success, if needed
         },
         error: function (data) {
@@ -60,30 +62,6 @@ $(document).on("click", ".cart-list-item-delete__input", function (e) {
         },
     });
 });
-
-// let itemsCount = $(":input");
-
-// itemsCount.bind("keyup mouseup", function () {
-//     let $btn = $(this);
-
-//     console.log($btn.val(), $btn.parent().data("row-id"));
-
-//     $.ajax({
-//         url: $btn.parent().data("route"),
-//         type: "POST",
-//         dataType: "json",
-//         data: { count: $btn.val(), rowId: $btn.parent().data("row-id") },
-//         headers: {
-//             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-//         },
-//         success: function (data) {
-//             console.log("data", data);
-//         },
-//         error: function (data) {
-//             console.log("Error:", data);
-//         },
-//     });
-// });
 
 function updateQuantity($input) {
     let $btn = $input;
@@ -163,3 +141,21 @@ $(document).on("click", ".cart-decrement-btn", function (e) {
 //         }
 //     })
 // });
+
+function updateCartPopup() {
+    $.ajax({
+        url: '/ajax/cart/popup',
+        type: "get", // Змінено метод на POST, якщо ви хочете передати дані на сервер
+        dataType: "json",
+        headers: {
+            "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+        },
+        success: function (data) {
+            // Оновіть вміст popup з отриманим HTML
+            document.querySelector('#cart-popup').innerHTML = data.html;
+        },
+        error: function (data) {
+            console.log("Error:", data);
+        },
+    });
+}

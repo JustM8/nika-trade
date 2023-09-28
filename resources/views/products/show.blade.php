@@ -122,10 +122,11 @@
                 </svg>
             </button>
             <div class="cart-title text-m text-black-100">Додано у кошик</div>
-            @if(Cart::instance('cart')->count() > 0)
-                @each('cart.parts.product_view_popup', Cart::instance('cart')->content(), 'row')
-
-            @endif
+            <div id="cart-popup">
+                @if(Cart::instance('cart')->count() > 0)
+                    @each('cart.parts.product_view_popup', Cart::instance('cart')->content(), 'row')
+                @endif
+            </div>
             <div class="cart-descr">
                 <span class="cart-descr-title text-14 text-black-100">Діючі ціни можуть не збігатися з вказаними на сайті. Уточнюйте, будь ласка.</span>
                 <span class="cart-descr-price text-18 text-black-100"> Разом</span>

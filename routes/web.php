@@ -38,6 +38,8 @@ Route::post('cart/{product}', [\App\Http\Controllers\CartController::class, 'add
 Route::delete('cart', [\App\Http\Controllers\CartController::class, 'remove'])->name('cart.remove');
 Route::post('cart/{product}/count', [\App\Http\Controllers\CartController::class, 'countUpdate'])->name('cart.count.update');
 
+Route::delete('ajax/cart', [\App\Http\Controllers\Ajax\CartController::class, 'remove'])->name('ajax.cart.remove');
+Route::get('ajax/cart/popup', [\App\Http\Controllers\Ajax\CartController::class, 'getCardPopup'])->name('cart.popup');
 Route::post('ajax/cart/{product}', [\App\Http\Controllers\Ajax\CartController::class, 'add'])->name('cart.add');
 Route::post('ajax/cart/{product}/count', [\App\Http\Controllers\Ajax\CartController::class, 'countUpdate'])->name('ajax.cart.count.update');
 

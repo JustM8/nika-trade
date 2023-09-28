@@ -45,7 +45,7 @@
                 </span>
                 <span class="cart-list-item-descr__price text-18 text-black-100"> {{$row->qty * $row->price }} </span>
                 <div class="cart-list-item-delete">
-                  <form data-route="{{ route('cart.remove') }}" action="{{ route('cart.remove') }}" method="POST">
+                  <form data-route="{{ route('ajax.cart.remove') }}" action="{{ route('ajax.cart.remove') }}" method="POST">
                       @csrf
                       @method('DELETE')
                       <input type="hidden" value="{{ $row->rowId }}" name="rowId">
