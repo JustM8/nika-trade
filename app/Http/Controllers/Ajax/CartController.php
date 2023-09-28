@@ -69,13 +69,13 @@ class CartController extends Controller
     public function getCardPopup()
     {
         if(Cart::instance('cart')->count() > 0) {
+            (Cart::instance('cart')->content()->count() > 0)? $count = Cart::instance('cart')->content()->count(): $count = 0;
             $row = Cart::instance('cart')->content();
             $html = View::make('cart.parts.cart_popup', compact('row'))->render();
-
-            return response()->json(['html' => $html]);
+            return response()->json(['html' => $html, 'total'=>Cart::total(), 'count'=>$count]);
         }else
         {
-            return response()->json(['html' => __('cart.empty')]);
+            return response()->json(['html' => __('cart.empty'), 'total'=>Cart::total(), 'count'=>0]);
         }
     }
 }

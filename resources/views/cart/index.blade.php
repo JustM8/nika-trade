@@ -81,7 +81,7 @@
                         </div>
                         <div class="cart-descr"> <span class="cart-descr-title text-14 text-black-100">Діючі ціни можуть не збігатися з вказаними на сайті. Уточнюйте, будь ласка.</span>
                             <span class="cart-descr-price text-18 text-black-100"> Разом</span>
-                            <span class="cart-descr-price-sum text-18 text-black-100">{{Cart::total()}}</span></div>
+                            <span class="cart-descr-price-sum text-18 text-black-100" id="cart-total" >{{Cart::total()}}</span></div>
                     </div>
                 </div>
                 <div class="cart-page-checkup cart-page-card"> <span class="cart-page-card-title text-m text-balck-100">Оформлення товару:</span>

@@ -121,28 +121,6 @@ $(document).on("click", ".cart-decrement-btn", function (e) {
     decrementQuantity($input);
 });
 
-// $('input[type="number"]').on('keyup ', function() {
-//   let $btn = $(this);
-
-//   console.log($btn.val(),$btn.parent().data('row-id'))
-
-//     $.ajax({
-//         url: $btn.parent().data('route'),
-//         type: 'POST',
-//         dataType: 'json',
-//         data: {count:$btn.val(),rowId:$btn.parent().data('row-id')},
-//         headers: {
-//             'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content')
-//         },
-//         success: function (data){
-//             console.log('data',data);
-//         },
-//         error: function (data){
-//             console.log('Error:',data);
-//         }
-//     })
-// });
-
 function updateCartPopup() {
     $.ajax({
         url: '/ajax/cart/popup',
@@ -154,6 +132,8 @@ function updateCartPopup() {
         success: function (data) {
             // Оновіть вміст popup з отриманим HTML
             document.querySelector('#cart-popup').innerHTML = data.html;
+            document.querySelector('#cart-total').innerHTML = data.total;
+            document.querySelector('#cart-amount').innerHTML = data.count;
         },
         error: function (data) {
             console.log("Error:", data);

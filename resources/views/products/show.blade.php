@@ -130,7 +130,7 @@
             <div class="cart-descr">
                 <span class="cart-descr-title text-14 text-black-100">Діючі ціни можуть не збігатися з вказаними на сайті. Уточнюйте, будь ласка.</span>
                 <span class="cart-descr-price text-18 text-black-100"> Разом</span>
-                <span class="cart-descr-price-sum text-18 text-black-100">{{Cart::total()}} </span>
+                <span class="cart-descr-price-sum text-18 text-black-100"  id="cart-total">{{Cart::total()}} </span>
             </div>
             <div class="cart-buttons-wrap">
                 <a class="cart-buttons__back" href="">
