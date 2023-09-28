@@ -69,9 +69,7 @@
             <h2 class="page-title text-title">Корзина</h2>
         </div>
         <div class="cart-page-main">
-            <form data-cart-popup id="cart-page-form" action="{{ route('order.create') }}">
-                @csrf
-                <div class="cart-page-items cart-page-card"><span class="cart-page-card-title text-m text-balck-100">Товарів у кошику:</span>
+        <div class="cart-page-items cart-page-card"><span class="cart-page-card-title text-m text-balck-100">Товарів у кошику:</span>
                     <div class="cart-page-card-content">
                         <div class="cart-list">
                             @if(Cart::instance('cart')->count() > 0)
@@ -84,6 +82,9 @@
                             <span class="cart-descr-price-sum text-18 text-black-100" id="cart-total" >{{Cart::total()}}</span></div>
                     </div>
                 </div>
+            <form data-cart-popup id="cart-page-form" action="{{ route('order.create') }}">
+                @csrf
+                
                 <div class="cart-page-checkup cart-page-card"> <span class="cart-page-card-title text-m text-balck-100">Оформлення товару:</span>
                     <div class="cart-page-card-content cart-page-card-form-container">
                         <p class="cart-page-form__hint text-14">Назва установи:</p>
