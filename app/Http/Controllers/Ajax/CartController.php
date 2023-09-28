@@ -73,6 +73,9 @@ class CartController extends Controller
             $html = View::make('cart.parts.cart_popup', compact('row'))->render();
 
             return response()->json(['html' => $html]);
+        }else
+        {
+            return response()->json(['html' => __('cart.empty')]);
         }
     }
 }

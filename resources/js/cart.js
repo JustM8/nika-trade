@@ -54,7 +54,7 @@ $(document).on("click", ".cart-list-item-delete__input", function (e) {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
         },
         success: function (data) {
-
+            updateCartPopup();
             // Handle success, if needed
         },
         error: function (data) {
@@ -78,6 +78,7 @@ function updateQuantity($input) {
                 "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
             },
             success: function (data) {
+                updateCartPopup();
                 console.log("data", data);
             },
             error: function (data) {
