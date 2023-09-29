@@ -22,7 +22,7 @@
                             @endif
 
 
-                            <div class="product-page-image product-page-image--obj hidden" camera-controls alt="A 3D model of an astronaut"></div>
+                            <div id="nikaModel" data-scr='{{ $product->objmodelUrl  }}' class="product-page-image product-page-image--obj hidden" camera-controls alt="A 3D model of an astronaut"></div>
 
 
 
@@ -161,12 +161,12 @@
 @endsection
 @push('footer-scripts')
     @vite([ 'resources/js/nikaModel.build.js','resources/js/cart.js'])
-    <script>
+    <!-- <script>
         window.addEventListener('DOMContentLoaded',function(evt){
             window.obj3d(document.querySelector('.product-page-image--obj'), "{{ $product->objmodelUrl  }}");
         });
         console.log(document.querySelector('[data-object-container]'));
-    </script>
+    </script> -->
     <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
     <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
 <script defer src="{{asset('/assets/scripts/productPage.bundle.js')}}"></script>
