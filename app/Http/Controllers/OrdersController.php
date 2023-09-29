@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\CreateOrderRequest;
 use App\Models\Order;
 use App\Models\Product;
+use App\Models\User;
 use App\Repositories\Contracts\OrderRepositoryContract;
 use App\Repositories\ProductRepository;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -29,6 +30,13 @@ class OrdersController extends Controller
     public function create(CreateOrderRequest $request)
     {
 //        dd($request->all(),Cart::instance('cart')->total(2, '.', ''));
+
+        $user = User::create([
+            'first_name' => 'Taylor',
+            'last_name' => 'Otwell',
+            'title' => 'Developer',
+        ]);
+
         try {
             DB::beginTransaction();
 
