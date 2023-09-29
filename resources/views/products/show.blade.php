@@ -22,7 +22,7 @@
                             @endif
 
 
-                            <model-viewer class="product-page-image hidden" camera-controls alt="A 3D model of an astronaut" src="{{ $product->thumbnailUrl  }}"></model-viewer>
+                            <div class="product-page-image product-page-image--obj hidden" camera-controls alt="A 3D model of an astronaut"></div>
 
 
 
@@ -88,7 +88,12 @@
                         <div class="product-page-info active" data-info="details">
 
                             <span class="product-page-info-descr__title text-m text-black-100">{{ $product->title[App::currentLocale()] }}</span>
+
+                            <div class="product-page-info-list">
+                            <div class="product-page-info-item text-14 text-text">
                                 {!! $product->description[App::currentLocale()] !!}
+</div>
+</div>
                         </div>
                         <div class="product-page-info" data-info="shipping">
                             <span class="product-page-info-descr__title text-m text-black-100">Умови</span>
@@ -156,15 +161,16 @@
 @endsection
 @push('footer-scripts')
     @vite([ 'resources/js/nikaModel.build.js','resources/js/cart.js'])
-    <!-- <script>
+    <script>
         window.addEventListener('DOMContentLoaded',function(evt){
-            window.obj3d(document.querySelector('[data-object-container]'), "{{ $product->objmodelUrl  }}");
+            window.obj3d(document.querySelector('.product-page-image--obj'), "{{ $product->objmodelUrl  }}");
         });
         console.log(document.querySelector('[data-object-container]'));
-    </script> -->
+    </script>
     <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
     <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
-{{--    <script defer src="{{asset('/assets/scripts/productPage.bundle.js')}}"></script>--}}
+<script defer src="{{asset('/assets/scripts/productPage.bundle.js')}}"></script>
+<!-- <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script> -->
 {{--    <script defer src="{{asset('/assets/scripts/cartPage.bundle.js')}}"></script>--}}
 @endpush
 
