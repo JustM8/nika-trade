@@ -12,6 +12,7 @@ use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 use App\Repositories\OrderRepository;
 use Illuminate\Support\Facades\DB;
+use Illuminate\Support\Facades\Hash;
 
 class OrdersController extends Controller
 {
@@ -31,11 +32,16 @@ class OrdersController extends Controller
     {
 //        dd($request->all(),Cart::instance('cart')->total(2, '.', ''));
 
-        $user = User::create([
-            'first_name' => 'Taylor',
-            'last_name' => 'Otwell',
-            'title' => 'Developer',
-        ]);
+//        $user = User::create([
+//            'role_id' =>  2,
+//            'name' => 'Taylor',
+//            'surname' => 'Otwell',
+//            'birthdate' => date("2003-01-05"),
+//            'phone' => "+380993222112",
+//            'email'=> "test@sm.com",
+//            'password' => Hash::make('test1234')
+//        ]);
+//        dd($user);
 
         try {
             DB::beginTransaction();
