@@ -146,8 +146,11 @@
                             <div class="cart-input-message text-14" data-input-message> </div>
                         </div>
                         <div class="btn-container btn-container-border">
-{{--                            <button class="btn" type="submit" data-btn-submit><span class="link__text usn" data-btn-submit-text>Підтвердити замовлення </span></button>--}}
-                            <button type="submit">Make order</button>
+{{--                            <button class="btn" type="submit" data-btn-submit>
+    <span class="link__text usn" data-btn-submit-text>Підтвердити замовлення </span></button>--}}
+                            <button type="submit"  data-btn-submit class="btn"> Підтвердити замовлення 
+                            <span class="link__text usn" data-btn-submit-text></span>
+                            </button>
                         </div>
                     </div>
                 </div>
@@ -160,4 +163,5 @@
 @push('footer-scripts')
     <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
     <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
+    <script defer src="{{asset('/assets/scripts/cartPage.bundle.js')}}"></script>
 @endpush
