@@ -17,6 +17,7 @@ const cartPopup = popupFactory(document.querySelector(".cart-overlay"));
 
 $(document).on("click", ".add-to-cart", function (e) {
     e.preventDefault();
+   
     let $btn = $(this);
 
     $.ajax({
@@ -112,12 +113,13 @@ $(document).on("keyup", 'input[type="number"]', function () {
 // Handle increment and decrement buttons
 $(document).on("click", ".cart-increment-btn", function (e) {
     e.preventDefault();
-    let $input = $(".cart-list-item-descr__quantity-container__input-value");
+    let $input = $(this).closest(".cart-list-item-descr__quantity-container").find(".cart-list-item-descr__quantity-container__input-value");
     incrementQuantity($input);
 });
 
 $(document).on("click", ".cart-decrement-btn", function (e) {
-    let $input = $(".cart-list-item-descr__quantity-container__input-value");
+    e.preventDefault();
+    let $input = $(this).closest(".cart-list-item-descr__quantity-container").find(".cart-list-item-descr__quantity-container__input-value");
     decrementQuantity($input);
 });
 
