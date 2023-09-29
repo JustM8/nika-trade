@@ -17,18 +17,24 @@ class CartController extends Controller
 
     public function add(Product $product)
     {
-        Cart::instance('cart')->add(
-            $product->id,
-            $product->title,
-            1,
-            $product->endPrice,
-            0,
-            ['slug' => $product->slug,'SKU'=>$product->SKU],
-        )->associate(Product::class);
+        $filtered = Cart::instance('cart')->content()->where('id', $product->id)->first();
 
+        if (!$filtered) {
+            Cart::instance('cart')->add(
+                $product->id,
+                $product->title,
+                1,
+                $product->endPrice,
+                0,
+                ['slug' => $product->slug, 'SKU' => $product->SKU],
+            )->associate(Product::class);
+            return response()->json(['message'=>'Product added']);
+        }
+        else{
+            return response()->json(['message' => 'Product count at the same level']);
+        }
 //        notify()->success("Product was added to the cart", position: "topRight");
 //        return redirect()->back();
-        return response()->json(['message'=>'Product added']);
     }
 
     public function remove(Request $request)
