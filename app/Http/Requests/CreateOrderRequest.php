@@ -37,13 +37,4 @@ class CreateOrderRequest extends FormRequest
             'delivery_info' => [ 'text'],
         ];
     }
-
-//    public function all($keys = null)
-//    {
-//        if (empty($keys)) {
-//            return parent::json()->all();
-//        }
-//
-//        return collect(parent::json()->all())->only($keys)->toArray();
-//    }
 }

@@ -30,6 +30,24 @@ class OrdersController extends Controller
 
     public function create(CreateOrderRequest $request)
     {
+        dd($request);
+        /*
+         companyName: Назва установи:
+companyPhone: +111111111111
+companyEmail: test@qwe.com
+vivyz: Mikhailivka
+recipientName:
+recipientPhone:
+recipientCity:
+recipientAddress:
+recipientCarrier:
+recipientPostalOffice:
+recipientNameKyiv:
+recipientPhoneKyiv:
+recipientAddressKyiv:
+comment: iiiooo
+
+         * */
 //        dd($request->all(),Cart::instance('cart')->total(2, '.', ''));
 
 //        $user = User::create([
