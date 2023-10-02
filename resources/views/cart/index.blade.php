@@ -31,18 +31,18 @@
                 <div class="cart-page-checkup cart-page-card"> <span class="cart-page-card-title text-m text-balck-100">Оформлення товару:</span>
                     <div class="cart-page-card-content cart-page-card-form-container">
                         <p class="cart-page-form__hint text-14">Назва установи:</p>
-                        <div class="cart-page-form-field form-field-input" data-field-input data-field-name data-status="field--inactive">
-                            <input class="cart-page-form__input" type="text" name="companyName" placeholder="Введіть назву вашої установи">
+                        <div class="cart-page-form-field form-field-input" data-field-input data-field-company-name data-status="field--inactive">
+                            <input class="cart-page-form__input" type="text" name="company_name" placeholder="Введіть назву вашої установи">
                             <div class="cart-input-message text-14" data-input-message></div>
                         </div>
                         <p class="cart-page-form__hint text-14">Контактний телефон:</p>
-                        <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-phone data-status="field--inactive">
-                            <input class="cart-page-form__input" type="text" name="companyPhone" placeholder="+380________">
+                        <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-company-phone data-status="field--inactive">
+                            <input class="cart-page-form__input" type="text" name="phone" placeholder="+380________">
                             <div class="cart-input-message text-14" data-input-message></div>
                         </div>
                         <p class="cart-page-form__hint text-14">Email:</p>
-                        <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-email data-status="field--inactive">
-                            <input class="cart-page-form__input" type="text" name="companyEmail" placeholder="Введіть ваш email">
+                        <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-company-email data-status="field--inactive">
+                            <input class="cart-page-form__input" type="text" name="email" placeholder="Введіть ваш email">
                             <div class="cart-input-message text-14" data-input-message></div>
                         </div>
                     </div>
@@ -76,33 +76,33 @@
                         </div>
                         <div class="cart-page-delivery-ukraine cart-page-card-form-container">
                             <p class="cart-page-form__hint text-14">Отримувач:</p>
-                            <div class="cart-page-form-field form-field-input" data-field-input data-field-name data-status="field--inactive">
-                                <input class="cart-page-form__input" type="text" name="recipientName" placeholder="Введіть ім’я отримувача">
+                            <div class="cart-page-form-field form-field-input" data-field-input data-field-recipient-name data-status="field--inactive">
+                                <input class="cart-page-form__input" type="text" name="name" placeholder="Введіть ім’я отримувача">
                                 <div class="cart-input-message text-14" data-input-message></div>
                             </div>
                             <p class="cart-page-form__hint text-14">Телефон отримувача:</p>
-                            <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-phone data-status="field--inactive">
-                                <input class="cart-page-form__input" type="text" name="recipientPhone">
+                            <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-recipient-phone data-status="field--inactive">
+                                <input class="cart-page-form__input" type="text" name="phone_delivery" placeholder="+380________">
                                 <div class="cart-input-message text-14" data-input-message></div>
                             </div>
                             <p class="cart-page-form__hint text-14">Місто:</p>
-                            <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-email data-status="field--inactive">
-                                <input class="cart-page-form__input" type="text" name="recipientCity" placeholder="Введіть ваше місто">
+                            <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-recipient-city data-status="field--inactive">
+                                <input class="cart-page-form__input" type="text" name="city" placeholder="Введіть ваше місто">
                                 <div class="cart-input-message text-14" data-input-message> </div>
                             </div>
                             <p class="cart-page-form__hint text-14">Адреса:</p>
-                            <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-email data-status="field--inactive">
-                                <input class="cart-page-form__input" type="text" name="recipientAddress" placeholder="Введіть вашу адресу">
+                            <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-recipient-address data-status="field--inactive">
+                                <input class="cart-page-form__input" type="text" name="address" placeholder="Введіть вашу адресу">
                                 <div class="cart-input-message text-14" data-input-message> </div>
                             </div>
                             <p class="cart-page-form__hint text-14">Перевізник:</p>
-                            <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-email data-status="field--inactive">
-                                <input class="cart-page-form__input" type="text" name="recipientCarrier" placeholder="Наприклад Нова Пошта, Укрпошта і т. д.">
+                            <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-carrier data-status="field--inactive">
+                                <input class="cart-page-form__input" type="text" name="delivery_type" placeholder="Наприклад Нова Пошта, Укрпошта і т. д.">
                                 <div class="cart-input-message text-14" data-input-message> </div>
                             </div>
                             <p class="cart-page-form__hint text-14">Номер відділення:</p>
-                            <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-email data-status="field--inactive">
-                                <input class="cart-page-form__input" type="text" name="recipientPostalOffice" placeholder="Введіть номер відділення обраного перевізника">
+                            <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-carrier-unit data-status="field--inactive">
+                                <input class="cart-page-form__input" type="text" name="delivery_type_unit" placeholder="Введіть номер відділення обраного перевізника">
                                 <div class="cart-input-message text-14" data-input-message> </div>
                             </div>
                         </div>
@@ -112,18 +112,18 @@
                         </div>
                         <div class="cart-page-delivery-city cart-page-card-form-container">
                             <p class="cart-page-form__hint text-14">Отримувач:</p>
-                            <div class="cart-page-form-field form-field-input" data-field-input data-field-name data-status="field--inactive">
-                                <input class="cart-page-form__input" type="text" name="recipientNameKyiv" placeholder="Введіть ім’я отримувача">
+                            <div class="cart-page-form-field form-field-input" data-field-input data-field-kyiv-name data-status="field--inactive">
+                                <input class="cart-page-form__input" type="text" name="nameKyiv" placeholder="Введіть ім’я отримувача">
                                 <div class="cart-input-message text-14" data-input-message></div>
                             </div>
                             <p class="cart-page-form__hint text-14">Телефон отримувача:</p>
-                            <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-phone data-status="field--inactive">
-                                <input class="cart-page-form__input" type="text" name="recipientPhoneKyiv">
+                            <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-kyiv-phone data-status="field--inactive">
+                                <input class="cart-page-form__input" type="text" name="phoneKyiv">
                                 <div class="cart-input-message text-14" data-input-message></div>
                             </div>
                             <p class="cart-page-form__hint text-14">Адреса:</p>
-                            <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-email data-status="field--inactive">
-                                <input class="cart-page-form__input" type="text" name="recipientAddressKyiv" placeholder="Введіть вашу адресу">
+                            <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-kyiv-address data-status="field--inactive">
+                                <input class="cart-page-form__input" type="text" name="addressKyiv" placeholder="Введіть вашу адресу">
                                 <div class="cart-input-message text-14" data-input-message> </div>
                             </div>
                         </div>

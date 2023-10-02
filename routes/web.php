@@ -42,11 +42,13 @@ Route::delete('ajax/cart', [\App\Http\Controllers\Ajax\CartController::class, 'r
 Route::get('ajax/cart/popup', [\App\Http\Controllers\Ajax\CartController::class, 'getCardPopup'])->name('cart.popup');
 Route::post('ajax/cart/{product}', [\App\Http\Controllers\Ajax\CartController::class, 'add'])->name('cart.add');
 Route::post('ajax/cart/{product}/count', [\App\Http\Controllers\Ajax\CartController::class, 'countUpdate'])->name('ajax.cart.count.update');
+//виніс оформлення  за умову авторизації, вона тут не треба, тільки реєстрація юезар та його ID для замовлення
+Route::get('checkout', \App\Http\Controllers\CheckoutController::class)->name('checkout');
+Route::post('order', [\App\Http\Controllers\OrdersController::class,'index'])->name('orders');
+Route::post('order/create', [\App\Http\Controllers\OrdersController::class,'create'])->name('order.create');
 
 Route::middleware('auth')->group(function() {
-    Route::get('checkout', \App\Http\Controllers\CheckoutController::class)->name('checkout');
-    Route::post('order', [\App\Http\Controllers\OrdersController::class,'index'])->name('orders');
-    Route::post('order/create', [\App\Http\Controllers\OrdersController::class,'create'])->name('order.create');
+    
     Route::get('order/{orderId}/thankyou',[\App\Http\Controllers\OrdersController::class,'thankYou'])->name('thankYou');
 
     Route::name('account.')->prefix('account')->group(function (){
