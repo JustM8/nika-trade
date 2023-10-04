@@ -36,6 +36,8 @@ class CreateOrderRequest extends FormRequest
             'comment' => ['nullable','string'],
             'delivery_type' => [ 'int'],
             'delivery_info' => [ 'text'],
+
+
         ];
     }
 }
