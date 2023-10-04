@@ -26,16 +26,18 @@ class CreateOrderRequest extends FormRequest
     public function rules()
     {
         return [
-            'name' => ['required', 'string', 'min:2', 'max: 35'],
             'company_name' => ['required', 'string', 'min:2', 'max: 35'],
             'phone' => ['required', 'string'],
-            'phone_delivery' => ['required', 'string'],
             'email' => ['required', 'email'],
-            'city' => ['required', 'string', 'min:2', 'max:50'],
-            'address' => ['required', 'string', 'min:2', 'max:50'],
-            'comment' => ['nullable','string'],
             'delivery_type' => [ 'int'],
+
+            'name' => ['nullable', 'string', 'min:2', 'max: 35'],
+            'phone_delivery' => ['nullable', 'string'],
+            'city' => ['nullable', 'string', 'min:2', 'max:50'],
+            'address' => ['nullable', 'string', 'min:2', 'max:50'],
             'delivery_info' => [ 'text'],
+
+            'comment' => ['nullable','string'],
 
 
         ];

@@ -21,14 +21,16 @@ return new class extends Migration
             $table->text('company_name');
             $table->string('phone',15);
             $table->string('email');
-
-            $table->string('name',45);
-            $table->string('phone_delivery',15);
-            $table->string('city',255);
-            $table->string('address',255);
-            $table->text('comment')->nullable();
             $table->tinyInteger('delivery_type')->nullable();
+
+
+            $table->string('name',45)->nullable();
+            $table->string('phone_delivery',15)->nullable();
+            $table->string('city',255)->nullable();
+            $table->string('address',255)->nullable();
             $table->string('delivery_info',255)->nullable();
+
+            $table->text('comment')->nullable();
 
 
             $table->unsignedFloat('total');
