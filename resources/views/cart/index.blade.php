@@ -97,12 +97,12 @@
                             </div>
                             <p class="cart-page-form__hint text-14">Перевізник:</p>
                             <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-carrier data-status="field--inactive">
-                                <input class="cart-page-form__input" type="text" name="carrier" placeholder="Наприклад Нова Пошта, Укрпошта і т. д.">
+                                <input class="cart-page-form__input" type="text" name="delivery_info[carrier]" placeholder="Наприклад Нова Пошта, Укрпошта і т. д.">
                                 <div class="cart-input-message text-14" data-input-message> </div>
                             </div>
                             <p class="cart-page-form__hint text-14">Номер відділення:</p>
                             <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-carrier-unit data-status="field--inactive">
-                                <input class="cart-page-form__input" type="text" name="branch_number" placeholder="Введіть номер відділення обраного перевізника">
+                                <input class="cart-page-form__input" type="text" name="delivery_info[branch_number]" placeholder="Введіть номер відділення обраного перевізника">
                                 <div class="cart-input-message text-14" data-input-message> </div>
                             </div>
                         </div>
