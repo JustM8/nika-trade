@@ -44,6 +44,13 @@ class CreateOrderRequest extends FormRequest
             'delivery_info.carrier' => ['nullable', 'string'],
             'delivery_info.branch_number' => ['nullable', 'string'],
 
+            'nameKyiv' => ['nullable', 'string', 'min:2', 'max: 35'],
+            'phoneKyiv' => ['nullable', 'string'],
+            'addressKyiv' => ['nullable', 'string', 'min:2', 'max:50'],
+
+
+
+
             'comment' => ['nullable','string'],
 
 
