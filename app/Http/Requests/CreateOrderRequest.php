@@ -35,7 +35,14 @@ class CreateOrderRequest extends FormRequest
             'phone_delivery' => ['nullable', 'string'],
             'city' => ['nullable', 'string', 'min:2', 'max:50'],
             'address' => ['nullable', 'string', 'min:2', 'max:50'],
-            'delivery_info' => [ 'text'],
+            'delivery_info' => [
+                'nullable',
+                'array', // Перевірка, що 'delivery_info' є масивом
+                'min:1', // Мінімум один елемент у масиві
+                'max:2', // Максимум два елементи у масиві
+            ],
+            'delivery_info.carrier' => ['nullable', 'string'],
+            'delivery_info.branch_number' => ['nullable', 'string'],
 
             'comment' => ['nullable','string'],
 
