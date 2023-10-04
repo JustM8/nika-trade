@@ -1,4 +1,4 @@
-@extends('layouts.app')
+@extends('layouts.theme')
 
 @section('content')
     <div class="col-12 text-center">
@@ -14,9 +14,9 @@
             </div>
         </div>
     </div>
-    <section class="thank-page page-container"> 
+    <section class="thank-page page-container">
         <div class="thank-page-wrap">
-            <div class="page-intro"> 
+            <div class="page-intro">
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
                         <li class="breadcrumbs-item">
@@ -30,12 +30,12 @@
                 </div>
                 <h2 class="page-title text-title">Дякуємо за ваше замовлення</h2>
             </div>
-            <div class="thank-page-main">   
-                <div class="thank-page-content"> 
+            <div class="thank-page-main">
+                <div class="thank-page-content">
                     <div class="thank-page__title-wrap">
                         <span class="thank-page__title text-m text-black-100">Найближчим часом з вами зв’яжуться наші менеджери для уточнень деталей замовлення!</span>
                     </div>
-                    <div class="thank-page-list-wrap"> 
+                    <div class="thank-page-list-wrap">
                         <div class="thank-page-list__title-wrap">
                             <span class="thank-page-list__title text-24 text-black-100">Інформація про замовлення:</span>
                         </div>
@@ -75,10 +75,10 @@
                                 <span class="thank-page-list-item__value text-14 text-black">659,00 грн.</span>
                             </div>
                         </div>
-                        <div class="thank-page-list-item thank-page-list-item-details"> 
+                        <div class="thank-page-list-item thank-page-list-item-details">
                             <div class="thank-page-list-item-row">
                                 <span class="thank-page-list-item__key text-14 text-black">Номер замовлення: </span>
-                                <span class="thank-page-list-item__value text-14 text-black">2chDsd953sd</span>
+                                <span class="thank-page-list-item__value text-14 text-black">{{ $order->id }}</span>
                             </div>
                             <div class="thank-page-list-item-row">
                                 <span class="thank-page-list-item__key text-14 text-black">Усього до сплати: </span>
@@ -91,3 +91,10 @@
         </div>
     </section>
 @endsection
+@push('footer-scripts')
+    <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
+    <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
+    <script defer src="{{asset('/assets/scripts/libs.js')}}"></script>
+    <script defer src="{{asset('/assets/scripts/thankYouPAge.bundle.js')}}"></script>
+
+@endpush

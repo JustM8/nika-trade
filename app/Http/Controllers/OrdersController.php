@@ -30,7 +30,7 @@ class OrdersController extends Controller
 
     public function create(CreateOrderRequest $request)
     {
-        dd($request);
+//        dd($request);
         /*
          companyName: Назва установи:
 companyPhone: +111111111111
@@ -71,7 +71,16 @@ comment: iiiooo
 
             DB::commit();
             if(isset($order->id)){
-              return  redirect()->route('thankYou',['orderId'=>$order->id]);
+                $redirectUrl = route('thankYou', ['orderId' => $order->id]);
+
+                // Повертаємо JSON-відповідь разом із URL для переходу
+                return response()->json([
+                    'message' => 'Замовлення успішно створено.',
+                    'order' => $order,
+                    'redirect_url' => $redirectUrl,
+                ]);
+
+//              return  redirect()->route('thankYou',['orderId'=>$order->id]);
 //                $this->thankYou($order->id);
             }
 //            return response()->json($order);

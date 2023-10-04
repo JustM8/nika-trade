@@ -11,6 +11,9 @@ class Order extends Model
 
     protected $guarded = [];
 
+    protected $casts = [
+        'delivery_info' => 'array',
+    ];
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\BelongsTo

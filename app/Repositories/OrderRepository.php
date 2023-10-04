@@ -5,8 +5,10 @@ namespace App\Repositories;
 use App\Helpers\Adapters\TransactionAdapter;
 use App\Models\Order;
 use App\Models\OrderStatus;
+use App\Models\User;
 use App\Repositories\Contracts\OrderRepositoryContract;
 use Gloudemans\Shoppingcart\Facades\Cart;
+use Illuminate\Support\Facades\Hash;
 
 class OrderRepository implements OrderRepositoryContract
 {
@@ -16,7 +18,33 @@ class OrderRepository implements OrderRepositoryContract
 
     public function create(array $request, float $total): Order|bool
     {
-        $user = auth()->user();
+//        dd($request,$total);
+//        $user = auth()->user();
+        $user = User::where('email', $request['email'])
+            ->orWhere('phone', $request['phone'])
+            ->first();
+
+       if($request['delivery_type'] != 5){
+                unset($request['nameKyiv'],$request['phoneKyiv'],$request['addressKyiv']);
+        }else{
+           $request['name'] = $request['nameKyiv'];
+           $request['phone_delivery'] = $request['phoneKyiv'];
+           $request['address'] = $request['addressKyiv'];
+           unset($request['nameKyiv'],$request['phoneKyiv'],$request['addressKyiv']);
+       }
+
+        if (!$user) {
+            $user = new User();
+                $user->role_id = 1;
+                $user->name = 'Клієнт з компанії - '.$request['company_name'];
+                $user->surname = ' ';
+                $user->birthdate = date("2003-01-05");
+                $user->phone = $request['phone'];
+                $user->email = $request['email'];
+                $user->password =  Hash::make($request['phone']);
+            $user->save();
+        }
+
         $status = OrderStatus::defaultStatus()->first();
 
         $request = array_merge($request, [

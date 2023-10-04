@@ -24,11 +24,11 @@ return new class extends Migration
             $table->tinyInteger('delivery_type')->nullable();
 
 
-            $table->string('name',45)->nullable();
+            $table->string('name',255)->nullable();
             $table->string('phone_delivery',15)->nullable();
             $table->string('city',255)->nullable();
             $table->string('address',255)->nullable();
-            $table->string('delivery_info',255)->nullable();
+            $table->json('delivery_info')->nullable();
 
             $table->text('comment')->nullable();
 
