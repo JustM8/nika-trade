@@ -52,25 +52,25 @@
                         <div class="cart-page-delivery-options">
                             <div class="cart-page-delivery-options-list">
                                 <div class="cart-page-delivery-options-item">
-                                    <input type="checkbox" name="vivyz" id="Mikhailivka" value="Mikhailivka"><span class="text-14 text-black-100">Самовивіз - Михайлівка-Рубежівка (виробнича база)</span><a class="cart-page-delivery-options-item-pin" href="https://goo.gl/maps/7b7UdYfLZfUctv2e9" target="_blank">
+                                    <input type="checkbox" name="delivery_type" id="Mikhailivka" value="1"><span class="text-14 text-black-100">Самовивіз - Михайлівка-Рубежівка (виробнича база)</span><a class="cart-page-delivery-options-item-pin" href="https://goo.gl/maps/7b7UdYfLZfUctv2e9" target="_blank">
                                         <svg class="icon--cart-map" role="presentation">
                                             <use xlink:href="#icon-cart-map"></use>
                                         </svg><span class="text-14 text-black">вул. Шкільна,30</span></a>
                                 </div>
                                 <div class="cart-page-delivery-options-item">
-                                    <input type="checkbox" name="vivyz" id="Khvoiky" value="Khvoiky"><span class="text-14 text-black--100">Доставка в офіс м. Київ</span><a class="cart-page-delivery-options-item-pin" href="https://goo.gl/maps/EArR9F5i9yEfW9MU6" target="_blank">
+                                    <input type="checkbox" name="delivery_type" id="Khvoiky" value="2"><span class="text-14 text-black--100">Доставка в офіс м. Київ</span><a class="cart-page-delivery-options-item-pin" href="https://goo.gl/maps/EArR9F5i9yEfW9MU6" target="_blank">
                                         <svg class="icon--cart-map" role="presentation">
                                             <use xlink:href="#icon-cart-map"></use>
                                         </svg><span class="text-14 text-black">вул. Вікентія Хвойки, 15/15</span></a>
                                 </div>
                                 <div class="cart-page-delivery-options-item">
-                                    <input type="checkbox" name="vivyz" id="Plekhanova" value="Plekhanova"><span class="text-14 text-black--100">Доставка в офіс м. Дніпро</span><a class="cart-page-delivery-options-item-pin" href="https://goo.gl/maps/LQsipjuHV9Rnqnev6" target="_blank">
+                                    <input type="checkbox" name="delivery_type" id="Plekhanova" value="3"><span class="text-14 text-black--100">Доставка в офіс м. Дніпро</span><a class="cart-page-delivery-options-item-pin" href="https://goo.gl/maps/LQsipjuHV9Rnqnev6" target="_blank">
                                         <svg class="icon--cart-map" role="presentation">
                                             <use xlink:href="#icon-cart-map"></use>
                                         </svg><span class="text-14 text-black">вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх</span></a>
                                 </div>
                                 <div class="cart-page-delivery-options-item">
-                                    <input type="checkbox" name="PostalDelivery" id="PostalDelivery" value="PostalDelivery"><span class="text-14 text-black--100">Доставка перевізником (по Україні)</span>
+                                    <input type="checkbox" name="delivery_type" id="PostalDelivery" value="4"><span class="text-14 text-black--100">Доставка перевізником (по Україні)</span>
                                 </div>
                             </div>
                         </div>
@@ -107,7 +107,7 @@
                             </div>
                         </div>
                         <div class="cart-page-delivery-options-city">
-                            <input type="checkbox" name="KyivTakeAway" id="Kyiv" value="Kyiv">
+                            <input type="checkbox" name="delivery_type" id="Kyiv" value="5">
                             <p class="cart-page-delivery-options-city-descr text-14 text-black--100">Доставка по Києву </p><span class="text-14 text-non-active">(послуги вантажників не надаються)</span>
                         </div>
                         <div class="cart-page-delivery-city cart-page-card-form-container">
