@@ -17,4 +17,8 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    server: {
+        host: 'https://nika-dev.smarto.com.ua/', // Замініть на домен вашого хостингу
+        port: 80, // Порт, на якому працює ваш сервер
+    },
 });
