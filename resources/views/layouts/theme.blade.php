@@ -170,11 +170,13 @@
                 </ul>
             </ul>
           </div>
-          <div class="header-callback-wrap"><a class="header-callback" href="#">
+          <div class="header-callback-wrap">
+            <a class="header-callback" href="#">
               <svg class="icon--mail" role="presentation">
                 <use xlink:href="#icon-mail"></use>
               </svg></a></div>
-          <div class="header-cart-wrap"> <a class="header-cart" href="cart-page.html">
+          <div class="header-cart-wrap"> 
+            <a class="header-cart" href="{{url('/cart')}}">
               <svg class="icon--cart" role="presentation">
                 <use xlink:href="#icon-cart"></use>
               </svg>
@@ -184,7 +186,8 @@
  @else
  0
                   @endif</div>
-              </a></div>
+              </a>
+            </div>
         </div>
     </div>
 </header>
