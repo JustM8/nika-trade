@@ -44,7 +44,7 @@ class OrderRepository implements OrderRepositoryContract
                 $user->password =  Hash::make($request['phone']);
             $user->save();
         }
-
+        auth()->login($user);
         $status = OrderStatus::defaultStatus()->first();
 
         $request = array_merge($request, [
