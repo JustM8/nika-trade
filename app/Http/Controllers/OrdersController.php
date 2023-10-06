@@ -74,6 +74,8 @@ comment: iiiooo
                 $redirectUrl = route('thankYou', ['orderId' => $order->id]);
 
                 // Повертаємо JSON-відповідь разом із URL для переходу
+                Cart::instance('cart')->destroy();
+
                 return response()->json([
                     'message' => 'Замовлення успішно створено.',
                     'order' => $order,

@@ -36,7 +36,7 @@ class OrderRepository implements OrderRepositoryContract
 
         if (!$user) {
             $user = new User();
-                $user->role_id = 1;
+                $user->role_id = 2;
                 $user->name = 'Клієнт з компанії - '.$request['company_name'];
                 $user->surname = ' ';
                 $user->birthdate = date("2003-01-05");
