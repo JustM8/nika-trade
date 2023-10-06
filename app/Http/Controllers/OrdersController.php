@@ -75,6 +75,7 @@ comment: iiiooo
 
                 // Повертаємо JSON-відповідь разом із URL для переходу
                 Cart::instance('cart')->destroy();
+                auth()->logout();
 
                 return response()->json([
                     'message' => 'Замовлення успішно створено.',
