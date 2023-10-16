@@ -33,6 +33,40 @@
                 </svg></a>
         </div>
     </section>
+    <section class="homepage-catalog">
+        <div class="homepage-catalog-wrap section-container">
+            <h2 class="homepage-catalog-title text-title">Наша продукція</h2>
+            <div class="homepage-catalog-list-wrap">
+                <div class="catalog-list">
+                    @foreach($rootCategories as $item)
+                        <div class="catalog-card">
+                            <div class="catalog-card-intro">
+                                <span class="catalog-card-intro__title text-24"><?=$item['name'][App::currentLocale()]?></span>
+                                <a class="catalog-card-intro__link" href="{{ route('catalog.show', $item->slug) }}">
+                                    <span class="catalog-card-intro__link-title">ДИВИТИСЯ ТОВАРИ </span>
+                                    <div class="catalog-card-intro__link-svg">
+                                        <svg class="icon--arrow-item" role="presentation">
+                                            <use xlink:href="#icon-arrow-item"></use>
+                                        </svg>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="catalog-card__img">
+                                <img src="{{asset('/assets/images/equipment/default.jpg')}}" alt=""></div>
+                            <a class="catalog-card-intro__link catalog-card-intro__link--mobile" href="{{ route('catalog.show', $item->slug) }}">
+                                <span class="catalog-card-intro__link-title">ДИВИТИСЯ ТОВАРИ </span>
+                                <div class="catalog-card-intro__link-svg">
+                                    <svg class="icon--arrow-item" role="presentation">
+                                        <use xlink:href="#icon-arrow-item"></use>
+                                    </svg>
+                                </div>
+                            </a>
+                        </div>
+                    @endforeach
+                </div>
+            </div>
+        </div>
+</section>
     <section class="directions">
         <div class="directions-wrap section-container">
             <h2 class="directions-title text-title">Напрямки роботи  </h2>

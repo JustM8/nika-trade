@@ -85,7 +85,38 @@
                 </div>
                 <h2 class="page-title text-title"><?=$category['name'][App::currentLocale()]?></h2>
             </div>
-            <div class="equipment-list">
+            <div class="equipment-list-wrap">
+            <div class="catalog-single-btn-mobile-wrap"> 
+                        <button class="catalog-single-btn-mobile btn"> 
+                        <svg class="icon--equipment-btn" role="presentation">
+                            <use xlink:href="#icon-equipment-btn"></use>
+                        </svg><span>Обладнання</span>
+                        </button>
+                    </div>
+                    <div class="catalog-single-filters-wrap">
+                    @foreach($menu as $item)
+                        <div class="catalog-single-filter">
+                            <span class="catalog-single-filter__title text-s"> <?=$item['name']?></span>
+                            @if(!empty($item['children']))
+                            @foreach($item['children'] as $underItem)
+                            <div class="catalog-single-filter-card">
+                                <div class="catalog-single-filter-card__title text-14"><?=$underItem['name']?></div>
+                                <div class="catalog-single-filter-card-list">
+                                    @if(!empty($underItem['children']))
+                                        @foreach($underItem['children'] as $underUnderItem)
+                                            <a class="catalog-single-filter-card-list-item text-14" href="{{ route('catalog.show', $underUnderItem['slug']) }}"><?=$underUnderItem['name']?></a>
+                                        @endforeach
+                                    @endif
+                                </div>
+                            </div>
+                            @endforeach
+                            @endif
+                        </div>
+                        @endforeach
+
+                    </div>
+                    <div class="equipment-list">
+                
                 @foreach($childrens as $item)
                 <div class="equipment-card">
                     <div class="equipment-card-intro"> <span class="equipment-card__title text-24"> <?=$item['name'][App::currentLocale()]?></span>
@@ -107,6 +138,9 @@
                 </div>
                 @endforeach
             </div>
+            </div>
+
+            
             <div class="equipment-info-wrap">
                 <div class="equipment-info__title text-m">Торгівельне обладнання, обладнання для магазинів</div>
                 <div class="equipment-info">
