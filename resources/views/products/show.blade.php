@@ -36,7 +36,8 @@
                     </div>
                     <div class="product-page-item-info-wrap">
                         <div class="product-page-item-info">
-                            <div class="product-page-item-info__title-row"><span class="product-page-item-info__title-row-code text-14 text-black">Артикул:</span>
+                            <div class="product-page-item-info__title-row">
+                                <span class="product-page-item-info__title-row-code text-14 text-black">Артикул: <span></span> </span>
                             <span class="product-page-item-info__title-row-name text-14 text-black">Назва:</span>
                             <span class="product-page-item-info__title-row-price text-14 text-black">Ціна:</span>
                             <!-- <span class="product-page-item-info__title-row-quantity text-14 text-black">Кількість:</span> -->
@@ -76,7 +77,13 @@
                             </div>
                         </div>
                     </div>
-                    <a class="product-page-item-btn text-14 text-black-100" href="">Завантажити каталог продукції</a>
+                    <!-- <a class="product-page-item-btn text-14 text-black-100" href="">Завантажити каталог продукції</a> -->
+                    <div class="product-page-item-options">
+                        <span class="text-14 text-black-100">Бажаний колір виробі залишайте в полі "Коментар" під час оформлення замовлення в Кошику</span>
+                        <span class="text-14 text-black-100">Cтандартні кольори: </span>
+                        <span class="text-14 text-black-100">- Метал: сріблястий металік(RAL 7149 SPX)</span>
+                        <span class="text-14 text-black-100">- ДСП: попелястий (U112 PE)</span>
+                    </div>
                 </div>
             </div>
                 <div class="product-page-info-wrap">
@@ -106,7 +113,7 @@
                 </div>
             </div>
             <div class="product-page-more">
-                <span class="product-page-more__title text-m text-black-100">Рекомендовані товари</span>
+                <span class="product-page-more__title text-m text-black-100"> Цей товар використовується разом із:</span>
                 <div class="product-page-more-list">
                     @foreach($recommendedProducts as $item)
                     <a class="catalog-single-card" href="{{ route('product.show', $item->slug) }}">
@@ -126,14 +133,14 @@
                 <path d="M11 11L1 1M1 11L11 1L1 11Z" stroke="white" stroke-width="2"/>
                 </svg>
             </button>
-            <div class="cart-title text-m text-black-100">Додано у кошик</div>
+            <div class="cart-title text-m text-black-100">Додано в кошик</div>
             <div id="cart-popup">
                 @if(Cart::instance('cart')->count() > 0)
                     @each('cart.parts.product_view_popup', Cart::instance('cart')->content(), 'row')
                 @endif
             </div>
             <div class="cart-descr">
-                <span class="cart-descr-title text-14 text-black-100">Діючі ціни можуть не збігатися з вказаними на сайті. Уточнюйте, будь ласка.</span>
+                <span class="cart-descr-title text-14 text-black-100">Ціни вказано з ПДВ за умови самовивозу з виробництва. Діючі ціни можуть не збігатися із вказаними на сайті. Уточнюйте, будь ласка.</span>
                 <span class="cart-descr-price text-18 text-black-100"> Разом</span>
                 <span class="cart-descr-price-sum text-18 text-black-100"  id="cart-total">{{Cart::total()}} </span>
             </div>

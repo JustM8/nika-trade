@@ -23,6 +23,7 @@
 		<symbol id="icon-alert" viewBox="0 0 24 24">
 			<path fill-rule="evenodd" clip-rule="evenodd" d="M10.606 2.61a2.75 2.75 0 0 1 3.776 1.019v.001l7.998 13.995v.002a2.751 2.751 0 0 1-2.379 4.123H4.002A2.75 2.75 0 0 1 1.6 17.627v-.002L9.599 3.63V3.63a2.75 2.75 0 0 1 1.008-1.019zm1.384 1.126a1.25 1.25 0 0 0-1.087.634l-.001.002-8 14-.002.003a1.25 1.25 0 0 0 1.094 1.875H20a1.25 1.25 0 0 0 1.08-1.875v-.003l-8-14-.002-.002a1.25 1.25 0 0 0-1.088-.634zM12 8.25a.75.75 0 0 1 .75.75v4a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75zm0 8a.75.75 0 0 0 0 1.5h.01a.75.75 0 0 0 0-1.5H12z" fill="#C8102E"></path>
 		</symbol>
+    
 
 		<symbol id="icon-arrow" viewBox="0 0 18 18">
 			<path d="M18 9H2m0 0l8.047-8M2 9l8.047 8"></path>
@@ -228,14 +229,14 @@
 <path d="M11 11L1 1M1 11L11 1L1 11Z" stroke="white" stroke-width="2"/>
 </svg>
           </button>
-          <div class="cart-title text-m text-black-100">Додано у кошик</div>
+          <div class="cart-title text-m text-black-100">Додано в кошик</div>
           <div class="cart-list">
             <div class="cart-list-item">
               <div class="cart-list-item-img"> <img src="" alt=""></div>
               <div class="cart-list-item-descr-wrap"> <span class="cart-list-item-descr__name text-24 text-black-100">Стійка</span>
                 <div class="cart-list-item-descr__row"> <span class="cart-list-item-descr__row-size text-14 text-black-100">Розмір товару: </span><span class="cart-list-item-descr__row-size text-14 text-black-100"> </span></div>
                 <div class="cart-list-item-descr__row">
-                  <div class="cart-list-item-descr__row-code text-14 text-black-100">Артикул:</div>
+                  <div class="cart-list-item-descr__row-code text-14 text-black-100">Артикул:<span></span></div>
                   <div class="cart-list-item-descr__row-code text-14 text-black-100"></div>
                 </div>
               </div><span class="cart-list-item-descr__quantity">
@@ -259,7 +260,7 @@
               </button>
             </div>
           </div>
-          <div class="cart-descr"> <span class="cart-descr-title text-14 text-black-100">Діючі ціни можуть не збігатися з вказаними на сайті. Уточнюйте, будь ласка.</span><span class="cart-descr-price text-18 text-black-100"> Разом</span><span class="cart-descr-price-sum text-18 text-black-100"> </span></div>
+          <div class="cart-descr"> <span class="cart-descr-title text-14 text-black-100">Ціни вказано з ПДВ за умови самовивозу з виробництва. Діючі ціни можуть не збігатися із вказаними на сайті. Уточнюйте, будь ласка.</span><span class="cart-descr-price text-18 text-black-100"> Разом</span><span class="cart-descr-price-sum text-18 text-black-100"> </span></div>
           <div class="cart-buttons-wrap"> <a class="cart-buttons__back" href="">
               <svg class="icon--arrow" role="presentation">
                 <use xlink:href="#icon-arrow"></use>

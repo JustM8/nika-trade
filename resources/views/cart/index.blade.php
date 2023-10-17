@@ -10,10 +10,10 @@
                     <li class="breadcrumbs-item__current--color breadcrumbs-item">cart-page</li>
                 </ul>
             </div>
-            <h2 class="page-title text-title">Корзина</h2>
+            <h2 class="page-title text-title">Кошик</h2>
         </div>
         <div class="cart-page-main">
-        <div class="cart-page-items cart-page-card"><span class="cart-page-card-title text-m text-balck-100">Товарів у кошику:</span>
+        <div class="cart-page-items cart-page-card"><span class="cart-page-card-title text-m text-balck-100">Товари в кошику:</span>
                     <div class="cart-page-card-content">
                         <div class="cart-list" id="cart-popup">
                             @if(Cart::instance('cart')->count() > 0)
@@ -21,7 +21,7 @@
 
                             @endif
                         </div>
-                        <div class="cart-descr"> <span class="cart-descr-title text-14 text-black-100">Діючі ціни можуть не збігатися з вказаними на сайті. Уточнюйте, будь ласка.</span>
+                        <div class="cart-descr"> <span class="cart-descr-title text-14 text-black-100">Ціни вказано з ПДВ за умови самовивозу з виробництва. Діючі ціни можуть не збігатися із вказаними на сайті. Уточнюйте, будь ласка.</span>
                             <span class="cart-descr-price text-18 text-black-100"> Разом</span>
                             <span class="cart-descr-price-sum text-18 text-black-100" id="cart-total" >{{Cart::total()}}</span></div>
                     </div>
@@ -30,7 +30,7 @@
                 @csrf
                 <div class="cart-page-checkup cart-page-card"> <span class="cart-page-card-title text-m text-balck-100">Оформлення товару:</span>
                     <div class="cart-page-card-content cart-page-card-form-container">
-                        <p class="cart-page-form__hint text-14">Назва установи:</p>
+                        <p class="cart-page-form__hint text-14">Замовник:</p>
                         <div class="cart-page-form-field form-field-input" data-field-input data-field-company-name data-status="field--inactive">
                             <input class="cart-page-form__input" type="text" name="company_name" placeholder="Введіть назву вашої установи">
                             <div class="cart-input-message text-14" data-input-message></div>
@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="cart-page-delivery-ukraine cart-page-card-form-container">
+                        <div class="cart-page-delivery-ukraine cart-page-card-form-container disabled">
                             <p class="cart-page-form__hint text-14">Отримувач:</p>
                             <div class="cart-page-form-field form-field-input" data-field-input data-field-recipient-name data-status="field--inactive">
                                 <input class="cart-page-form__input" type="text" name="name" placeholder="Введіть ім’я отримувача">
@@ -110,7 +110,7 @@
                             <input type="checkbox" name="delivery_type" id="Kyiv" value="5">
                             <p class="cart-page-delivery-options-city-descr text-14 text-black--100">Доставка по Києву </p><span class="text-14 text-non-active">(послуги вантажників не надаються)</span>
                         </div>
-                        <div class="cart-page-delivery-city cart-page-card-form-container">
+                        <div class="cart-page-delivery-city cart-page-card-form-container disabled">
                             <p class="cart-page-form__hint text-14">Отримувач:</p>
                             <div class="cart-page-form-field form-field-input" data-field-input data-field-kyiv-name data-status="field--inactive">
                                 <input class="cart-page-form__input" type="text" name="nameKyiv" placeholder="Введіть ім’я отримувача">

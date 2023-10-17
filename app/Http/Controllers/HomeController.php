@@ -30,13 +30,12 @@ class HomeController extends Controller
 
         $categories = Category::all()->take(4);
         $products = Product::all()->where('in_stock','>', '0')->take(6);
-        $rootCategories = Category::rootCategories()->get();
 
 //        foreach ($categories as $category){
 //            dd($category,$category->products);
 //        }
 
 
-        return view('home', ['title'=>__('home.Title')], compact('products', 'categories', 'rootCategories'));
+        return view('home', ['title'=>__('home.Title')], compact('products', 'categories'));
     }
 }

@@ -38,7 +38,6 @@
             <h2 class="homepage-catalog-title text-title">Наша продукція</h2>
             <div class="homepage-catalog-list-wrap">
                 <div class="catalog-list">
-                @dd($rootCategories);
                     @foreach($rootCategories as $item)
                         <div class="catalog-card">
                             <div class="catalog-card-intro">

@@ -51,7 +51,7 @@
 {{--                                <span class="thank-page-list-item__value text-14 text-black">450 мм</span>--}}
 {{--                            </div>--}}
                             <div class="thank-page-list-item-row">
-                                <span class="thank-page-list-item__key text-14 text-black">Артикул: </span>
+                                <span class="thank-page-list-item__key text-14 text-black">Артикул:<span></span> </span>
                                 <span class="thank-page-list-item__value text-14 text-black">{{$product->SKU}}</span>
                             </div>
                             <div class="thank-page-list-item-row">
