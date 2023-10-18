@@ -38,7 +38,7 @@
 		</symbol>
 
 		<symbol id="icon-arrow-to-section" viewBox="0 0 30 32">
-			<path d="M1.5 20.679L11.03 30m0 0l9.529-9.321M11.029 30V7.56c0-5.87 6-6.56 7.412-6.56H28.5" stroke="#242424" stroke-width="2" stroke-linecap="round"></path>
+			<path d="M1.5 20.679L11.03 30m0 0l9.529-9.321M11.029 30V7.56c0-5.87 6-6.56 7.412-6.56H28.5" stroke="#6F7482" stroke-width="2" stroke-linecap="round"></path>
 		</symbol>
 
 		<symbol id="icon-cart" viewBox="0 0 23 22">
@@ -50,19 +50,19 @@
 		</symbol>
 
 		<symbol id="icon-contacts-arrow" viewBox="0 0 12 8">
-			<path fill-rule="evenodd" clip-rule="evenodd" d="M.293 7.707a1 1 0 0 0 1.414 0L6 3.414l4.293 4.293a1 1 0 1 0 1.414-1.414l-5-5L6 .586l-.707.707-5 5a1 1 0 0 0 0 1.414z" fill="#242424"></path>
+			<path fill-rule="evenodd" clip-rule="evenodd" d="M.293 7.707a1 1 0 0 0 1.414 0L6 3.414l4.293 4.293a1 1 0 1 0 1.414-1.414l-5-5L6 .586l-.707.707-5 5a1 1 0 0 0 0 1.414z" fill="#6F7482"></path>
 		</symbol>
 
 		<symbol id="icon-contacts-mail" viewBox="0 0 24 24">
-			<g stroke="#242424" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><path d="M22 7l-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></g>
+			<g stroke="#6F7482" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z"></path><path d="M22 7l-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"></path></g>
 		</symbol>
 
 		<symbol id="icon-contacts-map" viewBox="0 0 24 24">
-			<g stroke="#242424" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"></path><path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path></g>
+			<g stroke="#6F7482" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 1 1 16 0z"></path><path d="M12 13a3 3 0 1 0 0-6 3 3 0 0 0 0 6z"></path></g>
 		</symbol>
 
 		<symbol id="icon-contacts-phone" viewBox="0 0 24 24">
-			<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.791 19.791 0 0 1-8.63-3.07 19.502 19.502 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.126.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="#242424" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
+			<path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.791 19.791 0 0 1-8.63-3.07 19.502 19.502 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.126.96.36 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z" stroke="#6F7482" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path>
 		</symbol>
 
 		<symbol id="icon-epicentr" viewBox="0 0 230 48">
@@ -82,7 +82,7 @@
 		</symbol>
 
 		<symbol id="icon-mail" viewBox="0 0 24 24">
-			<path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z" stroke="#242424" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M22 7l-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" stroke="#242424" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+			<path d="M20 4H4a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h16a2 2 0 0 0 2-2V6a2 2 0 0 0-2-2z" stroke="#6F7482" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path><path d="M22 7l-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7" stroke="#6F7482" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
 		</symbol>
 
 		<symbol id="icon-profile" viewBox="0 0 20 34">
@@ -204,17 +204,34 @@
                 </button>
             </div>
             <div class="footer-contact">
-                <h3 class="footer-social-title text-24">Відділ продажів:</h3>
-                <div class="footer-contact-item"> <span class="footer-contact-city text-14-uppercase">Київ (головний офіс)</span><a class="footer-contact-link text-14" href="tel:+380504478965"> +38 (050) 447-89-65</a><a class="footer-contact-link text-14" href="mailto:nika@nika-trade.net.ua">nika@nika-trade.net.ua </a><span class="footer-contact-address text-14">Київ, Україна, 04080 вул. Вікентія Хвойки, 15/15</span></div>
-                <div class="footer-contact-item"> <span class="footer-contact-city text-14-uppercase">Дніпро (представництво)</span><a class="footer-contact-link text-14" href="tel:+380562386990"> +38 (056) 238-69-90</a><a class="footer-contact-link text-14" href="mailto:alexnika.dp@gmail.com">alexnika.dp@gmail.com</a><span class="footer-contact-address text-14">Дніпро, Україна, 49000 вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх</span></div>
+              <h3 class="footer-social-title text-24">Відділ продажів:</h3>
+              <div class="footer-contact-item"> 
+                <span class="footer-contact-city text-14-uppercase">Київ (головний офіс)</span>
+                <a class="footer-contact-link text-14" href="tel:+380504478965"> +38 (050) 447-89-65</a>
+                <a class="footer-contact-link text-14" href="tel:+380444966997"> +38 (044) 496-69-97</a>
+                <a class="footer-contact-link text-14" href="mailto:nika@nika-trade.net.ua">nika@nika-trade.net.ua </a>
+                <span class="footer-contact-address text-14">Київ, Україна, 04080 вул. Вікентія Хвойки, 15/15</span>
+              </div>
+              <div class="footer-contact-item"> 
+                <span class="footer-contact-city text-14-uppercase">Дніпро (представництво)</span>
+                <a class="footer-contact-link text-14" href="tel:+380562386990"> +38 (056) 238-69-90</a>
+                <a class="footer-contact-link text-14" href="tel:+380504121600"> +38 (050) 412-16-00</a>
+                <a class="footer-contact-link text-14" href="mailto:alexnika.dp@gmail.com">alexnika.dp@gmail.com</a>
+                <span class="footer-contact-address text-14">Дніпро, Україна, 49000 вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх</span>
+              </div>
             </div>
             <div class="footer-social">
                 <h3 class="footer-social-title text-24">Соцмережі:</h3>
-                <div class="footer-social-list"> <a class="footer-social-list__item text-14" href="#">Telegram</a><a class="footer-social-list__item text-14" href="#">Viber</a><a class="footer-social-list__item text-14" href="#">Instagram</a><a class="footer-social-list__item text-14" href="#">Facebook</a></div>
+                <div class="footer-social-list"> 
+                  <a class="footer-social-list__item text-14" href="#">Telegram</a>
+                  <a class="footer-social-list__item text-14" href="#">Viber</a
+                  ><a class="footer-social-list__item text-14" href="#">Instagram</a>
+                  <a class="footer-social-list__item text-14" href="#">Facebook</a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">
-            <span class="footer-all-rights text-14">© Nika-Trade усі права захищено</span>
+            <span class="footer-all-rights text-14">© НІКА Компані усі права захищено</span>
             <a class="footer-bottom__link" href="https://smarto.agency/?utm_source=referral&amp;amp;utm_medium=giza-wp.smarto.com.ua">
                 <img class="footer-bottom__img" src="{{asset('/assets/images/logo-smart-orange.jpg')}}" alt="Smart Orange">
             </a>

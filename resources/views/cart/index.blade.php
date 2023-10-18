@@ -129,11 +129,11 @@
                         </div>
                     </div>
                 </div>
-                <div class="cart-page-working-hours cart-page-card"><span class="cart-page-card-title text-m text-balck-100">Режим роботи нашої компанії:</span>
+                <div class="cart-page-working-hours cart-page-card"><span class="cart-page-card-title text-m text-balck-100">Режим роботи:</span>
                     <div class="cart-page-card-content">
                         <ul class="cart-page-working-hours-list">
-                            <li class="cart-page-working-hours-item text-14 text-black"> Офіс: з 900 до 1730 (без обіду)</li>
-                            <li class="cart-page-working-hours-item text-14 text-black"> Виробництво: видача заказів с 900 до 1600, обід с 1230 до 1300</li>
+                            <li class="cart-page-working-hours-item text-14 text-black"> Офіс: з 9:00 до 17:00 (без обіду)</li>
+                            <li class="cart-page-working-hours-item text-14 text-black"> Виробництво: видача заказів с 9:00 до 16:00, обід с 12:30 до 13:00</li>
                             <li class="cart-page-working-hours-item text-14 text-black"> Вихідні дні: субота, неділя.</li>
                         </ul>
                     </div>
@@ -142,7 +142,7 @@
                     <div class="cart-page-card-content">
                         <p class="cart-page-form__hint text-14">Коментар:</p>
                         <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-email data-status="field--inactive">
-                            <input class="cart-page-form__input" type="textarea" name="comment" placeholder="Введіть текст коментаря">
+                            <textarea class="cart-page-form__input" type="textarea" rows="5" name="comment" placeholder="Введіть текст коментаря"></textarea>
                             <div class="cart-input-message text-14" data-input-message> </div>
                         </div>
                         <div class="btn-container btn-container-border">

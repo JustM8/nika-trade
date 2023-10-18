@@ -5,14 +5,17 @@
         <div class="intro-swiper-wrap">
             <div class="swiper intro-swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide intro-swiper-slide"> <img class="intro-swiper-slide__img" src="./assets/images/homepage/intro/slide1.jpg" alt="">
+                    <div class="swiper-slide intro-swiper-slide"> 
+                        <img class="intro-swiper-slide__img" src="./assets/images/homepage/intro/slide2.jpg" alt="">
+                        <h1 class="intro-swiper-slide__title text-title">Торгове обладнання</h1>
+                    </div>
+                    <div class="swiper-slide intro-swiper-slide"> 
+                        <img class="intro-swiper-slide__img" src="./assets/images/homepage/intro/slide1.jpg" alt="">
                         <h1 class="intro-swiper-slide__title text-title">Виставкове обладнання</h1>
                     </div>
-                    <div class="swiper-slide intro-swiper-slide"> <img class="intro-swiper-slide__img" src="./assets/images/homepage/intro/slide1.jpg" alt="">
-                        <h1 class="intro-swiper-slide__title text-title">Виставкове обладнання</h1>
-                    </div>
-                    <div class="swiper-slide intro-swiper-slide"> <img class="intro-swiper-slide__img" src="./assets/images/homepage/intro/slide1.jpg" alt="">
-                        <h1 class="intro-swiper-slide__title text-title">Виставкове обладнання</h1>
+                    <div class="swiper-slide intro-swiper-slide"> 
+                        <img class="intro-swiper-slide__img" src="./assets/images/homepage/intro/slide3.jpg" alt="">
+                        <h1 class="intro-swiper-slide__title text-title">Фурнітура</h1>
                     </div>
                 </div>
             </div>
@@ -102,8 +105,13 @@
                         <div class="swiper-wrapper news-gallery-swiper-wrapper">
                             @foreach($news as $new)
                             <div class="swiper-slide news-gallery-slide">
-                                <div class="news-gallery-slide__img"> <img src="{{ $new->thumbnailUrl  }}" alt="" img-paralax></div>
+                                <a href="{{ route('news.show', $new->slug) }}">
+                                <div class="news-gallery-slide__img"> 
+                                    <img src="{{ $new->thumbnailUrl  }}" alt="" img-paralax></div>
                                 <p class="news-gallery-slide__text text-m">{{$new->title[App::currentLocale()]}}</p>
+
+                                </a>
+                                
                             </div>
                             @endforeach
                         </div>
