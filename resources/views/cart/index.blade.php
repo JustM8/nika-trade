@@ -28,7 +28,7 @@
                 </div>
             <form data-cart-popup id="cart-page-form" action="{{ route('order.create') }}" method="POST">
                 @csrf
-                <div class="cart-page-checkup cart-page-card"> <span class="cart-page-card-title text-m text-balck-100">Оформлення товару:</span>
+                <div class="cart-page-checkout cart-page-card"> <span class="cart-page-card-title text-m text-balck-100">Оформлення товару:</span>
                     <div class="cart-page-card-content cart-page-card-form-container">
                         <p class="cart-page-form__hint text-14">Замовник:</p>
                         <div class="cart-page-form-field form-field-input" data-field-input data-field-company-name data-status="field--inactive">
@@ -74,7 +74,7 @@
                                 </div>
                             </div>
                         </div>
-                        <div class="cart-page-delivery-ukraine cart-page-card-form-container disabled">
+                        <div class="cart-page-delivery-ukraine cart-page-card-form-container">
                             <p class="cart-page-form__hint text-14">Отримувач:</p>
                             <div class="cart-page-form-field form-field-input" data-field-input data-field-recipient-name data-status="field--inactive">
                                 <input class="cart-page-form__input" type="text" name="name" placeholder="Введіть ім’я отримувача">
@@ -110,7 +110,7 @@
                             <input type="checkbox" name="delivery_type" id="Kyiv" value="5">
                             <p class="cart-page-delivery-options-city-descr text-14 text-black--100">Доставка по Києву </p><span class="text-14 text-non-active">(послуги вантажників не надаються)</span>
                         </div>
-                        <div class="cart-page-delivery-city cart-page-card-form-container disabled">
+                        <div class="cart-page-delivery-city cart-page-card-form-container">
                             <p class="cart-page-form__hint text-14">Отримувач:</p>
                             <div class="cart-page-form-field form-field-input" data-field-input data-field-kyiv-name data-status="field--inactive">
                                 <input class="cart-page-form__input" type="text" name="nameKyiv" placeholder="Введіть ім’я отримувача">

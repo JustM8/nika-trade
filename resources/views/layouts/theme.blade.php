@@ -136,6 +136,54 @@
             </div>
             <span class="header-location__details text-14">04080 м. Київ, вул. Вікентія Хвойки, 15/15</span>
           </div>
+
+          <div class="header-right-wrap header-right-wrap--mobile">
+            <div class="header-call-wrap">
+              <ul class="header-number-list">
+                <li class="header-number-list__item">
+                  <a class="header-number-list__item-link text-18 text-black" href="tel:+(90)28947777">+(90) 28 94 7777</a>
+                </li>
+                <li class="header-number-list__item">
+                  <a class="header-number-list__item-link text-18 text-black" href="tel:+(90)28947777">+(90) 28 94 7777</a>
+                </li>
+              </ul>
+            </div>
+            <div class="header-lang-wrap">
+              <ul class="lang header-lang">
+                  <ul class="lang header-lang">
+                      <li class="header-lang__item  @if(App::currentLocale()=='ua'){{'header-lang__item--active'}}@endif" data-animate-links>
+                          <a class="text-18 text-black" href="{{ url('/locale/ua')}}">UA</a>
+                      </li>
+                      <li class="header-lang__item @if(App::currentLocale()=='en'){{'header-lang__item--active'}}@endif" data-animate-links>
+                          <a class="text-18 text-black" href="{{ url('/locale/en')}}">EN</a>
+                      </li>
+                      <li class="header-lang__item @if(App::currentLocale()=='ru'){{'header-lang__item--active'}}@endif" data-animate-links>
+                          <a class="text-18 text-black" href="{{ url('/locale/ru')}}">RU</a>
+                      </li>
+                  </ul>
+              </ul>
+            </div>
+            <div class="header-callback-wrap">
+              <a class="header-callback" href="#">
+                <svg class="icon--mail" role="presentation">
+                  <use xlink:href="#icon-mail"></use>
+                </svg>
+              </a>
+            </div>
+            <div class="header-cart-wrap"> 
+              <a class="header-cart" href="{{url('/cart')}}">
+                <svg class="icon--cart" role="presentation">
+                  <use xlink:href="#icon-cart"></use>
+                </svg>
+                <div class="header-cart-amount text-10 text-white" id="cart-amount">
+                    @if (Cart::instance('cart')->count() > 0)
+                        {{ Cart::instance('cart')->content()->count() }}
+                        @else
+                          0
+                    @endif</div>
+              </a>
+            </div>
+          </div>
         </div>
         <div class="header-bottom">
           <div class="header-list-wrap">
@@ -150,45 +198,53 @@
               <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/contacts') }}">Контакти</a></li>
             </ul>
           </div>
-          <div class="header-call-wrap">
-            <ul class="header-number-list">
-              <li class="header-number-list__item"><a class="header-number-list__item-link text-18 text-black" href="tel:+(90)28947777">+(90) 28 94 7777</a></li>
-              <li class="header-number-list__item"><a class="header-number-list__item-link text-18 text-black" href="tel:+(90)28947777">+(90) 28 94 7777</a></li>
-            </ul>
-          </div>
-          <div class="header-lang-wrap">
-            <ul class="lang header-lang">
-                <ul class="lang header-lang">
-                    <li class="header-lang__item  @if(App::currentLocale()=='ua'){{'header-lang__item--active'}}@endif" data-animate-links>
-                        <a class="text-18 text-black" href="{{ url('/locale/ua')}}">UA</a>
-                    </li>
-                    <li class="header-lang__item @if(App::currentLocale()=='en'){{'header-lang__item--active'}}@endif" data-animate-links>
-                        <a class="text-18 text-black" href="{{ url('/locale/en')}}">EN</a>
-                    </li>
-                    <li class="header-lang__item @if(App::currentLocale()=='ru'){{'header-lang__item--active'}}@endif" data-animate-links>
-                        <a class="text-18 text-black" href="{{ url('/locale/ru')}}">RU</a>
-                    </li>
-                </ul>
-            </ul>
-          </div>
-          <div class="header-callback-wrap">
-            <a class="header-callback" href="#">
-              <svg class="icon--mail" role="presentation">
-                <use xlink:href="#icon-mail"></use>
-              </svg></a></div>
-          <div class="header-cart-wrap"> 
-            <a class="header-cart" href="{{url('/cart')}}">
-              <svg class="icon--cart" role="presentation">
-                <use xlink:href="#icon-cart"></use>
-              </svg>
-              <div class="header-cart-amount text-10 text-white" id="cart-amount">
-                  @if (Cart::instance('cart')->count() > 0)
-                      {{ Cart::instance('cart')->content()->count() }}
- @else
- 0
-                  @endif</div>
+          <div class="header-right-wrap">
+            <div class="header-call-wrap">
+              <ul class="header-number-list">
+                <li class="header-number-list__item">
+                  <a class="header-number-list__item-link text-18 text-black" href="tel:+(90)28947777">+(90) 28 94 7777</a>
+                </li>
+                <li class="header-number-list__item">
+                  <a class="header-number-list__item-link text-18 text-black" href="tel:+(90)28947777">+(90) 28 94 7777</a>
+                </li>
+              </ul>
+            </div>
+            <div class="header-lang-wrap">
+              <ul class="lang header-lang">
+                  <ul class="lang header-lang">
+                      <li class="header-lang__item  @if(App::currentLocale()=='ua'){{'header-lang__item--active'}}@endif" data-animate-links>
+                          <a class="text-18 text-black" href="{{ url('/locale/ua')}}">UA</a>
+                      </li>
+                      <li class="header-lang__item @if(App::currentLocale()=='en'){{'header-lang__item--active'}}@endif" data-animate-links>
+                          <a class="text-18 text-black" href="{{ url('/locale/en')}}">EN</a>
+                      </li>
+                      <li class="header-lang__item @if(App::currentLocale()=='ru'){{'header-lang__item--active'}}@endif" data-animate-links>
+                          <a class="text-18 text-black" href="{{ url('/locale/ru')}}">RU</a>
+                      </li>
+                  </ul>
+              </ul>
+            </div>
+            <div class="header-callback-wrap">
+              <a class="header-callback" href="#">
+                <svg class="icon--mail" role="presentation">
+                  <use xlink:href="#icon-mail"></use>
+                </svg>
               </a>
             </div>
+            <div class="header-cart-wrap"> 
+              <a class="header-cart" href="{{url('/cart')}}">
+                <svg class="icon--cart" role="presentation">
+                  <use xlink:href="#icon-cart"></use>
+                </svg>
+                <div class="header-cart-amount text-10 text-white" id="cart-amount">
+                    @if (Cart::instance('cart')->count() > 0)
+                        {{ Cart::instance('cart')->content()->count() }}
+                        @else
+                          0
+                    @endif</div>
+              </a>
+            </div>
+          </div>
         </div>
     </div>
 </header>
