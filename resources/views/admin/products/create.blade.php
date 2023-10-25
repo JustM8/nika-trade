@@ -63,6 +63,20 @@
                             </select>
                         </div>
                     </div>
+                    <div class="form-group row mb-3">
+                        <label for="category"
+                               class="col-md-4 col-form-label text-md-right">{{ __('Parent products') }}</label>
+                        <div class="col-md-6">
+                            <select id="category"
+                                    class="form-control @error('parent_id') is-invalid @enderror"
+                                    name="parent_id">
+                                <option value="">No parent</option>
+                                @foreach($products as $child)
+                                    <option value="{{$child->id}}">{{$child->title[App::currentLocale()]}}</option>
+                                @endforeach
+                            </select>
+                        </div>
+                    </div>
 {{--                    sku--}}
                     <div class="form-group row">
                         <label for="SKU" class="col-md-4 col-form-label text-md-right">{{ __('SKU') }}</label>

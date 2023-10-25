@@ -34,8 +34,9 @@ class ProductsController extends Controller
         $categories = Category::nonRootCategories()->get();
         $products = Product::all();
         $recommendedProducts = $product->recommendedProducts;
-//dd($product->images);
-        return view('admin/products/edit',['title'=>__('product.Title')], compact('product','categories','recommendedProducts','products'));
+        $parents = Product::all()->except($product->id);
+//dd($parents);
+        return view('admin/products/edit',['title'=>__('product.Title')], compact('product','categories','recommendedProducts','products','parents'));
     }
 
     public function update(UpdateProductRequest $request,Product $product )

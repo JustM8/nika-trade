@@ -44,6 +44,7 @@ class UpdateProductRequest extends FormRequest
             'discount' => ['required', 'numeric', 'min:0', 'max:99'],
             'in_stock' => ['required', 'numeric', 'min:0'],
             'category_id' => ['required', 'numeric'],
+            'parent_id' => ['nullable'],
             'thumbnail' => ['nullable', 'image:jpeg,png,jpg'],
             'obj_model' => ['nullable', 'file'],
             'pdf' => ['nullable', 'mimes:pdf'],

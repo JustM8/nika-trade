@@ -27,7 +27,7 @@ class CreateCategoryRequest extends FormRequest
             'slug' => ['required', 'string', 'min:2', 'max:50', 'unique:categories'],
             'parent_id' => ['nullable'],
             'description' => ['nullable'],
-            'thumbnail' => ['image:jpeg,png,jpg'],
+            'thumbnail' => ['nullable','image:jpeg,png,jpg'],
         ];
     }
 }

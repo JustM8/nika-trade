@@ -3,6 +3,7 @@
 @section('content')
     @if($childrens->isEmpty())
 {{--        @dd($menu)--}}
+{{--@dd($category);--}}
         <section class="catalog-single page-container">
             <div class="catalog-single-wrap">
                 <div class="page-intro">
@@ -16,8 +17,8 @@
                     <h2 class="page-title text-title"><?=$category['name'][App::currentLocale()]?></h2>
                 </div>
                 <div class="catalog-single-main">
-                    <div class="catalog-single-btn-mobile-wrap"> 
-                        <button class="catalog-single-btn-mobile btn"> 
+                    <div class="catalog-single-btn-mobile-wrap">
+                        <button class="catalog-single-btn-mobile btn">
                         <svg class="icon--equipment-btn" role="presentation">
                             <use xlink:href="#icon-equipment-btn"></use>
                         </svg><span>Обладнання</span>
@@ -34,7 +35,7 @@
                                 <div class="catalog-single-filter-card-list">
                                     @if(!empty($underItem['children']))
                                         @foreach($underItem['children'] as $underUnderItem)
-                                            <a class="catalog-single-filter-card-list-item text-14" href="{{ route('catalog.show', $underUnderItem['slug']) }}"><?=$underUnderItem['name']?></a>
+                                            <a class="catalog-single-filter-card-list-item text-14 @if($underUnderItem['slug'] == $category->slug) active @endif " href="{{ route('catalog.show', $underUnderItem['slug']) }}"><?=$underUnderItem['name']?></a>
                                         @endforeach
                                     @endif
                                 </div>
@@ -86,8 +87,8 @@
                 <h2 class="page-title text-title"><?=$category['name'][App::currentLocale()]?></h2>
             </div>
             <div class="equipment-list-wrap">
-            <div class="catalog-single-btn-mobile-wrap"> 
-                        <button class="catalog-single-btn-mobile btn"> 
+            <div class="catalog-single-btn-mobile-wrap">
+                        <button class="catalog-single-btn-mobile btn">
                         <svg class="icon--equipment-btn" role="presentation">
                             <use xlink:href="#icon-equipment-btn"></use>
                         </svg><span>Обладнання</span>
@@ -116,7 +117,7 @@
 
                     </div>
                     <div class="equipment-list">
-                
+
                 @foreach($childrens as $item)
                 <div class="equipment-card">
                     <div class="equipment-card-intro"> <span class="equipment-card__title text-24"> <?=$item['name'][App::currentLocale()]?></span>
@@ -140,7 +141,7 @@
             </div>
             </div>
 
-            
+
             <div class="equipment-info-wrap">
                 <div class="equipment-info__title text-m">Торгівельне обладнання, обладнання для магазинів</div>
                 <div class="equipment-info">

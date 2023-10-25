@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('categories', function (Blueprint $table) {
             $table->json('description')->nullable();
-            $table->string('thumbnail');
+            $table->string('thumbnail')->nullable();
         });
     }
 

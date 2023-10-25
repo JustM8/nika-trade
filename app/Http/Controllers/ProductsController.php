@@ -13,9 +13,29 @@ class ProductsController extends Controller
     public function show(Product $product)
     {
 //        $product = Product::where('slug','=',$slug)->first();
+        $childrens = $product->children;
         $recommendedProducts = $product->recommendedProducts;
+        $categorySlug = $this->getCategorySlug($product->id);
         //json output for front
 //        return response()->json(['cur'=>$product,'recommended'=>$recommendedProducts,'lang'=>App::currentLocale()]);
-        return view('products.show',['title'=>__('catalog.Title').' - '.$product->title[App::currentLocale()]], compact('product','recommendedProducts'));
+        return view('products.show',['title'=>__('catalog.Title').' - '.$product->title[App::currentLocale()]], compact('product','recommendedProducts','childrens','categorySlug'));
+    }
+
+    public function getCategorySlug($productId)
+    {
+        $product = Product::find($productId);
+
+        if ($product) {
+            $category = $product->category;
+
+            if ($category) {
+                $categorySlug = $category->slug;
+                return $categorySlug;
+            } else {
+                return "Категорія не визначена";
+            }
+        } else {
+            return "Товар не знайдено";
+        }
     }
 }

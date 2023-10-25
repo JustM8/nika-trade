@@ -14,6 +14,7 @@ class Product extends Model
 
     protected $fillable = [
         'category_id',
+        'parent_id',
         'title',
         'description',
         'price',
@@ -101,4 +102,21 @@ class Product extends Model
     {
         return $this->belongsToMany(Product::class, 'recommended_products', 'product_id', 'recommended_id');
     }
+
+    public function parent()
+    {
+        return $this->belongsTo(Product::class, 'parent_id');
+    }
+
+    public function children()
+    {
+        return $this->hasMany(Product::class, 'parent_id');
+    }
+
+
+    public function hasChildren()
+    {
+        return $this->children()->exists();
+    }
+
 }

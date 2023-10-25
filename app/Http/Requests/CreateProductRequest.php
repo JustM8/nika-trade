@@ -39,6 +39,7 @@ class CreateProductRequest extends FormRequest
             'discount' => ['required', 'numeric', 'min:0', 'max:99'],
             'in_stock' => ['required', 'numeric', 'min:0'],
             'category' => ['required', 'numeric'],
+            'parent_id' => ['nullable'],
             'thumbnail' => ['required', 'image:jpeg,png,jpg'],
             'obj_model' => [ 'file'],
             'pdf' => [ 'mimes:pdf'],

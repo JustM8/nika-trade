@@ -26,6 +26,7 @@ class ProductRepository implements ProductRepositoryContract
             $langs = config('app.available_locales');
 
             $data = $request->validated();
+//            dd($data);
             $dataJson = [];
 
             foreach ($langs as $lang) {

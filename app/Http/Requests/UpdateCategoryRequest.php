@@ -32,7 +32,7 @@ class UpdateCategoryRequest extends FormRequest
             'slug' => ['required', 'string', 'min:2', 'max:50', Rule::unique('categories', 'slug')->ignore($categoryId)],
             'parent_id' => ['nullable'],
             'description' => ['nullable'],
-            'thumbnail' => ['image:jpeg,png,jpg'],
+            'thumbnail' => ['nullable','image:jpeg,png,jpg'],
         ];
     }
 }
