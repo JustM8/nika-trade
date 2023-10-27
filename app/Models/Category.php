@@ -101,14 +101,4 @@ class Category extends Model
     {
         return $query->whereNotNull('parent_id');
     }
-
-    public function parentCategory()
-    {
-        return $this->belongsTo(Category::class, 'parent_id');
-    }
-
-    public function childrenCategories()
-    {
-        return $this->hasMany(Category::class, 'parent_id');
-    }
 }

@@ -6,11 +6,9 @@
             <div class="page-intro">
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
-                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Homepage</a></li>
-                        @foreach ($breadcrumbs as $breadcrumb)
-                            <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="{{ route('catalog.show', ['slug' => $breadcrumb->slug]) }}">{{ $breadcrumb->title[App::currentLocale()] }}</a></li>
-                        @endforeach
-                        <li class="breadcrumbs-item__current--color breadcrumbs-item">{{ $product->title[App::currentLocale()] }}</li>
+                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="index.html">Homepage</a></li>
+                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">productPage</a></li>
+                        <li class="breadcrumbs-item__current--color breadcrumbs-item">Product</li>
                     </ul>
                 </div>
                 <h2 class="page-title text-title">{{ $product->title[App::currentLocale()] }}</h2>

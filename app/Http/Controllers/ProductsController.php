@@ -16,13 +16,12 @@ class ProductsController extends Controller
         $childrens = $product->children;
         $recommendedProducts = $product->recommendedProducts;
         $categorySlug = $this->getCategorySlug($product->id);
-        $breadcrumbs = $this->buildBreadcrumbs($product);
 //        dd($breadcrumbs);
         //json output for front
 //        return response()->json(['cur'=>$product,'recommended'=>$recommendedProducts,'lang'=>App::currentLocale()]);
         return view('products.show',
             ['title'=>__('catalog.Title').' - '.$product->title[App::currentLocale()]],
-            compact('product','recommendedProducts','childrens','categorySlug','breadcrumbs')
+            compact('product','recommendedProducts','childrens','categorySlug')
         );
     }
 
@@ -42,17 +41,5 @@ class ProductsController extends Controller
         } else {
             return "Товар не знайдено";
         }
-    }
-
-    public function buildBreadcrumbs($category)
-    {
-        $breadcrumbs = [];
-
-        while ($category) {
-            $breadcrumbs[] = $category;
-            $category = $category->parentCategory;
-        }
-
-        return array_reverse($breadcrumbs);
     }
 }
