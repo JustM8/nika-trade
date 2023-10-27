@@ -35,7 +35,7 @@
                                 <div class="catalog-single-filter-card-list">
                                     @if(!empty($underItem['children']))
                                         @foreach($underItem['children'] as $underUnderItem)
-                                            <a class="catalog-single-filter-card-list-item text-14 @if($underUnderItem['slug'] == $category->slug) active @endif " href="{{ route('catalog.show', $underUnderItem['slug']) }}"><?=$underUnderItem['name']?></a>
+                                            <a class="catalog-single-filter-card-list-item text-14 @if($underUnderItem['slug'] == $category->slug) 'active' @endif " href="{{ route('catalog.show', $underUnderItem['slug']) }}"><?=$underUnderItem['name']?></a>
                                         @endforeach
                                     @endif
                                 </div>
