@@ -25,9 +25,13 @@
                         </button>
                     </div>
                     <div class="catalog-single-filters-wrap">
+
                     @foreach($menu as $item)
                         <div class="catalog-single-filter">
-                            <span class="catalog-single-filter__title text-s"> <?=$item['name']?></span>
+
+                            <!--тут додати посилання на категорію-->
+                            
+                            <a class="catalog-single-filter__title text-s" href=""> <?=$item['name']?></a>
                             @if(!empty($item['children']))
                             @foreach($item['children'] as $underItem)
                             <div class="catalog-single-filter-card">
@@ -97,7 +101,10 @@
                     <div class="catalog-single-filters-wrap">
                     @foreach($menu as $item)
                         <div class="catalog-single-filter">
-                            <span class="catalog-single-filter__title text-s"> <?=$item['name']?></span>
+                            
+                            <!--тут додати посилання на категорію-->
+
+                            <a class="catalog-single-filter__title text-s" href=""> <?=$item['name']?></a>
                             @if(!empty($item['children']))
                             @foreach($item['children'] as $underItem)
                             <div class="catalog-single-filter-card">

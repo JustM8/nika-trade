@@ -5,15 +5,15 @@
         <div class="intro-swiper-wrap">
             <div class="swiper intro-swiper">
                 <div class="swiper-wrapper">
-                    <div class="swiper-slide intro-swiper-slide"> 
+                    <div class="swiper-slide intro-swiper-slide" data-swiper-autoplay='5000'> 
                         <img class="intro-swiper-slide__img" src="./assets/images/homepage/intro/slide2.jpg" alt="">
                         <h1 class="intro-swiper-slide__title text-title">Торгове обладнання</h1>
                     </div>
-                    <div class="swiper-slide intro-swiper-slide"> 
+                    <div class="swiper-slide intro-swiper-slide" data-swiper-autoplay='5000'> 
                         <img class="intro-swiper-slide__img" src="./assets/images/homepage/intro/slide1.jpg" alt="">
                         <h1 class="intro-swiper-slide__title text-title">Виставкове обладнання</h1>
                     </div>
-                    <div class="swiper-slide intro-swiper-slide"> 
+                    <div class="swiper-slide intro-swiper-slide" data-swiper-autoplay='5000'> 
                         <img class="intro-swiper-slide__img" src="./assets/images/homepage/intro/slide3.jpg" alt="">
                         <h1 class="intro-swiper-slide__title text-title">Фурнітура</h1>
                     </div>
@@ -146,11 +146,9 @@
                         <div class="swiper-slide clients-swiper-slide"> <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/3.png" alt=""></div>
                         <div class="swiper-slide clients-swiper-slide"> <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/4.png" alt=""></div>
                         <div class="swiper-slide clients-swiper-slide"> <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/5.png" alt=""></div>
-                        <div class="swiper-slide clients-swiper-slide"> <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/1.png" alt=""></div>
-                        <div class="swiper-slide clients-swiper-slide"> <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/2.png" alt=""></div>
-                        <div class="swiper-slide clients-swiper-slide"> <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/3.png" alt=""></div>
-                        <div class="swiper-slide clients-swiper-slide"> <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/4.png" alt=""></div>
-                        <div class="swiper-slide clients-swiper-slide"> <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/5.png" alt=""></div>
+                        <div class="swiper-slide clients-swiper-slide"> <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/6.png" alt=""></div>
+                        <div class="swiper-slide clients-swiper-slide"> <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/7.png" alt=""></div>
+                        <div class="swiper-slide clients-swiper-slide"> <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/8.png" alt=""></div>
                     </div>
                 </div>
                 <div class="clients-swiper-button-next round-btn round-btn-next round-btn--black">

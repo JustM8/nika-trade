@@ -132,19 +132,30 @@
           <div class="header-location">
             <div class="header-location__city">
                 <span class="header-location__city-text text-14">Ваше місто </span>
-                <span class="header-location__city-current text-14">Київ</span>
+                <select id="cities" class="header-location__city-current text-14">
+                  <option value="kyiv">Київ (головний офіс)</option>
+                  <option value="dnipro">Дніпро (представництво)</option>
+                </select>
             </div>
-            <span class="header-location__details text-14">04080 м. Київ, вул. Вікентія Хвойки, 15/15</span>
+            <div class="address header-location__details text-14" data-kyiv>вул. Вікентія Хвойки, 15/15, </br> тел. (044) 496-69-97</div>
+            <div class="address header-location__details text-14" data-dnipro>вул. Князя Володимира Великого, 18, </br>  тел. (050) 412-16-00</div>
+     
           </div>
 
           <div class="header-right-wrap header-right-wrap--mobile">
             <div class="header-call-wrap">
               <ul class="header-number-list">
                 <li class="header-number-list__item">
-                  <a class="header-number-list__item-link text-18 text-black" href="tel:+(90)28947777">+(90) 28 94 7777</a>
+                  <a class="header-number-list__item-link text-18 text-black" href="tel:+38(044)4966997">+38(044) 496 69 97</a>
                 </li>
                 <li class="header-number-list__item">
-                  <a class="header-number-list__item-link text-18 text-black" href="tel:+(90)28947777">+(90) 28 94 7777</a>
+                  <a class="header-number-list__item-link text-18 text-black" href="tel:+38(050)4478965">+38(050) 447 89 65</a>
+                </li>
+                <li class="header-number-list__item">
+                  <a class="header-number-list__item-link text-18 text-black" href="tel:+38(050)3872065">+38(050) 387 20 65</a>
+                </li>
+                <li class="header-number-list__item">
+                  <a class="header-number-list__item-link text-18 text-black" href="tel:+38(067)4101014">+38(067) 410 10 14</a>
                 </li>
               </ul>
             </div>
@@ -164,7 +175,7 @@
               </ul>
             </div>
             <div class="header-callback-wrap">
-              <a class="header-callback" href="#">
+              <a class="header-callback" href="mailto: nika@nika-trade.net.ua">
                 <svg class="icon--mail" role="presentation">
                   <use xlink:href="#icon-mail"></use>
                 </svg>
@@ -189,11 +200,9 @@
           <div class="header-list-wrap">
             <ul class="header-list">
               <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/')}}">Головна</a></li>
-              <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/')}}#about">Компанія</a></li>
-              <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/catalog') }}">Каталог</a></li>
+              <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/')}}#about">Про компанію</a></li>
               <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/gallery') }}">Галерея</a></li>
-              <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/services') }}">Послуги</a></li>
-              <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/')}}#clients">Клієнти</a></li>
+              <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/services') }}">Інформація для замовника</a></li>
               <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/news') }}">Новини</a></li>
               <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/contacts') }}">Контакти</a></li>
             </ul>
@@ -202,10 +211,16 @@
             <div class="header-call-wrap">
               <ul class="header-number-list">
                 <li class="header-number-list__item">
-                  <a class="header-number-list__item-link text-18 text-black" href="tel:+(90)28947777">+(90) 28 94 7777</a>
+                  <a class="header-number-list__item-link text-18 text-black" href="tel:+38(044)4966997">+38(044) 496 69 97</a>
                 </li>
                 <li class="header-number-list__item">
-                  <a class="header-number-list__item-link text-18 text-black" href="tel:+(90)28947777">+(90) 28 94 7777</a>
+                  <a class="header-number-list__item-link text-18 text-black" href="tel:+38(050)4478965">+(38050) 447 89 65</a>
+                </li>
+                <li class="header-number-list__item">
+                  <a class="header-number-list__item-link text-18 text-black" href="tel:+(38050)3872065">+(38050) 387 20 65</a>
+                </li>
+                <li class="header-number-list__item">
+                  <a class="header-number-list__item-link text-18 text-black" href="tel:+(38067)4101014">+(38067) 410 10 14</a>
                 </li>
               </ul>
             </div>
