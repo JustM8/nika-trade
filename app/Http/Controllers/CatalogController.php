@@ -36,9 +36,17 @@ class CatalogController extends Controller
             }
         }
 
+        $category = Category::find($category->id);
+
+        if (!$category) {
+            return response()->json(['message' => 'Категорія не знайдена'], 404);
+        }
+        $rootParent = $category->findRootParent();
+
+
         $menu = $this->getMenu();
 
-        return view('catalog.show',['title'=>__('catalog.Title').' - '.$category->name[App::currentLocale()]], compact('category','childrens','childrensOfChildrens','menu','products'));
+        return view('catalog.show',['title'=>__('catalog.Title').' - '.$category->name[App::currentLocale()]], compact('category','childrens','childrensOfChildrens','menu','products','rootParent'));
     }
 
     public function getChildCategories($parentId)

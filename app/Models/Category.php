@@ -101,4 +101,17 @@ class Category extends Model
     {
         return $query->whereNotNull('parent_id');
     }
+
+    public function findRootParent()
+    {
+        $category = $this;
+
+        // Якщо у поточної категорії є батько, рекурсивно визначте найголовнішого предка
+        while ($category->parent_id !== null) {
+            $category = Category::find($category->parent_id);
+        }
+
+        // Якщо категорія не має батька, це найголовніший предок
+        return $category;
+    }
 }

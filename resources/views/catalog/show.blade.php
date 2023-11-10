@@ -3,10 +3,10 @@
 @section('content')
     @if($childrens->isEmpty())
 {{--        @dd($menu)--}}
-{{--@dd($category);--}}
+{{--@dd($category,$rootParent);--}}
         <section class="catalog-single page-container">
             <div class="catalog-single-wrap">
-                <div class="page-intro">
+                <div class="page-intro" data-category="{{$rootParent->slug}}">
                     <div class="page-breadcrumbs">
                         <ul class="breadcrumbs">
                             <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Homepage</a></li>
@@ -30,16 +30,16 @@
                         <div class="catalog-single-filter">
 
                             <!--тут додати посилання на категорію-->
-                            
+
                             <a class="catalog-single-filter__title text-s" href=""> <?=$item['name']?></a>
                             @if(!empty($item['children']))
                             @foreach($item['children'] as $underItem)
                             <div class="catalog-single-filter-card">
-                                <div class="catalog-single-filter-card__title text-14"><?=$underItem['name']?></div>
-                                <div class="catalog-single-filter-card-list">
+                                <div class="catalog-single-filter-card__title text-14 {{ in_array($category->slug, array_column($underItem['children'], 'slug')) ? 'active' : '' }}"><?=$underItem['name']?></div>
+                                <div class="catalog-single-filter-card-list {{ in_array($category->slug, array_column($underItem['children'], 'slug')) ? 'active' : '' }}" >
                                     @if(!empty($underItem['children']))
                                         @foreach($underItem['children'] as $underUnderItem)
-                                            <a class="catalog-single-filter-card-list-item text-14 @if($underUnderItem['slug'] == $category->slug) 'active' @endif " href="{{ route('catalog.show', $underUnderItem['slug']) }}"><?=$underUnderItem['name']?></a>
+                                            <a class="catalog-single-filter-card-list-item text-14 @if($underUnderItem['slug'] == $category->slug) active @endif " href="{{ route('catalog.show', $underUnderItem['slug']) }}"><?=$underUnderItem['name']?></a>
                                         @endforeach
                                     @endif
                                 </div>
@@ -80,7 +80,7 @@
     @else
     <section class="equipment page-container">
         <div class="equipment-wrap">
-            <div class="page-intro">
+            <div class="page-intro"  data-category="{{$rootParent->slug}}">
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
                         <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Homepage</a></li>
@@ -101,7 +101,7 @@
                     <div class="catalog-single-filters-wrap">
                     @foreach($menu as $item)
                         <div class="catalog-single-filter">
-                            
+
                             <!--тут додати посилання на категорію-->
 
                             <a class="catalog-single-filter__title text-s" href=""> <?=$item['name']?></a>
