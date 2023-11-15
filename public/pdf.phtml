@@ -1,0 +1,598 @@
+ <html>
+<head>
+    <link rel="stylesheet" type="text/css" href="<?=$dirs?>/pdf/flat/css/style-pdf.css">
+</head>
+
+<body >
+
+<?
+
+$footer_td = (mb_strlen(@$menager->user_email, 'utf8')>25)? 'style="padding-left: 5mm;"' : '';
+
+$type_object = (isset($this->config->api_settings->type_view->{$flat->type_object}))? $this->_e($this->config->api_settings->type_view->{$flat->type_object}->text->{0}) : $this->_e('Квартира');
+
+$adress = [];
+
+if ($flat->country_name) $adress[] = $flat->country_name;
+if ($flat->city_name) $adress[] = $flat->city_name;
+if ($flat->project_region_text) $adress[] = $flat->project_region_text;
+if ($flat->project_adress) $adress[] = $flat->project_adress;
+
+$adress_text = implode(', ', $adress);
+
+
+$number_addendum_contract = '2';
+$number_contract = '';
+
+foreach ($CrmDeals->properties as $item) {
+
+    if ($item->properties->id == 41)  $number_addendum_contract = $item->value->value;
+    if ($item->properties->id == 42)  $number_contract = $item->value->value;
+}
+
+?>
+
+<!-- flat page started -->
+
+
+
+
+<div class="flat-dev" >
+    <table class="flat-table-dev">
+        <tr>
+            <td style="width: 250px; height: 800px;">
+                <table class="intro-text-table">
+                    <tr>
+                        <td style="width: 252px; height: 370px; border-left: 2px solid #E0B900;">
+                            <table class="flat-table-general-info">
+                                <tr>
+                                    <td class="flat-table-general-info-logo-td">
+                                        <img class="flat-table-general-info-logo" src="<?=$dirs.$flat->development_img?>"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table class="flat-text-table">
+                                            <tr>
+                                                <td class="intro-text-main-table-title-td">
+                                                    <span class="intro-text-main-table-title"><?=$this->_e('Тип', $lang)?></span>
+                                                    <span class="intro-text-main-table-title"><?=$flat->type;?></span>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td style="width: 250px; padding-bottom: 20px;">  
+                                                    <table class="flat-main-info-table">
+                                                                
+                                                        <tr>
+                                                            <td class="flat-main-info"><?=$this->_e('Дом', $lang)?>:</td>
+                                                            <td class="flat-main-info-space"></td>
+                                                            <td class="flat-main-info flat-main-info-value"><?=$flat->build_name?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="flat-main-info"><?=$this->_e('Этаж', $lang)?>:</td>
+                                                            <td class="flat-main-info-space"></td>
+                                                            <td class="flat-main-info flat-main-info-value"><?=$flat->floor?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="flat-main-info"><?=$this->_e('Кол-во комнат', $lang)?>:</td>
+                                                            <td class="flat-main-info-space"></td>
+                                                            <td class="flat-main-info flat-main-info-value"><?=$flat->rooms?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="flat-main-info"><span class="capitalize"><?=$type_object?></span> №:</td>
+                                                            <td class="flat-main-info-space"></td>
+                                                            <td class="flat-main-info flat-main-info-value"><?=$flat->number;?></td>
+                                                        </tr>
+                                                        <?if ($flat->life_room != 0) {?>
+                                                        <tr>
+                                                            <td class="flat-main-info">
+                                                                <span class="capitalize"><?=$this->_e('Жилая площадь', $lang)?>:</span>
+                                                            </td>
+                                                            <td class="flat-main-info-space"></td>
+                                                            <td class="flat-main-info flat-main-info-value"><?=$flat->life_room;?> <?=$this->_e('м', $lang)?><sup>2</sup></td>
+                                                        </tr>
+                                                        <?}?>
+                                                            
+                                                        <tr>
+                                                            <td class="flat-main-info">
+                                                                <span class="capitalize"><?=$this->_e('Общая площадь', $lang)?>:</span>
+                                                            </td>
+                                                            <td class="flat-main-info-space"></td>
+                                                            <td class="flat-main-info flat-main-info-value"><?=round($flat->all_room, 2);?> <?=$this->_e('м', $lang)?><sup>2</sup>
+                                                            </td>
+                                                        </tr>
+                                                                
+                                                    </table>
+                                       
+                                                </td>
+                                            </tr>
+                                     
+                                            <tr>
+                                                <td style="width: 252px; height: 168px;">
+                                                    <table class="flat-sizes-info-table">
+                                                        <?
+                                                            foreach ($flat->properties as $room) {
+                                                                if (!$room->property_name) continue;
+                                                                ?>
+                                                                <tr class="flat-sizes-info">
+                                                                    <td class="flat-sizes-info-name"><?=$room->property_name?></td>
+                                                                    <td class="flat-sizes-info-space"></td>
+                                                                    <td class="flat-sizes-info-value"><?=$room->property_flat;?> <?=$this->_e('м', $lang)?><sup>2</sup></td>
+                                                                </tr>
+                                                        <?}?>
+                                                                                                                    
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="height: 148px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 254px;">
+                            <table class="intro-contacts">
+                                <tr>
+                                    <td class="intro-contacts-text" style="width: 254px;">
+                                        <table class="intro-contacts-text-table" style="width: 250px; height: 254px;">
+                                            <tr>
+                                                <td class="intro-contacts-text-number-title-td" >
+                                                    <span class="intro-contacts-text-number-title"><?=$this->_e('Відділ інвестицій:')?></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="intro-contacts-text-number-td" >
+                                                    <a class="intro-contacts-text-number" href="tel:+380675176841">+38 067 517 68 41</span>
+                                                </td>
+                                            </tr>
+                                                
+                                            <tr>
+                                                <td class="intro-contacts-text-address-td">
+                                                    <span class="intro-contacts-text-address"><?=$this->_e('Івано-Франківська область, с. Поляниця, урочище Вишні, 421')?></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="intro-contacts-text-link-td">
+                                                    <a class="intro-contacts-text-link" href="https://mountain-residence.com">mountain-residence.com</a>
+                                                </td>
+                                                </tr>
+                                            <tr>
+                                                <td class="intro-contacts-text-link-td">
+                                                    <a class="intro-contacts-text-link" href="https://cartel.ua">cartel.ua</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <?if($AgentsAccess){?>
+                                                    <td class="intro-contacts-text-date-td">
+                                                        <span class="intro-contacts-text-date">
+                                                        <?=$this->_e('Дата зустрічі:')?>
+                                                        </span>
+                                                                
+                                                        <span class="intro-contacts-text-date-bold">
+                                                        <?=date('d.m.Y');?>
+                                                        </span>
+                                                    </td>   
+                                                        
+                                                <?}?>
+                                            </tr>
+                                            <tr>
+                                                <td class="intro-contacts-text-manager-td">
+                                                    <?if($AgentsAccess){?><span class="intro-contacts-text-manager"><?=$this->_e('Менеджер', $lang)?>:</span><?}?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="intro-contacts-text-manager-name-td">
+                                                    <?if($AgentsAccess){?> <span class="intro-contacts-text-manager-name"><?=$menager->user_first_name;?></span><?}?>
+                                                </td>
+                                            </tr>
+                                            
+                                        </table>
+                                    </td>     
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 20px; height: 800px;" ></td>
+            <td style="width: 850px; height: 800px;">
+                <table class="planings-table">
+                    <tr>
+                        <td style="width: 100%; height: 90px;">
+                            <table class="planings-table-top">
+                                <tr>
+                                    <td class="planings-table-title-td" rowspan="1">
+                                        <span class="planings-table-title"><?=$this->_e('План апартаментів')?></span>
+                                    </td>
+                                    <td class="planings-table-compass-td" rowspan="2" style="text-align: right">
+                                        <img class="planings-table-compass" src="<?=$dirs?>/images/pdf/compass.jpg"/>
+                                    </td>
+                                </tr>
+                                <tr>  
+                                    <td rowspan="1"></td>
+                                            
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100%; height: 548px;">
+                            <table style="width: 100%; margin-top: -90px; text-align: center;" <?if(!$AgentsAccess) echo 'style="margin-top: -20mm"';?>>
+                                <tr>
+                                    <td class="plannings-table-img-td" style="text-align: center;">
+                                        <img style="max-width:889px; max-height:548px"  src="<?=$dirs?>/<?=$this->cropImg($flat->img_big,'resize', false, 1500, 0)?>"/>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td class="planings-table-small-img-td" style="width:150px; height:158px">
+                                        
+
+                                                    <?
+                                                    $this->view->FloorData = $FloorData;
+                                                    $this->view->dirs = $dirs;
+                                                    $this->view->id = $flat->id;
+
+                                                   require(BASE_PATH."/themes/mbt-group/frontend/views/layouts/pdf/flat_FloorSvgPlanSmall.phtml");
+
+                                                    ?>
+
+                                        
+                                    </td> 
+                                    <td style="width: 50px;">
+
+                                    </td>
+                                    <td class="planings-table-text-rows-td" style="width:538px; height:158px">
+                                                    <table class="flat-img-table-blank" style="width:538px; height:158px">
+                                                        <tr>
+                                                            <td class="flat-img-table-blank-name-td">
+                                                                <span class="flat-img-table-blank-name"></span>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+                                                                <span class="flat-img-table-blank-name-deal">
+                                                                    <?="Додаток №{$number_addendum_contract} до Договору купівлі-продажу спеціального майнового права №{$number_contract} від {$this->textDate($DataContract->date_contract_created)} р."?>
+
+                                                                </span>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+
+                                                            </td>
+                                                        </tr>
+
+                                                    </table>
+
+
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>                 
+    </table>
+</div>
+
+
+<!-- flat page ended -->
+
+
+<!-- floor page started -->
+
+<div class="flat-dev" >
+    <table class="flat-table-dev">
+        <tr>
+            <td style="width: 250px; height: 800px;">
+                <table class="intro-text-table">
+                    <tr>
+                        <td style="width: 252px; height: 370px; border-left: 2px solid #E0B900;">
+                            <table class="flat-table-general-info">
+                                <tr>
+                                    <td class="flat-table-general-info-logo-td">
+                                        <img class="flat-table-general-info-logo" src="<?=$dirs.$flat->development_img?>"/>
+                                    </td>
+                                </tr>
+                                <tr>
+                                    <td>
+                                        <table class="flat-text-table">
+                                            <tr>
+                                                <td class="intro-text-main-table-title-td">
+                                                    <span class="intro-text-main-table-title"><?=$this->_e('Тип', $lang)?></span>
+                                                    <span class="intro-text-main-table-title"><?=$flat->type;?></span>
+                                                </td>
+                                            </tr>
+                                            
+                                            <tr>
+                                                <td style="width: 250px; padding-bottom: 20px;">  
+                                                    <table class="flat-main-info-table">
+                                                                
+                                                        <tr>
+                                                            <td class="flat-main-info"><?=$this->_e('Дом', $lang)?>:</td>
+                                                            <td class="flat-main-info-space"></td>
+                                                            <td class="flat-main-info flat-main-info-value"><?=$flat->build_name?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="flat-main-info"><?=$this->_e('Этаж', $lang)?>:</td>
+                                                            <td class="flat-main-info-space"></td>
+                                                            <td class="flat-main-info flat-main-info-value"><?=$flat->floor?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="flat-main-info"><?=$this->_e('Кол-во комнат', $lang)?>:</td>
+                                                            <td class="flat-main-info-space"></td>
+                                                            <td class="flat-main-info flat-main-info-value"><?=$flat->rooms?></td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td class="flat-main-info"><span class="capitalize"><?=$type_object?></span> №:</td>
+                                                            <td class="flat-main-info-space"></td>
+                                                            <td class="flat-main-info flat-main-info-value"><?=$flat->number;?></td>
+                                                        </tr>
+                                                        <?if ($flat->life_room != 0) {?>
+                                                        <tr>
+                                                            <td class="flat-main-info">
+                                                                <span class="capitalize"><?=$this->_e('Жилая площадь', $lang)?>:</span>
+                                                            </td>
+                                                            <td class="flat-main-info-space"></td>
+                                                            <td class="flat-main-info flat-main-info-value"><?=$flat->life_room;?> <?=$this->_e('м', $lang)?><sup>2</sup></td>
+                                                        </tr>
+                                                        <?}?>
+                                                            
+                                                        <tr>
+                                                            <td class="flat-main-info">
+                                                                <span class="capitalize"><?=$this->_e('Общая площадь', $lang)?>:</span>
+                                                            </td>
+                                                            <td class="flat-main-info-space"></td>
+                                                            <td class="flat-main-info flat-main-info-value"><?=round($flat->all_room, 2);?> <?=$this->_e('м', $lang)?><sup>2</sup>
+                                                            </td>
+                                                        </tr>
+                                                                
+                                                    </table>
+                                       
+                                                </td>
+                                            </tr>
+                                     
+                                            <tr>
+                                                <td style="width: 252px; height: 168px;">
+                                                    <table class="flat-sizes-info-table">
+                                                        <?
+                                                            foreach ($flat->properties as $room) {
+                                                                if (!$room->property_name) continue;
+                                                                ?>
+                                                                <tr class="flat-sizes-info">
+                                                                    <td class="flat-sizes-info-name"><?=$room->property_name?></td>
+                                                                    <td class="flat-sizes-info-space"></td>
+                                                                    <td class="flat-sizes-info-value"><?=$room->property_flat;?> <?=$this->_e('м', $lang)?><sup>2</sup></td>
+                                                                </tr>
+                                                        <?}?>
+                                                        
+                                                            
+                                                            
+                                                    </table>
+                                                </td>
+                                            </tr>
+                                        </table>
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="height: 148px;">
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 254px;">
+                            <table class="intro-contacts">
+                                <tr>
+                                    <td class="intro-contacts-text" style="width: 254px;">
+                                        <table class="intro-contacts-text-table" style="width: 250px; height: 254px;">
+                                            <tr>
+                                                <td class="intro-contacts-text-number-title-td" >
+                                                    <span class="intro-contacts-text-number-title"><?=$this->_e('Відділ інвестицій:')?></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="intro-contacts-text-number-td" >
+                                                    <a class="intro-contacts-text-number" href="tel:+380675176841">+38 067 517 68 41</span>
+                                                </td>
+                                            </tr>
+                                                
+                                            <tr>
+                                                <td class="intro-contacts-text-address-td">
+                                                    <span class="intro-contacts-text-address"><?=$this->_e('Івано-Франківська область, с. Поляниця, урочище Вишні, 421')?></span>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="intro-contacts-text-link-td">
+                                                    <a class="intro-contacts-text-link" href="https://mountain-residence.com">mountain-residence.com</a>
+                                                </td>
+                                                </tr>
+                                            <tr>
+                                                <td class="intro-contacts-text-link-td">
+                                                    <a class="intro-contacts-text-link" href="https://cartel.ua">cartel.ua</a>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <?if($AgentsAccess){?>
+                                                    <td class="intro-contacts-text-date-td">
+                                                        <span class="intro-contacts-text-date">
+                                                        <?=$this->_e('Дата зустрічі:')?>
+                                                        </span>
+                                                                
+                                                        <span class="intro-contacts-text-date-bold">
+                                                        <?=date('d.m.Y');?>
+                                                        </span>
+                                                    </td>   
+                                                        
+                                                <?}?>
+                                            </tr>
+                                            <tr>
+                                                <td class="intro-contacts-text-manager-td">
+                                                    <?if($AgentsAccess){?><span class="intro-contacts-text-manager"><?=$this->_e('Менеджер', $lang)?>:</span><?}?>
+                                                </td>
+                                            </tr>
+                                            <tr>
+                                                <td class="intro-contacts-text-manager-name-td">
+                                                    <?if($AgentsAccess){?> <span class="intro-contacts-text-manager-name"><?=$menager->user_first_name;?></span><?}?>
+                                                </td>
+                                            </tr>
+                                            
+                                        </table>
+                                    </td>     
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                </table>
+            </td>
+            <td style="width: 20px; height: 800px;" ></td>
+            <td style="width: 850px; height: 800px;">
+                <table class="planings-table">
+                    <tr>
+                        <td style="width: 100%; height: 90px;">
+                            <table class="planings-table-top">
+                                <tr>
+                                    <td class="planings-table-title-td" rowspan="1">
+                                        <span class="planings-table-title"><?=$this->_e('План поверху')?></span>
+                                    </td>
+                                    <td class="planings-table-compass-td" rowspan="2" style="text-align: right">
+                                        <img class="planings-table-compass" src="<?=$dirs?>/images/pdf/compass.jpg"/>
+                                    </td>
+                                </tr>
+                                <tr>  
+                                    <td rowspan="1"></td>
+                                            
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td style="width: 100%; height: 540px;" >
+                            <table style="width: 100%; margin-top: -90px; text-align: center;" <?if(!$AgentsAccess) echo 'style="margin-top: -20mm"';?>>
+                                <tr>
+                                    <td class="plannings-table-img-td" style="width: 100%; height: 540px; text-align: center;">
+                                                <?
+                                                    $this->view->FloorData = $FloorData;
+                                                    $this->view->dirs = $dirs;
+                                                    $this->view->id = $flat->id;
+
+                                                   require(BASE_PATH."/themes/mbt-group/frontend/views/layouts/pdf/flat_FloorSvgPlan.phtml");
+
+                                                ?>                                   
+                                    </td>
+                                </tr>
+                            </table>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <table>
+                                <tr>
+                                    <td class="planings-table-small-img-td" style="width:300px; height:158px; overflow: hidden;background: yellow;">
+                                        <img style="max-width:300px; max-height:158px"  src="<?=$dirs?>/images/pdf/genplanSmall.jpg"/>
+
+                                        <?
+                                        
+                                        
+                                        
+                                        /*
+                                        
+                                        * $width = '100%';
+                                        * $height = '100%';
+                                        
+
+                                        *require(BASE_PATH."/themes/mbt-group/frontend/views/layouts/pdf/genplanSvgBlock.phtml");
+                                        */
+
+                                        ?>
+                                        
+                                    </td> 
+                                    <td style="width: 50px;">
+
+                                    </td>
+                                    <td class="planings-table-text-rows-td" style="width:538px; height:158px">
+                                                    <table class="flat-img-table-blank" style="width:538px; height:158px">
+                                                        <tr>
+                                                            <td class="flat-img-table-blank-name-td">
+                                                                <span class="flat-img-table-blank-name"><?=$this->_e('Нотатки:')?></span>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+
+                                                            </td>
+                                                        </tr>
+                                                        <tr>
+                                                            <td>
+
+                                                            </td>
+                                                        </tr>
+
+                                                    </table>
+
+
+                                    </td>
+                                </tr>
+
+                            </table>
+
+                        </td>
+                    </tr>
+
+                </table>
+            </td>
+        </tr>                 
+    </table>
+</div>
+
+
+
+
+
+<!-- floor page ended -->
+
+
+
+
+</body>
+</html>

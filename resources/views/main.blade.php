@@ -7,19 +7,36 @@
                 <div class="swiper-wrapper">
                     <div class="swiper-slide intro-swiper-slide" data-swiper-autoplay='5000'> 
                         <img class="intro-swiper-slide__img" src="./assets/images/homepage/intro/slide2.jpg" alt="">
-                        <h1 class="intro-swiper-slide__title text-title">Торгове обладнання</h1>
+                        
                     </div>
                     <div class="swiper-slide intro-swiper-slide" data-swiper-autoplay='5000'> 
                         <img class="intro-swiper-slide__img" src="./assets/images/homepage/intro/slide1.jpg" alt="">
-                        <h1 class="intro-swiper-slide__title text-title">Виставкове обладнання</h1>
+                       
                     </div>
                     <div class="swiper-slide intro-swiper-slide" data-swiper-autoplay='5000'> 
                         <img class="intro-swiper-slide__img" src="./assets/images/homepage/intro/slide3.jpg" alt="">
-                        <h1 class="intro-swiper-slide__title text-title">Фурнітура</h1>
+                        
                     </div>
                 </div>
             </div>
-            <div class="intro-swiper-nav">
+            <div class="homepage-catalog-list-wrap container">
+                <div class="homepage-catalog-list">
+                @foreach($rootCategories as $item) 
+                    <a class="homepage-catalog-card" href="{{ route('catalog.show', $item->slug) }}">
+                        <div class="homepage-catalog-card-intro">
+                            <span class="homepage-catalog-card-intro__title"><?=$item['name'][App::currentLocale()]?></span>
+                            <span class="homepage-catalog-card-intro__descr text-18">Торговельне обладнання зі спеціалізацією на товарах промислової групи для магазинів одягу, взуття, дитячих, спортивних та канцелярських товарів, магазинів побутової та комп'ютерної техніки, ювелірних магазинів, аптек тощо;</span></div>
+                        <div class="homepage-catalog-card__arrow"> 
+                            <svg class="icon--arrow-item" role="presentation">
+                            <use xlink:href="#icon-arrow-item"></use>
+                            </svg>
+                        </div>
+                    </a>
+                @endforeach
+             
+                </div>
+            </div>
+            <!-- <div class="intro-swiper-nav">
                 <div class="intro-swiper-button-prev round-btn">
                     <svg class="icon--arrow" role="presentation">
                         <use xlink:href="#icon-arrow"></use>
@@ -30,46 +47,15 @@
                         <use xlink:href="#icon-arrow"></use>
                     </svg>
                 </div>
-            </div><a class="intro-next-section" href="#">
+            </div> -->
+            <!-- <a class="intro-next-section" href="#">
                 <svg class="icon--arrow-to-section" role="presentation">
                     <use xlink:href="#icon-arrow-to-section"></use>
-                </svg></a>
+                </svg>
+            </a> -->
         </div>
     </section>
-    <section class="homepage-catalog">
-        <div class="homepage-catalog-wrap section-container">
-            <h2 class="homepage-catalog-title text-title">Наша продукція</h2>
-            <div class="homepage-catalog-list-wrap">
-                <div class="catalog-list">
-                    @foreach($rootCategories as $item)
-                        <div class="catalog-card">
-                            <div class="catalog-card-intro">
-                                <span class="catalog-card-intro__title text-24"><?=$item['name'][App::currentLocale()]?></span>
-                                <a class="catalog-card-intro__link" href="{{ route('catalog.show', $item->slug) }}">
-                                    <span class="catalog-card-intro__link-title">ДИВИТИСЯ ТОВАРИ </span>
-                                    <div class="catalog-card-intro__link-svg">
-                                        <svg class="icon--arrow-item" role="presentation">
-                                            <use xlink:href="#icon-arrow-item"></use>
-                                        </svg>
-                                    </div>
-                                </a>
-                            </div>
-                            <div class="catalog-card__img">
-                                <img src="{{asset('/assets/images/equipment/default.jpg')}}" alt=""></div>
-                            <a class="catalog-card-intro__link catalog-card-intro__link--mobile" href="{{ route('catalog.show', $item->slug) }}">
-                                <span class="catalog-card-intro__link-title">ДИВИТИСЯ ТОВАРИ </span>
-                                <div class="catalog-card-intro__link-svg">
-                                    <svg class="icon--arrow-item" role="presentation">
-                                        <use xlink:href="#icon-arrow-item"></use>
-                                    </svg>
-                                </div>
-                            </a>
-                        </div>
-                    @endforeach
-                </div>
-            </div>
-        </div>
-</section>
+    
     <section class="directions">
         <div class="directions-wrap section-container">
             <h2 class="directions-title text-title">Напрямки роботи  </h2>
