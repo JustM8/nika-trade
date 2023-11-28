@@ -1,14 +1,17 @@
 @extends('layouts.theme')
 
 @section('content')
+{{--    @dd($breadcrumbs);--}}
     <section class="product-page page-container" data-product-id="{{$product->id}}">
         <div class="product-page-wrap">
             <div class="page-intro">
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
-                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="index.html">Homepage</a></li>
-                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">productPage</a></li>
-                        <li class="breadcrumbs-item__current--color breadcrumbs-item">Product</li>
+                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Homepage</a></li>
+                        @foreach($breadcrumbs as $item)
+                                <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="{{$item['url']}}">{{$item['name'][App::currentLocale()]}}</a></li>
+                        @endforeach
+
                     </ul>
                 </div>
                 <h2 class="page-title text-title">{{ $product->title[App::currentLocale()] }}</h2>

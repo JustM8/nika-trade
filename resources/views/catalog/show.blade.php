@@ -1,7 +1,11 @@
 @extends('layouts.theme')
 
 @section('content')
+    @php($lastElement = end($breadcrumbs))
     @if($childrens->isEmpty())
+
+{{--    @dd($breadcrumbs);--}}
+
 {{--        @dd($menu)--}}
 {{--@dd($category,$rootParent);--}}
         <section class="catalog-single page-container">
@@ -10,8 +14,13 @@
                     <div class="page-breadcrumbs">
                         <ul class="breadcrumbs">
                             <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Homepage</a></li>
-                            <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">catalog-single</a></li>
-                            <li class="breadcrumbs-item__current--color breadcrumbs-item">Catalog-single</li>
+                            @foreach($breadcrumbs as $item)
+                                @if($item['id'] == $lastElement['id'])
+                                <li class="breadcrumbs-item__current--color breadcrumbs-item">{{$item['name'][App::currentLocale()]}}</li>
+                                @else
+                                <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="{{$item['url']}}">{{$item['name'][App::currentLocale()]}}</a></li>
+                                @endif
+                            @endforeach
                         </ul>
                     </div>
                     <h2 class="page-title text-title"><?=$category['name'][App::currentLocale()]?></h2>
@@ -84,8 +93,13 @@
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
                         <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Homepage</a></li>
-                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">equipment</a></li>
-                        <li class="breadcrumbs-item__current--color breadcrumbs-item">Equipment</li>
+                        @foreach($breadcrumbs as $item)
+                            @if($item['id'] == $lastElement['id'])
+                                <li class="breadcrumbs-item__current--color breadcrumbs-item">{{$item['name'][App::currentLocale()]}}</li>
+                            @else
+                                <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="{{$item['url']}}">{{$item['name'][App::currentLocale()]}}</a></li>
+                            @endif
+                        @endforeach
                     </ul>
                 </div>
                 <h2 class="page-title text-title"><?=$category['name'][App::currentLocale()]?></h2>
@@ -127,6 +141,7 @@
 
                 @foreach($childrens as $item)
                 <div class="equipment-card">
+{{--                    <a href="{{ route('catalog.show', $item->slug) }}">--}}
                     <div class="equipment-card-intro"> <span class="equipment-card__title text-24"> <?=$item['name'][App::currentLocale()]?></span>
                         <div class="equipment-card-list">
                             @foreach($childrensOfChildrens[$item->id] as $children)
@@ -143,6 +158,7 @@
                     <div class="equipment-card__img-wrap">
                         <img src="{{asset('/assets/images/equipment/default.jpg')}}" alt="">
                     </div>
+{{--                    </a>--}}
                 </div>
                 @endforeach
             </div>

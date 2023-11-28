@@ -14,6 +14,7 @@ class ProductsController extends Controller
     {
 //        $product = Product::where('slug','=',$slug)->first();
         $childrens = $product->children;
+        $breadcrumbs = $product->breadcrumbs;
         $recommendedProducts = $product->recommendedProducts;
         $categorySlug = $this->getCategorySlug($product->id);
 //        dd($breadcrumbs);
@@ -21,7 +22,7 @@ class ProductsController extends Controller
 //        return response()->json(['cur'=>$product,'recommended'=>$recommendedProducts,'lang'=>App::currentLocale()]);
         return view('products.show',
             ['title'=>__('catalog.Title').' - '.$product->title[App::currentLocale()]],
-            compact('product','recommendedProducts','childrens','categorySlug')
+            compact('product','recommendedProducts','childrens','categorySlug','breadcrumbs')
         );
     }
 

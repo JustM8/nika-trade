@@ -46,7 +46,9 @@ class CatalogController extends Controller
 
         $menu = $this->getMenu();
 
-        return view('catalog.show',['title'=>__('catalog.Title').' - '.$category->name[App::currentLocale()]], compact('category','childrens','childrensOfChildrens','menu','products','rootParent'));
+        $breadcrumbs = $category->breadcrumbs;
+
+        return view('catalog.show',['title'=>__('catalog.Title').' - '.$category->name[App::currentLocale()]], compact('category','childrens','childrensOfChildrens','menu','products','rootParent','breadcrumbs'));
     }
 
     public function getChildCategories($parentId)

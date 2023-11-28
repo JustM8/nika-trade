@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 
 class Category extends Model
 {
@@ -92,11 +93,6 @@ class Category extends Model
         return $query->whereDoesntHave('children')->whereHas('products');
     }
 
-//    public function rootCategories()
-//    {
-//        return $this->whereNotNull('parent_id')->get();
-//    }
-
     public function scopeNonRootCategories($query)
     {
         return $query->whereNotNull('parent_id');
@@ -113,5 +109,31 @@ class Category extends Model
 
         // Якщо категорія не має батька, це найголовніший предок
         return $category;
+    }
+
+    public function getBreadcrumbsAttribute()
+    {
+        $basePath = 'catalog';
+
+        $breadcrumbs = [
+            [
+                'id' => $this->id,
+                'name' => $this->name,
+                'url' => URL::to("$basePath/{$this->slug}"),
+            ]
+        ];
+
+        $currentCategory = $this;
+
+        while ($currentCategory->parent) {
+            array_unshift($breadcrumbs, [
+                'id' => $currentCategory->parent->id,
+                'name' => $currentCategory->parent->name,
+                'url' => URL::to("$basePath/{$currentCategory->parent->slug}"),
+            ]);
+            $currentCategory = $currentCategory->parent;
+        }
+
+        return $breadcrumbs;
     }
 }

@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\Support\Facades\URL;
 
 class Product extends Model
 {
@@ -119,4 +120,23 @@ class Product extends Model
         return $this->children()->exists();
     }
 
+    public function getBreadcrumbsAttribute()
+    {
+        $basePath = 'catalog';
+
+        $breadcrumbs = [];
+
+        $currentCategory = $this->category;
+
+        while ($currentCategory) {
+            $breadcrumbs[] = [
+                'id' => $currentCategory->id,
+                'name' => $currentCategory->name,
+                'url' => URL::to("$basePath/{$currentCategory->slug}"),
+            ];
+            $currentCategory = $currentCategory->parent;
+        }
+
+        return array_reverse($breadcrumbs);
+    }
 }
