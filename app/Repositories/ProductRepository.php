@@ -46,8 +46,15 @@ class ProductRepository implements ProductRepositoryContract
             $data['size'] = $dataJson['size'];
 //dd($data);
             $images = $data['images'] ?? [];
-            $category = Category::find($data['category']);
-            $product = $category->products()->create($data);
+
+//            $category = Category::find($data['category']);
+//            $product = $category->products()->create($data);
+
+            $categoryIds = $data['category']; // Припустимо, що ви отримали масив ідентифікаторів категорій
+//            dd($categoryIds);
+            $product = Product::create($data);
+// Додаємо відносини до таблиці category_product
+            $product->categories()->attach($categoryIds);
 
             // Перевірте, чи існує рекомендований продукт з переданим recommended_id
             if ($request->has('recommended_id')) {
@@ -103,7 +110,7 @@ class ProductRepository implements ProductRepositoryContract
             $data['size'] = $dataJson['size'];
 
             $product->update($data);
-
+            $product->categories()->sync($request->input('category'));
             $product->recommendedProducts()->detach();
 
             // Додавання нових рекомендованих продуктів

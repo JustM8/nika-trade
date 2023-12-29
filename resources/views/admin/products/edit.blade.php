@@ -56,23 +56,24 @@
                         <div class="col-md-6">
                             <select id="category"
                                     class="form-control @error('category') is-invalid @enderror"
-                                    name="category_id"
+                                    name="category[]"  {{-- оновлене ім'я поля --}}
+                                    multiple
                             >
                                 @foreach($categories as $category)
-                                    <option value="{{ $category['id'] }}"
-                                            {{ $category['id'] === $product->category?->id ? 'selected' : '' }}
-                                    >{{ $category['name'][App::currentLocale()] }}</option>
+                                    <option value="{{ $category->id }}"
+                                        {{ in_array($category->id, $product->categories->pluck('id')->toArray()) ? 'selected' : '' }}
+                                    >{{ $category->name[App::currentLocale()] }}</option>
                                 @endforeach
                             </select>
                         </div>
                     </div>
 
                     <div class="form-group row mb-3">
-                        <label for="category"
+                        <label for="Parent"
                                class="col-md-4 col-form-label text-md-right">{{ __('Parent Categories') }}</label>
                         <div class="col-md-6">
-                            <select id="category"
-                                    class="form-control @error('category') is-invalid @enderror"
+                            <select id="Parent"
+                                    class="form-control @error('Parent') is-invalid @enderror"
                                     name="parent_id"
                             ><option value="">No parent</option>
                                 @foreach($parents as $child)

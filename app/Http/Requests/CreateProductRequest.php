@@ -38,7 +38,7 @@ class CreateProductRequest extends FormRequest
             'price' => ['required', 'numeric', 'min:1'],
             'discount' => ['required', 'numeric', 'min:0', 'max:99'],
             'in_stock' => ['required', 'numeric', 'min:0'],
-            'category' => ['required', 'numeric'],
+            'category' => ['required', 'array'],
             'parent_id' => ['nullable'],
             'thumbnail' => ['required', 'image:jpeg,png,jpg'],
             'obj_model' => [ 'file'],

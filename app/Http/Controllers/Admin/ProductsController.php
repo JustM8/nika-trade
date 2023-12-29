@@ -18,7 +18,9 @@ class ProductsController extends Controller
 
     public function index()
     {
-        $products = Product::with('category')->paginate(5);
+//        $products = Product::with('category')->paginate(5);
+        $products = Product::with('categories')->paginate(5);
+//        dd($products);
         return view('admin/products/index', compact('products'));
     }
 
@@ -31,7 +33,8 @@ class ProductsController extends Controller
 
     public function edit(Product $product)
     {
-        $categories = Category::nonRootCategories()->get();
+//        $categories = Category::nonRootCategories()->get();
+        $categories = Category::whereNotNull('parent_id')->get();
         $products = Product::all();
         $recommendedProducts = $product->recommendedProducts;
         $parents = Product::all()->except($product->id);

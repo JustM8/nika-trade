@@ -30,7 +30,8 @@ class CatalogController extends Controller
 
         if($category->hasProducts() == true)
         {
-            $products = $category->products->where('parent_id', null);
+//            $products = $category->products->where('parent_id', null);
+            $products = $category->products;
             if($products->isEmpty()){
                 $products = $products->collect();
             }

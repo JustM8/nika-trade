@@ -53,10 +53,10 @@
                         <label for="category"
                                class="col-md-4 col-form-label text-md-right">{{ __('Categories') }}</label>
                         <div class="col-md-6">
-                            <select name="category"
+                            <select name="category[]"
                                     id="category"
                                     class="form-control @error('category') is-invalid @enderror"
-                            >
+                                    multiple>
                                 @foreach($categories as $category)
                                     <option value="{{ $category['id'] }}">{{ $category['name'][App::currentLocale()] }}</option>
                                 @endforeach

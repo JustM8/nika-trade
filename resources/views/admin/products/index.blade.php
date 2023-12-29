@@ -32,7 +32,11 @@
                             <td class="text-center" scope="col">{{ $product->title[App::currentLocale()] }}</td>
                             <td class="text-center" scope="col">{{ $product->in_stock }}</td>
                             <td class="text-center" scope="col">
-                                @include('categories.parts.category_view', ['category' => $product->category])
+                                @if(!empty($product->category))
+                                    @include('categories.parts.category_view', ['category' => $product->category])
+                                @else
+                                    @include('categories.parts.categories_view', ['category' => $product->categories])
+                                @endif
                             </td>
                             <td class="text-center" scope="col">
                                 <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-info form-control">Edit</a>

@@ -27,12 +27,14 @@ class Category extends Model
         'description' => 'array',
     ];
 
-    /**
-     * @return \Illuminate\Database\Eloquent\Relations\HasMany
-     */
+
+//    public function products()
+//    {
+//        return $this->hasMany(Product::class);
+//    }
     public function products()
     {
-        return $this->hasMany(Product::class);
+        return $this->belongsToMany(Product::class);
     }
 
     protected function data(): Attribute
