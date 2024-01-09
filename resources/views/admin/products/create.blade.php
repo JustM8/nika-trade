@@ -230,6 +230,6 @@
     </div>
 @endsection
 @push('footer-scripts')
-    @vite(['resources/js/images-preview.js'])
+    @vite(['resources/js/images-preview.js', 'resources/js/select.js'])
 @endpush
 

@@ -54,8 +54,9 @@
                         <label for="category"
                                class="col-md-4 col-form-label text-md-right">{{ __('product.categories') }}</label>
                         <div class="col-md-6">
+                            <div>Оберіть зі списку наведеного нижче, для вибору 2 і більше продуктів затискайте по кліку CTR для Windows або CMND для MacOS</div>
                             <select id="category"
-                                    class="form-control @error('product.category') is-invalid @enderror"
+                                    class="my_select_box form-control @error('product.category') is-invalid @enderror"
                                     name="category[]"  {{-- оновлене ім'я поля --}}
                                     multiple
                             >
@@ -155,8 +156,9 @@
                     <div class="form-group row">
                         <label for="recommended_id" class="col-md-4 col-form-label text-md-right">{{ __('product.Recommended product') }}</label>
                         <div class="col-md-6">
+                            <div>Оберіть зі списку наведеного нижче, для вибору 2 і більше продуктів затискайте по кліку CTR для Windows або CMND для MacOS</div>
                             <select class="form-select" name="recommended_id[]" id="recommended_id" multiple>
-                                <option value="">Open this select menu</option>
+                                
                                 @foreach($products as $item)
                                     @if( $recommendedProducts->contains($item->id))
                                         <option selected value="{{$item->id}}">{{$item->title[App::currentLocale()]}}</option>
@@ -256,7 +258,7 @@
 @endsection
 
 @push('footer-scripts')
-    @vite(['resources/js/images-preview.js', 'resources/js/images-actions.js', 'resources/js/nikaModel.build.js'])
+    @vite(['resources/js/images-preview.js', 'resources/js/images-actions.js', 'resources/js/select.js' ])
     <script>
         window.addEventListener('DOMContentLoaded',function(evt){
             window.obj3d(document.querySelector('[data-object-container]'), "{{ $product->objmodelUrl  }}");

@@ -7,6 +7,7 @@
 // Bootstrap
 @import 'bootstrap/scss/bootstrap';
 @import 'summernote/dist/summernote-lite.css';
+@import 'chosen-js/chosen.min.css';
 
 form .form-group{
     margin: 1rem 0;
@@ -18,3 +19,11 @@ form .form-group{
     color: red!important;
 }
 .ck-editor__editable {min-height: 250px;}
+
+#category {
+    option:checked  {
+        background: #DD405D;
+        color: #fff;
+    }
+
+}
