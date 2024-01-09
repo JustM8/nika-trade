@@ -54,7 +54,6 @@
                         <label for="category"
                                class="col-md-4 col-form-label text-md-right">{{ __('product.categories') }}</label>
                         <div class="col-md-6">
-                            <div>Оберіть зі списку наведеного нижче, для вибору 2 і більше продуктів затискайте по кліку CTR для Windows або CMND для MacOS</div>
                             <select id="category"
                                     class="my_select_box form-control @error('product.category') is-invalid @enderror"
                                     name="category[]"  {{-- оновлене ім'я поля --}}
@@ -156,7 +155,6 @@
                     <div class="form-group row">
                         <label for="recommended_id" class="col-md-4 col-form-label text-md-right">{{ __('product.Recommended product') }}</label>
                         <div class="col-md-6">
-                            <div>Оберіть зі списку наведеного нижче, для вибору 2 і більше продуктів затискайте по кліку CTR для Windows або CMND для MacOS</div>
                             <select class="form-select" name="recommended_id[]" id="recommended_id" multiple>
                                 
                                 @foreach($products as $item)

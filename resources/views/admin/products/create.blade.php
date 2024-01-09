@@ -151,7 +151,7 @@
                         <label for="recommended_id" class="col-md-4 col-form-label text-md-right">{{ __('Recommended product') }}</label>
                         <div class="col-md-6">
                             <select class="form-select" name="recommended_id[]" id="recommended_id" multiple>
-                                <option selected value="">Open this select menu</option>
+                                
                                 @foreach($products as $product)
                                 <option value="{{$product->id}}">{{$product->title[App::currentLocale()]}}</option>
                                 @endforeach
