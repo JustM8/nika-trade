@@ -21,7 +21,7 @@ class ProductsController extends Controller
 //        $products = Product::with('category')->paginate(5);
         $products = Product::with('categories')->paginate(5);
 //        dd($products);
-        return view('admin/products/index', compact('products'));
+        return view('admin/products/index',['title'=>__('product.indexTitle')], compact('products'));
     }
 
     public function create()
@@ -39,7 +39,7 @@ class ProductsController extends Controller
         $recommendedProducts = $product->recommendedProducts;
         $parents = Product::all()->except($product->id);
 //dd($parents);
-        return view('admin/products/edit',['title'=>__('product.Title')], compact('product','categories','recommendedProducts','products','parents'));
+        return view('admin/products/edit',['title'=>__('product.editTitle')], compact('product','categories','recommendedProducts','products','parents'));
     }
 
     public function update(UpdateProductRequest $request,Product $product )

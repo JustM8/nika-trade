@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <h3 class="text-center">{{ __('Products') }}</h3>
+                <h3 class="text-center">{{ __('product.Products') }}</h3>
             </div>
             <div class="col-md-12">
                 @if (session('status'))
@@ -17,11 +17,11 @@
                     <thead>
                     <tr>
                         <th class="text-center" scope="col">ID</th>
-                        <th class="text-center" scope="col">Thumbnail</th>
-                        <th class="text-center" scope="col">Name</th>
-                        <th class="text-center" scope="col">Quantity</th>
-                        <th class="text-center" scope="col">Category</th>
-                        <th class="text-center" scope="col">Actions</th>
+                        <th class="text-center" scope="col">{{ __('product.Thumbnail') }}</th>
+                        <th class="text-center" scope="col">{{ __('product.title') }}</th>
+                        <th class="text-center" scope="col">{{ __('product.Quantity') }}</th>
+                        <th class="text-center" scope="col">{{ __('product.categories') }}</th>
+                        <th class="text-center" scope="col"></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -39,11 +39,11 @@
                                 @endif
                             </td>
                             <td class="text-center" scope="col">
-                                <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-info form-control">Edit</a>
+                                <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-info form-control">{{ __('product.Edit') }}</a>
                                 <form action="{{ route('admin.products.destroy', $product) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" class="btn btn-danger form-control" value="Remove">
+                                    <input type="submit" class="btn btn-danger form-control" value="{{ __('product.Remove') }}">
                                 </form>
                                 {{--                                    <a href="{{ route('products.show', $product) }}" class="btn btn-outline-success form-control">View</a>--}}
                             </td>

@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <br>
-                <h3 class="text-center">{{ __('Edit product') }}</h3>
+                <h3 class="text-center">{{ __('product.Edit product') }}</h3>
                 <hr>
             </div>
             <div class="col-md-12">
@@ -24,11 +24,11 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group row">
-                        <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
+                        <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('product.title') }}</label>
                         <div class="col-md-6">
                             <input id="title"
                                    type="text"
-                                   class="form-control @error('title') is-invalid @enderror"
+                                   class="form-control @error('product.title') is-invalid @enderror"
                                    name="title"
                                    value="{{ $product->title[App::currentLocale()] }}"
                                    autocomplete="title"
@@ -38,11 +38,11 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Slug') }}</label>
+                        <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('product.slug') }}</label>
                         <div class="col-md-6">
                             <input id="title"
                                    type="text"
-                                   class="form-control @error('slug') is-invalid @enderror"
+                                   class="form-control @error('product.slug') is-invalid @enderror"
                                    name="slug"
                                    value="{{ $product->slug }}"
                                    autocomplete="slug"
@@ -52,10 +52,10 @@
                     </div>
                     <div class="form-group row">
                         <label for="category"
-                               class="col-md-4 col-form-label text-md-right">{{ __('Categories') }}</label>
+                               class="col-md-4 col-form-label text-md-right">{{ __('product.categories') }}</label>
                         <div class="col-md-6">
                             <select id="category"
-                                    class="form-control @error('category') is-invalid @enderror"
+                                    class="form-control @error('product.category') is-invalid @enderror"
                                     name="category[]"  {{-- оновлене ім'я поля --}}
                                     multiple
                             >
@@ -70,10 +70,10 @@
 
                     <div class="form-group row mb-3">
                         <label for="Parent"
-                               class="col-md-4 col-form-label text-md-right">{{ __('Parent Categories') }}</label>
+                               class="col-md-4 col-form-label text-md-right">{{ __('product.parent') }}</label>
                         <div class="col-md-6">
                             <select id="Parent"
-                                    class="form-control @error('Parent') is-invalid @enderror"
+                                    class="form-control @error('product.parent') is-invalid @enderror"
                                     name="parent_id"
                             ><option value="">No parent</option>
                                 @foreach($parents as $child)
@@ -88,11 +88,11 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="SKU" class="col-md-4 col-form-label text-md-right">{{ __('SKU') }}</label>
+                        <label for="SKU" class="col-md-4 col-form-label text-md-right">{{ __('product.SKU') }}</label>
                         <div class="col-md-6">
                             <input id="SKU"
                                    type="text"
-                                   class="form-control @error('SKU') is-invalid @enderror"
+                                   class="form-control @error('product.SKU') is-invalid @enderror"
                                    name="SKU"
                                    value="{{ $product->SKU }}"
                                    autocomplete="SKU"
@@ -101,11 +101,11 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Price') }}</label>
+                        <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('product.price') }}</label>
                         <div class="col-md-6">
                             <input id="price"
                                    type="text"
-                                   class="form-control @error('price') is-invalid @enderror"
+                                   class="form-control @error('product.price') is-invalid @enderror"
                                    name="price"
                                    value="{{ $product->price }}"
                                    autocomplete="price"
@@ -114,11 +114,11 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="discount" class="col-md-4 col-form-label text-md-right">{{ __('Discount') }}</label>
+                        <label for="discount" class="col-md-4 col-form-label text-md-right">{{ __('product.discount') }}</label>
                         <div class="col-md-6">
                             <input id="discount"
                                    type="text"
-                                   class="form-control @error('discount') is-invalid @enderror"
+                                   class="form-control @error('product.discount') is-invalid @enderror"
                                    name="discount"
                                    value="{{ $product->discount }}"
                                    autocomplete="discount"
@@ -128,7 +128,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="in_stock"
-                               class="col-md-4 col-form-label text-md-right">{{ __('In Stock (Quantity)') }}</label>
+                               class="col-md-4 col-form-label text-md-right">{{ __('product.Quantity') }}</label>
                         <div class="col-md-6">
                             <input id="in_stock"
                                    type="number"
@@ -142,10 +142,10 @@
                     </div>
                     <div class="form-group row">
                         <label for="description"
-                               class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+                               class="col-md-4 col-form-label text-md-right">{{ __('product.description') }}</label>
                         <div class="col-md-6">
                             <textarea name="description"
-                                      class="form-control @error('description') is-invalid @enderror"
+                                      class="form-control @error('product.description') is-invalid @enderror"
                                       id="description"
                                       cols="30"
                                       rows="10">{{ $product->description[App::currentLocale()] }}</textarea>
@@ -153,7 +153,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="recommended_id" class="col-md-4 col-form-label text-md-right">{{ __('Recommended product') }}</label>
+                        <label for="recommended_id" class="col-md-4 col-form-label text-md-right">{{ __('product.Recommended product') }}</label>
                         <div class="col-md-6">
                             <select class="form-select" name="recommended_id[]" id="recommended_id" multiple>
                                 <option value="">Open this select menu</option>
@@ -170,7 +170,7 @@
 
                     <div class="form-group row">
                         <label for="thumbnail"
-                               class="col-md-4 col-form-label text-md-right">{{ __('Thumbnail') }}</label>
+                               class="col-md-4 col-form-label text-md-right">{{ __('product.Thumbnail') }}</label>
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
@@ -185,7 +185,7 @@
 
                     <div class="form-group row">
                         <label for="thumbnail"
-                               class="col-md-4 col-form-label text-md-right">{{ __('Obj_Model') }}</label>
+                               class="col-md-4 col-form-label text-md-right">{{ __('product.Obj_Model') }}</label>
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
@@ -199,7 +199,7 @@
                     </div>
                         <div class="form-group row">
                         <label for="thumbnail"
-                               class="col-md-4 col-form-label text-md-right">{{ __('pdf') }}</label>
+                               class="col-md-4 col-form-label text-md-right">{{ __('product.pdf') }}</label>
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
@@ -219,7 +219,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('Images') }}</label>
+                        <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('product.Images') }}</label>
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-12">
