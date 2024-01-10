@@ -1,19 +1,12 @@
 <?php
 
-
-return [
-
-    /*
-    |--------------------------------------------------------------------------
-    | Authentication Language Lines
-    |--------------------------------------------------------------------------
-    |
-    | The following language lines are used during authentication for various
-    | messages that we need to display to the user. You are free to modify
-    | these language lines according to your application's requirements.
-    |
-    */
-
-    'Main' => 'Main',
-
-];
+return array (
+  'Main' => 'Main',
+  'Create Main Page Data' => 'Create data for the main page',
+  'Images' => 'Images',
+  'Main page' => 'Main page',
+  'Edit Main Page Data' => 'Edit Main Page Data',
+  'Main page create' => 'Main page create',
+  'address' => 'address',
+  'email' => 'email',
+);
