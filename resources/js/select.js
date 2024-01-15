@@ -1,11 +1,12 @@
-import '../../node_modules/jquery'
-import '../../node_modules/chosen-js'
+import "jquery";
+import "chosen-js";
 
+console.log(jQuery);
 
 $(document).ready(function () {
-    $('#category').chosen();
+    $("#category").chosen();
 });
-  
+
 $(document).ready(function () {
-    $('#recommended_id').chosen();
+    $("#recommended_id").chosen();
 });
