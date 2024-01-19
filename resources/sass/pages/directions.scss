@@ -1,0 +1,78 @@
+.directions {
+    &-title {
+        color: $redPrim;
+
+    }
+    &-list-wrap {
+        padding: 150px 0;
+
+        @include tabletLarge {
+            padding: 40px 0 150px 0;
+        }
+
+        @include tablet {
+            display: flex;
+            padding: 20px 0 100px 0;
+            gap: 20px;
+        }
+
+        @include mobile {
+            flex-direction: column;
+            gap: 10px;
+            padding: 20px 0 80px 0;
+        }
+
+    }
+    &-list-title {
+        margin-bottom: 30px;
+        color: $bc;
+
+        @include tabletLarge {
+           margin-bottom: 40px;
+        }
+
+        @include tablet {
+            width: 50%;
+            text-align: left;
+            margin-bottom: 0;
+        }
+
+        @include mobile {
+            width: 100%;
+            text-align: center;
+        }
+
+    }
+    &-list {
+        display: flex;
+        justify-content: space-between;
+        gap: 60px;
+
+        @include tablet {
+            flex-direction: column;
+            width: 50%;
+            gap: 20px;
+        }
+
+        @include mobile {
+            width: 100%;
+        }
+
+    }
+    &-list-item {
+        color: $bc2;
+
+    }
+
+    &-additional-text {
+        width: 80%;
+        text-align: center;
+        margin: 0 auto;
+        color: $bc;
+
+        @include tablet {
+            width: 100%;
+        }
+
+    }
+}

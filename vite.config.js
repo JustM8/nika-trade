@@ -5,11 +5,18 @@ import laravel from "laravel-vite-plugin";
 import inject from "@rollup/plugin-inject";
 
 export default defineConfig({
+    build: {
+        cssSourceMap: true,
+    },
+    css: {
+        devSourcemap: true, // this one
+    },
     base: "/build/",
     plugins: [
         laravel({
             input: [
                 "resources/sass/app.scss",
+                "resources/sass/main.scss",
                 "resources/js/app.js",
                 "resources/js/images-preview.js",
                 "resources/js/images-preview-slider.js",
@@ -18,6 +25,15 @@ export default defineConfig({
                 "resources/js/summernote.js",
                 "resources/js/cart.js",
                 "resources/js/select.js",
+                "resources/js/cartPage.js",
+                "resources/js/catalogSingle.js",
+                "resources/js/catalog.js",
+                "resources/js/contacts.js",
+                "resources/js/homepage.js",
+                "resources/js/news.js",
+                "resources/js/product-page.js",
+                "resources/js/services.js",
+                "resources/js/common.js",
             ],
             refresh: true,
         }),

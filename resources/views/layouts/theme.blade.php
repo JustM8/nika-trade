@@ -14,7 +14,9 @@
     <script>document.documentElement.className = "js"; var supportsCssVars = function() { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e;}; supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables."); </script>
     <title>{{ @$title.' - '.config('app.name', 'Laravel') }}</title>
     <meta name="description" content="">
-    <link rel="stylesheet" href="{{asset('/assets/styles/main.min.css')}}">
+    <!-- <link rel="stylesheet" href="{{asset('/assets/styles/main.min.css')}}"> -->
+    @vite(['resources/sass/main.scss'])
+
 </head>
 <body class="home-page" id="id-home-page">
 <!-- START SVG SPRITE-->

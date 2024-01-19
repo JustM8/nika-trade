@@ -45,9 +45,12 @@
     </div>
 </section>
 @endsection
-@push('footer-scripts')
+<!-- @push('footer-scripts')
     <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
     <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
     <script defer src="{{asset('/assets/scripts/catalog.bundle.js')}}"></script>
     <script defer src="{{asset('/assets/scripts/libs.js')}}"></script>
+@endpush -->
+@push('footer-scripts')
+    @vite(['resources/js/common.js', 'resources/js/catalog.js'])
 @endpush

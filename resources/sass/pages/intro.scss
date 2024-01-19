@@ -1,0 +1,83 @@
+.intro {
+    &-main-screen {
+
+    }
+    &-swiper-wrap {
+        position: relative;
+        height: 100vh;
+
+    }
+    &-swiper {
+        height: inherit;
+
+    }
+    &-swiper-slide {
+
+        &::before {
+            content: '';
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            display: block;
+            top: 0;
+            left: 0;
+            background: rgba(0,0,0, 0.35);
+        }
+
+
+    }
+    &-swiper-slide__title {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        color: $wc;
+
+    }
+    &-swiper-slide__img {
+        height: 100%;
+        object-fit: cover;
+
+    }
+    &-swiper-nav {
+        position: absolute;
+        width: 100%;
+        top: 50%;
+        transform: translateY(-50%);
+        z-index: 1;
+        display: flex;
+        justify-content: space-between;
+        padding: 0 173px;
+
+        @include tabletLarge {
+            padding: 0 100px;
+        }
+
+        @include tablet {
+            padding:  0 32px;
+        }
+    }
+
+    &-next-section {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        padding: 10px;
+        position: absolute;
+        bottom: 0;
+        left: 50%;
+        width: 100px;
+        height: 100px;
+        background: $wc;
+        border-radius: 50%;
+        z-index: 2;
+        transform: translate(-50%, 50%);
+        svg {
+            width: 27px;
+            height: 29px;
+            fill: none;
+        }
+
+    }
+}

@@ -1,0 +1,92 @@
+$default-font: 'Unbounded', sans-serif;
+$default-font2: 'Arial', sans-serif;
+
+$mc1: #0B1518;
+$mc2: #EBE9E4;
+$background: #F8F8F8;
+$textGrey: #707070;
+$textLightGrey: #6F7482;
+$textGreySpecial: #939598;
+$textCardGrey: #7C8692;
+$border: rgba(166, 162, 153, 0.2);
+$wc: #fff;
+$bc: #242424;
+$bc2: #080E14;
+$redPrim: #DD405D;
+$bg: #F8F8F8;
+$border: #D5DDE1;
+
+
+
+$mc: #1a2941;
+
+$xs: 767px;
+$sm: 1366px;
+$md: 1920px;
+
+@mixin media($size) {
+  @media (max-width: $size) {
+    @content;
+  }
+}
+
+@mixin mobile {
+  @include media($xs) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @include media($sm) {
+    @content;
+  }
+}
+
+@mixin tabletLarge {
+  @include media($md) {
+    @content;
+  }
+}
+
+
+
+
+
+:root {
+  --in: cubic-bezier(0.13, 0.81, 0.23, 0.96);
+  --header-h: 120px;
+  --sliceFigure: 239px;
+  --sliceFigure-big: 541px;
+  --text-footer: #D5DDE1;
+  --background: #F8F8F8;
+  --fff: #ffffff;
+  --black: #6F7482;
+  --black-100: #080E14;
+  --text: #707070;
+  --gray: #F2F2F4;
+  --container52: 52px;
+  --container40: 40px;
+  --non-active: #BABABA;
+  --red: #DD405D;
+
+  @include tabletLarge {
+    --sliceFigure-big: 362px;
+  }
+
+  @include tablet {
+    --header-h: 90px;
+    --logo-w: 148px;
+    --sliceFigure-big: 44px;
+
+  }
+
+  @include mobile {
+    --header-h: 66px;
+    --logo-w: 105 px;
+    --sliceFigure: 100px;
+    --sliceFigure-big: 100px;
+
+    --container40: 36px;
+  }
+}
+

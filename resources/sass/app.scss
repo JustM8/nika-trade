@@ -1,29 +1,50 @@
 // Fonts
-@import url('https://fonts.bunny.net/css?family=Nunito');
+@import url("https://fonts.bunny.net/css?family=Nunito");
 
 // Variables
-@import 'variables';
+@import "variables";
 
 // Bootstrap
-@import 'bootstrap/scss/bootstrap';
-@import 'summernote/dist/summernote-lite.css';
-@import 'chosen-js/chosen.min.css';
+@import "bootstrap/scss/bootstrap";
+@import "summernote/dist/summernote-lite.css";
+@import "chosen-js/chosen.min.css";
 
-form .form-group{
+form .form-group {
     margin: 1rem 0;
 }
 
-.old-price{
+.old-price {
     text-decoration: line-through;
     font-size: 13px;
-    color: red!important;
+    color: red !important;
 }
-.ck-editor__editable {min-height: 250px;}
+.ck-editor__editable {
+    min-height: 250px;
+}
 
 #category {
-    option:checked  {
-        background: #DD405D;
+    option:checked {
+        background: #dd405d;
         color: #fff;
     }
+}
 
+html.lenis {
+    height: auto;
+}
+
+.lenis.lenis-smooth {
+    scroll-behavior: auto;
+}
+
+.lenis.lenis-smooth [data-lenis-prevent] {
+    overscroll-behavior: contain;
+}
+
+.lenis.lenis-stopped {
+    overflow: hidden;
+}
+
+.lenis.lenis-scrolling iframe {
+    pointer-events: none;
 }

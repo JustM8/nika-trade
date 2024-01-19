@@ -168,18 +168,18 @@
 
 @endsection
 @push('footer-scripts')
-    @vite([ 'resources/js/nikaModel.build.js','resources/js/cart.js'])
+    @vite([ 'resources/js/nikaModel.build.js','resources/js/cart.js', 'resources/js/cartPage.js', 'resources/js/common.js', 'resources/js/product-page.js', ])
     <!-- <script>
         window.addEventListener('DOMContentLoaded',function(evt){
             window.obj3d(document.querySelector('.product-page-image--obj'), "{{ $product->objmodelUrl  }}");
         });
         console.log(document.querySelector('[data-object-container]'));
     </script> -->
-    <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
-    <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
-<script defer src="{{asset('/assets/scripts/productPage.bundle.js')}}"></script>
+    <!-- <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
+    <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script> -->
+<!-- <script defer src="{{asset('/assets/scripts/productPage.bundle.js')}}"></script> -->
 <!-- <script type="module" src="https://ajax.googleapis.com/ajax/libs/model-viewer/3.1.1/model-viewer.min.js"></script> -->
-{{--    <script defer src="{{asset('/assets/scripts/cartPage.bundle.js')}}"></script>--}}
+<!-- {{--    <script defer src="{{asset('/assets/scripts/cartPage.bundle.js')}}"></script>--}} -->
 @endpush
 
 

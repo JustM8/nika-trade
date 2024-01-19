@@ -185,8 +185,12 @@
         </div>
     </section>
     @endif
-    <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
+    <!-- <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
     <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
-    <script defer src="{{asset('/assets/scripts/libs.js')}}"></script>
-    <script defer src="{{asset('/assets/scripts/singleCatalog.bundle.js')}}"></script>
+    <script defer src="{{asset('/assets/scripts/libs.js')}}"></script> -->
+    <!-- <script defer src="{{asset('/assets/scripts/singleCatalog.bundle.js')}}"></script> -->
 @endsection
+
+@push('footer-scripts')
+    @vite(['resources/js/common.js', 'resources/js/catalogSingle.js'])
+@endpush

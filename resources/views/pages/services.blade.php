@@ -5,8 +5,11 @@
             <div class="page-intro">
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
-                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{url('/')}}">Homepage</a></li>
-                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">servicesPage</a></li>
+                        <li class="breadcrumbs-item">
+                            <a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{url('/')}}">Homepage</a></li>
+                        <li class="breadcrumbs-item">
+                            <a class="breadcrumbs-item__link" href="#">servicesPage</a>
+                        </li>
                         <li class="breadcrumbs-item__current--color breadcrumbs-item">Services</li>
                     </ul>
                 </div>
@@ -50,7 +53,5 @@
     </section>
 @endsection
 @push('footer-scripts')
-    <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
-    <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
-    <script defer src="{{asset('/assets/scripts/services.bundle.js')}}"></script>
+    @vite(['resources/js/common.js', 'resources/js/services.js'])
 @endpush

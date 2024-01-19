@@ -1,0 +1,205 @@
+.footer {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 50;
+
+  &-btn-wrap {
+    width: 50%;
+
+    @include tabletLarge {
+      width: 40%;
+    }
+
+    @include tablet {
+      width: fit-content;
+      align-self: flex-start;
+    }
+
+    @include mobile {
+      align-self: flex-end;
+    }
+  }
+
+  &-up {
+    position: relative;
+    z-index: 10000;
+  }
+
+  &-wrap {
+    display: flex;
+    background: $bg;
+    position: relative;
+    padding: 100px 173px 0 173px;
+    flex-direction: column;
+    gap: 100px;
+
+    @include tabletLarge {
+      padding: 100px 100px 0 100px;
+      gap: 0;
+
+    }
+
+    @include tablet {
+      padding: 0 32px;
+     
+    }
+
+    @include mobile {
+      padding: 0 16px;
+      gap: 0;
+
+    }
+
+  }
+
+  &-menu-wrap {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 131px;
+
+    @include tabletLarge {
+      margin-bottom: 100px;
+    }
+
+    @include tablet {
+      margin-bottom: 40px;
+    }
+
+    @include mobile {
+      flex-direction: column;
+      margin-bottom: 30px;
+    }
+  }
+
+  &-contact {
+    display: flex;
+    flex-direction: column;
+    width: 25%;
+
+    @include tabletLarge {
+      width: 40%;
+    }
+
+    @include tablet {
+      width: 40%;
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+
+  }
+
+  &-contact-item {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 36px;
+
+    &:last-child {
+      margin-bottom: 0;
+
+    }
+  }
+
+  &-social {
+    width: 25%;
+
+    @include tabletLarge {
+      width: 30%;
+    }
+
+    @include mobile {
+      width: 100%;
+      margin-top: 20px;
+    }
+
+  }
+
+  &-social-title {
+    margin-bottom: 30px;
+    color: $bc;
+
+    @include mobile {
+      margin-bottom: 10px;
+    }
+
+  }
+
+  &-contact-city {
+    margin-bottom: 10px;
+  }
+
+  &-contact-link {
+    margin-bottom: 10px;
+    text-decoration: none;
+    color: $bc;
+  }
+
+  &-social-list {
+    display: flex;
+    flex-direction: column;
+
+    @include mobile {
+      flex-direction: row;
+      gap: 12px;
+      justify-content: space-between;
+    }
+  }
+
+  &-social-list__item {
+    text-decoration: none;
+    color: $bc;
+    margin-bottom: 12px;
+
+    @include mobile {
+      margin-bottom: 0;
+    }
+  }
+
+  &-contact-address {
+    width: 60%;
+    color: $bc;
+
+    @include mobile {
+      width: 100%;
+    }
+
+  }
+ 
+  &-up {
+    z-index: 3;
+
+  }
+
+  &-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+  }
+
+  &-bottom__link {
+    @include mobile {
+      margin-right: -16px;
+    }
+  }
+
+}
+
+// .noise::before{
+//   position: absolute;
+//   top: 0;
+//   left: 0;
+//   width: 100vw;
+//   height: 100%;
+//   content: "";
+//   /* you can control opacity of noise  */
+//   opacity: 0.05;  
+//   z-index: 1;
+//   pointer-events: none;
+//   background: url('../images/noise.gif') ;
+// }

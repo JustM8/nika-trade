@@ -1,0 +1,28 @@
+.about {
+    &-title {
+        color: $redPrim;
+        margin-bottom: 150px;
+
+        @include tabletLarge {
+            margin-bottom: 40px;
+        }
+
+    }
+    &-list {
+        display: flex;
+        justify-content: space-between;
+        gap: 60px;
+
+        @include tablet {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+    }
+
+    &-list-item {
+        color: $bc;
+    }
+
+
+}

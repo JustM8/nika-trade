@@ -1,0 +1,249 @@
+.catalog-single {
+  &-wrap {
+  }
+
+  &-main {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+
+    @include mobile {
+      flex-direction: column;
+    }
+  }
+
+  &-btn-mobile-wrap {
+    display: none;
+
+    @include mobile {
+      display: block;
+    }
+  }
+
+  &-btn-mobile {
+    width: 100%;
+    svg {
+      width: 24px;
+      height: 24px;
+      fill: none;
+      margin-right: 12px;
+    }
+  }
+
+  &-filters-wrap {
+    width: 15%;
+
+    @include tabletLarge {
+      width: 24%;
+    }
+
+    @include tablet {
+      width: 40%;
+    }
+
+    @include mobile {
+      width: 100%;
+      display: none;
+    }
+
+    &.active {
+      @include mobile {
+        display: block;
+      }
+    }
+  }
+
+  &-filter {
+    margin-bottom: 40px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+
+  &-filter__title {
+    display: block;
+    color: $redPrim;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  &-filter-card {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 8px;
+    pointer-events: all;
+  }
+
+  &-filter-card__title {
+    text-transform: uppercase;
+    margin-bottom: 0px;
+    position: relative;
+    font-weight: 700;
+    text-transform: uppercase;
+
+    &::after {
+      content: url('../images/icon-list.svg');
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translate(0, -50%) rotate(180deg);
+      transition: all ease-in-out 0.3s;
+    }
+
+    &.active {
+      margin-bottom: 12px;
+
+      &::after {
+        transform: translate(0, -50%) rotate(0deg);
+      }
+    }
+  }
+
+  &-filter-card-list {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    list-style-type: disc;
+    pointer-events: none;
+    height: 0;
+    max-height: 0;
+    opacity: 0;
+    transition: height, max-height ease-in-out 0.3s;
+
+    &.active {
+      max-height: 300px;
+      height: fit-content;
+      opacity: 1;
+      pointer-events: all;
+      margin-bottom: 20px;
+    }
+  }
+
+  &-filter-card-list-item {
+    color: $bc2;
+    padding-left: 20px;
+    position: relative;
+
+    &::before {
+      content: '•';
+      color: $border;
+      position: absolute;
+      left: 0;
+      top: 50%;
+      transform: translate(0, -50%);
+    }
+  }
+
+  &-list {
+    display: flex;
+    justify-content: flex-start;
+    align-items: stretch;
+    flex-wrap: wrap;
+    gap: 20px;
+    height: fit-content;
+    margin-bottom: 110px;
+    width: 85%;
+
+    @include tabletLarge {
+      width: 76%;
+    }
+
+    @include mobile {
+      width: 100%;
+      flex-direction: column;
+      margin-bottom: 80px;
+    }
+  }
+
+  &-card {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 20px;
+    width: calc(33.3% - 13.3px);
+    background: $wc;
+    padding: 40px;
+    border: 1px solid $border;
+
+    @include tabletLarge {
+      padding: 20px;
+    }
+
+    @include tablet {
+      width: calc(50% - 10px);
+    }
+
+    @include mobile {
+      width: 100%;
+    }
+  }
+
+  &-card__img {
+    width: 100%;
+
+    height: 168px;
+    overflow: hidden;
+
+    img {
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+
+  &-card-intro {
+  }
+
+  &-card-intro__title {
+    color: $bc2;
+    pointer-events: all;
+  }
+
+  &-info-wrap {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+
+    @include tabletLarge {
+      margin-top: 80px;
+    }
+
+    @include tablet {
+      margin-top: 40px;
+    }
+  }
+
+  &-info__title {
+    margin-bottom: 30px;
+  }
+
+  &-info {
+    display: flex;
+    gap: 60px;
+
+    @include tablet {
+      flex-direction: column;
+      gap: 12px;
+    }
+  }
+
+  &-info__text-wrap {
+    width: calc(50% - 30px);
+
+    @include tablet {
+      width: 100%;
+    }
+  }
+
+  &-info__text {
+    color: $textGrey;
+
+    margin-bottom: 12px;
+
+    &:last-child {
+      margin-bottom: 0;
+    }
+  }
+}

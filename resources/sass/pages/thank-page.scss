@@ -1,0 +1,37 @@
+.thank-page {
+    &-content  {
+        border: 1px solid var(--text-footer);
+        background: var(--fff);
+        padding: 40px 133px;
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        gap: 60px;
+    }
+
+    &__title-wrap {
+        width: 50%;
+    }
+
+    &-list-wrap {
+        width: 50%;
+    }
+
+    &-list__title-wrap {
+        margin-bottom: 12px;
+    }
+
+    &-list-item {
+        margin-bottom: 12px;
+
+        &:last-child {
+            margin-bottom: 0;
+        }
+    }
+
+    &-list-item__key {
+        font-weight: 700;
+    }
+
+
+}

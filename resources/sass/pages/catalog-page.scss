@@ -1,0 +1,148 @@
+.catalog {
+    &-list {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+        gap: 20px 224px;
+        margin-bottom: 40px;
+        flex-wrap: wrap;
+
+        @include tabletLarge {
+            justify-content: space-between;
+
+            gap: 20px 20px;
+        }
+
+        @include tablet {
+            flex-direction: column;
+
+        }
+
+    }
+    &-card {
+        display: flex;
+        background: $wc;
+        border: 1px solid $border;
+        width: calc(50% - 112px);
+
+        @include tabletLarge {
+            width: calc(50% - 10px);
+        }
+
+        @include tablet {
+            width: 100%;
+        }
+
+        @include mobile {
+            flex-direction: column;
+            height: fit-content;
+        }
+
+
+    } 
+    &-card-intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        border-right: 1px solid $border;
+        width: 50%;
+
+        @include mobile {
+            width: 100%;
+        }
+
+
+    }
+    &-card-intro__title {
+        display: block;
+        padding: 30px;
+
+        @include mobile {
+            padding: 10px 20px;
+            border-bottom: 1px solid $border;
+        }
+
+    }
+    &-card-intro__link {
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        width: 100%;
+        border-top: 1px solid $border;
+
+        @include mobile {
+            display: none;
+        }
+
+    }
+
+    &-card-intro__link--mobile {
+        display: none;
+
+        @include mobile {
+            display: flex;
+        }
+    }
+    &-card-intro__link-title {
+        display: block;
+        padding: 10px 30px;
+        color: var(--black-100);
+        font-family: $default-font2;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%; /* 19.6px */
+        font-size: 16px;
+
+
+        @include mobile {
+            padding: 20px;
+            font-size: 14px;
+        }
+        
+    }
+    &-card-intro__link-svg {
+        background: $redPrim;
+        padding: 22px;
+
+        svg {
+            display: block;
+            height: 16px;
+            width: 16px;
+            stroke: $wc;
+
+            path {
+                stroke: $wc;
+            }
+
+        }
+
+    }
+    &-card__img {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 50%;
+
+        @include mobile {
+            width: 100%;
+        }
+
+        img {
+            height: 260px;
+
+            @include mobile {
+                height: 187px;
+            }
+        }
+
+    }
+    &-btn {
+        margin: 0 auto;
+
+        @include mobile {
+            width: 100%;
+        }
+
+    }
+
+}
