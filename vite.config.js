@@ -34,6 +34,7 @@ export default defineConfig({
                 "resources/js/product-page.js",
                 "resources/js/services.js",
                 "resources/js/common.js",
+                "resources/js/model.js",
             ],
             refresh: true,
         }),

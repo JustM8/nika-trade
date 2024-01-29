@@ -1,122 +1,118 @@
 .homepage-catalog {
-  &-list-wrap {
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    z-index: 10;
-    width: 100%;
-    padding-top: 272px;
+    &-list-wrap {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        z-index: 10;
+        width: 100%;
+        padding-top: 272px;
 
-    @include tabletLarge {
-      padding-top: 172px;
+        @include tabletLarge {
+            padding-top: 172px;
+        }
+
+        @include tablet {
+        }
+
+        @include mobile {
+        }
     }
 
-    @include tablet {
+    &-list {
+        display: flex;
+        justify-content: space-between;
+        align-items: stretch;
     }
 
-    @include mobile {
-    }
-  }
+    &-card {
+        position: relative;
+        width: calc(33.3% - 13.33px);
+        text-decoration: none;
+        padding: 40px;
+        border: 2px solid $wc;
+        border-radius: 40px;
+        display: flex;
+        flex-direction: column;
+        &:first-child {
+            background: radial-gradient(
+                276.14% 205.68% at 0% 100%,
+                #b600ba 0%,
+                rgba(243, 0, 176, 0.8) 100%
+            );
+        }
 
-  &-list {
-    display: flex;
-    justify-content: space-between;
-    align-items: stretch;
-  }
+        &:nth-child(2) {
+            background: radial-gradient(
+                255.15% 189.49% at -0.07% 100%,
+                #78388e 0%,
+                rgba(72, 101, 255, 0.8) 100%
+            );
+        }
 
-  &-card {
-    position: relative;
-    width: calc(33.3% - 13.33px);
-    text-decoration: none;
-    padding: 40px;
-    border: 2px solid $wc;
-    border-radius: 40px;
-    display: flex;
-    flex-direction: column;
-    &:first-child {
-      background: radial-gradient(
-        276.14% 205.68% at 0% 100%,
-        #b600ba 0%,
-        rgba(243, 0, 176, 0.8) 100%
-      );
-    }
-
-    &:nth-child(2) {
-      background: radial-gradient(
-        255.15% 189.49% at -0.07% 100%,
-        #78388e 0%,
-        rgba(72, 101, 255, 0.8) 100%
-      );
-    }
-
-    &:last-child {
-      background: radial-gradient(
-        362.99% 270.42% at 0.07% 100%,
-        #199898 0%,
-        rgba(73, 181, 254, 0.8) 100%
-      );
+        &:last-child {
+            background: radial-gradient(
+                362.99% 270.42% at 0.07% 100%,
+                #199898 0%,
+                rgba(73, 181, 254, 0.8) 100%
+            );
+        }
     }
 
-    @include tabletLarge {
-      height: 400px;
+    &-card-intro {
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        gap: 50px;
+        height: 100%;
     }
-  }
 
-  &-card-intro {
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 50px;
-    height: 100%;
-  }
+    &-card-intro__title {
+        color: var(--Gray, #f2f2f4);
+        font-family: $default-font;
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 120%; /* 48px */
+        text-transform: uppercase;
 
-  &-card-intro__title {
-    color: var(--Gray, #f2f2f4);
-    font-family: $default-font;
-    font-size: 40px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 120%; /* 48px */
-    text-transform: uppercase;
-
-    @include tabletLarge {
-      font-size: 32px;
+        @include tabletLarge {
+            font-size: 32px;
+        }
     }
-  }
 
-  &-card-intro__descr {
-    color: var(--Gray, #f2f2f4);
-    font-family: $default-font2;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 140%;
-    width: 70%;
+    &-card-intro__descr {
+        color: var(--Gray, #f2f2f4);
+        font-family: $default-font2;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 140%;
+        width: 70%;
 
-    @include tabletLarge {
-      width: 80%;
-      font-size: 14px;
+        @include tabletLarge {
+            width: 80%;
+            font-size: 14px;
+        }
     }
-  }
 
-  &-card__arrow {
-    position: absolute;
-    bottom: -2px;
-    right: -2px;
-    display: flex;
-    width: 80px;
-    height: 80px;
-    padding: 10px;
-    justify-content: center;
-    align-items: center;
-    gap: 10px;
-    border-radius: 100px;
-    border: 2px solid #fff;
-    svg {
-      width: 16px;
-      height: 16px;
-      stroke: $wc;
+    &-card__arrow {
+        position: absolute;
+        bottom: -2px;
+        right: -2px;
+        display: flex;
+        width: 80px;
+        height: 80px;
+        padding: 10px;
+        justify-content: center;
+        align-items: center;
+        gap: 10px;
+        border-radius: 100px;
+        border: 2px solid #fff;
+        svg {
+            width: 16px;
+            height: 16px;
+            stroke: $wc;
+        }
     }
-  }
 }

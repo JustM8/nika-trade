@@ -17,6 +17,7 @@
                 <h2 class="page-title text-title">{{ $product->title[App::currentLocale()] }}</h2>
             </div>
             <div class="product-page-main">
+                
                 <div class="product-page-item-wrap">
                     <div class="product-page-item-img-wrap">
                         <div class="product-page-item-img">
@@ -25,7 +26,7 @@
                             @endif
 
 
-                            <div id="nikaModel" data-scr='{{ $product->objmodelUrl  }}' class="product-page-image product-page-image--obj hidden" camera-controls alt="A 3D model of an astronaut"></div>
+                            <div id="nikaModel" data-srс='{{ $product->objmodelUrl  }}' class="product-page-image product-page-image--obj hidden" camera-controls alt="A 3D model of an astronaut"></div>
 
 
 
@@ -80,10 +81,11 @@
                         </div>
                     <!-- <a class="product-page-item-btn text-14 text-black-100" href="">Завантажити каталог продукції</a> -->
                     <div class="product-page-item-options">
-                        <span class="text-14 text-black-100">Бажаний колір виробі залишайте в полі "Коментар" під час оформлення замовлення в Кошику</span>
-                        <span class="text-14 text-black-100">Cтандартні кольори: </span>
-                        <span class="text-14 text-black-100">- Метал: сріблястий металік(RAL 7149 SPX)</span>
-                        <span class="text-14 text-black-100">- ДСП: попелястий (U112 PE)</span>
+                        <span class="text-12 text-black">Cтандартні кольори: </span>
+                        <span class="text-12 text-black">- Метал: сріблястий металік(RAL 7149 SPX)</span>
+                        <span class="text-12 text-black">- ДСП: попелястий (U112 PE)</span>
+                        <span class="text-12 text-black">Бажаний колір виробі залишайте в полі "Коментар" під час оформлення замовлення в Кошику</span>
+
                     </div>
                 </div>
             </div>
@@ -116,12 +118,37 @@
             <div class="product-page-more">
                 <span class="product-page-more__title text-m text-black-100"> Цей товар використовується разом із:</span>
                 <div class="product-page-more-list">
-                    @foreach($recommendedProducts as $item)
-                    <a class="catalog-single-card" href="{{ route('product.show', $item->slug) }}">
-                        <div class="catalog-single-card__img"> <img src="{{ $item->thumbnailUrl }}" alt=""></div>
-                        <div class="catalog-single-card-intro"><span class="catalog-single-card-intro__title text-24">{{ $item->title[App::currentLocale()] }}</span></div>
-                    </a>
-                    @endforeach
+                    <!-- If we need navigation buttons -->
+                    <div class="recommended-products-button-prev round-btn round-btn--black">
+                        <svg class="icon--arrow" role="presentation">
+                            <use xlink:href="#icon-arrow"></use>
+                        </svg>
+                    </div>
+                    
+                    <div class="swiper recommended-products-swiper">
+                        <!-- Additional required wrapper -->
+                        <div class="swiper-wrapper">
+                            <!-- Slides -->
+                            @foreach($recommendedProducts as $item)
+                                <a class="catalog-single-card swiper-slide" href="{{ route('product.show', $item->slug) }}">
+                                    <div class="catalog-single-card__img"> 
+                                        <img src="{{ $item->thumbnailUrl }}" alt="">
+                                    </div>
+                                    <div class="catalog-single-card-intro">
+                                        <span class="catalog-single-card-intro__title text-24">{{ $item->title[App::currentLocale()] }}</span>
+                                    </div>
+                                </a>
+                            @endforeach
+                            
+                        </div>      
+                    </div>
+
+                    <div class="recommended-products-button-next round-btn round-btn-next round-btn--black">
+                        <svg class="icon--arrow" role="presentation">
+                            <use xlink:href="#icon-arrow"></use>
+                        </svg>
+                    </div>
+                   
                 </div>
             </div>
         </div>
@@ -168,7 +195,9 @@
 
 @endsection
 @push('footer-scripts')
-    @vite([ 'resources/js/nikaModel.build.js','resources/js/cart.js', 'resources/js/cartPage.js', 'resources/js/common.js', 'resources/js/product-page.js', ])
+@vite([ 'resources/js/model.js','resources/js/cart.js', 'resources/js/cartPage.js', 'resources/js/common.js', 'resources/js/product-page.js', ])
+
+    <!-- @vite([ 'resources/js/nikaModel.build.js','resources/js/cart.js', 'resources/js/cartPage.js', 'resources/js/common.js', 'resources/js/product-page.js', ]) -->
     <!-- <script>
         window.addEventListener('DOMContentLoaded',function(evt){
             window.obj3d(document.querySelector('.product-page-image--obj'), "{{ $product->objmodelUrl  }}");

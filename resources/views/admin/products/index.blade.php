@@ -28,7 +28,8 @@
                     @foreach($products as $product)
                         <tr>
                             <td class="text-center" scope="col">{{ $product->id }}</td>
-                            <td class="text-center" scope="col"><img src="{{ $product->thumbnailUrl }}" width="100" height="100" alt=""></td>
+                            <td class="text-center" scope="col">
+                                <img src="{{ $product->thumbnailUrl }}" width="100" height="100" alt=""></td>
                             <td class="text-center" scope="col">{{ $product->title[App::currentLocale()] }}</td>
                             <td class="text-center" scope="col">{{ $product->in_stock }}</td>
                             <td class="text-center" scope="col">

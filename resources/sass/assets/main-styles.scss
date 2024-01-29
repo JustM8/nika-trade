@@ -1,458 +1,481 @@
 .container {
-  padding: 0 173px;
-  margin: 0 auto;
+    padding: 0 173px;
+    margin: 0 auto;
 
-  @include tabletLarge {
-    padding: 0 100px;
-  }
+    @include tabletLarge {
+        padding: 0 100px;
+    }
 
-  @include tablet {
-    padding: 0 32px;
-  }
+    @include tablet {
+        padding: 0 32px;
+    }
 
-  @include mobile {
-    padding: 0 16px;
-
-  }
+    @include mobile {
+        padding: 0 16px;
+    }
 }
 
 button {
-  background-color: inherit;
+    background-color: inherit;
 }
 
 a {
-  text-decoration: none;
+    text-decoration: none;
 }
-
 
 .round-btn {
-  height: 60px;
-  width: 60px;
-  border: 1px solid $wc;
-  background: transparent;
-  border-radius: 50%;
-  position: relative;
-  transition: all ease-in-out 0.4s;
-  transform: scale(1);
-  svg {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      height: 16px;
-      width: 16px;
-      stroke: $wc;
-      transition: all ease-in-out 0.4s;
-
-
-  }
-
-  &:hover {
-    background: $wc;
-    transform: scale(1.1);
-
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: var(--btn-60);
+    width: var(--btn-60);
+    border: 1px solid $wc;
+    background: transparent;
+    border-radius: 50%;
+    transition: all ease-in-out 0.4s;
+    transform: scale(1);
     svg {
-      stroke: $bc;
-
+        height: 16px;
+        width: 16px;
+        stroke: $wc;
+        transition: all ease-in-out 0.4s;
     }
 
+    &:hover {
+        background: $wc;
+        transform: scale(1.1);
 
-  }
-
+        svg {
+            stroke: $bc;
+        }
+    }
 }
 .round-btn-next {
-  svg {
-      transform: translate(-50%, -50%) rotate(180deg);
-  }
-
+    svg {
+        transform: rotate(180deg);
+    }
 }
 
 .round-btn-up {
-  svg {
-    transform: translate(-50%, -50%) rotate(90deg);
-  }
-
+    svg {
+        transform: rotate(90deg);
+    }
 }
 
 .swiper-button-disabled {
-  visibility: hidden;
-  opacity: 0;
- }
+    visibility: hidden;
+    opacity: 0;
+}
 
 .round-btn--black {
-  border: 1px solid $bc;
+    border: 1px solid $bc;
 
-  &.swiper-button-disabled {
-   visibility: hidden;
-   opacity: 0;
-  }
-  
-  svg {
-    stroke: $bc;
-  }
-
-  &:hover {
-    background: $bc;
-    transform: scale(1.1);
-
-    svg {
-      stroke: $wc;
-
+    &.swiper-button-disabled {
+        visibility: hidden;
+        opacity: 0;
     }
 
+    svg {
+        stroke: $bc;
+    }
 
-  }
+    &:hover {
+        background: $bc;
+        transform: scale(1.1);
+
+        svg {
+            stroke: $wc;
+        }
+    }
 }
 
 .btn {
-  border: none;
-  background: $redPrim;
-  font-family: $default-font2;
-  color: $wc;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: fit-content;
-  padding: 16px 28px;
-  text-transform: uppercase;
+    border: none;
+    background: $redPrim;
+    font-family: $default-font2;
+    color: $wc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: fit-content;
+    padding: 16px 28px;
+    text-transform: uppercase;
 
-  &--full {
-    width: 100%;
-  }
+    &--full {
+        width: 100%;
+    }
 }
 
-
 section {
-  background: $bg;
+    background: $bg;
 }
 
 .section-container {
-  padding: 150px 173px 0 173px;
+    padding: 150px 173px 0 173px;
 
-  @include tabletLarge {
-    padding: 150px 100px 0 100px;
-  }
+    @include tabletLarge {
+        padding: 100px 100px 0 100px;
+    }
 
-  @include tablet {
-    padding: 100px 32px 0 32px;
-  }
+    @include tablet {
+        padding: 80px 32px 0 32px;
+    }
 
-  @include mobile {
-    padding: 80px 16px 0 16px;
-  }
-
+    @include mobile {
+        padding: 50px 16px 0 16px;
+    }
 }
 
 .page {
+    &-container {
+        padding: 192px 173px 50px 173px;
 
-  &-container {
-    padding: 192px 173px 50px 173px;
+        @include tabletLarge {
+            padding: 212px 100px 50px 100px;
+        }
 
-    @include tabletLarge {
-      padding: 212px 100px 50px 100px;
+        @include tablet {
+            padding: 190px 32px 50px 32px;
+        }
+
+        @include mobile {
+            padding: 114px 16px 50px 16px;
+        }
     }
 
-    @include tablet {
-      padding: 190px 32px 50px 32px;
+    &-intro {
+        position: relative;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0 -173px 40px -173px;
+
+        &[data-category="torhove-obladnannia"] {
+            background-image: url("../../assets/images/background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 40px 0;
+            &::after {
+                content: "";
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: radial-gradient(
+                    197.11% 141.42% at 0% 100%,
+                    #b600ba 0%,
+                    rgba(243, 0, 176, 0.8) 100%
+                );
+            }
+
+            .text-title {
+                color: $wc;
+            }
+        }
+
+        &[data-category="vystavkove-obladnannia"] {
+            background-image: url("../../assets/images/background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 40px 0;
+
+            &::after {
+                content: "";
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: radial-gradient(
+                    195.27% 141.42% at 0% 100%,
+                    #4865ff 0%,
+                    rgba(120, 56, 142, 0.8) 100%
+                );
+            }
+
+            .text-title {
+                color: $wc;
+            }
+        }
+
+        &[data-category="furnitura"] {
+            background-image: url("../../assets/images/background.jpg");
+            background-repeat: no-repeat;
+            background-size: cover;
+            padding: 40px 0;
+
+            &::after {
+                content: "";
+                position: absolute;
+                display: block;
+                width: 100%;
+                height: 100%;
+                top: 0;
+                left: 0;
+                right: 0;
+                background: radial-gradient(
+                    197.06% 141.38% at 0.07% 100%,
+                    #49b5fe 0%,
+                    rgba(25, 152, 152, 0.8) 100%
+                );
+            }
+
+            .text-title {
+                color: $wc;
+            }
+        }
+
+        @include tabletLarge {
+            margin: 0 -100px 40px -100px;
+        }
     }
 
-    @include mobile {
-      padding: 114px 16px 50px 16px;
+    &-title {
+        color: $redPrim;
     }
-  }
-
-  &-intro {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    margin: 0 -173px 40px -173px;
-
-    
-    &[data-category="torhove-obladnannia"] {
-      background-image: url('../../assets/images/background.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      padding: 40px 0;
-      &::after {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        background: radial-gradient(197.11% 141.42% at 0% 100%, #B600BA 0%, rgba(243, 0, 176, 0.80) 100%);
-      }
-
-      .text-title {
-        color: $wc;
-      }
-
-    }
-
-    &[data-category="vystavkove-obladnannia"] {
-      background-image: url('../../assets/images/background.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      padding: 40px 0;
-
-      &::after {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        background: radial-gradient(195.27% 141.42% at 0% 100%, #4865FF 0%, rgba(120, 56, 142, 0.80) 100%);      }
-
-      .text-title {
-        color: $wc;
-      }
-
-    }
-
-    &[data-category="furnitura"] {
-      background-image: url('../../assets/images/background.jpg');
-      background-repeat: no-repeat;
-      background-size: cover;
-      padding: 40px 0;
-
-      &::after {
-        content: '';
-        position: absolute;
-        display: block;
-        width: 100%;
-        height: 100%;
-        top: 0;
-        left: 0;
-        right: 0;
-        background: radial-gradient(197.06% 141.38% at 0.07% 100%, #49B5FE 0%, rgba(25, 152, 152, 0.80) 100%);
-
-      }
-
-      .text-title {
-        color: $wc;
-      }
-
-    }
-
-    @include tabletLarge {
-      margin: 0 -100px 40px -100px;
-    }
-  }
-
-  &-title {
-    color: $redPrim;
-  }
 }
 
 body:has([data-category="torhove-obladnannia"]) {
-  .catalog-single-filter__title {
-    background: linear-gradient(60deg, #B600BA 4.38%, rgba(243, 0, 176, 0.80) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+    .catalog-single-filter__title {
+        background: linear-gradient(
+            60deg,
+            #b600ba 4.38%,
+            rgba(243, 0, 176, 0.8) 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
 
 body:has([data-category="vystavkove-obladnannia"]) {
-  .catalog-single-filter__title {
-    background: linear-gradient(60deg, #4865FF 4.37%, rgba(120, 56, 142, 0.80) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+    .catalog-single-filter__title {
+        background: linear-gradient(
+            60deg,
+            #4865ff 4.37%,
+            rgba(120, 56, 142, 0.8) 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
 
 body:has([data-category="furnitura"]) {
-  .catalog-single-filter__title {
-    background: linear-gradient(60deg, #49B5FE 4.38%, rgba(25, 152, 152, 0.80) 100%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-  }
+    .catalog-single-filter__title {
+        background: linear-gradient(
+            60deg,
+            #49b5fe 4.38%,
+            rgba(25, 152, 152, 0.8) 100%
+        );
+        background-clip: text;
+        -webkit-background-clip: text;
+        -webkit-text-fill-color: transparent;
+    }
 }
 
 .text {
-  &-title {
-    font-family: $default-font;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 48px;
-    line-height: 130%;
-    text-align: center;
-    text-transform: uppercase;
-    position: relative;
-    z-index: 10;
+    &-title {
+        font-family: $default-font;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 48px;
+        line-height: 130%;
+        text-align: center;
+        text-transform: uppercase;
+        position: relative;
+        z-index: 10;
 
-    @include tablet {
-      font-size: 48px;
+        @include tablet {
+            font-size: 48px;
+        }
+
+        @include mobile {
+            font-size: 24px;
+        }
     }
 
-    @include mobile {
-      font-size: 24px;
-    }
-  }
+    &-m {
+        font-family: $default-font2;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 32px;
+        line-height: 130%;
+        text-align: center;
 
-  &-m {
-    font-family: $default-font2;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 32px;
-    line-height: 130%;
-    text-align: center;
+        @include tabletLarge {
+            font-size: 24px;
+        }
 
-    @include tabletLarge {
-      font-size: 24px;
-    }
+        @include tablet {
+            font-size: 18px;
+        }
 
-    @include tablet {
-      font-size: 18px;
-    }
+        &.text-black-100 {
+            color: var(--black-100);
+        }
 
-    &.text-black-100 {
-      color: var(--black-100);
-    }
-
-    &.text-black {
-      color: $bc2;
+        &.text-black {
+            color: $bc2;
+        }
     }
 
-  }
+    &-s {
+        font-family: $default-font2;
+        font-style: normal;
+        font-weight: 500;
+        font-size: 18px;
+        line-height: 140%;
 
-  &-s {
-    font-family: $default-font2;
-    font-style: normal;
-    font-weight: 500;
-    font-size: 18px;
-    line-height: 140%;
+        @include tabletLarge {
+            font-size: 16px;
+        }
 
-    @include tabletLarge {
-      font-size: 16px;
+        @include tablet {
+            font-size: 14px;
+        }
     }
 
-    @include tablet {
-      font-size: 14px;
+    &-36 {
+        font-family: $default-font2;
+        font-size: 36px;
+        font-style: normal;
+        font-weight: 500;
+        line-height: 160%; /* 57.6px */
+        text-transform: uppercase;
+
+        &.text-text {
+            color: var(--text);
+        }
     }
 
-  }
+    &-24 {
+        font-family: $default-font2;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 24px;
+        line-height: 140%;
 
-  &-36 {
-    font-family: $default-font2;
-    font-size: 36px;
-    font-style: normal;
-    font-weight: 500;
-    line-height: 160%; /* 57.6px */
-    text-transform: uppercase;
+        @include tabletLarge {
+            font-size: 20px;
+        }
 
-    &.text-text {
-      color: var(--text);
+        @include tablet {
+            font-size: 16px;
+        }
+
+        &.text-black-100 {
+            color: var(--black-100);
+        }
     }
 
-  }
+    &-18 {
+        font-family: $default-font2;
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 140%;
 
-  &-24 {
-    font-family: $default-font2;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 24px;
-    line-height: 140%;
-
-    @include tablet {
-      font-size: 16px;
+        &.text-black-100 {
+            color: var(--black-100);
+        }
+        &.text-black {
+            color: $bc2;
+        }
     }
 
-    &.text-black-100 {
-      color: var(--black-100);
+    &-16 {
+        font-family: $default-font2;
+        font-size: 16px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 160%;
+
+        &.text-black {
+            color: var(--black);
+        }
     }
 
-  }
+    &-14 {
+        font-family: $default-font2;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 14px;
+        line-height: 140%;
 
-  &-18 {
-    font-family: $default-font2;
-    font-size: 18px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 140%;
+        &.text-white {
+            color: $wc;
+        }
 
-    &.text-black-100 {
-      color: var(--black-100);
-    }
-    &.text-black {
-      color: $bc2;
-    }
+        &.text-black {
+            color: var(--black);
+        }
 
-  }
+        &.text-black-100 {
+            color: var(--black-100);
+        }
 
-  &-16 {
-    font-family: $default-font2;
-    font-size: 16px;
-    font-style: normal;
-    font-weight: 400;
-    line-height: 160%;
+        &.text-text {
+            color: var(--text);
+        }
 
-    &.text-black {
-      color: var(--black);
-    }
-
-  }
-
-  &-14 {
-    font-family: $default-font2;
-    font-style: normal;
-    font-weight: 400;
-    font-size: 14px;
-    line-height: 140%;
-
-    &.text-white {
-      color: $wc;
+        &.text-non-active {
+            color: var(--non-active);
+        }
     }
 
-    &.text-black {
-      color: var(--black);
+    &-12 {
+        font-family: $default-font2;
+        font-style: normal;
+        font-weight: 400;
+        font-size: 12px;
+        line-height: 140%;
+
+        &.text-white {
+            color: $wc;
+        }
+
+        &.text-black {
+            color: var(--black);
+        }
+
+        &.text-black-100 {
+            color: var(--black-100);
+        }
+
+        &.text-text {
+            color: var(--text);
+        }
+
+        &.text-non-active {
+            color: var(--non-active);
+        }
     }
 
-    &.text-black-100 {
-      color: var(--black-100);
+    &-14-uppercase {
+        font-family: $default-font2;
+        font-style: normal;
+        font-weight: 700;
+        font-size: 14px;
+        line-height: 140%;
+        text-transform: uppercase;
     }
 
-    &.text-text {
-      color: var(--text);
+    &-10 {
+        text-align: center;
+        font-family: $default-font2;
+        font-size: 10px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 100%; /* 10px */
+
+        &.text-white {
+            color: var(--fff);
+        }
     }
-
-    &.text-non-active {
-      color: var(--non-active);
-    }
-
-  }
-
-  &-14-uppercase {
-    font-family: $default-font2;
-    font-style: normal;
-    font-weight: 700;
-    font-size: 14px;
-    line-height: 140%;
-    text-transform: uppercase;
-
-  }
-
-  &-10 {
-   
-    text-align: center;
-    font-family: $default-font2;
-    font-size: 10px;
-    font-style: normal;
-    font-weight: 700;
-    line-height: 100%; /* 10px */
-
-    &.text-white {
-      color: var(--fff);
-    }
-  }
-
-
 }

@@ -19,15 +19,23 @@
 {{--                start item--}}
                @foreach($page['data'] as $item)
                 <div class="services-item">
-                    <h3 class="services-item__title text-m">{{$item->data[App::currentLocale()]['title']}}</h3>
-                    <div class="services-item__img-wrap">
+                    <div class="services-item__title-wrap">
+                        <h3 class="services-item__title text-m">{{$item->data[App::currentLocale()]['title']}}</h3>
+                        <div class="services-item__title-arrow">
+                            <svg class="icon--contacts-arrow" role="presentation">
+                                <use xlink:href="#icon-contacts-arrow"></use>
+                            </svg>
+                        </div>
+                    </div>
+
+                    <!-- <div class="services-item__img-wrap">
                         @if(Storage::has($item->thumbnail) && !empty($item->thumbnail))
                             <img src="{{ $item->thumbnailUrl}}" class="services-item__img" id="thumbnail-preview" alt="">
                         @endif
                         <div class="services-item__img-descr-wrap">
                             <p class="services-item__img-descr text-s">{{$item->data[App::currentLocale()]['post_title']}}</p>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="services-item__descr-wrap">
                         {!! $item->data[App::currentLocale()]['description'] !!}
                         @if($item->data[App::currentLocale()]['designer'] == true)
@@ -42,9 +50,9 @@
                         </div>
                         @endif
                     </div>
-                    <div class="services-btn-wrap">
+                    <!-- <div class="services-btn-wrap">
                         <button class="btn btn--full">Замовити індивідуальний проєкт</button>
-                    </div>
+                    </div> -->
                 </div>
                 @endforeach
 {{--                end item --}}

@@ -1,22 +1,20 @@
-$default-font: 'Unbounded', sans-serif;
-$default-font2: 'Arial', sans-serif;
+$default-font: "Unbounded", sans-serif;
+$default-font2: "Arial", sans-serif;
 
-$mc1: #0B1518;
-$mc2: #EBE9E4;
-$background: #F8F8F8;
+$mc1: #0b1518;
+$mc2: #ebe9e4;
+$background: #f8f8f8;
 $textGrey: #707070;
-$textLightGrey: #6F7482;
+$textLightGrey: #6f7482;
 $textGreySpecial: #939598;
-$textCardGrey: #7C8692;
+$textCardGrey: #7c8692;
 $border: rgba(166, 162, 153, 0.2);
 $wc: #fff;
 $bc: #242424;
-$bc2: #080E14;
-$redPrim: #DD405D;
-$bg: #F8F8F8;
-$border: #D5DDE1;
-
-
+$bc2: #080e14;
+$redPrim: #dd405d;
+$bg: #f8f8f8;
+$border: #d5dde1;
 
 $mc: #1a2941;
 
@@ -25,68 +23,66 @@ $sm: 1366px;
 $md: 1920px;
 
 @mixin media($size) {
-  @media (max-width: $size) {
-    @content;
-  }
+    @media (max-width: $size) {
+        @content;
+    }
 }
 
 @mixin mobile {
-  @include media($xs) {
-    @content;
-  }
+    @include media($xs) {
+        @content;
+    }
 }
 
 @mixin tablet {
-  @include media($sm) {
-    @content;
-  }
+    @include media($sm) {
+        @content;
+    }
 }
 
 @mixin tabletLarge {
-  @include media($md) {
-    @content;
-  }
+    @include media($md) {
+        @content;
+    }
 }
-
-
-
-
 
 :root {
-  --in: cubic-bezier(0.13, 0.81, 0.23, 0.96);
-  --header-h: 120px;
-  --sliceFigure: 239px;
-  --sliceFigure-big: 541px;
-  --text-footer: #D5DDE1;
-  --background: #F8F8F8;
-  --fff: #ffffff;
-  --black: #6F7482;
-  --black-100: #080E14;
-  --text: #707070;
-  --gray: #F2F2F4;
-  --container52: 52px;
-  --container40: 40px;
-  --non-active: #BABABA;
-  --red: #DD405D;
+    --in: cubic-bezier(0.13, 0.81, 0.23, 0.96);
+    --header-h: 120px;
+    --sliceFigure: 239px;
+    --sliceFigure-big: 541px;
+    --text-footer: #d5dde1;
+    --background: #f8f8f8;
+    --fff: #ffffff;
+    --black: #6f7482;
+    --black-100: #080e14;
+    --text: #707070;
+    --gray: #f2f2f4;
+    --container52: 52px;
+    --container40: 40px;
+    --non-active: #bababa;
+    --red: #dd405d;
+    --btn-60: 60px;
 
-  @include tabletLarge {
-    --sliceFigure-big: 362px;
-  }
+    @include tabletLarge {
+        --sliceFigure-big: 362px;
+        --btn-60: 60px;
+    }
 
-  @include tablet {
-    --header-h: 90px;
-    --logo-w: 148px;
-    --sliceFigure-big: 44px;
+    @include tablet {
+        --header-h: 90px;
+        --logo-w: 148px;
+        --sliceFigure-big: 44px;
+        --btn-60: 40px;
+    }
 
-  }
+    @include mobile {
+        --header-h: 66px;
+        --logo-w: 105 px;
+        --sliceFigure: 100px;
+        --sliceFigure-big: 100px;
 
-  @include mobile {
-    --header-h: 66px;
-    --logo-w: 105 px;
-    --sliceFigure: 100px;
-    --sliceFigure-big: 100px;
-
-    --container40: 36px;
-  }
+        --container40: 36px;
+        --btn-60: 36px;
+    }
 }
-

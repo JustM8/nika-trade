@@ -1,1 +1,2 @@
-import './openPopup';
+import "./openPopup";
+import "./accordion";

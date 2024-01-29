@@ -4,5 +4,6 @@
 // import './cart';
 // import './componentsRendering';
 // import './recommendedProducts';
-import './changeImage';
-import './showDescription';
+import "./changeImage";
+import "./showDescription";
+import "./recommendedProducts";

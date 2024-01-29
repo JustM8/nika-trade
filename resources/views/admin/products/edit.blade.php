@@ -169,12 +169,11 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="thumbnail"
-                               class="col-md-4 col-form-label text-md-right">{{ __('product.Thumbnail') }}</label>
+                        <label for="thumbnail" class="col-md-4 col-form-label text-md-right">{{ __('product.Thumbnail') }}</label>
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <img src="{{ $product->thumbnailUrl  }}" style="height: 350px" id="thumbnail-preview" alt="">
+                                    <img src="{{ $product->thumbnailUrl  }}" style="width: 200px; height: 200px;" id="thumbnail-preview" alt="">
                                 </div>
                                 <div class="col-md-6">
                                     <input type="file" name="thumbnail" id="thumbnail">
@@ -184,29 +183,29 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="thumbnail"
-                               class="col-md-4 col-form-label text-md-right">{{ __('product.Obj_Model') }}</label>
+                        <label for="thumbnail" class="col-md-4 col-form-label text-md-right">{{ __('product.Obj_Model') }}</label>
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div class="card-img-top" data-object-container style="width: 200px; height: 300px; margin: 0 auto; display: block;">
-                                    </div>
-                                    <div class="col-md-6">
-                                        <input type="file" name="obj_model" id="obj_model">
-                                    </div>
+                                    <div id="nikaModel" data-srс="{{ $product->objmodelUrl  }}" class="card-img-top"  style="width: 200px; height: 200px;"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="file" name="obj_model" id="obj_model">
+                                </div>
                             </div>
                         </div>
                     </div>
                         <div class="form-group row">
-                        <label for="thumbnail"
-                               class="col-md-4 col-form-label text-md-right">{{ __('product.pdf') }}</label>
+                        <label for="thumbnail" class="col-md-4 col-form-label text-md-right">{{ __('product.pdf') }}</label>
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
                                     <div class="columns download">
                                         <p>
                                             <a href="{{ $product->pdflUrl  }}" class="button" download>
-                                                <i class="fa fa-download"></i>Download PDF</a>
+                                                <i class="fa fa-download"></i>
+                                                Download PDF
+                                            </a>
                                         </p>
                                     </div>
 
@@ -256,12 +255,12 @@
 @endsection
 
 @push('footer-scripts')
-    @vite(['resources/js/images-preview.js', 'resources/js/images-actions.js', 'resources/js/select.js' ])
-    <script>
+    @vite(['resources/js/images-preview.js', 'resources/js/images-actions.js', 'resources/js/select.js', 'resources/js/model.js' ])
+    <!-- <script>
         window.addEventListener('DOMContentLoaded',function(evt){
             window.obj3d(document.querySelector('[data-object-container]'), "{{ $product->objmodelUrl  }}");
         });
         console.log(document.querySelector('[data-object-container]'));
-    </script>
+    </script> -->
 @endpush
 
