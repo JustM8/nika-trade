@@ -140,7 +140,7 @@
                                class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
                         <div class="col-md-6">
                             <textarea name="description"
-                                      class="form-control @error('description') is-invalid @enderror"
+                                      class="form-control"
                                       id="description"
                                       cols="30"
                                       rows="10">{{ old('description') }}</textarea>
@@ -151,9 +151,9 @@
                         <label for="recommended_id" class="col-md-4 col-form-label text-md-right">{{ __('Recommended product') }}</label>
                         <div class="col-md-6">
                             <select class="form-select" name="recommended_id[]" id="recommended_id" multiple>
-                                
+
                                 @foreach($products as $product)
-                                <option value="{{$product->id}}">{{$product->title[App::currentLocale()]}}</option>
+                                <option value="{{$product->id}}">{{$product->SKU}}</option>
                                 @endforeach
                             </select>
                         </div>

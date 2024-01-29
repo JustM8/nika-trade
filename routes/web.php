@@ -48,7 +48,7 @@ Route::post('order', [\App\Http\Controllers\OrdersController::class,'index'])->n
 Route::post('order/create', [\App\Http\Controllers\OrdersController::class,'create'])->name('order.create');
 
 Route::middleware('auth')->group(function() {
-    
+
     Route::get('order/{orderId}/thankyou',[\App\Http\Controllers\OrdersController::class,'thankYou'])->name('thankYou');
 
     Route::name('account.')->prefix('account')->group(function (){

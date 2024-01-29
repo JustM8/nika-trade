@@ -9,6 +9,7 @@ use App\Models\Product;
 use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Repositories\ProductRepository;
+use Illuminate\Http\Request;
 
 class ProductsController extends Controller
 {
@@ -16,12 +17,30 @@ class ProductsController extends Controller
     {
     }
 
-    public function index()
+    public function index(Request $request)
     {
-//        $products = Product::with('category')->paginate(5);
-        $products = Product::with('categories')->paginate(50);
-//        dd($products);
-        return view('admin/products/index',['title'=>__('product.indexTitle')], compact('products'));
+//        $products = Product::with('categories')->paginate(50);
+//        return view('admin/products/index',['title'=>__('product.indexTitle')], compact('products'));
+
+        $query = Product::with('categories');
+
+        if ($request->has('category')) {
+            $category = $request->input('category');
+            $query->whereHas('categories', function ($q) use ($category) {
+                $q->where('categories.id', $category); // Зміна тут
+            });
+        }
+
+        // Додайте логіку для пошуку за полем SKU
+        if ($request->has('search')) {
+            $searchTerm = $request->input('search');
+            $query->where('sku', 'LIKE', "%$searchTerm%");
+        }
+
+        $products = $query->paginate(50);
+
+        return view('admin.products.index', compact('products'));
+
     }
 
     public function create()

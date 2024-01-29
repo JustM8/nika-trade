@@ -156,12 +156,12 @@
                         <label for="recommended_id" class="col-md-4 col-form-label text-md-right">{{ __('product.Recommended product') }}</label>
                         <div class="col-md-6">
                             <select class="form-select" name="recommended_id[]" id="recommended_id" multiple>
-                                
+
                                 @foreach($products as $item)
                                     @if( $recommendedProducts->contains($item->id))
                                         <option selected value="{{$item->id}}">{{$item->title[App::currentLocale()]}}</option>
                                     @else
-                                        <option value="{{$item->id}}">{{$item->title[App::currentLocale()]}}</option>
+                                        <option value="{{$item->id}}">{{$item->SKU}}</option>
                                     @endif
                                 @endforeach
                             </select>
