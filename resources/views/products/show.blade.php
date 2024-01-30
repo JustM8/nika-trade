@@ -17,7 +17,7 @@
                 <h2 class="page-title text-title">{{ $product->title[App::currentLocale()] }}</h2>
             </div>
             <div class="product-page-main">
-                
+
                 <div class="product-page-item-wrap">
                     <div class="product-page-item-img-wrap">
                         <div class="product-page-item-img">
@@ -46,21 +46,21 @@
                             <span class="product-page-item-info__title-row-price text-14 text-black">Ціна:</span>
                             <!-- <span class="product-page-item-info__title-row-quantity text-14 text-black">Кількість:</span> -->
                             <span class="product-page-item-info__title-row-blank"></span></div>
-                            <div class="product-page-list">
-                                <div class="product-page-item-info__row">
-                                    <span class="product-page-item-info__row-code text-14 text-black">{{ $product->SKU }}</span>
-                                    <span class="product-page-item-info__row-name text-14 text-black">{{ $product->title[App::currentLocale()] }}</span>
-                                    <span class="product-page-item-info__row-price text-14 text-black">{{ $product->price }} грн</span>
-                                    <div class="product-page-item-info__row-btn">
-                                        <a data-route="{{ route('cart.add', $product) }}" type="submit" class="product-page-item-info__row-btn-link add-to-cart">
-                                            <svg class="icon--cart" role="presentation">
-                                                <use xlink:href="#icon-cart"></use>
-                                            </svg>
-                                            <span class="text-14 text-white">Купити</span>
-                                        </a>
-                                    </div>
-                                </div>
-                            </div>
+{{--                            <div class="product-page-list">--}}
+{{--                                <div class="product-page-item-info__row">--}}
+{{--                                    <span class="product-page-item-info__row-code text-14 text-black">{{ $product->SKU }}</span>--}}
+{{--                                    <span class="product-page-item-info__row-name text-14 text-black">{{ $product->title[App::currentLocale()] }}</span>--}}
+{{--                                    <span class="product-page-item-info__row-price text-14 text-black">{{ $product->price }} грн</span>--}}
+{{--                                    <div class="product-page-item-info__row-btn">--}}
+{{--                                        <a data-route="{{ route('cart.add', $product) }}" type="submit" class="product-page-item-info__row-btn-link add-to-cart">--}}
+{{--                                            <svg class="icon--cart" role="presentation">--}}
+{{--                                                <use xlink:href="#icon-cart"></use>--}}
+{{--                                            </svg>--}}
+{{--                                            <span class="text-14 text-white">Купити</span>--}}
+{{--                                        </a>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
                             @foreach($childrens as $item)
                             <div class="product-page-list">
                                 <div class="product-page-item-info__row">
@@ -124,14 +124,14 @@
                             <use xlink:href="#icon-arrow"></use>
                         </svg>
                     </div>
-                    
+
                     <div class="swiper recommended-products-swiper">
                         <!-- Additional required wrapper -->
                         <div class="swiper-wrapper">
                             <!-- Slides -->
                             @foreach($recommendedProducts as $item)
                                 <a class="catalog-single-card swiper-slide" href="{{ route('product.show', $item->slug) }}">
-                                    <div class="catalog-single-card__img"> 
+                                    <div class="catalog-single-card__img">
                                         <img src="{{ $item->thumbnailUrl }}" alt="">
                                     </div>
                                     <div class="catalog-single-card-intro">
@@ -139,8 +139,8 @@
                                     </div>
                                 </a>
                             @endforeach
-                            
-                        </div>      
+
+                        </div>
                     </div>
 
                     <div class="recommended-products-button-next round-btn round-btn-next round-btn--black">
@@ -148,7 +148,7 @@
                             <use xlink:href="#icon-arrow"></use>
                         </svg>
                     </div>
-                   
+
                 </div>
             </div>
         </div>

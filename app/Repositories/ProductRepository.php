@@ -104,6 +104,11 @@ class ProductRepository implements ProductRepositoryContract
                     $dataJson['size'][$lang] = $request->size;
                 }
             }
+            if(!empty($request->is_public)){
+                $data['is_public'] = true;
+            }else{
+                $data['is_public'] = false;
+            }
 
             $data['title'] = $dataJson['title'];
             $data['description'] = $dataJson['description'];

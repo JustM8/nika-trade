@@ -51,6 +51,32 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="priority" class="col-md-4 col-form-label text-md-right">{{ __('product.priority') }}</label>
+                        <div class="col-md-6">
+                            <input
+                                name="priority"
+                                class="form-control"
+                                type="text"
+                                value="{{ $product->priority }}"
+                                id="priority"
+                            >
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
+                        <label for="is_public" class="col-md-4 col-form-label text-md-right">{{ __('product.is_public') }}</label>
+                        <div class="col-md-6">
+                            <input
+                                name="is_public"
+                                class="form-check-input"
+                                type="checkbox"
+                                id="is_public"
+                                @if($product->is_public == 1) checked @endif
+                            >
+
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="category"
                                class="col-md-4 col-form-label text-md-right">{{ __('product.categories') }}</label>
                         <div class="col-md-6">

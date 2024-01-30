@@ -92,6 +92,8 @@ class UpdateProductRequest extends FormRequest
             'pdf' => ['nullable', 'mimes:pdf'],
             'images.*' => ['image:jpeg,png,jpg'],
             'recommended_id' => ['nullable'],
+            'is_public' => ['nullable'],
+            'priority' => ['nullable'],
         ];
     }
 }

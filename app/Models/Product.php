@@ -25,7 +25,9 @@ class Product extends Model
         'SKU',
         'slug',
         'pdf',
-        'obj_model'
+        'obj_model',
+        'priority',
+        'is_public',
     ];
 
     protected $guarded = [];
@@ -118,7 +120,10 @@ class Product extends Model
 
     public function children()
     {
-        return $this->hasMany(Product::class, 'parent_id');
+        return $this->hasMany(Product::class, 'parent_id')
+            ->whereNotNull('parent_id')
+            ->where('is_public', 1)
+            ->orderBy('priority', 'asc');
     }
 
 
