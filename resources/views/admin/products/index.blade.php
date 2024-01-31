@@ -6,7 +6,7 @@
                 <input class="form-control mr-sm-3" type="text" name="search" value="{{ request('search') }}" placeholder="Введіть SKU">
                 <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Шукати</button>
             </form>
-            <a href="{{ route('admin.products.index') }}" class="text-muted btn btn-outline-dark">{{__('product.All')}}</a>
+            <a href="{{ route('admin.products.index') }}" class="btn btn-outline-dark">{{__('product.All')}}</a>
         </nav>
         <div class="row justify-content-center">
             <div class="col-md-12">
@@ -29,7 +29,7 @@
                         <th class="text-center" scope="col">{{ __('product.SKU') }}</th>
                         <th class="text-center" scope="col">{{ __('product.categories') }}</th>
                         <th class="text-center" scope="col">{{ __('product.price') }}</th>
-                        <th class="text-center" scope="col"><a href="{{ route('admin.products.index') }}" class="text-muted btn btn-outline-dark">{{__('product.All')}}</a></th>
+                        <th class="text-center" scope="col"><a href="{{ route('admin.products.index') }}" class=" btn btn-outline-dark">{{__('product.All')}}</a></th>
                     </tr>
                     </thead>
                     <tbody>

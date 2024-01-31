@@ -14,7 +14,8 @@ class ProductsController extends Controller
     {
 //        $product = Product::where('slug','=',$slug)->first();
         $childrens = $product->children;
-        $breadcrumbs = $product->breadcrumbs;
+        $breadcrumbs = array_reverse($product->breadcrumbs);
+//        dd($breadcrumbs);
         $recommendedProducts = $product->recommendedProducts;
         $categorySlug = $this->getCategorySlug($product->id);
 //        dd($breadcrumbs);

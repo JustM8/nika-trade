@@ -39,7 +39,7 @@ class ProductsController extends Controller
 
         $products = $query->paginate(50);
 
-        return view('admin.products.index', compact('products'));
+        return view('admin.products.index',['title'=>__('product.Products')], compact('products'));
 
     }
 

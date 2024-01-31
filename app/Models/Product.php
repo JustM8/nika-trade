@@ -138,17 +138,28 @@ class Product extends Model
 
         $breadcrumbs = [];
 
-        $currentCategory = $this->category;
+        // Assuming $this->categories is the relationship to the categories through category_product
+        $currentCategories = $this->categories;
 
-        while ($currentCategory) {
+        foreach ($currentCategories as $currentCategory) {
             $breadcrumbs[] = [
                 'id' => $currentCategory->id,
                 'name' => $currentCategory->name,
                 'url' => URL::to("$basePath/{$currentCategory->slug}"),
             ];
-            $currentCategory = $currentCategory->parent;
+
+            // If you want to include parent categories for each category, you can uncomment the following block:
+             $parentCategory = $currentCategory->parent;
+             while ($parentCategory) {
+                 $breadcrumbs[] = [
+                     'id' => $parentCategory->id,
+                     'name' => $parentCategory->name,
+                     'url' => URL::to("$basePath/{$parentCategory->slug}"),
+                 ];
+                 $parentCategory = $parentCategory->parent;
+             }
         }
 
-        return array_reverse($breadcrumbs);
+        return $breadcrumbs;
     }
 }
