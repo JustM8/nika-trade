@@ -33,8 +33,8 @@
                     </tr>
                     </thead>
                     <tbody>
-                    @foreach($products as $product)
-                        <tr>
+                    @foreach($products as $key=>$product)
+                        <tr @if($key%2==0) class="table-secondary" @endif>
                             <td class="text-center" scope="col">{{ $product->id }}</td>
                             <td class="text-center" scope="col">
                                 <img src="{{ $product->thumbnailUrl }}" width="100" height="100" alt=""></td>

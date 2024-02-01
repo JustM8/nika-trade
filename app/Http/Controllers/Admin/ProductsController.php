@@ -19,28 +19,33 @@ class ProductsController extends Controller
 
     public function index(Request $request)
     {
-//        $products = Product::with('categories')->paginate(50);
-//        return view('admin/products/index',['title'=>__('product.indexTitle')], compact('products'));
-
         $query = Product::with('categories');
 
         if ($request->has('category')) {
-            $category = $request->input('category');
-            $query->whereHas('categories', function ($q) use ($category) {
-                $q->where('categories.id', $category); // Зміна тут
-            });
+            $query = $this->filterByCategory($query, $request->input('category'));
         }
 
-        // Додайте логіку для пошуку за полем SKU
         if ($request->has('search')) {
-            $searchTerm = $request->input('search');
-            $query->where('sku', 'LIKE', "%$searchTerm%");
+            $query = $this->searchBySku($query, $request->input('search'));
         }
+
+        // Додайте інші фільтри, якщо потрібно
 
         $products = $query->paginate(50);
 
-        return view('admin.products.index',['title'=>__('product.Products')], compact('products'));
+        return view('admin.products.index', ['title' => __('product.Products')], compact('products'));
+    }
 
+    protected function filterByCategory($query, $category)
+    {
+        return $query->whereHas('categories', function ($q) use ($category) {
+            $q->where('categories.id', $category);
+        });
+    }
+
+    protected function searchBySku($query, $searchTerm)
+    {
+        return $query->where('sku', 'LIKE', "%$searchTerm%");
     }
 
     public function create()
