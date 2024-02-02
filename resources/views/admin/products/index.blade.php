@@ -1,7 +1,7 @@
 @extends('layouts.admin')
 @section('content')
     <div class="container">
-        <nav class="navbar navbar-light bg-light">
+        <nav class="navbar navbar-light bg-light rounded">
             <form action="{{ route('admin.products.index') }}" method="GET" class="form-inline">
                 <input class="form-control mr-sm-3" type="text" name="search" value="{{ request('search') }}" placeholder="Введіть SKU">
                 <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Шукати</button>
@@ -20,7 +20,7 @@
                 @endif
             </div>
             <div class="col-md-12">
-                <table class="table align-self-center">
+                <table class="table table-bordered table-striped">
                     <thead>
                     <tr>
                         <th class="text-center" scope="col">ID</th>

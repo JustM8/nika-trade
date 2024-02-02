@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Facades\URL;
+use Illuminate\Support\Facades\Session;
 
 class Product extends Model
 {
@@ -132,34 +133,44 @@ class Product extends Model
         return $this->children()->exists();
     }
 
+
+
     public function getBreadcrumbsAttribute()
     {
         $basePath = 'catalog';
 
         $breadcrumbs = [];
 
+        // Get the current category slug from the session
+        $currentCategorySlug = Session::get('current_category_slug');
+
         // Assuming $this->categories is the relationship to the categories through category_product
         $currentCategories = $this->categories;
 
         foreach ($currentCategories as $currentCategory) {
-            $breadcrumbs[] = [
-                'id' => $currentCategory->id,
-                'name' => $currentCategory->name,
-                'url' => URL::to("$basePath/{$currentCategory->slug}"),
-            ];
+            if ($currentCategory->slug === $currentCategorySlug) {
+                $breadcrumbs[] = [
+                    'id' => $currentCategory->id,
+                    'name' => $currentCategory->name,
+                    'url' => URL::to("$basePath/{$currentCategory->slug}"),
+                    'active' => true,
+                ];
 
-            // If you want to include parent categories for each category, you can uncomment the following block:
-             $parentCategory = $currentCategory->parent;
-             while ($parentCategory) {
-                 $breadcrumbs[] = [
-                     'id' => $parentCategory->id,
-                     'name' => $parentCategory->name,
-                     'url' => URL::to("$basePath/{$parentCategory->slug}"),
-                 ];
-                 $parentCategory = $parentCategory->parent;
-             }
+                // Add parent categories if needed
+                $parentCategory = $currentCategory->parent;
+                while ($parentCategory) {
+                    $breadcrumbs[] = [
+                        'id' => $parentCategory->id,
+                        'name' => $parentCategory->name,
+                        'url' => URL::to("$basePath/{$parentCategory->slug}"),
+                        'active' => false,
+                    ];
+                    $parentCategory = $parentCategory->parent;
+                }
+            }
         }
 
         return $breadcrumbs;
     }
+
 }

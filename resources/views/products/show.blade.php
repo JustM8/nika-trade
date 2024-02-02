@@ -4,7 +4,7 @@
 {{--    @dd($breadcrumbs);--}}
     <section class="product-page page-container" data-product-id="{{$product->id}}">
         <div class="product-page-wrap">
-            <div class="page-intro">
+            <div class="page-intro" data-title="{{$rootParent->slug}}" >
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
                         <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Homepage</a></li>

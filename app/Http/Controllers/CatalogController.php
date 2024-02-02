@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use Illuminate\Support\Facades\Session;
 
 class CatalogController extends Controller
 {
@@ -30,8 +31,8 @@ class CatalogController extends Controller
 
         if($category->hasProducts() == true)
         {
-//            $products = $category->products->where('parent_id', null);
-            $products = $category->products;
+            $products = $category->products->where('parent_id', null);
+//            $products = $category->products;
             if($products->isEmpty()){
                 $products = $products->collect();
             }
@@ -48,6 +49,8 @@ class CatalogController extends Controller
         $menu = $this->getMenu();
 
         $breadcrumbs = $category->breadcrumbs;
+        Session::put('current_category_slug', $category->slug);
+
 
         return view('catalog.show',['title'=>__('catalog.Title').' - '.$category->name[App::currentLocale()]], compact('category','childrens','childrensOfChildrens','menu','products','rootParent','breadcrumbs'));
     }
