@@ -17,7 +17,30 @@
                 <h2 class="page-title text-title">{{ $product->title[App::currentLocale()] }}</h2>
             </div>
             <div class="product-page-main">
+                <div class="catalog-single-filters-wrap">
 
+{{--                    @dd($menu);--}}
+{{--                    @foreach($menu as $item)--}}
+{{--                        <div class="catalog-single-filter">--}}
+{{--                            <a class="catalog-single-filter__title text-s" href=""> <?=$item['name']?></a>--}}
+{{--                            @if(!empty($item['children']))--}}
+{{--                                @foreach($item['children'] as $underItem)--}}
+{{--                                    <div class="catalog-single-filter-card">--}}
+{{--                                        <div class="catalog-single-filter-card__title text-14 {{ in_array($currentCategorySlug, array_column($underItem['children'], 'slug')) ? 'active' : '' }}"><?=$underItem['name']?></div>--}}
+{{--                                        <div class="catalog-single-filter-card-list {{ in_array($currentCategorySlug, array_column($underItem['children'], 'slug')) ? 'active' : '' }}" >--}}
+{{--                                            @if(!empty($underItem['children']))--}}
+{{--                                                @foreach($underItem['children'] as $underUnderItem)--}}
+{{--                                                    <a class="catalog-single-filter-card-list-item text-14 @if($underUnderItem['slug'] == $currentCategorySlug) active @endif " href="{{ route('catalog.show', $underUnderItem['slug']) }}"><?=$underUnderItem['name']?></a>--}}
+{{--                                                @endforeach--}}
+{{--                                            @endif--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                @endforeach--}}
+{{--                            @endif--}}
+{{--                        </div>--}}
+{{--                    @endforeach--}}
+
+                </div>
                 <div class="product-page-item-wrap">
                     <div class="product-page-item-img-wrap">
                         <div class="product-page-item-img">

@@ -135,14 +135,21 @@ class Product extends Model
 
 
 
-    public function getBreadcrumbsAttribute()
+    public function getBreadcrumbsAttribute($productId)
     {
         $basePath = 'catalog';
 
         $breadcrumbs = [];
 
         // Get the current category slug from the session
+//        Session::flush();
         $currentCategorySlug = Session::get('current_category_slug');
+        if (empty(Session::get('current_category_slug'))) {
+            $categories = $this->categories;
+            $category = $categories->first();
+            $currentCategorySlug = $category->slug;
+            Session::put('current_category_slug', $category->slug);
+        }
 
         // Assuming $this->categories is the relationship to the categories through category_product
         $currentCategories = $this->categories;

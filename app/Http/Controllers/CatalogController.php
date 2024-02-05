@@ -50,6 +50,7 @@ class CatalogController extends Controller
 
         $breadcrumbs = $category->breadcrumbs;
         Session::put('current_category_slug', $category->slug);
+        Session::put('current_category_id', $category->id);
 
 
         return view('catalog.show',['title'=>__('catalog.Title').' - '.$category->name[App::currentLocale()]], compact('category','childrens','childrensOfChildrens','menu','products','rootParent','breadcrumbs'));
