@@ -22,13 +22,13 @@ class ProductsController extends Controller
         $category = $categories->first();
         $rootParent = $category->findRootParent();
 
-//        $menu = $this->getMenu();
+        $menu = $this->getMenu();
         $currentCategorySlug = Session::get('current_category_slug');
         $currentCategoryId = Session::get('current_category_id');
 
         return view('products.show',
             ['title'=>__('catalog.Title').' - '.$product->title[App::currentLocale()]],
-            compact('product','recommendedProducts','childrens','categorySlug','breadcrumbs','rootParent','currentCategorySlug','currentCategoryId')
+            compact('product','recommendedProducts','childrens','categorySlug','breadcrumbs','rootParent','currentCategorySlug','currentCategoryId','menu')
         );
     }
 
