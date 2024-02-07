@@ -1,8 +1,8 @@
 @extends('layouts.admin')
 @section('content')
     <div class="container">
-        <nav class="navbar navbar-light bg-light rounded">
-            <form action="{{ route('admin.products.index') }}" method="GET" class="form-inline">
+        <nav class="navbar navbar-light bg-light rounded product-navbar">
+            <form action="{{ route('admin.products.index') }}" method="GET" class="form-inline product-navbar__search-form">
                 <input class="form-control mr-sm-3" type="text" name="search" value="{{ request('search') }}" placeholder="Введіть SKU">
                 <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Шукати</button>
             </form>
@@ -34,7 +34,7 @@
                     </thead>
                     <tbody>
                     @foreach($products as $key=>$product)
-                        <tr @if($key%2==0) class="table-secondary" @endif>
+                        <tr @if($key%2==0) class="table-secondary product-table-sec" @endif>
                             <td class="text-center" scope="col">{{ $product->id }}</td>
                             <td class="text-center" scope="col">
                                 <img src="{{ $product->thumbnailUrl }}" width="100" height="100" alt=""></td>

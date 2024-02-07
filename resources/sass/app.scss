@@ -48,3 +48,13 @@ html.lenis {
 .lenis.lenis-scrolling iframe {
     pointer-events: none;
 }
+
+.product-navbar__search-form {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.product-table-sec {
+    background: none;
+}
