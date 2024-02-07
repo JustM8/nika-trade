@@ -15,7 +15,7 @@ return new class extends Migration
     {
         Schema::table('products', function (Blueprint $table) {
             $table->tinyInteger('priority')->nullable();
-            $table->boolean('is_public')->nullable();
+            $table->boolean('is_public')->nullable()->default(1);
         });
     }
 
