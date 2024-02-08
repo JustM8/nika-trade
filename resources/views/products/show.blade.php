@@ -17,6 +17,14 @@
                 <h2 class="page-title text-title">{{ $product->title[App::currentLocale()] }}</h2>
             </div>
             <div class="product-page-main">
+                <div class="product-page-main-inner">
+                <div class="catalog-single-btn-mobile-wrap">
+                        <button class="catalog-single-btn-mobile btn">
+                        <svg class="icon--equipment-btn" role="presentation">
+                            <use xlink:href="#icon-equipment-btn"></use>
+                        </svg><span>Обладнання</span>
+                        </button>
+                    </div>
                 <div class="catalog-single-filters-wrap">
 
 {{--                    @dd($menu);--}}
@@ -112,6 +120,11 @@
                     </div>
                 </div>
             </div>
+
+
+
+                </div>
+                
                 <div class="product-page-info-wrap">
                     <div class="product-page-info-switch">
                         <button class="product-page-info-switch-item active" data-info="details"> <span class="text-14 text-black-100">Опис</span></button>

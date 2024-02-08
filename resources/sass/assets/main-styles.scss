@@ -129,7 +129,6 @@ section {
 .page {
     &-container {
         padding: 192px 173px 50px 173px;
-
         @include tabletLarge {
             padding: 212px 100px 50px 100px;
         }

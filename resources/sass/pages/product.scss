@@ -1,4 +1,99 @@
 .product-page {
+    padding: 192px 100px 50px 100px;
+
+    @include tabletLarge {
+        padding: 212px 50px 50px 50px;
+    }
+
+    @include tablet {
+        padding: 190px 32px 50px 32px;
+    }
+
+    @include mobile {
+        padding: 114px 16px 50px 16px;
+    }
+
+    &:has([data-title="torhove-obladnannia"]) {
+        .catalog-single-filter__title {
+            background: linear-gradient(
+                60deg,
+                #b600ba 4.38%,
+                rgba(243, 0, 176, 0.8) 100%
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    &:has([data-title="vystavkove-obladnannia"]) {
+        .catalog-single-filter__title {
+            background: linear-gradient(
+                60deg,
+                #4865ff 4.37%,
+                rgba(120, 56, 142, 0.8) 100%
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    &:has([data-title="furnitura"]) {
+        .catalog-single-filter__title {
+            background: linear-gradient(
+                60deg,
+                #49b5fe 4.38%,
+                rgba(25, 152, 152, 0.8) 100%
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    [data-title="torhove-obladnannia"] {
+        .page-title,
+        .catalog-single-filter__title {
+            background: linear-gradient(
+                60deg,
+                #b600ba 4.38%,
+                rgba(243, 0, 176, 0.8) 100%
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    [data-title="vystavkove-obladnannia"] {
+        .page-title,
+        .catalog-single-filter__title {
+            background: linear-gradient(
+                60deg,
+                #4865ff 4.37%,
+                rgba(120, 56, 142, 0.8) 100%
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
+    [data-title="furnitura"] {
+        .page-title,
+        .catalog-single-filter__title {
+            background: linear-gradient(
+                60deg,
+                #49b5fe 4.38%,
+                rgba(25, 152, 152, 0.8) 100%
+            );
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    }
+
     &-main {
         background: var(--fff);
         padding: 40px;
@@ -8,10 +103,23 @@
         }
     }
 
+    &-main-inner {
+        display: flex;
+        gap: 20px;
+    }
+
     &-item-wrap {
         display: flex;
         justify-content: space-between;
         align-items: flex-start;
+        width: 85%;
+        @include tabletLarge {
+            width: 76%;
+        }
+
+        @include tablet {
+            width: 100%;
+        }
     }
 
     &-item-img-wrap {
