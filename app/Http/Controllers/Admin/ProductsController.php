@@ -28,10 +28,11 @@ class ProductsController extends Controller
         if ($request->has('search')) {
             $query = $this->searchBySku($query, $request->input('search'));
         }
-
+//        dd($query);
         // Додайте інші фільтри, якщо потрібно
 
-        $products = $query->paginate(50);
+        $products = $query->paginate(50)->appends(request()->query());
+//        dd($products);
 
         return view('admin.products.index', ['title' => __('product.Products')], compact('products'));
     }
@@ -69,7 +70,8 @@ class ProductsController extends Controller
     public function update(UpdateProductRequest $request,Product $product )
     {
         if($this->repository->update($product,$request)){
-            return redirect()->route('admin.products.index');
+//            return redirect()->route('admin.products.index');
+            return redirect()->back()->withInput()->with('success', 'Товар успішно оновлено');
         }else{
             return redirect()->back()->withInput();
         }
@@ -77,8 +79,10 @@ class ProductsController extends Controller
 
     public function store(CreateProductRequest $request)
     {
+
         if($this->repository->create($request)){
-            return redirect()->route('admin.products.index');
+//            return redirect()->route('admin.products.index');
+            return redirect()->back()->withInput()->with('success', 'Товар успішно оновлено');
         }else{
             return redirect()->back()->withInput();
         }

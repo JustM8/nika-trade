@@ -19,6 +19,7 @@
                     </div>
                 @endif
             </div>
+
             <div class="col-md-12">
                 <form action="{{ route('admin.products.update', $product) }}" method="POST" enctype="multipart/form-data">
                     @csrf
@@ -152,7 +153,7 @@
                             >
                         </div>
                     </div>
-                    <div class="form-group row">
+                    <div class="form-group row" style="display: none;">
                         <label for="in_stock"
                                class="col-md-4 col-form-label text-md-right">{{ __('product.Quantity') }}</label>
                         <div class="col-md-6">

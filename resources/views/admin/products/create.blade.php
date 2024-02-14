@@ -143,7 +143,7 @@
                         </div>
                     </div>
 {{--                    in stock--}}
-                    <div class="form-group row">
+                    <div class="form-group row"  style="display: none;">
                         <label for="in_stock"
                                class="col-md-4 col-form-label text-md-right">{{ __('In Stock (Quantity)') }}</label>
                         <div class="col-md-6">

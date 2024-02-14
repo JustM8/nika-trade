@@ -49,7 +49,7 @@
                             </td>
                             <td class="text-center" scope="col">{{ $product->price }}</td>
                             <td class="text-center" scope="col">
-                                <a href="{{ route('admin.products.edit', $product) }}" class="btn btn-info form-control">{{ __('product.Edit') }}</a>
+                                <a href="{{ url(route('admin.products.edit', $product) . '?' . http_build_query(request()->query())) }}" class="btn btn-info form-control">{{ __('product.Edit') }}</a>
                                 <form action="{{ route('admin.products.destroy', $product) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
