@@ -47,14 +47,14 @@
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a href="{{ route('cart') }}" class="nav-link">
-                                {{ __('cart.Title') }}
-                                @if (Cart::instance('cart')->count() > 0)
-                                    ({{ Cart::instance('cart')->content()->count() }})
-                                @endif
-                            </a>
-                        </li>
+{{--                        <li class="nav-item">--}}
+{{--                            <a href="{{ route('cart') }}" class="nav-link">--}}
+{{--                                {{ __('cart.Title') }}--}}
+{{--                                @if (Cart::instance('cart')->count() > 0)--}}
+{{--                                    ({{ Cart::instance('cart')->content()->count() }})--}}
+{{--                                @endif--}}
+{{--                            </a>--}}
+{{--                        </li>--}}
                         <!-- Authentication Links -->
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
@@ -114,15 +114,15 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ __('Products') }}
+                                {{ __('product.m Products') }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('admin.products.index') }}">
-                                    {{ __('All products') }}
+                                <a class="dropdown-item" href="{{ route('admin.products.index', request()->query()) }}">
+                                    {{ __('product.All products') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ route('admin.products.create') }}">
-                                    {{ __('Create product') }}
+                                <a class="dropdown-item" href="{{ route('admin.products.create', request()->query()) }}">
+                                    {{ __('product.Create product') }}
                                 </a>
                             </div>
                         </li>

@@ -71,7 +71,7 @@ class ProductsController extends Controller
     {
         if($this->repository->update($product,$request)){
 //            return redirect()->route('admin.products.index');
-            return redirect()->back()->withInput()->with('success', 'Товар успішно оновлено');
+            return redirect()->route('admin.products.index', request()->query());
         }else{
             return redirect()->back()->withInput();
         }
@@ -79,10 +79,8 @@ class ProductsController extends Controller
 
     public function store(CreateProductRequest $request)
     {
-
         if($this->repository->create($request)){
-//            return redirect()->route('admin.products.index');
-            return redirect()->back()->withInput()->with('success', 'Товар успішно оновлено');
+            return redirect()->route('admin.products.index', request()->query());
         }else{
             return redirect()->back()->withInput();
         }

@@ -20,7 +20,7 @@
                 @endif
             </div>
             <div class="col-md-12">
-                <form action="{{ route('admin.products.store') }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.products.store', request()->query()) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
                         <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>

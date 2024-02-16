@@ -21,7 +21,7 @@
             </div>
 
             <div class="col-md-12">
-                <form action="{{ route('admin.products.update', $product) }}" method="POST" enctype="multipart/form-data">
+                <form action="{{ route('admin.products.update', array_merge(['product' => $product], request()->query())) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     @method('PUT')
                     <div class="form-group row">
@@ -263,7 +263,7 @@
                                     </div>
                                 </div>
                                 <div class="col-md-12">
-                                    <input type="file" name="images[]" id="images" multiple>
+                                    <input class="form-control"  type="file" name="images[]" id="images" multiple>
                                 </div>
                             </div>
                         </div>
@@ -271,7 +271,7 @@
 
                         <div class="form-group row">
                             <div class="col-md-10 text-right">
-                                <input type="submit" class="btn btn-info" value="Update">
+                                <input type="submit" class="btn btn-info" value="{{ __('product.Update product') }}">
                             </div>
                         </div>
                     </div>
