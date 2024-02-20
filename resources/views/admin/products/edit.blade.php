@@ -222,6 +222,21 @@
                             </div>
                         </div>
                     </div>
+
+                    <div class="form-group row">
+                        <label for="thumbnail" class="col-md-4 col-form-label text-md-right">{{ __('product.Obj_Model') }}</label>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <div id="nikaModel2" data-srс="{{ $product->objmodelUrl2  }}" class="card-img-top"  style="width: 200px; height: 200px;"></div>
+                                </div>
+                                <div class="col-md-6">
+                                    <input type="file" name="obj_model_2" id="obj_model_2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                         <div class="form-group row">
                         <label for="thumbnail" class="col-md-4 col-form-label text-md-right">{{ __('product.pdf') }}</label>
                         <div class="col-md-6">

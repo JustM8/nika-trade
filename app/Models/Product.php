@@ -27,6 +27,7 @@ class Product extends Model
         'slug',
         'pdf',
         'obj_model',
+        'obj_model_2',
         'priority',
         'is_public',
     ];
@@ -80,6 +81,13 @@ class Product extends Model
 
         $this->attributes['obj_model'] = FileStorageService::upload($image);
     }
+    public function setObjModel2Attribute($image)
+    {
+        if(!empty($this->attributes['obj_model_2'])){
+            FileStorageService::remove($this->attributes['obj_model_2']);
+        }
+        $this->attributes['obj_model_2'] = FileStorageService::upload($image);
+    }
 
     public function thumbnailUrl(): Attribute
     {
@@ -89,6 +97,10 @@ class Product extends Model
     public function objmodelUrl(): Attribute
     {
         return new Attribute(get: fn() => Storage::url($this->attributes['obj_model']));
+    }
+    public function objmodelUrl2(): Attribute
+    {
+        return new Attribute(get: fn() => Storage::url($this->attributes['obj_model_2']));
     }
     public function pdflUrl(): Attribute
     {

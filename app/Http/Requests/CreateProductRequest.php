@@ -86,6 +86,7 @@ class CreateProductRequest extends FormRequest
             'parent_id' => ['nullable'],
             'thumbnail' => ['required', 'image:jpeg,png,jpg'],
             'obj_model' => [ 'file'],
+            'obj_model_2' => [ 'file'],
             'pdf' => [ 'mimes:pdf'],
             'images.*' => ['image:jpeg,png,jpg'],
             'recommended_id' => ['nullable'],

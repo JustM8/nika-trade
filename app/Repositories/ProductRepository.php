@@ -85,6 +85,7 @@ class ProductRepository implements ProductRepositoryContract
 
     public function update(Product $product, UpdateProductRequest $request): bool
     {
+//        dd($request);
         try {
             DB::beginTransaction();
 

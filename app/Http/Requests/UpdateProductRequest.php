@@ -89,6 +89,7 @@ class UpdateProductRequest extends FormRequest
             'parent_id' => ['nullable'],
             'thumbnail' => ['nullable', 'image:jpeg,png,jpg'],
             'obj_model' => ['nullable', 'file'],
+            'obj_model_2' => ['nullable', 'file'],
             'pdf' => ['nullable', 'mimes:pdf'],
             'images.*' => ['image:jpeg,png,jpg'],
             'recommended_id' => ['nullable'],

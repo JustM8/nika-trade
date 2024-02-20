@@ -212,6 +212,21 @@
                             </div>
                         </div>
                     </div>
+                    {{--                    obj_model 2--}}
+                    <div class="form-group row">
+                        <label for="thumbnail"
+                               class="col-md-4 col-form-label text-md-right">{{ __('obj_model_2') }}</label>
+                        <div class="col-md-6">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <img src="#" id="obj_model_2-preview" alt="">
+                                </div>
+                                <div class="col-md-6">
+                                    <input class="form-control" type="file" name="obj_model_2" id="obj_model_2">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
 {{--                    pdf--}}
                     <div class="form-group row">
                         <label for="thumbnail"
