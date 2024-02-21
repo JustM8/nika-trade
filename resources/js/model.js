@@ -1,133 +1,105 @@
 import * as THREE from "three";
-
-import { OrbitControls } from "three/addons/controls/OrbitControls.js";
-import { OBJLoader } from "three/addons/loaders/OBJLoader.js";
+import { OrbitControls } from "three/examples/jsm/controls/OrbitControls";
+import { GLTFLoader } from "three/addons/loaders/GLTFLoader.js";
+import { DRACOLoader } from "three/addons/loaders/DRACOLoader.js";
 
 const container = document.querySelector("#nikaModel");
-
-// create a Scene
 const scene = new THREE.Scene();
-
-// Set the background color
 scene.background = new THREE.Color("#FFFFFF");
 
-// Create a camera
-const fov = 35; // AKA Field of View
+const fov = 35;
 const aspect = container.clientWidth / container.clientHeight;
-const near = 0.1; // the near clipping plane
-const far = 100; // the far clipping plane
-
+const near = 1;
+const far = 1000;
 const camera = new THREE.PerspectiveCamera(fov, aspect, near, far);
+// Set the camera position and look at the center of the scene
+camera.position.set(-100, 10, 150); // Adjust the distance from the scene
 
-// every object is initially created at ( 0, 0, 0 )
-// move the camera back so we can view the scene
-camera.position.set(0, 0, 10);
-
-// create a geometry
-const geometry = new THREE.BoxGeometry(2, 2, 2);
-
-// create a default (white) Basic material
-const material = new THREE.MeshBasicMaterial({
-    color: 0xffffff,
-    wireframe: true,
-});
-// const ambientLight = new THREE.AmbientLight( 0xffffff );
-// 			scene.add( ambientLight );
-
-const light1 = new THREE.PointLight(0xffffff, 0.5, 0);
-light1.position.set(0, 50, 0);
-scene.add(light1);
-
-const light2 = new THREE.PointLight(0xffffff, 0.5, 0);
-light2.position.set(50, 75, 50);
-scene.add(light2);
-
-const light3 = new THREE.PointLight(0xffffff, 0.5, 0);
-light3.position.set(-25, -50, -25);
-scene.add(light3);
-// create a Mesh containing the geometry and material
-// const cube = new THREE.Mesh(geometry, material);
-
-// add the mesh to the scene
-// scene.add(cube);
-
-// create the renderer
-const renderer = new THREE.WebGLRenderer({ alpha: false });
-
-// next, set the renderer to the same size as our container element
+const renderer = new THREE.WebGLRenderer({ alpha: true });
 renderer.setSize(container.clientWidth, container.clientHeight);
-
-// finally, set the pixel ratio so that our scene will look good on HiDPI displays
 renderer.setPixelRatio(window.devicePixelRatio);
-
-// add the automatically created <canvas> element to the page
 container.append(renderer.domElement);
 
-// render, or 'create a still image', of the scene
-renderer.setClearColor(0x000000, 1);
-renderer.render(scene, camera);
 const controls = new OrbitControls(camera, renderer.domElement);
-// camera.position.set( 0, 20, 100 );
-controls.update();
-function animate() {
-    render();
-}
-animate();
+controls.enableDamping = true; // Enable damping for smoother control
+controls.dampingFactor = 0.1; // Adjust damping factor for smoother control
+controls.target.set(0, 0, 0);
 
 function render() {
-    // camera.position.x += ( mouseX - camera.position.x ) * .05;
-    // camera.position.y += ( - mouseY - camera.position.y ) * .05;
-
-    // camera.lookAt( scene.position );
-    // console.log(camera.position);
-    requestAnimationFrame(animate);
+    requestAnimationFrame(render);
     controls.update();
     renderer.render(scene, camera);
 }
-var loader = new OBJLoader();
+function load(file, scale) {
+    const loader = new GLTFLoader();
 
-// var loader = new VRMLLoader();
+    // Optional: Provide a DRACOLoader instance for compressed mesh data
+    const dracoLoader = new DRACOLoader();
+    dracoLoader.setDecoderPath(""); // Set the correct decoder path if needed
+    loader.setDRACOLoader(dracoLoader);
 
-const fileRef = document.querySelector("#nikaModel");
-const dataScrValue = fileRef.getAttribute("data-srс");
-console.log(fileRef);
-console.log(dataScrValue);
+    loader.load(
+        file,
+        (gltf) => {
+            const bbox = new THREE.Box3().setFromObject(gltf.scene);
+            const center = bbox.getCenter(new THREE.Vector3());
+            gltf.scene.position.sub(center);
 
-function load(src = dataScrValue) {
-    loader.load(src, function (object) {
-        object.traverse(function (child) {
-            if (child instanceof THREE.Mesh) {
-                console.log("instanceoff");
-                console.log(child.material.color);
-                // child.material.color.setHex(0xd3d3d3);
-            }
-        });
-        // OBJBoundingBox.center(object.position);
-        // object.position.multiplyScalar(-1);
-        // object.position.x = -0.1;
-        // object.position.y = 0;
-        // object.position.z = -4;
-        scene.add(object);
-        console.log(object);
-        controls.target = getCenterPoint(object.children[0]);
-        controls.update();
-    });
-}
-load();
-function getCenterPoint(mesh) {
-    var middle = new THREE.Vector3();
-    var geometry = mesh.geometry;
+            // Scale the model
+            gltf.scene.scale.set(scale, scale, scale);
+            // Traverse the scene and check material properties
+            gltf.scene.traverse((node) => {
+                if (node.isMesh) {
+                    const material = node.material;
 
-    geometry.computeBoundingBox();
+                    console.log(material);
 
-    middle.x = (geometry.boundingBox.max.x + geometry.boundingBox.min.x) / 2;
-    middle.y = (geometry.boundingBox.max.y + geometry.boundingBox.min.y) / 2;
-    middle.z = (geometry.boundingBox.max.z + geometry.boundingBox.min.z) / 2;
+                    // Check if textures are loaded correctly
+                    if (material.map) {
+                        console.log("Texture:", material.map.image);
+                    }
+                }
+            });
 
-    mesh.localToWorld(middle);
-    return middle;
+            scene.add(gltf.scene);
+        },
+        (xhr) => {
+            console.log((xhr.loaded / xhr.total) * 100 + "% loaded");
+        },
+        (error) => {
+            console.log("An error happened", error);
+        }
+    );
 }
 
-window.camera = camera;
-window.scene = scene;
-window.laodObj = load;
+function addDirectionalLights(scene) {
+    const directions = [
+        { position: new THREE.Vector3(0, 0, -1), name: "North" },
+        { position: new THREE.Vector3(0, 0, 1), name: "South" },
+        { position: new THREE.Vector3(1, 0, 0), name: "East" },
+        { position: new THREE.Vector3(-1, 0, 0), name: "West" },
+        { position: new THREE.Vector3(0, 1, 0), name: "Up" },
+        { position: new THREE.Vector3(0, -1, 0), name: "Down" },
+    ];
+
+    for (const dir of directions) {
+        const light = new THREE.DirectionalLight(0xffffff, 2);
+        light.position.copy(dir.position);
+        scene.add(light);
+        console.log(`Added directional light positioned to the ${dir.name}.`);
+    }
+}
+
+// Call the function to add directional lights to the scene
+addDirectionalLights(scene);
+
+const hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x000000, 3);
+scene.add(hemisphereLight);
+render();
+
+// Load the OBJ model with its associated MTL file
+const objFile = document
+    .querySelector("#nikaModel")
+    .getAttribute("data-src-obj");
+
+load(objFile, 1);

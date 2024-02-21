@@ -28,6 +28,7 @@ export default defineConfig({
                 "resources/js/cartPage.js",
                 "resources/js/catalogSingle.js",
                 "resources/js/catalog.js",
+                "resources/js/gallery.js",
                 "resources/js/contacts.js",
                 "resources/js/homepage.js",
                 "resources/js/news.js",

@@ -214,7 +214,7 @@
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div id="nikaModel" data-srс="{{ $product->objmodelUrl  }}" class="card-img-top"  style="width: 200px; height: 200px;"></div>
+                                    <div id="nikaModel" data-src-obj="{{ $product->objmodelUrl  }}" class="card-img-top"  style="width: 200px; height: 200px;"></div>
                                 </div>
                                 <div class="col-md-6">
                                     <input type="file" name="obj_model" id="obj_model">
@@ -228,7 +228,7 @@
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <div id="nikaModel2" data-srс="{{ $product->objmodelUrl2  }}" class="card-img-top"  style="width: 200px; height: 200px;"></div>
+                                    <div id="nikaModel2" data-src-mtl="{{ $product->objmodelUrl2  }}" class="card-img-top"  style="width: 200px; height: 200px;"></div>
                                 </div>
                                 <div class="col-md-6">
                                     <input type="file" name="obj_model_2" id="obj_model_2">

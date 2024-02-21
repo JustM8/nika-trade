@@ -57,7 +57,7 @@
                             @endif
 
 
-                            <div id="nikaModel" data-srс='{{ $product->objmodelUrl  }}' class="product-page-image product-page-image--obj hidden" camera-controls alt="A 3D model of an astronaut"></div>
+                            <div id="nikaModel" data-src-obj='{{ $product->objmodelUrl  }}' data-src-mtl='{{ $product->objmodelUrl2  }}' class="product-page-image product-page-image--obj hidden" camera-controls alt="A 3D model of an astronaut"></div>
 
 
 
