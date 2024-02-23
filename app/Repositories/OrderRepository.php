@@ -87,11 +87,12 @@ class OrderRepository implements OrderRepositoryContract
                     'single_price' => $cartItem->model->endPrice
                 ]
             );
-            $inStock = $cartItem->model->in_stock - $cartItem->qty;
-
-            if(!$cartItem->model->update(['in_stock' => $inStock])){
-                throw new \Exception("Smth went wrong with product (id={$cartItem->model->id}) in_stock update");
-            }
+            //коментуємо обробку кількості товарів і видалення кількості замовленого (товари виробляються під ключ)
+//            $inStock = $cartItem->model->in_stock - $cartItem->qty;
+//
+//            if(!$cartItem->model->update(['in_stock' => $inStock])){
+//                throw new \Exception("Smth went wrong with product (id={$cartItem->model->id}) in_stock update");
+//            }
 
         });
     }

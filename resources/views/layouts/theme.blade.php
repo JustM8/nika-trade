@@ -25,7 +25,7 @@
 		<symbol id="icon-alert" viewBox="0 0 24 24">
 			<path fill-rule="evenodd" clip-rule="evenodd" d="M10.606 2.61a2.75 2.75 0 0 1 3.776 1.019v.001l7.998 13.995v.002a2.751 2.751 0 0 1-2.379 4.123H4.002A2.75 2.75 0 0 1 1.6 17.627v-.002L9.599 3.63V3.63a2.75 2.75 0 0 1 1.008-1.019zm1.384 1.126a1.25 1.25 0 0 0-1.087.634l-.001.002-8 14-.002.003a1.25 1.25 0 0 0 1.094 1.875H20a1.25 1.25 0 0 0 1.08-1.875v-.003l-8-14-.002-.002a1.25 1.25 0 0 0-1.088-.634zM12 8.25a.75.75 0 0 1 .75.75v4a.75.75 0 0 1-1.5 0V9a.75.75 0 0 1 .75-.75zm0 8a.75.75 0 0 0 0 1.5h.01a.75.75 0 0 0 0-1.5H12z" fill="#DD405D"></path>
 		</symbol>
-    
+
 
 		<symbol id="icon-arrow" viewBox="0 0 18 18">
 			<path d="M18 9H2m0 0l8.047-8M2 9l8.047 8"></path>
@@ -141,7 +141,7 @@
             </div>
             <div class="address header-location__details text-14" data-kyiv>вул. Вікентія Хвойки, 15/15, </br> тел. (044) 496-69-97</div>
             <div class="address header-location__details text-14" data-dnipro>вул. Князя Володимира Великого, 18, </br>  тел. (050) 412-16-00</div>
-     
+
           </div>
 
           <div class="header-right-wrap header-right-wrap--mobile">
@@ -163,17 +163,27 @@
             </div>
             <div class="header-lang-wrap">
               <ul class="lang header-lang">
-                  <ul class="lang header-lang">
-                      <li class="header-lang__item  @if(App::currentLocale()=='ua'){{'header-lang__item--active'}}@endif" data-animate-links>
-                          <a class="text-18 text-black" href="{{ url('/locale/ua')}}">UA</a>
-                      </li>
-                      <li class="header-lang__item @if(App::currentLocale()=='en'){{'header-lang__item--active'}}@endif" data-animate-links>
-                          <a class="text-18 text-black" href="{{ url('/locale/en')}}">EN</a>
-                      </li>
-                      <li class="header-lang__item @if(App::currentLocale()=='ru'){{'header-lang__item--active'}}@endif" data-animate-links>
-                          <a class="text-18 text-black" href="{{ url('/locale/ru')}}">RU</a>
-                      </li>
-                  </ul>
+                  @php
+                      $languages = config('app.available_locales');
+                      $currentLocale = App::currentLocale();
+                      $dump = [];
+                        // Знаходимо ключ поточної мови в масиві
+                        $key = array_search($currentLocale, $languages);
+                        // Перевірка, чи поточна мова є у списку
+                        if ($key !== false) {
+                          // Видаляємо поточну мову з масиву
+                          $dump = $languages[$key];
+                          unset($languages[$key]);
+                        }
+                        // Додаємо поточну мову на початок масиву
+                        $languages = [$currentLocale => $dump] + $languages;
+                  @endphp
+
+                      @foreach ($languages as $name => $code)
+                          <li class="header-lang__item @if(App::currentLocale()==$code){{'header-lang__item--active'}}@endif" data-animate-links>
+                              <a class="text-18 text-black" href="{{ url('/locale/'.$code)}}">{{strtoupper($code)}}</a>
+                          </li>
+                      @endforeach
               </ul>
             </div>
             <div class="header-callback-wrap">
@@ -183,7 +193,7 @@
                 </svg>
               </a>
             </div>
-            <div class="header-cart-wrap"> 
+            <div class="header-cart-wrap">
               <a class="header-cart" href="{{url('/cart')}}">
                 <svg class="icon--cart" role="presentation">
                   <use xlink:href="#icon-cart"></use>
@@ -228,17 +238,11 @@
             </div>
             <div class="header-lang-wrap">
               <ul class="lang header-lang">
-                  <ul class="lang header-lang">
-                      <li class="header-lang__item  @if(App::currentLocale()=='ua'){{'header-lang__item--active'}}@endif" data-animate-links>
-                          <a class="text-18 text-black" href="{{ url('/locale/ua')}}">UA</a>
+                  @foreach ($languages as $name => $code)
+                      <li class="header-lang__item @if(App::currentLocale()==$code){{'header-lang__item--active'}}@endif" data-animate-links>
+                          <a class="text-18 text-black" href="{{ url('/locale/'.$code)}}">{{strtoupper($code)}}</a>
                       </li>
-                      <li class="header-lang__item @if(App::currentLocale()=='en'){{'header-lang__item--active'}}@endif" data-animate-links>
-                          <a class="text-18 text-black" href="{{ url('/locale/en')}}">EN</a>
-                      </li>
-                      <li class="header-lang__item @if(App::currentLocale()=='ru'){{'header-lang__item--active'}}@endif" data-animate-links>
-                          <a class="text-18 text-black" href="{{ url('/locale/ru')}}">RU</a>
-                      </li>
-                  </ul>
+                  @endforeach
               </ul>
             </div>
             <div class="header-callback-wrap">
@@ -248,7 +252,7 @@
                 </svg>
               </a>
             </div>
-            <div class="header-cart-wrap"> 
+            <div class="header-cart-wrap">
               <a class="header-cart" href="{{url('/cart')}}">
                 <svg class="icon--cart" role="presentation">
                   <use xlink:href="#icon-cart"></use>
@@ -278,14 +282,14 @@
             </div>
             <div class="footer-contact">
               <h3 class="footer-social-title text-24">Відділ продажів:</h3>
-              <div class="footer-contact-item"> 
+              <div class="footer-contact-item">
                 <span class="footer-contact-city text-14-uppercase">Київ (головний офіс)</span>
                 <a class="footer-contact-link text-14" href="tel:+380504478965"> +38 (050) 447-89-65</a>
                 <a class="footer-contact-link text-14" href="tel:+380444966997"> +38 (044) 496-69-97</a>
                 <a class="footer-contact-link text-14" href="mailto:nika@nika-trade.net.ua">nika@nika-trade.net.ua </a>
                 <span class="footer-contact-address text-14">Київ, Україна, 04080 вул. Вікентія Хвойки, 15/15</span>
               </div>
-              <div class="footer-contact-item"> 
+              <div class="footer-contact-item">
                 <span class="footer-contact-city text-14-uppercase">Дніпро (представництво)</span>
                 <a class="footer-contact-link text-14" href="tel:+380562386990"> +38 (056) 238-69-90</a>
                 <a class="footer-contact-link text-14" href="tel:+380504121600"> +38 (050) 412-16-00</a>
@@ -295,7 +299,7 @@
             </div>
             <div class="footer-social">
                 <h3 class="footer-social-title text-24">Соцмережі:</h3>
-                <div class="footer-social-list"> 
+                <div class="footer-social-list">
                   <a class="footer-social-list__item text-14" href="#">Telegram</a>
                   <a class="footer-social-list__item text-14" href="#">Viber</a
                   ><a class="footer-social-list__item text-14" href="#">Instagram</a>

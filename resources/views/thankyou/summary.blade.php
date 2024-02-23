@@ -24,9 +24,9 @@
                             <a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{url('/')}}">Homepage</a>
                         </li>
                         <li class="breadcrumbs-item">
-                            <a class="breadcrumbs-item__link" href="#">thankYouPage</a>
+                            <a class="breadcrumbs-item__link" >thankYouPage</a>
                         </li>
-                        <li class="breadcrumbs-item__current--color breadcrumbs-item">thankYouPage</li>
+                        <li class="breadcrumbs-item__current--color breadcrumbs-item">Замовлення # {{ $order->id }}</li>
                     </ul>
                 </div>
                 <h2 class="page-title text-title">Дякуємо за ваше замовлення</h2>
@@ -80,6 +80,6 @@
     <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
     <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
     <script defer src="{{asset('/assets/scripts/libs.js')}}"></script>
-    <script defer src="{{asset('/assets/scripts/thankYouPAge.bundle.js')}}"></script>
+{{--    <script defer src="{{asset('/assets/scripts/thankYouPAge.bundle.js')}}"></script>--}}
 
 @endpush

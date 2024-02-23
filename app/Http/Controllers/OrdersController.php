@@ -101,6 +101,6 @@ comment: iiiooo
         Cart::instance('cart')->destroy();
         $order = Order::with(['user','products'])->where('id',$orderId)->firstOrFail();
 
-        return view('thankyou/summary', compact('order'));
+        return view('thankyou/summary',['title'=>__('thankyou.Title')], compact('order'));
     }
 }
