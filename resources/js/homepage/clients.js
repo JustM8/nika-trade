@@ -30,8 +30,14 @@ const enableSwiper = function () {
         observeParents: true,
         slidesPerView: 5,
         preloadImages: false,
+        slidesPerGroup: 5,
+
+        autoplay: {
+            delay: 1000,
+            disableOnInteraction: true,
+        },
         lazy: true,
-        speed: 1500,
+        speed: 2000,
         navigation: {
             nextEl: ".clients-swiper-button-next",
             prevEl: ".clients-swiper-button-prev",

@@ -59,7 +59,7 @@
                                         <use xlink:href="#icon-contacts-map"></use>
                                     </svg>
                                 </div>
-                                <a class="contacts-page-list-item-content-details__link text-14 text-black" href="">Київ, Україна, 04080 вул. Вікентія Хвойки, 15/15</a>
+                                <a class="contacts-page-list-item-content-details__link text-14 text-black" href="https://maps.app.goo.gl/fTCceRveJW8T62NL8" target="_blank">Київ, Україна, 04080 вул. Вікентія Хвойки, 15/15</a>
                             </div>
                         </div>
                     </div>
@@ -101,7 +101,7 @@
                                         <use xlink:href="#icon-contacts-map"></use>
                                     </svg>
                                 </div>
-                                <a class="contacts-page-list-item-content-details__link text-14 text-black" href="">Дніпро, Україна, 49000 вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх</a>
+                                <a class="contacts-page-list-item-content-details__link text-14 text-black" href="https://maps.app.goo.gl/op2b3rmbbiQjuVaT9" target="_blank">Дніпро, Україна, 49000 вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх</a>
                             </div>
                         </div>
                     </div>
@@ -210,7 +210,7 @@
                                             <div class="contacts-page-list-item-content-column-list-item__city text-14 text-black">Одеса</div>
                                             <div class="contacts-page-list-item-content-column-list-item-content">
                                                 <a class="contacts-page-list-item-content-column-list-item__adress" href="https://goo.gl/maps/MidfBGFHf28HLbKj7" target="_blank">
-                                                    <span class="text-14 text-black-100">"Епіцентр К"м. Одеса, Овідіопольське шосе, 1 </span>
+                                                    <span class="text-14 text-black-100">"Епіцентр" м. Одеса, Овідіопольське шосе, 1 </span>
                                                     <svg class="icon--arrow-item-contacts" role="presentation">
                                                         <use xlink:href="#icon-arrow-item-contacts"></use>
                                                     </svg>
@@ -252,7 +252,7 @@
                                             <div class="contacts-page-list-item-content-column-list-item__city text-14 text-black">Харків</div>
                                             <div class="contacts-page-list-item-content-column-list-item-content">
                                                 <a class="contacts-page-list-item-content-column-list-item__adress" href="https://goo.gl/maps/u52xsWnaenkb6XEU8" target="_blank">
-                                                    <span class="text-14 text-black-100">"Епіцентр К" м. Харків, вул. Героїв Праці, 9А </span>
+                                                    <span class="text-14 text-black-100">"Епіцентр" м. Харків, вул. Героїв Праці, 9А </span>
                                                     <svg class="icon--arrow-item-contacts" role="presentation">
                                                         <use xlink:href="#icon-arrow-item-contacts"></use>
                                                     </svg>

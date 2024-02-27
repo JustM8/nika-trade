@@ -25,7 +25,7 @@
                     <a class="homepage-catalog-card" href="{{ route('catalog.show', $item->slug) }}">
                         <div class="homepage-catalog-card-intro">
                             <span class="homepage-catalog-card-intro__title"><?=$item['name'][App::currentLocale()]?></span>
-                            <span class="homepage-catalog-card-intro__descr text-18">Торговельне обладнання зі спеціалізацією на товарах промислової групи для магазинів одягу, взуття, дитячих, спортивних та канцелярських товарів, магазинів побутової та комп'ютерної техніки, ювелірних магазинів, аптек тощо;</span></div>
+                            <span class="homepage-catalog-card-intro__descr text-18"><?=$item['description'][App::currentLocale()]?></span></div>
                         <div class="homepage-catalog-card__arrow"> 
                             <svg class="icon--arrow-item" role="presentation">
                             <use xlink:href="#icon-arrow-item"></use>
@@ -92,21 +92,69 @@
                 <div class="swiper clients-swiper">
                     <div class="swiper-wrapper">
                         <div class="swiper-slide clients-swiper-slide"> 
-                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/1.png" alt=""></div>
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/1.1.png" alt=""></div>
                         <div class="swiper-slide clients-swiper-slide"> 
-                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/2.png" alt=""></div>
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/3.1.png" alt=""></div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/2.1.png" alt=""></div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/4.1.png" alt=""></div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/6.1.png" alt=""></div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/5.1.png" alt=""></div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/7.1.png" alt=""></div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/1.jpg" alt=""></div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/2.jpg" alt=""></div>
                         <div class="swiper-slide clients-swiper-slide">
-                             <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/3.png" alt=""></div>
+                             <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/3.jpg" alt=""></div>
                         <div class="swiper-slide clients-swiper-slide">
-                             <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/4.png" alt=""></div>
+                             <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/4.jpg" alt=""></div>
                         <div class="swiper-slide clients-swiper-slide"> 
-                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/5.png" alt=""></div>
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/5.jpg" alt=""></div>
                         <div class="swiper-slide clients-swiper-slide"> 
-                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/6.png" alt=""></div>
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/6.jpg" alt=""></div>
                         <div class="swiper-slide clients-swiper-slide">
-                             <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/7.png" alt=""></div>
+                             <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/7.jpg" alt=""></div>
                         <div class="swiper-slide clients-swiper-slide"> 
-                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/8.png" alt=""></div>
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/8.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/9.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/10.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/11.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/12.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/13.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/14.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/15.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/16.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/17.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/18.jpg" alt="">
+                        </div>
+                        <div class="swiper-slide clients-swiper-slide"> 
+                            <img class="clients-swiper-slide__img" src="./assets/images/homepage/clients/19.jpg" alt="">
+                        </div>
                     </div>
                 </div>
                 <div class="clients-swiper-button-next round-btn round-btn-next round-btn--black">

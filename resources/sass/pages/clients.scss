@@ -2,7 +2,6 @@
     &-wrap {
         padding-bottom: 150px;
 
-
         @include tabletLarge {
             padding-bottom: 0;
         }
@@ -23,7 +22,6 @@
         @include mobile {
             margin-bottom: 30px;
         }
-
     }
 
     &-swiper-wrap {
@@ -43,7 +41,6 @@
         @include mobile {
             justify-content: center;
         }
-
     }
 
     &-swiper {
@@ -51,8 +48,6 @@
         overflow: hidden;
 
         @include mobile {
-            
-
         }
 
         .swiper-wrapper {
@@ -61,10 +56,13 @@
                 justify-content: center;
             }
         }
-
     }
-    
+
     &-swiper-slide {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: initial;
 
         @include mobile {
             margin-bottom: 28px;
@@ -75,11 +73,9 @@
                 margin-bottom: 0;
             }
         }
-
     }
 
     &-swiper-slide__img {
-
         @include mobile {
             max-width: 226.32px;
             height: 68.013px;
@@ -97,5 +93,4 @@
             display: none;
         }
     }
-
 }
