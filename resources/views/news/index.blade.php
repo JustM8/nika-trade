@@ -7,9 +7,8 @@
             <div class="page-intro">
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
-                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="index.html">Homepage</a></li>
-                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">allNews</a></li>
-                        <li class="breadcrumbs-item__current--color breadcrumbs-item">News</li>
+                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="index.html">Головна</a></li>
+                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">Новини</a></li>
                     </ul>
                 </div>
                 <h2 class="page-title text-title">Новини</h2>

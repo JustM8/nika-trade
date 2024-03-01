@@ -6,9 +6,8 @@
             <div class="page-intro">
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
-                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{url('/')}}">Homepage</a></li>
-                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">gallery</a></li>
-                        <li class="breadcrumbs-item__current--color breadcrumbs-item">Gallery</li>
+                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{url('/')}}">Головна</a></li>
+                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">Галерея</a></li>
                     </ul>
                 </div>
                 <h2 class="page-title text-title">Галерея</h2>

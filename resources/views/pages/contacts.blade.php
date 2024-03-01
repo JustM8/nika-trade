@@ -7,12 +7,11 @@
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
                         <li class="breadcrumbs-item">
-                            <a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="index.html">Homepage</a>
+                            <a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="index.html">Головна</a>
                         </li>
                         <li class="breadcrumbs-item">
-                            <a class="breadcrumbs-item__link" href="#">contactsPage</a>
+                            <a class="breadcrumbs-item__link" href="#">Контакти</a>
                         </li>
-                        <li class="breadcrumbs-item__current--color breadcrumbs-item">Contacts</li>
                     </ul>
                 </div>
                 <h2 class="page-title text-title">Контакти</h2>

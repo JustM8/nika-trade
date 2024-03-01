@@ -287,14 +287,14 @@
                 <a class="footer-contact-link text-14" href="tel:+380504478965"> +38 (050) 447-89-65</a>
                 <a class="footer-contact-link text-14" href="tel:+380444966997"> +38 (044) 496-69-97</a>
                 <a class="footer-contact-link text-14" href="mailto:nika@nika-trade.net.ua">nika@nika-trade.net.ua </a>
-                <span class="footer-contact-address text-14">Київ, Україна, 04080 вул. Вікентія Хвойки, 15/15</span>
+                <a href="https://maps.app.goo.gl/fTCceRveJW8T62NL8" target="_blank"  class="footer-contact-address footer-contact-link text-14">Київ, Україна, 04080 вул. Вікентія Хвойки, 15/15</a>
               </div>
               <div class="footer-contact-item">
                 <span class="footer-contact-city text-14-uppercase">Дніпро (представництво)</span>
                 <a class="footer-contact-link text-14" href="tel:+380562386990"> +38 (056) 238-69-90</a>
                 <a class="footer-contact-link text-14" href="tel:+380504121600"> +38 (050) 412-16-00</a>
                 <a class="footer-contact-link text-14" href="mailto:alexnika.dp@gmail.com">alexnika.dp@gmail.com</a>
-                <span class="footer-contact-address text-14">Дніпро, Україна, 49000 вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх</span>
+                <a href="https://maps.app.goo.gl/op2b3rmbbiQjuVaT9" target="_blank" class="footer-contact-address footer-contact-link text-14">Дніпро, Україна, 49000 вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх</a>
               </div>
             </div>
             <div class="footer-social">

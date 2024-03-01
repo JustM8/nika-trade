@@ -7,7 +7,7 @@
             <div class="page-intro" data-title="{{$rootParent->slug}}" >
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
-                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Homepage</a></li>
+                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Головна</a></li>
                         @foreach($breadcrumbs as $item)
                                 <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="{{$item['url']}}">{{$item['name'][App::currentLocale()]}}</a></li>
                         @endforeach

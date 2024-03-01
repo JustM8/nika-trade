@@ -3,21 +3,18 @@
 }
 .cart-page {
     &-main {
-
     }
 
     &-checkout {
         .cart-page-card-form-container {
-            display: block!important;
+            display: block !important;
         }
-
-       
     }
 
     &-card {
         padding: 40px 133px;
         border: 1px solid var(--text-footer);
-        background: var(--fff); 
+        background: var(--fff);
         display: flex;
         align-items: flex-start;
         justify-content: space-between;
@@ -48,13 +45,10 @@
         @include tablet {
             width: 100%;
         }
-
     }
 
     &-card-content {
         width: 50%;
-
-        
 
         @include tabletLarge {
             width: 70%;
@@ -64,6 +58,38 @@
             width: 100%;
         }
 
+        input[type="checkbox"] {
+            /* Add if not using autoprefixer */
+            -webkit-appearance: none;
+            appearance: none;
+            /* For iOS < 15 to remove gradient background */
+            background-color: #fff;
+            /* Not removed via appearance */
+            margin: 0;
+            font: $default-font;
+            color: var(--black);
+            width: 1.15em;
+            height: 1.15em;
+            border: 2px solid var(--black);
+            border-radius: 0.15em;
+            transform: translateY(-0.075em);
+            display: grid;
+            place-content: center;
+        }
+
+        input[type="checkbox"]::before {
+            content: "";
+            width: 0.65em;
+            height: 0.65em;
+            transform: scale(0);
+            transition: 120ms transform ease-in-out;
+            box-shadow: inset 1em 1em var(--form-control-color);
+        }
+
+        input[type="checkbox"]:checked::before {
+            transform: scale(1);
+            background-color: var(--red);
+        }
     }
 
     &-card-form-container {
@@ -92,16 +118,24 @@
         height: 52px;
         width: 100%;
         padding: 16px;
+        font-size: 16px;
+        font-family: $default-font2;
+        color: var(--black);
+        font-weight: 400;
 
         &[type="textarea"] {
             height: auto;
+        }
+
+        @include tabletLarge {
+            font-size: 14px;
         }
     }
 
     &-delivery-options-item {
         display: flex;
-        align-self: center;
         justify-content: flex-start;
+        align-items: center;
         gap: 8px;
         margin-bottom: 12px;
 
@@ -122,7 +156,7 @@
         justify-content: center;
         align-items: center;
         border-radius: 4px;
-        border: 1px solid var(--lines, #E3EBEF);
+        border: 1px solid var(--lines, #e3ebef);
         background: var(--background);
         gap: 8px;
         svg {
@@ -151,18 +185,14 @@
         span {
             color: var(--black-100);
         }
-
     }
 
     &-working-hours-list {
         list-style: disc;
-        
-
     }
 
     &-working-hours-item {
         list-style: disc inside none;
         display: list-item;
-
     }
 }

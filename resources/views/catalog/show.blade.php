@@ -13,7 +13,7 @@
                 <div class="page-intro" data-category="{{$rootParent->slug}}">
                     <div class="page-breadcrumbs">
                         <ul class="breadcrumbs">
-                            <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Homepage</a></li>
+                            <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Головна</a></li>
                             @foreach($breadcrumbs as $item)
                                 @if($item['id'] == $lastElement['id'])
                                 <li class="breadcrumbs-item__current--color breadcrumbs-item">{{$item['name'][App::currentLocale()]}}</li>
@@ -92,7 +92,7 @@
             <div class="page-intro"  data-category="{{$rootParent->slug}}">
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
-                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Homepage</a></li>
+                        <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Головна</a></li>
                         @foreach($breadcrumbs as $item)
                             @if($item['id'] == $lastElement['id'])
                                 <li class="breadcrumbs-item__current--color breadcrumbs-item">{{$item['name'][App::currentLocale()]}}</li>

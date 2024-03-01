@@ -5,9 +5,8 @@
         <div class="page-intro">
             <div class="page-breadcrumbs">
                 <ul class="breadcrumbs">
-                    <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{url('/')}}">Homepage</a></li>
-                    <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">cartPage</a></li>
-                    <li class="breadcrumbs-item__current--color breadcrumbs-item">cart-page</li>
+                    <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{url('/')}}">Головна</a></li>
+                    <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">Кошик</a></li>
                 </ul>
             </div>
             <h2 class="page-title text-title">Кошик</h2>
@@ -32,7 +31,7 @@
                     <div class="cart-page-card-content cart-page-card-form-container">
                         <p class="cart-page-form__hint text-14">Замовник:</p>
                         <div class="cart-page-form-field form-field-input" data-field-input data-field-company-name data-status="field--inactive">
-                            <input class="cart-page-form__input" type="text" name="company_name" placeholder="Введіть назву вашої установи">
+                            <input class="cart-page-form__input" type="text" name="company_name" placeholder="Введіть ім’я або назву установи">
                             <div class="cart-input-message text-14" data-input-message></div>
                         </div>
                         <p class="cart-page-form__hint text-14">Контактний телефон:</p>
@@ -47,30 +46,46 @@
                         </div>
                     </div>
                 </div>
-                <div class="cart-page-delivery cart-page-card"><span class="cart-page-card-title text-m text-balck-100">Виберіть спосіб доставки:</span>
+                <div class="cart-page-delivery cart-page-card">
+                    <span class="cart-page-card-title text-m text-balck-100">Виберіть спосіб доставки:</span>
                     <div class="cart-page-card-content">
                         <div class="cart-page-delivery-options">
                             <div class="cart-page-delivery-options-list">
                                 <div class="cart-page-delivery-options-item">
-                                    <input type="checkbox" name="delivery_type" id="Mikhailivka" value="1"><span class="text-14 text-black-100">Самовивіз - Михайлівка-Рубежівка (виробнича база)</span><a class="cart-page-delivery-options-item-pin" href="https://goo.gl/maps/7b7UdYfLZfUctv2e9" target="_blank">
+                                    <input type="checkbox" name="delivery_type" id="Mikhailivka" value="1">
+                                    <span class="text-14 text-black-100">Самовивіз - Михайлівка-Рубежівка (виробнича база)</span>
+                                    <a class="cart-page-delivery-options-item-pin" href="https://maps.app.goo.gl/1Hcv3tzDJFkP5yTAA" target="_blank">
                                         <svg class="icon--cart-map" role="presentation">
                                             <use xlink:href="#icon-cart-map"></use>
-                                        </svg><span class="text-14 text-black">вул. Шкільна,30</span></a>
+                                        </svg>
+                                        <span class="text-14 text-black">вул. Шкільна,30</span>
+                                    </a>
                                 </div>
                                 <div class="cart-page-delivery-options-item">
-                                    <input type="checkbox" name="delivery_type" id="Khvoiky" value="2"><span class="text-14 text-black--100">Доставка в офіс м. Київ</span><a class="cart-page-delivery-options-item-pin" href="https://goo.gl/maps/EArR9F5i9yEfW9MU6" target="_blank">
+                                    <label for="Khvoiky">
+                                    <input type="checkbox" name="delivery_type" id="Khvoiky" value="2">
+                                    </label>
+                                    <span class="text-14 text-black--100">Доставка в офіс м. Київ</span>
+                                    <a class="cart-page-delivery-options-item-pin" href="https://maps.app.goo.gl/g35oTvRxtNgf3Sy76" target="_blank">
                                         <svg class="icon--cart-map" role="presentation">
                                             <use xlink:href="#icon-cart-map"></use>
-                                        </svg><span class="text-14 text-black">вул. Вікентія Хвойки, 15/15</span></a>
+                                        </svg>
+                                        <span class="text-14 text-black">вул. Новоконстянтинівська, 15/15</span>
+                                    </a>
                                 </div>
                                 <div class="cart-page-delivery-options-item">
-                                    <input type="checkbox" name="delivery_type" id="Plekhanova" value="3"><span class="text-14 text-black--100">Доставка в офіс м. Дніпро</span><a class="cart-page-delivery-options-item-pin" href="https://goo.gl/maps/LQsipjuHV9Rnqnev6" target="_blank">
+                                    <input type="checkbox" name="delivery_type" id="Plekhanova" value="3">
+                                    <span class="text-14 text-black--100">Доставка в офіс м. Дніпро</span>
+                                    <a class="cart-page-delivery-options-item-pin" href="https://goo.gl/maps/LQsipjuHV9Rnqnev6" target="_blank">
                                         <svg class="icon--cart-map" role="presentation">
                                             <use xlink:href="#icon-cart-map"></use>
-                                        </svg><span class="text-14 text-black">вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх</span></a>
+                                        </svg>
+                                        <span class="text-14 text-black">вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх</span>
+                                    </a>
                                 </div>
                                 <div class="cart-page-delivery-options-item">
-                                    <input type="checkbox" name="delivery_type" id="PostalDelivery" value="4"><span class="text-14 text-black--100">Доставка перевізником (по Україні)</span>
+                                    <input type="checkbox" name="delivery_type" id="PostalDelivery" value="4">
+                                    <span class="text-14 text-black--100">Доставка перевізником (по Україні)</span>
                                 </div>
                             </div>
                         </div>
@@ -145,11 +160,16 @@
                             <textarea class="cart-page-form__input" type="textarea" rows="5" name="comment" placeholder="Введіть текст коментаря"></textarea>
                             <div class="cart-input-message text-14" data-input-message> </div>
                         </div>
+                        <p class="cart-page-form__hint text-14">Вкажіть бажаний колір обладнання:</p>
+                        <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-email data-status="field--inactive">
+                            <textarea class="cart-page-form__input" type="textarea" rows="5" name="color" placeholder="Стандартні кольори: Метал — сріблястий металік (RAL 7149 SPX), ДСП — попелястий (U112 PE)"></textarea>
+                            <div class="cart-input-message text-14" data-input-message></div>
+                        </div>
                         <div class="btn-container btn-container-border">
 {{--                            <button class="btn" type="submit" data-btn-submit>
     <span class="link__text usn" data-btn-submit-text>Підтвердити замовлення </span></button>--}}
-                            <button type="submit"  data-btn-submit class="btn"> Підтвердити замовлення 
-                            <span class="link__text usn" data-btn-submit-text></span>
+                            <button type="submit"  data-btn-submit class="btn"> 
+                                <span class="link__text usn" data-btn-submit-text> Підтвердити замовлення </span>
                             </button>
                         </div>
                     </div>

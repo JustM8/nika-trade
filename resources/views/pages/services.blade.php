@@ -6,11 +6,10 @@
                 <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
                         <li class="breadcrumbs-item">
-                            <a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{url('/')}}">Homepage</a></li>
+                            <a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{url('/')}}">Головна</a></li>
                         <li class="breadcrumbs-item">
-                            <a class="breadcrumbs-item__link" href="#">servicesPage</a>
+                            <a class="breadcrumbs-item__link" href="#">Сервіси</a>
                         </li>
-                        <li class="breadcrumbs-item__current--color breadcrumbs-item">Services</li>
                     </ul>
                 </div>
                 <h2 class="page-title text-title">Послуги</h2>

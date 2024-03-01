@@ -1,88 +1,90 @@
-import { cartForm } from './cartForm';
-import { cartFormKyiv } from './cartFormKyiv';
-import { cartFormUkraine } from './cartFormUkraine';
+import { cartForm } from "./cartForm";
+import { cartFormKyiv } from "./cartFormKyiv";
+import { cartFormUkraine } from "./cartFormUkraine";
+
+const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+const allUkraineRef = document.getElementById("PostalDelivery");
+const pickUpRef = document.getElementById("Mikhailivka");
+const kyivRef = document.getElementById("Kyiv");
+const formKyivDeliveryRef = document.querySelector(".cart-page-delivery-city");
+const formAllUkraineDeliveryRef = document.querySelector(
+    ".cart-page-delivery-ukraine"
+);
+const cartPopup = document.querySelector("[data-cart-popup]");
+
+const allUkraineCheckbox = document.getElementById("PostalDelivery");
+const kyivCheckbox = document.getElementById("Kyiv");
+const formUkraineContainer = document.querySelector(
+    ".cart-page-delivery-ukraine"
+);
+const formKyivContainer = document.querySelector(".cart-page-delivery-city");
 
 function handleCheckboxChange(checkbox) {
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-  const allUkraineRef = document.getElementById('PostalDelivery');
+    checkboxes.forEach((checkboxItem) => {
+        if (checkboxItem !== checkbox) {
+            checkboxItem.checked = false; // Забираємо відміченість у всіх інших чекбоксів
+        }
+        checkboxItem.disabled = false; // Робимо всі чекбокси активними
+        checkboxItem.parentElement.classList.remove("disabled");
+    });
 
-  const kyivRef = document.getElementById('Kyiv');
-  const formKyivDeliveryRef = document.querySelector('.cart-page-delivery-city');
-  const formAllUkraineDeliveryRef = document.querySelector('.cart-page-delivery-ukraine');
+    if (checkbox.checked) {
+        checkbox.disabled = false; // Залишаємо відміченим тільки поточний чекбокс
+        checkbox.parentElement.classList.remove("disabled");
 
-  if (checkbox.checked) {
-    checkboxes.forEach(checkboxItem => {
-      if (checkboxItem !== checkbox) {
-        checkboxItem.disabled = true;
-        checkboxItem.parentElement.classList.add('disabled');
-
-        if (checkboxItem == allUkraineRef) {
-          formAllUkraineDeliveryRef.classList.add('disabled');
+        if (checkbox == allUkraineRef) {
+            formKyivDeliveryRef.classList.add("disabled");
+            formAllUkraineDeliveryRef.classList.remove("disabled");
         }
 
-        if (checkboxItem == kyivRef) {
-          formKyivDeliveryRef.classList.add('disabled');
+        if (checkbox == kyivRef) {
+            formAllUkraineDeliveryRef.classList.add("disabled");
+            formKyivDeliveryRef.classList.remove("disabled");
         }
-      }
-    });
-  } else {
-    checkboxes.forEach(checkboxItem => {
-      checkboxItem.disabled = false;
-      checkboxItem.parentElement.classList.remove('disabled');
-      if (checkboxItem == allUkraineRef) {
-        formAllUkraineDeliveryRef.classList.remove('disabled');
-      }
-      if (checkboxItem == kyivRef) {
-        formKyivDeliveryRef.classList.remove('disabled');
-      }
-    });
-  }
+    } else {
+        formAllUkraineDeliveryRef.classList.remove("disabled");
+        formKyivDeliveryRef.classList.remove("disabled");
+    }
 }
 
-const formContainers = document.querySelectorAll('.cart-page-card-form-container');
-const allUkraineCheckbox = document.getElementById('PostalDelivery');
-const kyivCheckbox = document.getElementById('Kyiv');
-const formUkraineContainer = document.querySelector('.cart-page-delivery-ukraine');
-const formKyivContainer = document.querySelector('.cart-page-delivery-city');
-const cartPopup = document.querySelector('[data-cart-popup]');
-
-// Приховує всі форми за замовчуванням
-formContainers.forEach(form => {
-  form.classList.add('hidden');
+checkboxes.forEach((checkbox) => {
+    checkbox.addEventListener("change", () => {
+        handleCheckboxChange(checkbox);
+        handleCheckboxForm();
+    });
 });
 
-// Функція для обробки змін у чекбоксах
+const formContainers = document.querySelectorAll(
+    ".cart-page-card-form-container"
+);
+formContainers.forEach((form) => {
+    form.classList.add("hidden");
+});
+
 function handleCheckboxForm() {
-  // Перевіряємо стан чекбоксів
-  const isAllUkraineChecked = allUkraineCheckbox.checked;
-  const isKyivChecked = kyivCheckbox.checked;
+    const isAllUkraineChecked = allUkraineRef.checked;
+    const isKyivChecked = kyivRef.checked;
 
-  // Приховуємо всі форми за замовчуванням
-  formContainers.forEach(form => {
-    form.classList.add('hidden');
-  });
+    formContainers.forEach((form) => {
+        form.classList.add("hidden");
+    });
 
-  // Показуємо відповідні форми
-  if (isAllUkraineChecked) {
-    formUkraineContainer.classList.remove('hidden');
-    cartFormUkraine(cartPopup);
-  }
-  if (isKyivChecked) {
-    formKyivContainer.classList.remove('hidden');
-    cartFormKyiv(cartPopup);
-  }
-
-  // Якщо нічого не вибрано, використовуємо загальну функцію
-  if (!isAllUkraineChecked && !isKyivChecked) {
-    cartForm(cartPopup);
-  }
+    if (isAllUkraineChecked) {
+        formUkraineContainer.classList.remove("hidden");
+        cartFormUkraine(cartPopup);
+    }
+    if (isKyivChecked) {
+        formKyivContainer.classList.remove("hidden");
+        cartFormKyiv(cartPopup);
+    }
+    if (!isAllUkraineChecked && !isKyivChecked) {
+        cartForm(cartPopup);
+    }
 }
 
-// Додаємо обробник подій для кожного чекбоксу
-const allCheckboxes = document.querySelectorAll('input[type="checkbox"]');
-allCheckboxes.forEach(checkbox => {
-  checkbox.addEventListener('change', () => {
-    handleCheckboxChange(checkbox);
+document.addEventListener("DOMContentLoaded", () => {
+    pickUpRef.checked = true; // Встановлюємо чекбокс 'pickUpRef' в обраний стан
+
+    handleCheckboxChange(pickUpRef);
     handleCheckboxForm();
-  });
 });

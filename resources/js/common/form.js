@@ -22,33 +22,6 @@ const lang = langDetect();
         lng: lang, // Текущий язык
         debug: true,
         resources: {
-            // ru: {
-            //   // Тексты конкретного языка
-            //   translation: {
-            //     // Так называемый namespace по умолчанию
-            //     name: 'Имя:*',
-            //     phone: 'Телефон:*',
-            //     send: 'Отправить',
-            //     sending: 'Отправка',
-            //     field_too_short: 'телефон должен содержать не менее {{cnt}} символов',
-            //     field_too_long: 'телефон должен содержать не более {{cnt}} символов',
-            //     only_number: 'здесь только цифры',
-            //     required: 'это поле обязательне',
-            //     sendingSuccessTitle: 'Cообщение отправлено',
-            //     sendingSuccessText: 'Ждите ответа наших менеджеров',
-            //     sendingErrorText: 'Ждите ответа наших менеджеров',
-            //     sendingErrorTitle: 'Ошибка',
-            //     send_fail: 'Сообщение не было отправлено за неизвестной ошибки сервера. Код: [send_fail]',
-            //     invalid_form:
-            //       'Сообщение не было отправлено за неизвестной ошибки сервера. Код: [invalid_form]',
-            //     front_error:
-            //       'Сообщение не было отправлено за неизвестной ошибки сервера. Код: [front_error]',
-            //     invalid_upload_file: 'Ошибка загрузки файла. Код: [invalid_upload_file]',
-            //     invalid_recaptcha: 'Заполните капчу и попробуйте еще раз снова. Код: [invalid_recaptcha]',
-            //     connectionFailed: 'Ошибка соединения с CRM',
-            //   },
-            // },
-
             en: {
                 // Тексты конкретного языка
                 translation: {
