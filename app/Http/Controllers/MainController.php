@@ -15,6 +15,7 @@ class MainController extends Controller
     {
         $news = News::all()->sortBy('priority')->take(3);
         $rootCategories = Category::rootCategories()->get();
+//        dd($rootCategories);
         return view('main',['title'=>__('main.Main')],compact('news', 'rootCategories'));
     }
 }

@@ -33,6 +33,49 @@
                     <div class="thank-page__title-wrap">
                         <span class="thank-page__title text-m text-black-100">Найближчим часом з вами зв’яжуться наші менеджери для уточнень деталей замовлення!</span>
                     </div>
+                    <div class="cart-page-card-content">
+                    <span class="cart-page-card-title text-m text-balck-100">Спосіб доставки:</span>
+                        <div class="cart-page-delivery-options">
+                            <div class="cart-page-delivery-options-list">
+                                <div class="cart-page-delivery-options-item">
+                                    <input type="checkbox" name="delivery_type" id="Mikhailivka" disabled  @if($order->delivery_type == 1) checked @endif>
+                                    <span class="text-14 text-black-100">Самовивіз - Михайлівка-Рубежівка (виробнича база)</span>
+                                    <a class="cart-page-delivery-options-item-pin" href="https://maps.app.goo.gl/1Hcv3tzDJFkP5yTAA" target="_blank">
+                                        <svg class="icon--cart-map" role="presentation">
+                                            <use xlink:href="#icon-cart-map"></use>
+                                        </svg>
+                                        <span class="text-14 text-black">вул. Шкільна,30</span>
+                                    </a>
+                                </div>
+                                <div class="cart-page-delivery-options-item">
+                                    <label for="Khvoiky">
+                                        <input type="checkbox" name="delivery_type" id="Khvoiky" disabled  @if($order->delivery_type == 2) checked @endif>
+                                    </label>
+                                    <span class="text-14 text-black--100">Доставка в офіс м. Київ</span>
+                                    <a class="cart-page-delivery-options-item-pin" href="https://maps.app.goo.gl/g35oTvRxtNgf3Sy76" target="_blank">
+                                        <svg class="icon--cart-map" role="presentation">
+                                            <use xlink:href="#icon-cart-map"></use>
+                                        </svg>
+                                        <span class="text-14 text-black">вул. Новоконстянтинівська, 15/15</span>
+                                    </a>
+                                </div>
+                                <div class="cart-page-delivery-options-item">
+                                    <input type="checkbox" name="delivery_type" id="Plekhanova" disabled  @if($order->delivery_type == 3) checked @endif>
+                                    <span class="text-14 text-black--100">Доставка в офіс м. Дніпро</span>
+                                    <a class="cart-page-delivery-options-item-pin" href="https://goo.gl/maps/LQsipjuHV9Rnqnev6" target="_blank">
+                                        <svg class="icon--cart-map" role="presentation">
+                                            <use xlink:href="#icon-cart-map"></use>
+                                        </svg>
+                                        <span class="text-14 text-black">вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх</span>
+                                    </a>
+                                </div>
+                                <div class="cart-page-delivery-options-item">
+                                    <input type="checkbox" name="delivery_type" id="PostalDelivery" disabled  @if($order->delivery_type == 4) checked @endif>
+                                    <span class="text-14 text-black--100">Доставка перевізником (по Україні)</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                     <div class="thank-page-list-wrap">
                         <div class="thank-page-list__title-wrap">
                             <span class="thank-page-list__title text-24 text-black-100">Інформація про замовлення:</span>

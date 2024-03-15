@@ -141,7 +141,14 @@
             </div>
             <div class="address header-location__details text-14" data-kyiv>вул. Вікентія Хвойки, 15/15, </br> тел. (044) 496-69-97</div>
             <div class="address header-location__details text-14" data-dnipro>вул. Князя Володимира Великого, 18, </br>  тел. (050) 412-16-00</div>
-
+{{--              <a class="dropdown-item" href="{{ route('logout') }}"--}}
+{{--                 onclick="event.preventDefault();--}}
+{{--                                                     document.getElementById('logout-form').submit();">--}}
+{{--                  {{ __('Logout') }}--}}
+{{--              </a>--}}
+{{--              <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">--}}
+{{--                  @csrf--}}
+{{--              </form>--}}
           </div>
 
           <div class="header-right-wrap header-right-wrap--mobile">
