@@ -152,7 +152,81 @@
             </div>
         </div>
     </div>
+    <script type='text/javascript'>
+        $(document).ready(function() {
+            var max_fields = 10;
+            var wrapper = $(".container1");
+            var add_button = $(".add_form_field");
+
+
+
+            var x = 1;
+            $(add_button).click(function(e) {
+                e.preventDefault();
+                // const node = document.getElementById("father");
+                // const clone = node.cloneNode(true);
+                // $(wrapper).append(clone);
+                if (x < max_fields) {
+                    x++;
+                    // $(wrapper).append('<div><input type="text" name="row['+x+']"/><a href="#" class="delete">Delete</a></div>'); //add input box
+                    $(wrapper).append('<div class="form-group row" id="father">'+
+                        '<label for="row['+x+']" class="col-md-4 col-form-label text-md-right">{{ __('row[]') }}</label>'+
+                        '<div class="col-md-6">'+
+                        '<input id="row['+x+']"'+
+                        'type="text"'+
+                        'class="form-control @error('row[]') is-invalid @enderror"'+
+                        'name="row['+x+']"'+
+                        'value=""'+
+                        'autocomplete="row['+x+']"'+
+                        'autofocus' +
+                        'required>'+
+                        '</div>'+
+                        '</div>');
+
+                } else {
+                    alert('You Reached the limits')
+                }
+            });
+
+            $(wrapper).on("click", ".delete", function(e) {
+                e.preventDefault();
+                // console.log($(this));
+                // console.log($(this).parentNode);
+                $(this).parent('div').remove();
+                x--;
+            })
+        });
+
+        function myFunction(event) {
+            event.preventDefault();
+            console.log('qwe');
+            $.ajax({
+                type : 'POST',
+                url : 'form.php',
+                data : $('#form').serialize()
+            });
+        }
+    </script>
+
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.css" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/summernote@0.8.18/dist/summernote-lite.min.js"></script>
+    <script>
+            $('#description_top, #description_bottom').summernote({
+                tabsize: 2,
+                height: 250,
+                toolbar: [
+                    ['style', ['style']],
+                    ['font', ['bold', 'underline', 'clear']],
+                    ['color', ['color']],
+                    ['para', ['ul', 'ol', 'paragraph']],
+                    ['table', ['table']],
+                    ['insert', ['link', 'picture', 'video']],
+                    ['view', ['fullscreen', 'codeview', 'help']]
+                ]
+            });
+    </script>
 @endsection
 @push('footer-scripts')
-    @vite(['resources/js/images-preview.js','resources/js/summernote.js'])
+    @vite(['resources/js/images-preview.js'])
 @endpush

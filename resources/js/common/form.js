@@ -30,6 +30,8 @@ const lang = langDetect();
                     phone: "Phone:*",
                     send: "Send",
                     sending: "Sending",
+                    invalid_name: "must contain at least 3 characters",
+                    invalid_phone: "must contain only numbers",
                     field_too_short:
                         "phone must be at least {{cnt}} characters",
                     field_too_long: "phone must be at most {{cnt}} characters",
@@ -61,6 +63,8 @@ const lang = langDetect();
                     phone: "Телефон:*",
                     send: "Надіслати",
                     sending: "Відправлення",
+                    invalid_name: "Має містити більше 3 символів",
+                    invalid_phone: "Має містити тільки цифри",
                     field_too_short:
                         "Телефон має містити принаймні {{cnt}} символів",
                     field_too_long:

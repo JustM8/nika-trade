@@ -113,103 +113,57 @@ export default class SexyInput {
     listeners(input) {
         const self = this;
 
-        if (this.typeInput === "phone") {
-            /* eslint-disable */
-            input.setAttribute("inputmode", "tel");
-            // input.intTelIput = intlTelInput(input, {
-            //   preferredCountries: ['ua'],
-            //   autoPlaceholder: 'off',
-            // });
-            let cleave = new Cleave(input, {
-                /* eslint-enable */
-                numericOnly: true,
-                prefix: "+",
-                blocks: [13],
-            });
-            // input.addEventListener('countrychange', () => {
-            //   const currentCountry = input.intTelIput.getSelectedCountryData();
-            //   const { dialCode } = currentCountry;
-            //   const selfInput = input;
-            //   const maskPartForUkraine = currentCountry.iso2 === 'ua' ? 2 : 3;
-            //   cleave.destroy();
-            //   selfInput.value = '';
-            //   cleave = new Cleave(input, {
-            //     numericOnly: true,
-            //     delimiter: '-',
-            //     prefix: `+${dialCode}`,
-            //     /* В код страны добавляется символ + */
-            //     blocks: [dialCode.toString().length + 1, maskPartForUkraine, 3, 2, 2],
-            //     delimiters: [' ', ' ', ' ', ''],
-            //   });
-            // });
-        }
-        if (this.typeInput === "phoneKyiv") {
-            /* eslint-disable */
-            input.setAttribute("inputmode", "tel");
-            // input.intTelIput = intlTelInput(input, {
-            //   preferredCountries: ['ua'],
-            //   autoPlaceholder: 'off',
-            // });
-            let cleave = new Cleave(input, {
-                /* eslint-enable */
-                numericOnly: true,
-                prefix: "+",
-                blocks: [13],
-            });
-            input.addEventListener("countrychange", () => {
-                const currentCountry =
-                    input.intTelIput.getSelectedCountryData();
-                const { dialCode } = currentCountry;
-                const selfInput = input;
-                const maskPartForUkraine = currentCountry.iso2 === "ua" ? 2 : 3;
-                cleave.destroy();
-                selfInput.value = "";
-                cleave = new Cleave(input, {
-                    numericOnly: true,
-                    delimiter: "-",
-                    prefix: `+${dialCode}`,
-                    /* В код страны добавляется символ + */
-                    blocks: [
-                        dialCode.toString().length + 1,
-                        maskPartForUkraine,
-                        3,
-                        2,
-                        2,
-                    ],
-                    delimiters: [" ", " ", " ", ""],
-                });
-            });
-        }
-        if (this.typeInput === "phone_delivery") {
-            /* eslint-disable */
-            input.setAttribute("inputmode", "tel");
-            // input.intTelIput = intlTelInput(input, {
-            //   preferredCountries: ['ua'],
-            //   autoPlaceholder: 'off',
-            // });
-            let cleave = new Cleave(input, {
-                /* eslint-enable */
-                numericOnly: true,
-                prefix: "+",
-                blocks: [13],
-            });
-            // input.addEventListener('countrychange', () => {
-            //   const currentCountry = input.intTelIput.getSelectedCountryData();
-            //   const { dialCode } = currentCountry;
-            //   const selfInput = input;
-            //   const maskPartForUkraine = currentCountry.iso2 === 'ua' ? 2 : 3;
-            //   cleave.destroy();
-            //   selfInput.value = '';
-            //   cleave = new Cleave(input, {
-            //     numericOnly: true,
-            //     delimiter: '-',
-            //     prefix: `+${dialCode}`,
-            //     /* В код страны добавляется символ + */
-            //     blocks: [dialCode.toString().length + 1, maskPartForUkraine, 3, 2, 2],
-            //     delimiters: [' ', ' ', ' ', ''],
-            //   });
-            // });
-        }
+        // if (this.typeInput === "phone") {
+        //     let cleave = input.cleaveInstance;
+        //     if (cleave) {
+        //         cleave.destroy();
+        //     }
+
+        //     input.setAttribute("inputmode", "tel");
+
+        //     cleave = new Cleave(input, {
+        //         /* eslint-enable */
+        //         numericOnly: true,
+        //         prefix: "+",
+        //         blocks: [13],
+        //     });
+
+        //     input.cleaveInstance = cleave;
+        // }
+        // if (this.typeInput === "phoneKyiv") {
+        //     let cleave = input.cleaveInstance;
+        //     if (cleave) {
+        //         cleave.destroy();
+        //     }
+
+        //     input.setAttribute("inputmode", "tel");
+
+        //     cleave = new Cleave(input, {
+        //         /* eslint-enable */
+        //         numericOnly: true,
+        //         prefix: "+",
+        //         blocks: [13],
+        //     });
+
+        //     input.cleaveInstance = cleave;
+        // }
+        // if (this.typeInput === "phone_delivery") {
+        //     let cleave = input.cleaveInstance;
+        //     if (cleave) {
+        //         cleave.destroy();
+        //     }
+
+        //     input.setAttribute("inputmode", "tel");
+
+        //     cleave = new Cleave(input, {
+        //         /* eslint-enable */
+        //         numericOnly: true,
+        //         prefix: "+",
+        //         blocks: [13],
+        //     });
+
+        //     input.cleaveInstance = cleave;
+        // }
         if (this.animation === "focus") {
             input.addEventListener("focus", self.selectIn(self));
             input.addEventListener("blur", self.selectOut(self));

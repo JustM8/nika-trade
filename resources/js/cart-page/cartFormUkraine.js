@@ -5,6 +5,13 @@ import SexyInput from "../common/input";
 
 export const cartFormUkraine = (formRef, onSuccess) => {
     const btnRef = formRef.querySelector("[data-btn-submit]");
+    const phoneSchema = yup
+        .string()
+        .required(i18next.t("required"))
+        .transform((value) => (value ? value.replace(/\s/g, "") : value))
+        .matches(/^[\d+]+$/, i18next.t("invalid_phone"))
+        .min(13, i18next.t("field_too_short", { cnt: 19 - 7 }))
+        .max(13, i18next.t("field_too_long", { cnt: 13 }));
 
     new FormMonster({
         elements: {
@@ -23,7 +30,11 @@ export const cartFormUkraine = (formRef, onSuccess) => {
                         ),
                         typeInput: "company_name",
                     }),
-                    rule: yup.string().required(i18next.t("required")).trim(),
+                    rule: yup
+                        .string()
+                        .required(i18next.t("required"))
+                        .trim()
+                        .min(3, i18next.t("invalid_name")),
                     defaultMessage: i18next.t("name"),
                     valid: false,
                     error: [],
@@ -35,12 +46,10 @@ export const cartFormUkraine = (formRef, onSuccess) => {
                             "[data-field-company-phone]"
                         ),
                         typeInput: "phone",
+                        validationSchema: phoneSchema,
+                        errorMessage: i18next.t("invalid_phone"),
                     }),
-                    rule: yup
-                        .string()
-                        .required(i18next.t("required"))
-                        .min(12, i18next.t("field_too_short", { cnt: 19 - 7 })),
-
+                    rule: phoneSchema,
                     defaultMessage: i18next.t("phone"),
                     valid: false,
                     error: [],
@@ -66,7 +75,11 @@ export const cartFormUkraine = (formRef, onSuccess) => {
                         ),
                         typeInput: "name",
                     }),
-                    rule: yup.string().required(i18next.t("required")).trim(),
+                    rule: yup
+                        .string()
+                        .required(i18next.t("required"))
+                        .trim()
+                        .min(3, i18next.t("invalid_name")),
                     defaultMessage: i18next.t("name"),
                     valid: false,
                     error: [],
@@ -78,11 +91,10 @@ export const cartFormUkraine = (formRef, onSuccess) => {
                             "[data-field-recipient-phone]"
                         ),
                         typeInput: "phone_delivery",
+                        validationSchema: phoneSchema,
+                        errorMessage: i18next.t("invalid_phone"),
                     }),
-                    rule: yup
-                        .string()
-                        .required(i18next.t("required"))
-                        .min(12, i18next.t("field_too_short", { cnt: 19 - 7 })),
+                    rule: phoneSchema,
 
                     defaultMessage: i18next.t("phone"),
                     valid: false,
@@ -144,7 +156,6 @@ export const cartFormUkraine = (formRef, onSuccess) => {
 };
 
 window.addEventListener("successFormSendFinished", ({ detail }) => {
-    console.log(detail);
     const redirectUrl = detail.redirect_url;
     window.location.href = redirectUrl;
 });

@@ -36,6 +36,7 @@ export default defineConfig({
                 "resources/js/services.js",
                 "resources/js/common.js",
                 "resources/js/model.js",
+                "resources/js/adminNews.js",
             ],
             refresh: true,
         }),

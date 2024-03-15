@@ -25,22 +25,22 @@
                             <span class="cart-descr-price-sum text-18 text-black-100" id="cart-total" >{{Cart::total()}}</span></div>
                     </div>
                 </div>
-            <form data-cart-popup id="cart-page-form" action="{{ route('order.create') }}" method="POST">
+            <form data-cart-popup id="cart-page-form" action="{{ route('order.create') }}" method="POST" autocomplete="on">
                 @csrf
                 <div class="cart-page-checkout cart-page-card"> <span class="cart-page-card-title text-m text-balck-100">Оформлення товару:</span>
                     <div class="cart-page-card-content cart-page-card-form-container">
                         <p class="cart-page-form__hint text-14">Замовник:</p>
                         <div class="cart-page-form-field form-field-input" data-field-input data-field-company-name data-status="field--inactive">
-                            <input class="cart-page-form__input" type="text" name="company_name" placeholder="Введіть ім’я або назву установи">
+                            <input class="cart-page-form__input" type="text" name="company_name" placeholder="Введіть ім’я або назву установи" data-common>
                             <div class="cart-input-message text-14" data-input-message></div>
                         </div>
                         <p class="cart-page-form__hint text-14">Контактний телефон:</p>
-                        <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-company-phone data-status="field--inactive">
-                            <input class="cart-page-form__input" type="text" name="phone" placeholder="+380________">
+                        <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-company-phone data-status="field--inactive" data-common>
+                            <input class="cart-page-form__input" type="text" name="phone" placeholder="Номер у форматі: +38097 000 00 00">
                             <div class="cart-input-message text-14" data-input-message></div>
                         </div>
                         <p class="cart-page-form__hint text-14">Email:</p>
-                        <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-company-email data-status="field--inactive">
+                        <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-company-email data-status="field--inactive" data-common>
                             <input class="cart-page-form__input" type="text" name="email" placeholder="Введіть ваш email">
                             <div class="cart-input-message text-14" data-input-message></div>
                         </div>
@@ -97,7 +97,7 @@
                             </div>
                             <p class="cart-page-form__hint text-14">Телефон отримувача:</p>
                             <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-recipient-phone data-status="field--inactive">
-                                <input class="cart-page-form__input" type="text" name="phone_delivery" placeholder="+380________">
+                                <input class="cart-page-form__input" type="text" name="phone_delivery" placeholder="Номер у форматі: +38097 000 00 00">
                                 <div class="cart-input-message text-14" data-input-message></div>
                             </div>
                             <p class="cart-page-form__hint text-14">Місто:</p>
@@ -133,7 +133,7 @@
                             </div>
                             <p class="cart-page-form__hint text-14">Телефон отримувача:</p>
                             <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-kyiv-phone data-status="field--inactive">
-                                <input class="cart-page-form__input" type="text" name="phoneKyiv">
+                                <input class="cart-page-form__input" type="text" name="phoneKyiv" placeholder="Номер у форматі: +38097 000 00 00">
                                 <div class="cart-input-message text-14" data-input-message></div>
                             </div>
                             <p class="cart-page-form__hint text-14">Адреса:</p>
