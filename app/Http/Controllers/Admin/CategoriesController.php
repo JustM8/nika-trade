@@ -17,7 +17,7 @@ class CategoriesController extends Controller
     }
     public function index()
     {
-        $categories = Category::withCount('products')->paginate(10);
+        $categories = Category::withCount('products')->paginate(10)->appends(request()->query());
 
         return view('admin/categories/index', compact('categories'));
     }
@@ -71,7 +71,7 @@ class CategoriesController extends Controller
     {
 
         if($this->repository->update($category,$request)){
-            return redirect()->route('admin.categories.index');
+            return redirect()->route('admin.categories.index',request()->query());
         }
         return redirect()->back()->withInput();
     }

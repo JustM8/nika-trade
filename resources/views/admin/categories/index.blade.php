@@ -30,7 +30,7 @@
                             <td class="text-center" scope="col">{{ $category->name[App::currentLocale()] }}</td>
                             <td class="text-center" scope="col">{{ $category->products_count }}</td>
                             <td class="text-center" scope="col">
-                                <a href="{{ route('admin.categories.edit', $category) }}" class="btn btn-info form-control">Edit</a>
+                                <a href="{{ url(route('admin.categories.edit', $category) . '?' . http_build_query(request()->query())) }}" class="btn btn-info form-control">Edit</a>
                                 <form action="{{ route('admin.categories.destroy', $category) }}" method="POST">
                                     @csrf
                                     @method('DELETE')

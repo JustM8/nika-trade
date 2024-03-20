@@ -132,10 +132,10 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a class="dropdown-item" href="{{ route('admin.categories.index') }}">
+                                <a class="dropdown-item" href="{{ route('admin.categories.index', request()->query()) }}">
                                     {{ __('All categories') }}
                                 </a>
-                                <a class="dropdown-item" href="{{ route('admin.categories.create') }}">
+                                <a class="dropdown-item" href="{{ route('admin.categories.create', request()->query()) }}">
                                     {{ __('Create category') }}
                                 </a>
                             </div>

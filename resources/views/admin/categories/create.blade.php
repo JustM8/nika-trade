@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Create Category') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.categories.store') }}" enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.categories.store',request()->query()) }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row mb-3">

@@ -8,7 +8,7 @@
                     <div class="card-header">{{ __('Edit Category') }}</div>
 
                     <div class="card-body">
-                        <form method="POST" action="{{ route('admin.categories.update', $category) }}"  enctype="multipart/form-data">
+                        <form method="POST" action="{{ route('admin.categories.update', array_merge(['category' => $category], request()->query())) }}"  enctype="multipart/form-data">
                             @csrf
                             @method('PUT')
 

@@ -12,7 +12,8 @@
             <h2 class="page-title text-title">Кошик</h2>
         </div>
         <div class="cart-page-main">
-        <div class="cart-page-items cart-page-card"><span class="cart-page-card-title text-m text-balck-100">Товари в кошику:</span>
+        <div class="cart-page-items cart-page-card">
+            <span class="cart-page-card-title text-m text-balck-100">Товари в кошику:</span>
                     <div class="cart-page-card-content">
                         <div class="cart-list" id="cart-popup">
                             @if(Cart::instance('cart')->count() > 0)
@@ -168,7 +169,7 @@
                         <div class="btn-container btn-container-border">
 {{--                            <button class="btn" type="submit" data-btn-submit>
     <span class="link__text usn" data-btn-submit-text>Підтвердити замовлення </span></button>--}}
-                            <button type="submit"  data-btn-submit class="btn"> 
+                            <button type="submit"  data-btn-submit class="btn">
                                 <span class="link__text usn" data-btn-submit-text> Підтвердити замовлення </span>
                             </button>
                         </div>
