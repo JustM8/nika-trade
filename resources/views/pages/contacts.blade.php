@@ -58,7 +58,7 @@
                                         <use xlink:href="#icon-contacts-map"></use>
                                     </svg>
                                 </div>
-                                <a class="contacts-page-list-item-content-details__link text-14 text-black" href="https://maps.app.goo.gl/fTCceRveJW8T62NL8" target="_blank">Київ, Україна, 04080 вул. Вікентія Хвойки, 15/15</a>
+                                <a class="contacts-page-list-item-content-details__link text-14 text-black" href="https://www.google.com/maps/place/Nika+Kompani/@50.483946,30.4842861,19z/data=!4m15!1m8!3m7!1s0x40d4cde57573047b:0x1a3061b32cb2b4f9!2sVikentiya+Khvoiky+St,+15%2F15,+Kyiv,+04080!3b1!8m2!3d50.484948!4d30.4836923!16s%2Fg%2F11vjq5l6kh!3m5!1s0x40d4cdeedfd3fdd9:0x90aa8aa341c1490f!8m2!3d50.483637!4d30.484421!16s%2Fg%2F1jgm4vlvg?entry=ttu" target="_blank">Київ, Україна, 04080 вул. Вікентія Хвойки, 15/15</a>
                             </div>
                         </div>
                     </div>
@@ -209,7 +209,7 @@
                                             <div class="contacts-page-list-item-content-column-list-item__city text-14 text-black">Одеса</div>
                                             <div class="contacts-page-list-item-content-column-list-item-content">
                                                 <a class="contacts-page-list-item-content-column-list-item__adress" href="https://goo.gl/maps/MidfBGFHf28HLbKj7" target="_blank">
-                                                    <span class="text-14 text-black-100">"Епіцентр" м. Одеса, Овідіопольське шосе, 1 </span>
+                                                    <span class="text-14 text-black-100">м. Одеса, Овідіопольське шосе, 1 </span>
                                                     <svg class="icon--arrow-item-contacts" role="presentation">
                                                         <use xlink:href="#icon-arrow-item-contacts"></use>
                                                     </svg>
@@ -251,7 +251,7 @@
                                             <div class="contacts-page-list-item-content-column-list-item__city text-14 text-black">Харків</div>
                                             <div class="contacts-page-list-item-content-column-list-item-content">
                                                 <a class="contacts-page-list-item-content-column-list-item__adress" href="https://goo.gl/maps/u52xsWnaenkb6XEU8" target="_blank">
-                                                    <span class="text-14 text-black-100">"Епіцентр" м. Харків, вул. Героїв Праці, 9А </span>
+                                                    <span class="text-14 text-black-100">м. Харків, вул. Героїв Праці, 9А </span>
                                                     <svg class="icon--arrow-item-contacts" role="presentation">
                                                         <use xlink:href="#icon-arrow-item-contacts"></use>
                                                     </svg>

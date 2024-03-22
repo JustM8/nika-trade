@@ -1,7 +1,7 @@
 @extends('layouts.theme')
 
 @section('content')
-{{--    @dd($order->products);--}}
+ {{-- @dd($order->delivery_info); --}}
     <div class="col-12 text-center">
         <div class="card">
             <div class="card-body">
@@ -34,11 +34,13 @@
                         <span class="thank-page__title text-m text-black-100">Найближчим часом з вами зв’яжуться наші менеджери для уточнень деталей замовлення!</span>
                     </div>
                     <div class="cart-page-card-content">
-                    <span class="cart-page-card-title text-m text-balck-100">Спосіб доставки:</span>
+                        <div class="thank-page-list__title-wrap">
+                            <span class="thank-page-list__title text-24 text-black-100">Спосіб доставки:</span>
+                        </div>
                         <div class="cart-page-delivery-options">
                             <div class="cart-page-delivery-options-list">
-                                <div class="cart-page-delivery-options-item">
-                                    <input type="checkbox" name="delivery_type" id="Mikhailivka" disabled  @if($order->delivery_type == 1) checked @endif>
+                                <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 1 ? ' active' : '' }}">
+                                    <input type="checkbox" name="delivery_type" id="Mikhailivka" disabled  {{ $order->delivery_type == 1 ? 'checked' : '' }}>
                                     <span class="text-14 text-black-100">Самовивіз - Михайлівка-Рубежівка (виробнича база)</span>
                                     <a class="cart-page-delivery-options-item-pin" href="https://maps.app.goo.gl/1Hcv3tzDJFkP5yTAA" target="_blank">
                                         <svg class="icon--cart-map" role="presentation">
@@ -47,9 +49,9 @@
                                         <span class="text-14 text-black">вул. Шкільна,30</span>
                                     </a>
                                 </div>
-                                <div class="cart-page-delivery-options-item">
+                                <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 2 ? ' active' : '' }}">
                                     <label for="Khvoiky">
-                                        <input type="checkbox" name="delivery_type" id="Khvoiky" disabled  @if($order->delivery_type == 2) checked @endif>
+                                        <input type="checkbox" name="delivery_type" id="Khvoiky" disabled  {{ $order->delivery_type == 2 ? 'checked' : '' }}>
                                     </label>
                                     <span class="text-14 text-black--100">Доставка в офіс м. Київ</span>
                                     <a class="cart-page-delivery-options-item-pin" href="https://maps.app.goo.gl/g35oTvRxtNgf3Sy76" target="_blank">
@@ -59,8 +61,8 @@
                                         <span class="text-14 text-black">вул. Новоконстянтинівська, 15/15</span>
                                     </a>
                                 </div>
-                                <div class="cart-page-delivery-options-item">
-                                    <input type="checkbox" name="delivery_type" id="Plekhanova" disabled  @if($order->delivery_type == 3) checked @endif>
+                                <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 3 ? ' active' : '' }}">
+                                    <input type="checkbox" name="delivery_type" id="Plekhanova" disabled  {{ $order->delivery_type == 3 ? 'checked' : '' }}>
                                     <span class="text-14 text-black--100">Доставка в офіс м. Дніпро</span>
                                     <a class="cart-page-delivery-options-item-pin" href="https://goo.gl/maps/LQsipjuHV9Rnqnev6" target="_blank">
                                         <svg class="icon--cart-map" role="presentation">
@@ -69,9 +71,53 @@
                                         <span class="text-14 text-black">вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх</span>
                                     </a>
                                 </div>
-                                <div class="cart-page-delivery-options-item">
-                                    <input type="checkbox" name="delivery_type" id="PostalDelivery" disabled  @if($order->delivery_type == 4) checked @endif>
-                                    <span class="text-14 text-black--100">Доставка перевізником (по Україні)</span>
+                                <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 4 ? ' active' : '' }}">
+                                    <div class="thank-page-page-delivery-options-item--type">
+                                        <input type="checkbox" name="delivery_type" id="PostalDelivery" disabled {{ $order->delivery_type == 4 ? 'checked' : '' }}>
+                                        <span class="text-14 text-black--100">Доставка перевізником (по Україні)</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Отримувач: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Номер телефону: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Місто: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Адреса: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Перевізник: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Відділення: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>                
+                                </div>
+                                <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 5 ? ' active' : '' }}">
+                                    <div class="thank-page-page-delivery-options-item--type">
+                                        <input type="checkbox" name="delivery_type" id="Kyiv" disabled {{ $order->delivery_type == 5 ? 'checked' : '' }}>
+                                        <span class="text-14 text-black--100">Доставка по Києву (послуги вантажників не надаються)</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Отримувач: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Номер телефону: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Адреса: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>             
                                 </div>
                             </div>
                         </div>

@@ -8,11 +8,11 @@
                         <li class="breadcrumbs-item">
                             <a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{url('/')}}">Головна</a></li>
                         <li class="breadcrumbs-item">
-                            <a class="breadcrumbs-item__link" href="#">Сервіси</a>
+                            <a class="breadcrumbs-item__link" href="#">Інформація для замовника</a>
                         </li>
                     </ul>
                 </div>
-                <h2 class="page-title text-title">Послуги</h2>
+                <h2 class="page-title text-title">Інформація для замовника</h2>
             </div>
             <div class="services-list">
 {{--                start item--}}

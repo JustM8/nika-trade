@@ -294,7 +294,7 @@
                 <a class="footer-contact-link text-14" href="tel:+380504478965"> +38 (050) 447-89-65</a>
                 <a class="footer-contact-link text-14" href="tel:+380444966997"> +38 (044) 496-69-97</a>
                 <a class="footer-contact-link text-14" href="mailto:nika@nika-trade.net.ua">nika@nika-trade.net.ua </a>
-                <a href="https://maps.app.goo.gl/fTCceRveJW8T62NL8" target="_blank"  class="footer-contact-address footer-contact-link text-14">Київ, Україна, 04080 вул. Вікентія Хвойки, 15/15</a>
+                <a href="https://www.google.com/maps/place/Nika+Kompani/@50.483946,30.4842861,19z/data=!4m15!1m8!3m7!1s0x40d4cde57573047b:0x1a3061b32cb2b4f9!2sVikentiya+Khvoiky+St,+15%2F15,+Kyiv,+04080!3b1!8m2!3d50.484948!4d30.4836923!16s%2Fg%2F11vjq5l6kh!3m5!1s0x40d4cdeedfd3fdd9:0x90aa8aa341c1490f!8m2!3d50.483637!4d30.484421!16s%2Fg%2F1jgm4vlvg?entry=ttu" target="_blank"  class="footer-contact-address footer-contact-link text-14">Київ, Україна, 04080 вул. Вікентія Хвойки, 15/15</a>
               </div>
               <div class="footer-contact-item">
                 <span class="footer-contact-city text-14-uppercase">Дніпро (представництво)</span>

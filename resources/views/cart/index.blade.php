@@ -37,7 +37,7 @@
                         </div>
                         <p class="cart-page-form__hint text-14">Контактний телефон:</p>
                         <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-company-phone data-status="field--inactive" data-common>
-                            <input class="cart-page-form__input" type="text" name="phone" placeholder="Номер у форматі: +38097 000 00 00">
+                            <input class="cart-page-form__input" type="text" name="phone" placeholder="Номер у форматі: +380970000000">
                             <div class="cart-input-message text-14" data-input-message></div>
                         </div>
                         <p class="cart-page-form__hint text-14">Email:</p>
@@ -98,7 +98,7 @@
                             </div>
                             <p class="cart-page-form__hint text-14">Телефон отримувача:</p>
                             <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-recipient-phone data-status="field--inactive">
-                                <input class="cart-page-form__input" type="text" name="phone_delivery" placeholder="Номер у форматі: +38097 000 00 00">
+                                <input class="cart-page-form__input" type="text" name="phone_delivery" placeholder="Номер у форматі: +380970000000">
                                 <div class="cart-input-message text-14" data-input-message></div>
                             </div>
                             <p class="cart-page-form__hint text-14">Місто:</p>
@@ -134,7 +134,7 @@
                             </div>
                             <p class="cart-page-form__hint text-14">Телефон отримувача:</p>
                             <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-kyiv-phone data-status="field--inactive">
-                                <input class="cart-page-form__input" type="text" name="phoneKyiv" placeholder="Номер у форматі: +38097 000 00 00">
+                                <input class="cart-page-form__input" type="text" name="phoneKyiv" placeholder="Номер у форматі: +380970000000">
                                 <div class="cart-input-message text-14" data-input-message></div>
                             </div>
                             <p class="cart-page-form__hint text-14">Адреса:</p>
