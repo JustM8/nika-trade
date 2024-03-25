@@ -3,11 +3,6 @@
 @section('content')
     @php($lastElement = end($breadcrumbs))
     @if($childrens->isEmpty())
-
-{{--    @dd($breadcrumbs);--}}
-
-{{--        @dd($menu)--}}
-{{--@dd($category,$rootParent);--}}
         <section class="catalog-single page-container">
             <div class="catalog-single-wrap">
                 <div class="page-intro" data-category="{{$rootParent->slug}}">
@@ -156,7 +151,12 @@
                         </div>
                     </div>
                     <div class="equipment-card__img-wrap">
-                        <img src="{{asset('/assets/images/equipment/default.jpg')}}" alt="">
+                        @if($item->thumbnail != null)
+                            <img src="{{$item->thumbnailUrl}}" alt="">
+                        @else
+                            <img src="{{asset('/assets/images/equipment/default.jpg')}}" alt="">
+                        @endif
+
                     </div>
 {{--                    </a>--}}
                 </div>

@@ -38,6 +38,20 @@
                         </div>
                     </div>
                     <div class="form-group row">
+                        <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
+                        <div class="col-md-6">
+                            <input id="date"
+                                   type="date"
+                                   class="form-control @error('date') is-invalid @enderror"
+                                   name="date"
+                                   value="{{ $news->date  }}"
+                                   autocomplete="date"
+                                   autofocus
+                                   required
+                            >
+                        </div>
+                    </div>
+                    <div class="form-group row">
                         <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
                         <div class="col-md-6">
                             <input id="title"
@@ -104,7 +118,6 @@
                                    value="{{$news->video_url}}"
                                    autocomplete="video"
                                    autofocus
-                                   required
                             >
                         </div>
                     </div>

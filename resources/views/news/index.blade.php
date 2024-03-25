@@ -16,6 +16,9 @@
             <div class="news-page-list">
 
                     @foreach($news as $new)
+                    @php(
+                     $d = explode('-',$new->date)
+                     )
                     <div class="news-page-item">
                     <div class="news-page-item-intro-wrap">
                         <div class="news-page-item-intro">
@@ -25,9 +28,9 @@
                             <a class="news-page-item__btn btn" href="{{ route('news.show', $new->slug) }}">Читати новину</a>
                         </div>
                         <div class="news-page-item-date">
-                            <span class="news-page-item-date__day text-14">15</span>
-                            <span class="news-page-item-date__month text-14">Січня</span>
-                            <span class="news-page-item-date__year text-14">2023</span>
+                            <span class="news-page-item-date__day text-14">{{$d[2]}}</span>
+                            <span class="news-page-item-date__month text-14">{{$d[1]}}</span>
+                            <span class="news-page-item-date__year text-14">{{$d[0]}}</span>
                         </div>
                     </div>
                     <div class="news-page-item__img-wrap"> <img class="news-page-item__img" src="{{ $new->thumbnailUrl  }}" alt=""></div>

@@ -13,7 +13,7 @@
             <h2 class="page-title text-title">Каталог</h2>
         </div>
         <div class="catalog-list">
-           
+
         @foreach($rootCategories as $item)
             <div class="catalog-card">
                 <div class="catalog-card-intro">

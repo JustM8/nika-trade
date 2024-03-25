@@ -21,7 +21,7 @@ class News extends Model
      * @return response()
      */
     protected $fillable = [
-        'slug','title','description','thumbnail','video_url','priority'
+        'slug','title','description','thumbnail','video_url','priority','date'
     ];
 
     protected $casts = [
@@ -59,4 +59,10 @@ class News extends Model
     {
         return new Attribute(get: fn() => Storage::url($this->attributes['thumbnail']));
     }
+
+    public function newsSort()
+    {
+        return $this->orderBy('date', 'asc');
+    }
+
 }

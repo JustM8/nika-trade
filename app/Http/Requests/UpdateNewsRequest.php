@@ -50,6 +50,7 @@ class UpdateNewsRequest extends FormRequest
             'description_top' => ['nullable'],
             'description_bottom' => ['nullable'],
             'thumbnail' => ['image:jpeg,png,jpg'],
+            'date' => ['nullable', 'date'],
         ];
     }
 }

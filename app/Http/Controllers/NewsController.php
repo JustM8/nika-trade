@@ -15,7 +15,7 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::all();
+        $news = News::latest('date')->get();
         return view('news.index',['title'=>__('news.Title')], compact('news'));
     }
     /**

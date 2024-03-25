@@ -35,6 +35,7 @@ class CreateNewsRequest extends FormRequest
             'description_top' => ['nullable'],
             'description_bottom' => ['nullable'],
             'thumbnail' => ['required', 'image:jpeg,png,jpg'],
+            'date' => ['nullable', 'date'],
         ];
     }
 }
