@@ -77,6 +77,18 @@
                                         <span class="text-14 text-black--100">Доставка перевізником (по Україні)</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Замовник: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Контактний номер: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Електронна пошта: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Отримувач: </span>
                                         <span class="text-14 text-black--100">{{ $order->id }}</span>
                                     </div>
@@ -105,6 +117,18 @@
                                     <div class="thank-page-page-delivery-options-item--type">
                                         <input type="checkbox" name="delivery_type" id="Kyiv" disabled {{ $order->delivery_type == 5 ? 'checked' : '' }}>
                                         <span class="text-14 text-black--100">Доставка по Києву (послуги вантажників не надаються)</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Замовник: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Контактний номер: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Електронна пошта: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Отримувач: </span>
