@@ -40,36 +40,78 @@
                         <div class="cart-page-delivery-options">
                             <div class="cart-page-delivery-options-list">
                                 <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 1 ? ' active' : '' }}">
-                                    <input type="checkbox" name="delivery_type" id="Mikhailivka" disabled  {{ $order->delivery_type == 1 ? 'checked' : '' }}>
-                                    <span class="text-14 text-black-100">Самовивіз - Михайлівка-Рубежівка (виробнича база)</span>
-                                    <a class="cart-page-delivery-options-item-pin" href="https://maps.app.goo.gl/1Hcv3tzDJFkP5yTAA" target="_blank">
-                                        <svg class="icon--cart-map" role="presentation">
-                                            <use xlink:href="#icon-cart-map"></use>
-                                        </svg>
-                                        <span class="text-14 text-black">вул. Шкільна,30</span>
-                                    </a>
+                                    <div class="thank-page-page-delivery-options-item--type">
+                                        <input type="checkbox" name="delivery_type" id="Mikhailivka" disabled  {{ $order->delivery_type == 1 ? 'checked' : '' }}>
+                                        <span class="text-14 text-black-100">Самовивіз - Михайлівка-Рубежівка (виробнича база)</span>
+                                        <a class="cart-page-delivery-options-item-pin" href="https://maps.app.goo.gl/1Hcv3tzDJFkP5yTAA" target="_blank">
+                                            <svg class="icon--cart-map" role="presentation">
+                                                <use xlink:href="#icon-cart-map"></use>
+                                            </svg>
+                                            <span class="text-14 text-black">вул. Шкільна,30</span>
+                                        </a>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Замовник: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Контактний номер: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Електронна пошта: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
                                 </div>
                                 <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 2 ? ' active' : '' }}">
-                                    <label for="Khvoiky">
-                                        <input type="checkbox" name="delivery_type" id="Khvoiky" disabled  {{ $order->delivery_type == 2 ? 'checked' : '' }}>
-                                    </label>
-                                    <span class="text-14 text-black--100">Доставка в офіс м. Київ</span>
-                                    <a class="cart-page-delivery-options-item-pin" href="https://maps.app.goo.gl/g35oTvRxtNgf3Sy76" target="_blank">
-                                        <svg class="icon--cart-map" role="presentation">
-                                            <use xlink:href="#icon-cart-map"></use>
-                                        </svg>
-                                        <span class="text-14 text-black">вул. Новоконстянтинівська, 15/15</span>
-                                    </a>
+                                    <div class="thank-page-page-delivery-options-item--type">
+                                        <label for="Khvoiky">
+                                            <input type="checkbox" name="delivery_type" id="Khvoiky" disabled  {{ $order->delivery_type == 2 ? 'checked' : '' }}>
+                                        </label>
+                                        <span class="text-14 text-black--100">Доставка в офіс м. Київ</span>
+                                        <a class="cart-page-delivery-options-item-pin" href="https://maps.app.goo.gl/g35oTvRxtNgf3Sy76" target="_blank">
+                                            <svg class="icon--cart-map" role="presentation">
+                                                <use xlink:href="#icon-cart-map"></use>
+                                            </svg>
+                                            <span class="text-14 text-black">вул. Новоконстянтинівська, 15/15</span>
+                                        </a>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Замовник: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Контактний номер: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Електронна пошта: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
                                 </div>
                                 <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 3 ? ' active' : '' }}">
-                                    <input type="checkbox" name="delivery_type" id="Plekhanova" disabled  {{ $order->delivery_type == 3 ? 'checked' : '' }}>
-                                    <span class="text-14 text-black--100">Доставка в офіс м. Дніпро</span>
-                                    <a class="cart-page-delivery-options-item-pin" href="https://goo.gl/maps/LQsipjuHV9Rnqnev6" target="_blank">
-                                        <svg class="icon--cart-map" role="presentation">
-                                            <use xlink:href="#icon-cart-map"></use>
-                                        </svg>
-                                        <span class="text-14 text-black">вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх</span>
-                                    </a>
+                                    <div class="thank-page-page-delivery-options-item--type">    
+                                        <input type="checkbox" name="delivery_type" id="Plekhanova" disabled  {{ $order->delivery_type == 3 ? 'checked' : '' }}>
+                                        <span class="text-14 text-black--100">Доставка в офіс м. Дніпро</span>
+                                        <a class="cart-page-delivery-options-item-pin" href="https://goo.gl/maps/LQsipjuHV9Rnqnev6" target="_blank">
+                                            <svg class="icon--cart-map" role="presentation">
+                                                <use xlink:href="#icon-cart-map"></use>
+                                            </svg>
+                                            <span class="text-14 text-black">вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх</span>
+                                        </a>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Замовник: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Контактний номер: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
+                                    <div class="thank-page-page-delivery-options-item--details">
+                                        <span class="text-14 text-black--100"> Електронна пошта: </span>
+                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                    </div>
                                 </div>
                                 <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 4 ? ' active' : '' }}">
                                     <div class="thank-page-page-delivery-options-item--type">

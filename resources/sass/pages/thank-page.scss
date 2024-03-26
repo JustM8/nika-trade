@@ -7,6 +7,10 @@
         align-items: flex-start;
         justify-content: space-between;
         gap: 60px;
+
+        @include tabletLarge {
+            padding: 40px;
+        }
     }
 
     &__title-wrap {
@@ -49,6 +53,7 @@
         align-items: center;
         justify-content: flex-start;
         gap: 8px;
+        flex-wrap: wrap;
     }
 
     &-page-delivery-options-item--details {
