@@ -80,7 +80,7 @@ comment: iiiooo
                 return response()->json([
                     'message' => 'Замовлення успішно створено.',
                     'order' => $order,
-                    'redirect_url' => $redirectUrl,
+                    'redirect_url' => $redgit irectUrl,
                 ]);
 
 //              return  redirect()->route('thankYou',['orderId'=>$order->id]);

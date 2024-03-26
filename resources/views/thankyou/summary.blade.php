@@ -1,7 +1,7 @@
 @extends('layouts.theme')
 
 @section('content')
- {{-- @dd($order->delivery_info); --}}
+{{--  @dd($order->delivery_info);--}}
     <div class="col-12 text-center">
         <div class="card">
             <div class="card-body">
@@ -52,15 +52,15 @@
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Замовник: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->company_name }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Контактний номер: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->phone }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Електронна пошта: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->email }}</span>
                                     </div>
                                 </div>
                                 <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 2 ? ' active' : '' }}">
@@ -78,19 +78,19 @@
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Замовник: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->company_name }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Контактний номер: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->phone }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Електронна пошта: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->email }}</span>
                                     </div>
                                 </div>
                                 <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 3 ? ' active' : '' }}">
-                                    <div class="thank-page-page-delivery-options-item--type">    
+                                    <div class="thank-page-page-delivery-options-item--type">
                                         <input type="checkbox" name="delivery_type" id="Plekhanova" disabled  {{ $order->delivery_type == 3 ? 'checked' : '' }}>
                                         <span class="text-14 text-black--100">Доставка в офіс м. Дніпро</span>
                                         <a class="cart-page-delivery-options-item-pin" href="https://goo.gl/maps/LQsipjuHV9Rnqnev6" target="_blank">
@@ -102,15 +102,15 @@
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Замовник: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->company_name }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Контактний номер: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->phone }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Електронна пошта: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->email }}</span>
                                     </div>
                                 </div>
                                 <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 4 ? ' active' : '' }}">
@@ -120,40 +120,40 @@
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Замовник: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->company_name }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Контактний номер: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->phone }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Електронна пошта: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->email }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Отримувач: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->name }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Номер телефону: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->phone_delivery }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Місто: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->city }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Адреса: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->address }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Перевізник: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->delivery_info['carrier'] }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Відділення: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
-                                    </div>                
+                                        <span class="text-14 text-black--100">{{ $order->delivery_info['branch_number'] }}</span>
+                                    </div>
                                 </div>
                                 <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 5 ? ' active' : '' }}">
                                     <div class="thank-page-page-delivery-options-item--type">
@@ -162,28 +162,28 @@
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Замовник: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->company_name }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Контактний номер: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->phone }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Електронна пошта: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->email }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Отримувач: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->name }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Номер телефону: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
+                                        <span class="text-14 text-black--100">{{ $order->phone_delivery }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
                                         <span class="text-14 text-black--100"> Адреса: </span>
-                                        <span class="text-14 text-black--100">{{ $order->id }}</span>
-                                    </div>             
+                                        <span class="text-14 text-black--100">{{ $order->address }}</span>
+                                    </div>
                                 </div>
                             </div>
                         </div>

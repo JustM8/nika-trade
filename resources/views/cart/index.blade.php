@@ -163,7 +163,7 @@
                         </div>
                         <p class="cart-page-form__hint text-14">Вкажіть бажаний колір обладнання:</p>
                         <div class="cart-page-form-field disabled form-field-input" data-field-input data-field-email data-status="field--inactive">
-                            <textarea class="cart-page-form__input" type="textarea" rows="5" name="color" placeholder="Стандартні кольори: Метал — сріблястий металік (RAL 7149 SPX), ДСП — попелястий (U112 PE)"></textarea>
+                            <textarea class="cart-page-form__input" type="textarea" rows="5" name="comment_color" placeholder="Стандартні кольори: Метал — сріблястий металік (RAL 7149 SPX), ДСП — попелястий (U112 PE)"></textarea>
                             <div class="cart-input-message text-14" data-input-message></div>
                         </div>
                         <div class="btn-container btn-container-border">

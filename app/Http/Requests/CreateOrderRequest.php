@@ -52,6 +52,7 @@ class CreateOrderRequest extends FormRequest
 
 
             'comment' => ['nullable','string'],
+            'comment_color' => ['nullable','string'],
 
 
         ];
