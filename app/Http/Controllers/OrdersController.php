@@ -102,11 +102,7 @@ class OrdersController extends Controller
 
 // Відправка електронного листа
             $mailSent = mail($to, $subject, $message, $headers);
-print_r($mailSent);
 
-            return response()->json([
-                'qwe' => $mail,
-            ]);
 
             DB::commit();
             if(isset($order->id)){
