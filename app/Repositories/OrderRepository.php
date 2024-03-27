@@ -18,9 +18,6 @@ class OrderRepository implements OrderRepositoryContract
 
     public function create(array $request, float $total): Order|bool
     {
-        //SSS
-//        dd($request,$total);
-//        $user = auth()->user();
         $user = User::where('email', $request['email'])
             ->orWhere('phone', $request['phone'])
             ->first();
