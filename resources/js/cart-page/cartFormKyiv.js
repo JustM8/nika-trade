@@ -61,7 +61,7 @@ export const cartFormKyiv = (formRef, onSuccess) => {
                         ),
                         typeInput: "email",
                     }),
-                    rule: yup.string().required(i18next.t("required")).trim(),
+                    rule: yup.string().trim(),
                     defaultMessage: i18next.t("email"),
                     valid: false,
                     error: [],
