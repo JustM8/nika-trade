@@ -200,7 +200,9 @@
                             @endforeach
                         </div>
                     </div>
+                    
                 </div>
+                <a class="news-page-item__btn btn" href="{{ url('/news') }}">Ще новини</a>
             </div>
         </div>
     </section>

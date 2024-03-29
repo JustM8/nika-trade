@@ -137,6 +137,16 @@
                 @foreach($childrens as $item)
                 <div class="equipment-card">
 {{--                    <a href="{{ route('catalog.show', $item->slug) }}">--}}
+                    <div class="equipment-card__img-wrap">
+                        @if($item->thumbnail != null)
+                            <img src="{{$item->thumbnailUrl}}" alt="">
+                        @else
+                            <img src="{{asset('/assets/images/equipment/default.jpg')}}" alt="">
+                        @endif
+                        <span class="equipment-card-list-item__title text-14 text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, unde dolorem recusandae officia quia omnis et labore quas accusantium ab cupiditate vitae nihil quibusdam assumenda quos, corrupti aspernatur architecto dolore dicta. Maxime dicta sit beatae facilis, sint debitis ex saepe!</span>
+
+
+                    </div>
                     <div class="equipment-card-intro"> <span class="equipment-card__title text-24"> <?=$item['name'][App::currentLocale()]?></span>
                         <div class="equipment-card-list">
                             @foreach($childrensOfChildrens[$item->id] as $children)
@@ -150,14 +160,7 @@
 
                         </div>
                     </div>
-                    <div class="equipment-card__img-wrap">
-                        @if($item->thumbnail != null)
-                            <img src="{{$item->thumbnailUrl}}" alt="">
-                        @else
-                            <img src="{{asset('/assets/images/equipment/default.jpg')}}" alt="">
-                        @endif
-
-                    </div>
+                    
 {{--                    </a>--}}
                 </div>
                 @endforeach

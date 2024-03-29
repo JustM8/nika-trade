@@ -221,6 +221,7 @@
               <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/')}}">Головна</a></li>
               <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/')}}#about">Про компанію</a></li>
               <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/gallery') }}">Галерея</a></li>
+              <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/catalog/torhove-obladnannia') }}">Каталог</a></li>
               <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/services') }}">Інформація для замовника</a></li>
               <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/news') }}">Новини</a></li>
               <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/contacts') }}">Контакти</a></li>

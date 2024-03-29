@@ -1,12 +1,10 @@
 .news-page {
     &-wrap {
-
     }
     &-list {
         display: flex;
         flex-direction: column;
         gap: 20px;
-
     }
     &-item {
         display: flex;
@@ -31,9 +29,6 @@
                 flex-direction: column-reverse;
             }
         }
-
-
-
     }
     &-item-intro-wrap {
         display: flex;
@@ -44,45 +39,35 @@
         @include mobile {
             width: 100%;
         }
-
     }
     &-item-intro {
-
         @include tablet {
             margin-bottom: 40px;
-
         }
-
     }
     &-item__title {
         color: $bc;
         margin-bottom: 12px;
-
     }
     &-item__text {
         color: $textGrey;
         margin-bottom: 20px;
-
     }
     &-item__btn {
         text-transform: uppercase;
-
+        margin-top: 20px;
     }
     &-item-date {
         color: $textGrey;
         display: flex;
         justify-content: flex-start;
         gap: 3px;
-
     }
     &-item-date__day {
-
     }
     &-item-date__month {
-
     }
     &-item-date__year {
-
     }
     &-item__img-wrap {
         width: 39%;
@@ -90,11 +75,9 @@
         @include mobile {
             width: 100%;
         }
-
     }
     &-item__img {
         height: 100%;
         object-fit: cover;
-
     }
 }
