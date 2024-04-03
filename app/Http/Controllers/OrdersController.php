@@ -40,69 +40,7 @@ class OrdersController extends Controller
             $request = $request->validated();
 
             $order = $this->repository->create($request, $total);
-
-
-            $delivery = [
-                1 => 'Самовивіз - Михайлівка-Рубежівка (виробнича база)',
-                2 => 'Доставка в офіс м. Київ вул. Новоконстянтинівська, 15/15',
-                3 => 'Доставка в офіс м. Дніпро вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх',
-                4 => 'Доставка перевізником (по Україні)',
-                5 => 'Доставка по Києву (послуги вантажників не надаються)',
-            ];
-
-            $mail = [
-                'Замовник' => $order->company_name,
-                'Контактний телефон' => $order->phone,
-                'Email' => $order->email,
-                'Тип доставки' => $delivery[$order->delivery_type],
-
-                'Отримувач' => $order->name,
-                'Телефон отримувача' => $order->phone_delivery,
-                'Місто' => $order->city,
-                'Адреса' => $order->address,
-                'Перевізник' => $order->delivery_info['carrier'],
-                'Номер відділення' => $order->delivery_info['branch_number'],
-
-                'Коментар' => $order->comment,
-                'Бажаний колір обладнання' => $order->comment_color,
-
-
-            ];
-
-            $mail_products = [];
-            foreach ($order->products as $product){
-                $mail_products[] = [
-                    'Товар' => $product->title[App::currentLocale()],
-                    'Артикул' => $product->SKU,
-                    'Ціна товару' => $product->pivot->single_price,
-                ];
-
-            }
-            $mail = array_merge($mail,$mail_products);
-
-            //  'Номер замовлення' => $order->id,
-            //                'Усього до сплати' => $order->total,
-
-            $message = "Добрий день,\n\nВаше замовлення:\n\n";
-            foreach ($mail as $key => $value) {
-                if (is_array($value)) {
-                    foreach ($value as $innerKey => $innerValue) {
-                        $message .= "$innerKey: $innerValue\n";
-                    }
-                } else {
-                    $message .= "$key: $value\n";
-                }
-            }
-
-// Налаштування електронного листа
-            $to = 'gav.sqrt@gmail.com';
-            $subject = 'Замовлення';
-            $headers = 'From: nika-trade.com.ua' . "\r\n" .
-                'X-Mailer: PHP/' . phpversion();
-
-// Відправка електронного листа
-            $mailSent = mail($to, $subject, $message, $headers);
-
+            $mail = $this->mailSend($order);
 
             DB::commit();
             if(isset($order->id)){
@@ -133,9 +71,82 @@ class OrdersController extends Controller
     public function thankYou(string $orderId)
     {
 
-        Cart::instance('cart')->destroy();
+//        Cart::instance('cart')->destroy();
         $order = Order::with(['user','products'])->where('id',$orderId)->firstOrFail();
 
         return view('thankyou/summary',['title'=>__('thankyou.Title')], compact('order'));
+    }
+
+    public function mailSend($order)
+    {
+        $delivery = [
+            1 => 'Самовивіз - Михайлівка-Рубежівка (виробнича база)',
+            2 => 'Доставка в офіс м. Київ вул. Новоконстянтинівська, 15/15',
+            3 => 'Доставка в офіс м. Дніпро вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх',
+            4 => 'Доставка перевізником (по Україні)',
+            5 => 'Доставка по Києву (послуги вантажників не надаються)',
+        ];
+
+        $mail = [
+            'Номер замовлення' => $order->id,
+            'Замовник' => $order->company_name,
+            'Контактний телефон' => $order->phone,
+            'Email' => $order->email,
+            'Тип доставки' => $delivery[$order->delivery_type],
+
+            'Отримувач' => $order->name,
+            'Телефон отримувача' => $order->phone_delivery,
+            'Місто' => $order->city,
+            'Адреса' => $order->address,
+            'Перевізник' => $order->delivery_info['carrier'],
+            'Номер відділення' => $order->delivery_info['branch_number'],
+
+            'Коментар' => $order->comment,
+            'Бажаний колір обладнання' => $order->comment_color,
+            'Список товарів в замовленні' => '<hr>',
+        ];
+
+        $mail_products = [];
+        foreach ($order->products as $product){
+            $mail_products[] = [
+                "Товар" => $product->title[App::currentLocale()],
+                "Артикул" => $product->SKU,
+                "Кількість" => $product->pivot->quantity,
+                "Ціна товару" => $product->pivot->single_price,
+            ];
+        }
+
+
+        $mail = array_merge($mail,$mail_products);
+
+
+        $message = '<html><body style="font-family: Arial, sans-serif;">';
+        $message .= '<h2 style="color: #333;">Нове замовлення:</h2>';
+
+        foreach ($mail as $key => $value) {
+            if (is_array($value)) {
+                $message .= "<ul>";
+                foreach ($value as $innerKey => $innerValue) {
+                    $message .= "<li><strong>".$innerKey." : </strong>".$innerValue."</li>";
+                }
+                $message .= "</ul>";
+            } else {
+                $message .= "<p><strong>".$key." : </strong>".$value."</p>";
+            }
+        }
+
+        $message .= "<hr><b>Усього до сплати : ".$order->total." грн.</b>";
+        $message .= '</body></html>';
+
+        // Налаштування електронного листа
+        $to = 'gav.sqrt@gmail.com';
+        $subject = 'Замовлення';
+        $headers = "From: nika-trade.com.ua\r\n";
+        $headers .= "MIME-Version: 1.0\r\n";
+        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+
+        $mailSent = mail($to, $subject, $message, $headers);
+
+        return $mailSent;
     }
 }

@@ -19,6 +19,7 @@ class CatalogController extends Controller
 
     public function show($slug)
     {
+
         $category = Category::where('slug','=',$slug)->first();
         $childrens = $this->getChildCategories($category->id);
         $childrensOfChildrens = [];
@@ -31,13 +32,14 @@ class CatalogController extends Controller
 
         if($category->hasProducts() == true)
         {
-//            $products = $category->products->where('parent_id', null);
+//            $products = $category->products;
+
             $products = $category->products()
                 ->whereNull('parent_id')
                 ->where('is_public', 1)
                 ->orderBy('priority', 'asc')
                 ->get();
-
+//            dd($products);
             if($products->isEmpty()){
                 $products = $products->collect();
             }

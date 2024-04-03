@@ -20,7 +20,7 @@ return new class extends Migration
 
             $table->text('company_name');
             $table->string('phone',15);
-            $table->string('email');
+            $table->string('email')->nullable();
             $table->tinyInteger('delivery_type')->nullable();
 
 

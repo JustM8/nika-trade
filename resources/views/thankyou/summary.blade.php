@@ -198,10 +198,10 @@
                                 <span class="thank-page-list-item__key text-14 text-black"> Товар: </span>
                                 <span class="thank-page-list-item__value text-14 text-black">{{$product->title[App::currentLocale()]}}</span>
                             </div>
-{{--                            <div class="thank-page-list-item-row">--}}
-{{--                                <span class="thank-page-list-item__key text-14 text-black">Розмір товару: </span>--}}
-{{--                                <span class="thank-page-list-item__value text-14 text-black">450 мм</span>--}}
-{{--                            </div>--}}
+                            <div class="thank-page-list-item-row">
+                                <span class="thank-page-list-item__key text-14 text-black">Кількість товару: </span>
+                                <span class="thank-page-list-item__value text-14 text-black">{{$product->pivot->quantity}}</span>
+                            </div>
                             <div class="thank-page-list-item-row">
                                 <span class="thank-page-list-item__key text-14 text-black">Артикул:<span></span> </span>
                                 <span class="thank-page-list-item__value text-14 text-black">{{$product->SKU}}</span>
