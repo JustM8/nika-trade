@@ -18,9 +18,10 @@ class OrderRepository implements OrderRepositoryContract
 
     public function create(array $request, float $total): Order|bool
     {
-        $user = User::where('email', $request['email'])
-            ->orWhere('phone', $request['phone'])
-            ->first();
+
+//        $user = User::where('email', $request['email'])
+//            ->orWhere('phone', $request['phone'])
+//            ->first();
 
        if($request['delivery_type'] != 5){
                 unset($request['nameKyiv'],$request['phoneKyiv'],$request['addressKyiv']);
@@ -31,18 +32,19 @@ class OrderRepository implements OrderRepositoryContract
            unset($request['nameKyiv'],$request['phoneKyiv'],$request['addressKyiv']);
        }
 
-        if (!$user) {
-            $user = new User();
-                $user->role_id = 2;
-                $user->name = 'Клієнт з компанії - '.$request['company_name'];
-                $user->surname = ' ';
-                $user->birthdate = date("2003-01-05");
-                $user->phone = $request['phone'];
-                $user->email = $request['email'];
-                $user->password =  Hash::make($request['phone']);
-            $user->save();
-        }
-        auth()->login($user);
+//        if (!$user) {
+//            $user = new User();
+//                $user->role_id = 2;
+//                $user->name = 'Клієнт з компанії - '.$request['company_name'];
+//                $user->surname = ' ';
+//                $user->birthdate = date("2003-01-05");
+//                $user->phone = $request['phone'];
+//                $user->email = $request['email'];
+//                $user->password =  Hash::make($request['phone']);
+//            $user->save();
+//        }
+//        auth()->login($user);
+
         $status = OrderStatus::defaultStatus()->first();
 
         $request = array_merge($request, [
@@ -50,7 +52,8 @@ class OrderRepository implements OrderRepositoryContract
             'total' => $total
         ]);
 
-        $order = $user->orders()->create($request);
+//        $order = $user->orders()->create($request);
+        $order = Order::create($request);
 
         $this->addProductsToOrder($order);
 
@@ -93,4 +96,6 @@ class OrderRepository implements OrderRepositoryContract
 
         });
     }
+
+
 }

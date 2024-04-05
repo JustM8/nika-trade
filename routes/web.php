@@ -46,10 +46,10 @@ Route::post('ajax/cart/{product}/count', [\App\Http\Controllers\Ajax\CartControl
 Route::get('checkout', \App\Http\Controllers\CheckoutController::class)->name('checkout');
 Route::post('order', [\App\Http\Controllers\OrdersController::class,'index'])->name('orders');
 Route::post('order/create', [\App\Http\Controllers\OrdersController::class,'create'])->name('order.create');
+Route::get('order/{orderId}/thankyou',[\App\Http\Controllers\OrdersController::class,'thankYou'])->name('thankYou');
 
 Route::middleware('auth')->group(function() {
 
-    Route::get('order/{orderId}/thankyou',[\App\Http\Controllers\OrdersController::class,'thankYou'])->name('thankYou');
 
     Route::name('account.')->prefix('account')->group(function (){
         Route::get('/',[\App\Http\Controllers\Account\UsersController::class,'index'])->name('index');
