@@ -18,14 +18,14 @@
     <section class="thank-page page-container">
         <div class="thank-page-wrap">
             <div class="page-intro">
-                <div class="page-breadcrumbs">
+                <!-- <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
                         <li class="breadcrumbs-item">
                             <a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{url('/')}}">Головна</a>
                         </li>
                         <li class="breadcrumbs-item__current--color breadcrumbs-item">Замовлення # {{ $order->id }}</li>
                     </ul>
-                </div>
+                </div> -->
                 <h2 class="page-title text-title">Дякуємо за ваше замовлення</h2>
             </div>
             <div class="thank-page-main">

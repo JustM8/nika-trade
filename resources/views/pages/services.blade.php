@@ -3,7 +3,7 @@
     <section class="services page-container">
         <div class="services-wrap">
             <div class="page-intro">
-                <div class="page-breadcrumbs">
+                <!-- <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
                         <li class="breadcrumbs-item">
                             <a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{url('/')}}">Головна</a></li>
@@ -11,7 +11,7 @@
                             <a class="breadcrumbs-item__link" href="#">Інформація для замовника</a>
                         </li>
                     </ul>
-                </div>
+                </div> -->
                 <h2 class="page-title text-title">Інформація для замовника</h2>
             </div>
             <div class="services-list">

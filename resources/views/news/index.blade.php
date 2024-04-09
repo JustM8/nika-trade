@@ -5,12 +5,12 @@
     <section class="news-page page-container">
         <div class="news-page-wrap">
             <div class="page-intro">
-                <div class="page-breadcrumbs">
+                <!-- <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
                         <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="index.html">Головна</a></li>
                         <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">Новини</a></li>
                     </ul>
-                </div>
+                </div> -->
                 <h2 class="page-title text-title">Новини</h2>
             </div>
             <div class="news-page-list">

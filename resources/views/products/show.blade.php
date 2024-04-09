@@ -5,7 +5,7 @@
     <section class="product-page page-container" data-product-id="{{$product->id}}">
         <div class="product-page-wrap">
             <div class="page-intro" data-title="{{$rootParent->slug}}" >
-                <div class="page-breadcrumbs">
+                <!-- <div class="page-breadcrumbs">
                     <ul class="breadcrumbs">
                         <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Головна</a></li>
                         @foreach($breadcrumbs as $item)
@@ -13,7 +13,7 @@
                         @endforeach
 
                     </ul>
-                </div>
+                </div> -->
                 <h2 class="page-title text-title">{{ $product->title[App::currentLocale()] }}</h2>
             </div>
             <div class="product-page-main">

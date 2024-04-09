@@ -6,7 +6,7 @@
         <section class="catalog-single page-container">
             <div class="catalog-single-wrap">
                 <div class="page-intro" data-category="{{$rootParent->slug}}">
-                    <div class="page-breadcrumbs">
+                    <!-- <div class="page-breadcrumbs">
                         <ul class="breadcrumbs">
                             <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{ url('/')}}">Головна</a></li>
                             @foreach($breadcrumbs as $item)
@@ -17,7 +17,7 @@
                                 @endif
                             @endforeach
                         </ul>
-                    </div>
+                    </div> -->
                     <h2 class="page-title text-title"><?=$category['name'][App::currentLocale()]?></h2>
                 </div>
                 <div class="catalog-single-main">

@@ -3,12 +3,12 @@
 <section class="cart-page page-container">
     <div class="cart-page-wrap">
         <div class="page-intro">
-            <div class="page-breadcrumbs">
+            <!-- <div class="page-breadcrumbs">
                 <ul class="breadcrumbs">
                     <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="{{url('/')}}">Головна</a></li>
                     <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">Кошик</a></li>
                 </ul>
-            </div>
+            </div> -->
             <h2 class="page-title text-title">Кошик</h2>
         </div>
         <div class="cart-page-main">
