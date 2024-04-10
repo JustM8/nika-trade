@@ -35,7 +35,7 @@
 
                             <!--тут додати посилання на категорію-->
 
-                            <a class="catalog-single-filter__title text-s" href=""> <?=$item['name']?></a>
+                            <a class="catalog-single-filter__title text-s" href="{{ route('catalog.show', $item['slug']) }}">{{$item['name']}}</a>
                             @if(!empty($item['children']))
                             @foreach($item['children'] as $underItem)
                             <div class="catalog-single-filter-card">
@@ -113,7 +113,7 @@
 
                             <!--тут додати посилання на категорію-->
 
-                            <a class="catalog-single-filter__title text-s" href=""> <?=$item['name']?></a>
+                            <a class="catalog-single-filter__title text-s" href="{{ route('catalog.show', $item['slug']) }}"> <?=$item['name']?></a>
                             @if(!empty($item['children']))
                             @foreach($item['children'] as $underItem)
                             <div class="catalog-single-filter-card">
@@ -143,7 +143,7 @@
                         @else
                             <img src="{{asset('/assets/images/equipment/default.jpg')}}" alt="">
                         @endif
-                        <span class="equipment-card-list-item__title text-14 text-black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consequuntur, unde dolorem recusandae officia quia omnis et labore quas accusantium ab cupiditate vitae nihil quibusdam assumenda quos, corrupti aspernatur architecto dolore dicta. Maxime dicta sit beatae facilis, sint debitis ex saepe!</span>
+                        <span class="equipment-card-list-item__title text-14 text-black"><?=$item['description'][App::currentLocale()]?></span>
 
 
                     </div>
@@ -160,7 +160,7 @@
 
                         </div>
                     </div>
-                    
+
 {{--                    </a>--}}
                 </div>
                 @endforeach

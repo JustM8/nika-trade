@@ -13,7 +13,7 @@ class MainController extends Controller
 {
     public function index()
     {
-        $news = News::all()->sortBy('priority')->take(3);
+        $news = News::latest('date')->orderBy('priority')->take(3)->get();
         $rootCategories = Category::rootCategories()->get();
 //        dd($rootCategories);
         return view('main',['title'=>__('main.Main')],compact('news', 'rootCategories'));
