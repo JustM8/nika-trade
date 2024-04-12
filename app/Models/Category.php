@@ -20,11 +20,15 @@ class Category extends Model
         'parent_id',
         'slug',
         'description',
+        'description_l',
+        'description_r',
         'thumbnail'
     ];
     protected $casts = [
         'name' => 'array',
         'description' => 'array',
+        'description_l' => 'array',
+        'description_r' => 'array',
     ];
 
 

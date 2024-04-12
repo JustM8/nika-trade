@@ -67,6 +67,29 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="description"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Description Left') }}</label>
+                                <div class="col-md-6">
+                            <textarea name="description_l"
+                                      class="form-control @error('description_l') is-invalid @enderror"
+                                      id="description_l"
+                                      cols="30"
+                                      rows="10">{{ old('description_l') }}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="description"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Description Right') }}</label>
+                                <div class="col-md-6">
+                            <textarea name="description_r"
+                                      class="form-control @error('description_r') is-invalid @enderror"
+                                      id="description_r"
+                                      cols="30"
+                                      rows="10">{{ old('description_r') }}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="thumbnail" class="col-md-4 col-form-label text-md-right">{{ __('Thumbnail') }}</label>
                                 <div class="col-md-6">
                                     <div class="row">

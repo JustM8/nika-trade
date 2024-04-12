@@ -25,18 +25,26 @@ class CategoryRepository implements CategoryRepositoryContract
             $langs = config('app.available_locales');
             $nameContent = [];
             $descriptionContent = [];
+            $descriptionContentL = [];
+            $descriptionContentR = [];
 
             foreach ($langs as $lang){
                 if($lang == $locale) {
                     $nameContent[$lang] = $request->name;
                     $descriptionContent[$lang] = $request->description;
+                    $descriptionContentL[$lang] = $request->description_l;
+                    $descriptionContentR[$lang] = $request->description_r;
                 }else{
                     $nameContent[$lang] = '';
                     $descriptionContent[$lang] = '';
+                    $descriptionContentL[$lang] = '';
+                    $descriptionContentR[$lang] = '';
                 }
             }
             $data['name'] = $nameContent;
             $data['description'] = $descriptionContent;
+            $data['description_l'] = $descriptionContentL;
+            $data['description_r'] = $descriptionContentR;
 
             $category = Category::create($data);
 
@@ -62,18 +70,26 @@ class CategoryRepository implements CategoryRepositoryContract
                 if($lang == $locale) {
                     $nameContent[$lang] = $request->name;
                     $descriptionContent[$lang] = $request->description;
+                    $descriptionContentL[$lang] = $request->description_l;
+                    $descriptionContentR[$lang] = $request->description_r;
                 }else{
                     if(!empty($category->name[$lang])) {
                         $nameContent[$lang] = $category->name[$lang];
                         $descriptionContent[$lang] = $category->description[$lang];
+                        $descriptionContentL[$lang] = $category->description_l[$lang];
+                        $descriptionContentR[$lang] = $category->description_r[$lang];
                     }else{
                         $nameContent[$lang] = '';
                         $descriptionContent[$lang] = '';
+                        $descriptionContentL[$lang] = '';
+                        $descriptionContentR[$lang] = '';
                     }
                 }
             }
             $data['name'] = $nameContent;
             $data['description'] = $descriptionContent;
+            $data['description_l'] = $descriptionContentL;
+            $data['description_r'] = $descriptionContentR;
             $category->update($data);
 
             DB::commit();

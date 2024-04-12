@@ -71,6 +71,32 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description Left') }}</label>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                <textarea name="description_l" id="description_l" class="form-control  @error('description_l') is-invalid @enderror" placeholder="Leave a comment here" id="description_l" style="height: 250px">
+                                    @if(!empty($category->description_l))
+                                        {{$category->description_l[App::currentLocale()]}}
+                                    @endif
+                                </textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description Right') }}</label>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                <textarea name="description_r" id="description_r" class="form-control  @error('description_r') is-invalid @enderror" placeholder="Leave a comment here" id="description_r" style="height: 250px">
+                                    @if(!empty($category->description_r))
+                                        {{$category->description_r[App::currentLocale()]}}
+                                    @endif
+                                </textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="thumbnail"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Thumbnail') }}</label>
                                 <div class="col-md-6">
