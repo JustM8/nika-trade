@@ -53,12 +53,12 @@
                             <a class="news-page-item__btn btn" href="{{ route('news.show', $item->slug) }}">Читати новину</a>
                         </div>
                         <div class="news-page-item-date">
-                            <span class="news-page-item-date__day text-14">{{$news->day}}</span>
-                            <span class="news-page-item-date__month text-14">{{$news->month}}</span>
-                            <span class="news-page-item-date__year text-14">{{$news->year}}</span>
+                            <span class="news-page-item-date__day text-14">{{$item->day}}</span>
+                            <span class="news-page-item-date__month text-14">{{$item->month}}</span>
+                            <span class="news-page-item-date__year text-14">{{$item->year}}</span>
                         </div>
                     </div>
-                    <div class="news-page-item__img-wrap"> <img class="news-page-item__img" src="{{ $news->thumbnailUrl  }}" alt=""></div>
+                    <div class="news-page-item__img-wrap"> <img class="news-page-item__img" src="{{ $item->thumbnailUrl  }}" alt=""></div>
                 </div>
                 @endforeach
 
