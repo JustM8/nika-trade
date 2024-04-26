@@ -30,7 +30,7 @@
 {{--                    @dd($menu);--}}
                     @foreach($menu as $item)
                         <div class="catalog-single-filter">
-                            <a class="catalog-single-filter__title text-s" href=""> <?=$item['name']?></a>
+                            <a class="catalog-single-filter__title text-s" href="{{ route('catalog.show', $item['slug']) }}"> <?=$item['name']?></a>
                             @if(!empty($item['children']))
                                 @foreach($item['children'] as $underItem)
                                     <div class="catalog-single-filter-card">
@@ -124,7 +124,7 @@
 
 
                 </div>
-                
+
                 <div class="product-page-info-wrap">
                     <div class="product-page-info-switch">
                         <button class="product-page-info-switch-item active" data-info="details"> <span class="text-14 text-black-100">Опис</span></button>

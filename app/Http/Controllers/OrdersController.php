@@ -108,12 +108,14 @@ class OrdersController extends Controller
 
         $mail_products = [];
         foreach ($order->products as $product){
-            $mail_products[] = [
-                "Товар" => $product->title[App::currentLocale()],
-                "Артикул" => $product->SKU,
-                "Кількість" => $product->pivot->quantity,
-                "Ціна товару" => $product->pivot->single_price,
-            ];
+            if($product->parent_id != null) {
+                $mail_products[] = [
+                    "Товар" => $product->title[App::currentLocale()],
+                    "Артикул" => $product->SKU,
+                    "Кількість" => $product->pivot->quantity,
+                    "Ціна товару" => $product->pivot->single_price,
+                ];
+            }
         }
 
 
@@ -139,7 +141,7 @@ class OrdersController extends Controller
         $message .= '</body></html>';
 
         // Налаштування електронного листа
-        $to = 'gav.sqrt@gmail.com';
+        $to = 'nika@nika-trade.net.ua, gav.sqrt@gmail.com';
         $subject = 'Замовлення';
         $headers = "From: nika-trade.com.ua\r\n";
         $headers .= "MIME-Version: 1.0\r\n";

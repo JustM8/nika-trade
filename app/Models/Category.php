@@ -19,6 +19,7 @@ class Category extends Model
         'name',
         'parent_id',
         'slug',
+        'post_title',
         'description',
         'description_l',
         'description_r',
@@ -26,6 +27,7 @@ class Category extends Model
     ];
     protected $casts = [
         'name' => 'array',
+        'post_title' => 'array',
         'description' => 'array',
         'description_l' => 'array',
         'description_r' => 'array',

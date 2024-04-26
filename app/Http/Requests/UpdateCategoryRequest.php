@@ -31,6 +31,7 @@ class UpdateCategoryRequest extends FormRequest
             'name' => ['required', 'string'],
             'slug' => ['required', 'string', 'min:2', 'max:50', Rule::unique('categories', 'slug')->ignore($categoryId)],
             'parent_id' => ['nullable'],
+            'post_title' => ['nullable'],
             'description' => ['nullable'],
             'description_l' => ['nullable'],
             'description_r' => ['nullable'],

@@ -175,7 +175,9 @@
 
 
             <div class="equipment-info-wrap">
-                <div class="equipment-info__title text-m">Торгівельне обладнання, обладнання для магазинів</div>
+                <div class="equipment-info__title text-m"> @if(isset($category) && is_array($category->post_title) && array_key_exists(App::currentLocale(), $category->post_title))
+                        {{ $category->post_title[App::currentLocale()] }}
+                    @endif</div>
                 <div class="equipment-info">
                     <div class="equipment-info__descr-wrap">
                         <p class="equipment-info__descr text-14">

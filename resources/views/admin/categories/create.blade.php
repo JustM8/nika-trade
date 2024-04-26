@@ -55,6 +55,18 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="post_title"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('post_title') }}</label>
+                                <div class="col-md-6">
+                            <textarea name="post_title"
+                                      class="form-control @error('post_title') is-invalid @enderror"
+                                      id="post_title"
+                                      cols="30"
+                                      rows="10">{{ old('post_title') }}</textarea>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="description"
                                        class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
                                 <div class="col-md-6">

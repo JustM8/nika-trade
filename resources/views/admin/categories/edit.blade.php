@@ -58,6 +58,19 @@
                             </div>
 
                             <div class="form-group row">
+                                <label for="post_title" class="col-md-4 col-form-label text-md-right">{{ __('post_title') }}</label>
+                                <div class="col-md-6">
+                                    <div class="form-floating">
+                                <textarea name="post_title" id="post_title" class="form-control  @error('post_title') is-invalid @enderror" placeholder="Leave a comment here" id="post_title" style="height: 250px">
+                                    @if(!empty($category->post_title))
+                                        {{$category->post_title[App::currentLocale()]}}
+                                    @endif
+                                </textarea>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
                                 <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
                                 <div class="col-md-6">
                                     <div class="form-floating">
