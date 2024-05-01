@@ -81,6 +81,8 @@ Route::get('categories/{params?}', [\App\Http\Controllers\CategoriesController::
 Route::name('admin.')->prefix('admin')->middleware(['auth','admin'])->group(function (){
     Route::get('dashboard', \App\Http\Controllers\Admin\DashboardController::class)->name('dashboard');
 
+    Route::resource('orders',\App\Http\Controllers\Admin\OrdersController::class)->except(['edit','update','destroy']);
+
     Route::resource('categories',\App\Http\Controllers\Admin\CategoriesController::class)->except(['show']);
     Route::resource('products',\App\Http\Controllers\Admin\ProductsController::class)->except(['show']);
 
