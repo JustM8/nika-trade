@@ -29,7 +29,7 @@ Route::delete(
         \App\Http\Controllers\Ajax\RemoveImageController::class
 )->middleware(['auth','admin'])->name('ajax.images.delete');
 
-
+Route::get('/load-more-news', [App\Http\Controllers\NewsController::class,'loadMoreNews'])->name('load-more-news');
 Route::get('news',[App\Http\Controllers\NewsController::class,'index']);
 Route::get('/news/{slug}',[App\Http\Controllers\NewsController::class,'show'])->name('news.show');
 

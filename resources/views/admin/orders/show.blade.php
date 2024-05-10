@@ -85,10 +85,8 @@
                     <span class="thank-page-list__title text-24 text-black-100">{{ __('order.orderInfo') }}:</span>
                 </div>
                 @foreach($order->products as $product)
+                    @if($product->parent_id != null)
                     <div class="thank-page-list-item">
-                        @if(Storage::has($product->thumbnail))
-                            <img class="product-page-image" src="{{ $product->thumbnailUrl  }}" alt="">
-                        @endif
                         <div class="thank-page-list-item-row">
                             <span class="thank-page-list-item__key text-14 text-black"> {{ __('product.Name') }}: </span>
                             <span class="thank-page-list-item__value text-14 text-black">{{$product->title[App::currentLocale()]}}</span>
@@ -106,6 +104,7 @@
                             <span class="thank-page-list-item__value text-14 text-black">{{$product->pivot->single_price}}</span>
                         </div>
                     </div>
+                    @endif
                 @endforeach
                 <div class="thank-page-list-item thank-page-list-item-details">
                     <div class="thank-page-list-item-row">

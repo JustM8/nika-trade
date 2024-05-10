@@ -15,7 +15,12 @@ class NewsController extends Controller
      */
     public function index()
     {
-        $news = News::latest('date')->get();
+        $news = News::query()
+            ->orderByRaw('ISNULL(priority), priority asc')
+            ->orderBy('created_at', 'desc')
+            ->take(5)
+            ->get();
+//        $news = News::latest('date')->orderBy('priority')->take(5)->get();
         return view('news.index',['title'=>__('news.Title')], compact('news'));
     }
     /**
@@ -35,7 +40,11 @@ class NewsController extends Controller
         $news->month = $this->monthName($date[1]);
         $news->year = $date[0];
 
-        $otherNews = News::all()->except($news->id)->take(2);
+        $otherNews = News::where('id', '!=', $news->id)
+            ->latest('date')
+            ->take(5)
+            ->get();
+//        $otherNews = News::all()->except($news->id)->take(2);
         foreach ($otherNews as $item){
             $dataTime = explode(' ',$item->created_at);
             $date = explode('-',$dataTime[0]);
@@ -66,6 +75,36 @@ class NewsController extends Controller
         ];
 
         return $monthList[$month];
+    }
+
+    public function loadMoreNews(Request $request)
+    {
+        $offset = $request->input('offset', 0);
+        $limit = 5; // Кількість новин, яку потрібно завантажити за раз
+
+        $news = News::latest('date')->skip($offset)->take($limit)->get();
+        foreach ($news as $new){
+            $d = explode('-',$new->date);
+            $n[] = '<div class="news-page-item">'.
+                        '<div class="news-page-item-intro-wrap">'.
+                            '<div class="news-page-item-intro">'.
+                                '<h2 class="news-page-item__title text-24">'.$new->title[App::currentLocale()].'</h2>'.
+                                '<p class="news-page-item__text text-14">'.$new->description['description_top'][App::currentLocale()].'</p>'.
+                                '<a class="news-page-item__btn btn" href="'.route('news.show', $new->slug).'">Читати новину</a>'.
+                            '</div>'.
+                            '<div class="news-page-item-date">'.
+                                '<span class="news-page-item-date__day text-14">'.$d[2].'</span>'.
+                                '<span class="news-page-item-date__month text-14">'.$d[1].'</span>'.
+                                '<span class="news-page-item-date__year text-14">'.$d[0].'</span>'.
+                            '</div>'.
+                        '</div>'.
+                        '<div class="news-page-item__img-wrap">'.
+                            '<img class="news-page-item__img" src="'.$new->thumbnailUrl.'" alt="">'.
+                        '</div>'.
+                    '</div>';
+        }
+
+        return $n;
     }
 
 }

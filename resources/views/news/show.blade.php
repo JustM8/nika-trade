@@ -31,9 +31,9 @@
 {{--                    <a class="single-news-item__btn btn" href="#">Перейти на офіційний сайт </a>--}}
                 </div>
                 <div class="single-news-item__date">
-                    <span class="single-news-item__date-day text-14">{{$news->year}}</span>
-                    <span class="single-news-item__date-month text-14">{{$news->month}}</span>
                     <span class="single-news-item__date-year text-14">{{$news->day}}</span>
+                    <span class="single-news-item__date-month text-14">{{$news->month}}</span>
+                    <span class="single-news-item__date-day text-14">{{$news->year}}</span>
                 </div>
             </div>
             <h4 class="single-news__subtitle text-m">Останні новини</h4>
