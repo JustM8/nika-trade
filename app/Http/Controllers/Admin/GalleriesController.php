@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Http\Requests\CreateGalleryRequest;
 use App\Http\Requests\UpdateGalleryRequest;
+use App\Models\Category;
 use App\Models\Gallery;
 use App\Repositories\GalleryRepository;
 
@@ -22,7 +23,8 @@ class GalleriesController extends Controller
 
     public function create()
     {
-        return view('admin/galleries/create',['title'=>__('gallery.Title')]);
+        $categories = Category::nonRootCategories()->get();
+        return view('admin/galleries/create',['title'=>__('gallery.Title')],compact('categories'));
     }
 
     public function store(CreateGalleryRequest $request)
@@ -36,8 +38,8 @@ class GalleriesController extends Controller
 
     public function edit(Gallery $gallery)
     {
-//        dd($gallery->data);
-        return view('admin/galleries/edit',['title'=>__('gallery.Title')], compact('gallery'));
+        $categories = Category::whereNotNull('parent_id')->get();
+        return view('admin/galleries/edit',['title'=>__('gallery.Title')], compact('gallery','categories'));
     }
 
     public function update(UpdateGalleryRequest $request, Gallery $gallery)

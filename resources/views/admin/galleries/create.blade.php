@@ -10,32 +10,67 @@
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.galleries.store') }}" enctype="multipart/form-data">
                             @csrf
-
                             <div class="form-group row">
-                                <label for="row_1"  class="col-md-4 col-form-label text-md-right">{{ __('gallery.row_0') }}</label>
+                                <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="row_1" placeholder="{{ __('gallery.row_0') }}" name="data[fields][0][row]">
+                                    <input id="date"
+                                           type="date"
+                                           class="form-control @error('date') is-invalid @enderror"
+                                           name="date"
+                                           value="{{ old('date') }}"
+                                           autocomplete="date"
+                                           autofocus
+                                           required
+                                    >
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="row_0"  class="col-md-4 col-form-label text-md-right">{{ __('gallery.row_0') }}</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="row_0" placeholder="{{ __('gallery.row_0') }}" name="data[fields][0][row]">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="row_2"  class="col-md-4 col-form-label text-md-right">{{ __('gallery.row_1') }}</label>
+                                <label for="row_1"  class="col-md-4 col-form-label text-md-right">{{ __('gallery.row_1') }}</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="row_2" placeholder="{{ __('gallery.row_1') }}" name="data[fields][1][row]">
+                                    <input type="text" class="form-control" id="row_1" placeholder="{{ __('gallery.row_1') }}" name="data[fields][1][row]">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="row_3"  class="col-md-4 col-form-label text-md-right">{{ __('gallery.row_2') }}</label>
+                                <label for="row_2"  class="col-md-4 col-form-label text-md-right">{{ __('gallery.row_2') }}</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="row_3" placeholder="{{ __('gallery.row_2') }}" name="data[fields][2][row]">
+                                    <input type="text" class="form-control" id="row_2" placeholder="{{ __('gallery.row_2') }}" name="data[fields][2][row]">
                                 </div>
                             </div>
 
                             <div class="form-group row">
-                                <label for="row_4"  class="col-md-4 col-form-label text-md-right">{{ __('gallery.row_3') }}</label>
+                                <label for="row_3"  class="col-md-4 col-form-label text-md-right">{{ __('gallery.row_3') }}</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="row_4" placeholder="{{ __('gallery.row_3') }}" name="data[fields][3][row]">
+                                    <input type="text" class="form-control" id="row_3" placeholder="{{ __('gallery.row_3') }}" name="data[fields][3][row]">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="row_4"  class="col-md-4 col-form-label text-md-right">{{ __('gallery.row_4') }}</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="row_4" placeholder="{{ __('gallery.row_4') }}" name="data[fields][4][row]">
+                                </div>
+                            </div>
+
+                            <div class="form-group row">
+                                <label for="category"
+                                       class="col-md-4 col-form-label text-md-right">{{ __('Categories') }}</label>
+                                <div class="col-md-6">
+                                    <select name="category[]"
+                                            id="category"
+                                            class="form-control @error('category') is-invalid @enderror"
+                                            multiple>
+                                        @foreach($categories as $category)
+                                            <option value="{{ $category['id'] }}">{{ $category['name'][App::currentLocale()] }}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                             </div>
 
@@ -49,6 +84,19 @@
                                 </div>
                             </div>
 
+                            <div class="form-group row">
+                                <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('Images') }}</label>
+                                <div class="col-md-6">
+                                    <div class="row">
+                                        <div class="col-md-6">
+                                            <div class="row images-wrapper"></div>
+                                        </div>
+                                        <div class="col-md-6">
+                                            <input class="form-control" type="file" name="images[]" id="images" multiple>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
@@ -63,5 +111,5 @@
     </div>
 @endsection
 @push('footer-scripts')
-    @vite(['resources/js/images-preview.js'])
+    @vite(['resources/js/images-preview.js', 'resources/js/select.js'])
 @endpush

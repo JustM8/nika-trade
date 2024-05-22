@@ -27,6 +27,7 @@ class GalleryRepository implements GalleryRepositoryContract
         try {
             DB::beginTransaction();
 
+
             $data = $request->validated();
             $locale = App::currentLocale();
             $langs = config('app.available_locales');
@@ -41,8 +42,14 @@ class GalleryRepository implements GalleryRepositoryContract
                     $descriptionContent[$lang] = $this->clearValues($data['data']['fields']);
                 }
             }
+            $images = $data['images'] ?? [];
             $data['data'] = $descriptionContent;
+            $categoryIds = $data['category'];
+
             $gallery = Gallery::create($data);
+            $gallery->categories()->attach($categoryIds);
+
+            ImageRepository::attach($gallery, 'images',$images);
 
             DB::commit();
 
@@ -77,6 +84,7 @@ class GalleryRepository implements GalleryRepositoryContract
 
             $data['data'] = $descriptionContent;
             $gallery->update($data);
+            ImageRepository::attach($gallery, 'images',$request->images ?? []);
 
             DB::commit();
 
@@ -88,3 +96,4 @@ class GalleryRepository implements GalleryRepositoryContract
         }
     }
 }
+

@@ -43,6 +43,10 @@ class Category extends Model
 //        return $this->belongsToMany(Product::class);
         return $this->belongsToMany(Product::class, 'category_product');
     }
+    public function galleries()
+    {
+        return $this->belongsToMany(Gallery::class, 'category_gallery');
+    }
 
     protected function data(): Attribute
     {

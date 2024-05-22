@@ -11,17 +11,28 @@ use Illuminate\Support\Facades\Storage;
 class Gallery extends Model
 {
     use HasFactory;
-    public $table = "gallerys";
+//    public $table = "gallerys";
 
     protected $guarded = [];
 
     protected $fillable = [
         'data',
+        'date',
         'thumbnail',
     ];
     protected $casts = [
         'data' => 'array',
     ];
+
+    public function categories()
+    {
+        return $this->belongsToMany(Category::class, 'category_gallery');
+    }
+
+    public function images()
+    {
+        return $this->morphMany(Image::class, 'imageable');
+    }
 
 
     public function setThumbnailAttribute($image)
