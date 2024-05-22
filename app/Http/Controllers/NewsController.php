@@ -17,7 +17,7 @@ class NewsController extends Controller
     {
         $news = News::query()
             ->orderByRaw('ISNULL(priority), priority asc')
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->take(5)
             ->get();
 //        $news = News::latest('date')->orderBy('priority')->take(5)->get();
@@ -37,7 +37,7 @@ class NewsController extends Controller
         $date = explode('-',$dataTime[0]);
 
         $news->day = $date[2];
-        $news->month = $this->monthName($date[1]);
+        $news->month = $date[1];
         $news->year = $date[0];
 
         $otherNews = News::where('id', '!=', $news->id)
@@ -49,7 +49,7 @@ class NewsController extends Controller
             $dataTime = explode(' ',$item->created_at);
             $date = explode('-',$dataTime[0]);
             $item->day = $date[2];
-            $item->month = $this->monthName($date[1]);
+            $item->month = $date[1];
             $item->year = $date[0];
         }
 //        dd($otherNews);

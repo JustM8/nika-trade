@@ -19,7 +19,7 @@ class NewsController extends Controller
     {
         $news = News::query()
             ->orderByRaw('ISNULL(priority), priority asc')
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->get();
         return view('admin/news/index',['title'=>__('news.Title')],compact('news'));
     }

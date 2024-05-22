@@ -15,7 +15,7 @@ class MainController extends Controller
     {
         $news = News::query()
             ->orderByRaw('ISNULL(priority), priority asc')
-            ->orderBy('created_at', 'desc')
+            ->orderBy('date', 'desc')
             ->take(3)
             ->get();
         $rootCategories = Category::rootCategories()->get();
