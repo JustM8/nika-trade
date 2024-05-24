@@ -64,6 +64,7 @@ class GalleryRepository implements GalleryRepositoryContract
     public function update(Gallery $gallery, UpdateGalleryRequest $request): bool
     {
         try {
+
             DB::beginTransaction();
 
             $data = $request->validated();

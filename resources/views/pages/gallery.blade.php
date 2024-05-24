@@ -1,9 +1,10 @@
 @extends('layouts.theme')
 
 @section('content')
-<section class="gallery page-container"> 
+{{--    @dd($page);--}}
+<section class="gallery page-container">
       <div class="gallery-wrap">
-        <div class="page-intro"> 
+        <div class="page-intro">
           <div class="page-breadcrumbs">
             <ul class="breadcrumbs">
               <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="index.html">Homepage</a></li>
@@ -15,22 +16,9 @@
         </div>
         <div class="tabs">
           <div class="tabs__list" role="tablist" aria-label="products">
-            <button role="tab" aria-selected="true" id="0">Система “Універсал”</button>
-            <button role="tab" aria-selected="false" id="1">Система “Універсал 30”</button>
-            <button role="tab" aria-selected="false" id="2">Система “Універсал 60”</button>
-            <button role="tab" aria-selected="false" id="3">Система “гондоли”</button>
-            <button role="tab" aria-selected="false" id="4">Система “екопанелі”</button>
-            <button role="tab" aria-selected="false" id="5">Система “Універсал м”</button>
-            <button role="tab" aria-selected="false" id="6">Система “скала”</button>
-            <button role="tab" aria-selected="false" id="7">Система “universal wall”</button>
-            <button role="tab" aria-selected="false" id="8">Система “50x50”</button>
-            <button role="tab" aria-selected="false" id="9">Система “стендер”</button>
-            <button role="tab" aria-selected="false" id="10">Система “техномаг”</button>
-            <button class="purple" role="tab" aria-selected="false" id="11">Система “constructive”</button>
-            <button class="purple" role="tab" aria-selected="false" id="12">Система “структура”</button>
-            <button class="purple" role="tab" aria-selected="false" id="13">Стійки та рецепції</button>
-            <button class="blue" role="tab" aria-selected="false" id="14">Елементи офісних меблів</button>
-            <button class="blue" role="tab" aria-selected="false" id="15">Фурнітура</button>
+              @foreach ($page['data'] as $cat)
+                 <button role="tab" id="{{$cat['id']}}">{{$cat['name']}}"</button>
+              @endforeach
           </div>
           <div class="tabs__panel" role="tabpanel" aria-labelledby="0">
             <div class="tabs__info">
@@ -38,7 +26,8 @@
               <div class="tabs__description">L-стійка висотою 2420 мм — це конструкція з труби, що має 60х30 мм в перетині й складається із зварених між собою вертикальної стійки з двома рядами перфорованих прорізів по всій висоті та нижньої горизонтальної балки з регульованими опорами. Прорізи використовуються для встановлення різноманітного навісного обладнання: полиць, кронштейнів-вішалок, штанг, гачків, панелей та ін. Стійку можна закріпити до стіни за допомогою спеціальних кронштейнів У 117.</div>
             </div>
             <div class="tabs__wrapper-sliders">
-              <div class="tabs__swiper"> 
+
+              <div class="tabs__swiper">
                 <div class="tabs__info-shop">
                   <div class="tabs__info-shop-name">Магазин Мілітарі</div>
                   <div class="tabs__info-shop-item"> одяг та оснащення</div>
@@ -46,10 +35,12 @@
                   <div class="tabs__info-shop-item"> <span>Рік: </span>2014</div>
                   <div class="tabs__info-shop-item"> <span>Система: </span>Система “Універсал”</div>
                 </div>
-                <div class="swiper-wrapper"> 
-                  <div class="swiper-slide"> <img src="./assets/images/gallery/1.jpg"></div>
-                  <div class="swiper-slide"> <img src="./assets/images/gallery/2.jpg"></div>
-                  <div class="swiper-slide"> <img src="./assets/images/gallery/3.jpg"></div>
+                <div class="swiper-wrapper">
+{{--                    @foreach($gallery->images as $image)--}}
+{{--                        @if(Storage::has($image->path))--}}
+{{--                            <div class="swiper-slide"> <img src="{{ $image->url }}"></div>--}}
+{{--                        @endif--}}
+{{--                    @endforeach--}}
                 </div>
                 <div class="tabs__swiper-button tabs__swiper-button-prev round-btn round-btn--black">
                   <svg class="icon--arrow" role="presentation">
@@ -62,7 +53,7 @@
                   </svg>
                 </div>
               </div>
-              <div class="tabs__swiper"> 
+              <div class="tabs__swiper">
                 <div class="tabs__info-shop">
                   <div class="tabs__info-shop-name">Магазин Мілітарі</div>
                   <div class="tabs__info-shop-item"> одяг та оснащення</div>
@@ -70,7 +61,7 @@
                   <div class="tabs__info-shop-item"> <span>Рік: </span>2014</div>
                   <div class="tabs__info-shop-item"> <span>Система: </span>Система “Універсал”</div>
                 </div>
-                <div class="swiper-wrapper"> 
+                <div class="swiper-wrapper">
                   <div class="swiper-slide"> <img src="./assets/images/gallery/2.jpg"></div>
                   <div class="swiper-slide"> <img src="./assets/images/gallery/3.jpg"></div>
                   <div class="swiper-slide"> <img src="./assets/images/gallery/1.jpg"></div>
@@ -86,7 +77,7 @@
                   </svg>
                 </div>
               </div>
-              <div class="tabs__swiper"> 
+              <div class="tabs__swiper">
                 <div class="tabs__info-shop">
                   <div class="tabs__info-shop-name">Магазин Мілітарі</div>
                   <div class="tabs__info-shop-item"> одяг та оснащення</div>
@@ -94,7 +85,7 @@
                   <div class="tabs__info-shop-item"> <span>Рік: </span>2014</div>
                   <div class="tabs__info-shop-item"> <span>Система: </span>Система “Універсал”</div>
                 </div>
-                <div class="swiper-wrapper"> 
+                <div class="swiper-wrapper">
                   <div class="swiper-slide"> <img src="./assets/images/gallery/3.jpg"></div>
                   <div class="swiper-slide"> <img src="./assets/images/gallery/2.jpg"></div>
                   <div class="swiper-slide"> <img src="./assets/images/gallery/1.jpg"></div>
@@ -118,7 +109,7 @@
               <div class="tabs__description">L-стійка висотою 2420 мм — це конструкція з труби, що має 60х30 мм в перетині й складається із зварених між собою вертикальної стійки з двома рядами перфорованих прорізів по всій висоті та нижньої горизонтальної балки з регульованими опорами. Прорізи використовуються для встановлення різноманітного навісного обладнання: полиць, кронштейнів-вішалок, штанг, гачків, панелей та ін. Стійку можна закріпити до стіни за допомогою спеціальних кронштейнів У 117.</div>
             </div>
             <div class="tabs__wrapper-sliders">
-              <div class="tabs__swiper"> 
+              <div class="tabs__swiper">
                 <div class="tabs__info-shop">
                   <div class="tabs__info-shop-name">Магазин Мілітарі</div>
                   <div class="tabs__info-shop-item"> одяг та оснащення</div>
@@ -126,7 +117,7 @@
                   <div class="tabs__info-shop-item"> <span>Рік: </span>2014</div>
                   <div class="tabs__info-shop-item"> <span>Система: </span>Система “Універсал 30”</div>
                 </div>
-                <div class="swiper-wrapper"> 
+                <div class="swiper-wrapper">
                   <div class="swiper-slide"> <img src="./assets/images/gallery/1.jpg"></div>
                   <div class="swiper-slide"> <img src="./assets/images/gallery/2.jpg"></div>
                   <div class="swiper-slide"> <img src="./assets/images/gallery/3.jpg"></div>
@@ -142,7 +133,7 @@
                   </svg>
                 </div>
               </div>
-              <div class="tabs__swiper"> 
+              <div class="tabs__swiper">
                 <div class="tabs__info-shop">
                   <div class="tabs__info-shop-name">Магазин Мілітарі</div>
                   <div class="tabs__info-shop-item"> одяг та оснащення</div>
@@ -150,7 +141,7 @@
                   <div class="tabs__info-shop-item"> <span>Рік: </span>2014</div>
                   <div class="tabs__info-shop-item"> <span>Система: </span>Система “Універсал 30”</div>
                 </div>
-                <div class="swiper-wrapper"> 
+                <div class="swiper-wrapper">
                   <div class="swiper-slide"> <img src="./assets/images/gallery/2.jpg"></div>
                   <div class="swiper-slide"> <img src="./assets/images/gallery/3.jpg"></div>
                   <div class="swiper-slide"> <img src="./assets/images/gallery/1.jpg"></div>
@@ -166,7 +157,7 @@
                   </svg>
                 </div>
               </div>
-              <div class="tabs__swiper"> 
+              <div class="tabs__swiper">
                 <div class="tabs__info-shop">
                   <div class="tabs__info-shop-name">Магазин Мілітарі</div>
                   <div class="tabs__info-shop-item"> одяг та оснащення</div>
@@ -174,7 +165,7 @@
                   <div class="tabs__info-shop-item"> <span>Рік: </span>2014</div>
                   <div class="tabs__info-shop-item"> <span>Система: </span>Система “Універсал 30”</div>
                 </div>
-                <div class="swiper-wrapper"> 
+                <div class="swiper-wrapper">
                   <div class="swiper-slide"> <img src="./assets/images/gallery/3.jpg"></div>
                   <div class="swiper-slide"> <img src="./assets/images/gallery/2.jpg"></div>
                   <div class="swiper-slide"> <img src="./assets/images/gallery/1.jpg"></div>
@@ -198,7 +189,7 @@
               <div class="tabs__description">L-стійка висотою 2420 мм — це конструкція з труби, що має 60х30 мм в перетині й складається із зварених між собою вертикальної стійки з двома рядами перфорованих прорізів по всій висоті та нижньої горизонтальної балки з регульованими опорами. Прорізи використовуються для встановлення різноманітного навісного обладнання: полиць, кронштейнів-вішалок, штанг, гачків, панелей та ін. Стійку можна закріпити до стіни за допомогою спеціальних кронштейнів У 117.</div>
             </div>
             <div class="tabs__wrapper-sliders">
-              <div class="tabs__swiper"> 
+              <div class="tabs__swiper">
                 <div class="tabs__info-shop">
                   <div class="tabs__info-shop-name">Магазин Мілітарі</div>
                   <div class="tabs__info-shop-item"> одяг та оснащення</div>
@@ -206,7 +197,7 @@
                   <div class="tabs__info-shop-item"> <span>Рік: </span>2014</div>
                   <div class="tabs__info-shop-item"> <span>Система: </span>Система “Універсал 60”</div>
                 </div>
-                <div class="swiper-wrapper"> 
+                <div class="swiper-wrapper">
                   <div class="swiper-slide"> <img src="./assets/images/gallery/1.jpg"></div>
                   <div class="swiper-slide"> <img src="./assets/images/gallery/2.jpg"></div>
                   <div class="swiper-slide"> <img src="./assets/images/gallery/3.jpg"></div>
@@ -222,7 +213,7 @@
                   </svg>
                 </div>
               </div>
-              <div class="tabs__swiper"> 
+              <div class="tabs__swiper">
                 <div class="tabs__info-shop">
                   <div class="tabs__info-shop-name">Магазин Мілітарі</div>
                   <div class="tabs__info-shop-item"> одяг та оснащення</div>
@@ -230,7 +221,7 @@
                   <div class="tabs__info-shop-item"> <span>Рік: </span>2014</div>
                   <div class="tabs__info-shop-item"> <span>Система: </span>Система “Універсал 60”</div>
                 </div>
-                <div class="swiper-wrapper"> 
+                <div class="swiper-wrapper">
                   <div class="swiper-slide"> <img src="./assets/images/gallery/1.jpg"></div>
                   <div class="swiper-slide"> <img src="./assets/images/gallery/2.jpg"></div>
                   <div class="swiper-slide"> <img src="./assets/images/gallery/1.jpg"></div>
@@ -246,7 +237,7 @@
                   </svg>
                 </div>
               </div>
-              <div class="tabs__swiper"> 
+              <div class="tabs__swiper">
                 <div class="tabs__info-shop">
                   <div class="tabs__info-shop-name">Магазин Мілітарі</div>
                   <div class="tabs__info-shop-item"> одяг та оснащення</div>
@@ -254,7 +245,7 @@
                   <div class="tabs__info-shop-item"> <span>Рік: </span>2014</div>
                   <div class="tabs__info-shop-item"> <span>Система: </span>Система “Універсал 60”</div>
                 </div>
-                <div class="swiper-wrapper"> 
+                <div class="swiper-wrapper">
                   <div class="swiper-slide"> <img src="./assets/images/gallery/3.jpg"></div>
                   <div class="swiper-slide"> <img src="./assets/images/gallery/2.jpg"></div>
                   <div class="swiper-slide"> <img src="./assets/images/gallery/1.jpg"></div>
