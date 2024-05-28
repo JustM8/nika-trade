@@ -50,10 +50,12 @@ class PagesController extends Controller
 
     public function getCategoriesWithGalleries($id = 0)
     {
+
         $result = [];
         $categories = Category::with(['galleries' => function ($query) {
             $query->orderBy('date', 'asc'); // Сортує галереї по даті у зростаючому порядку
         }])->get();
+
         if($id == 0) {
 
             foreach ($categories as $category) {
@@ -72,39 +74,46 @@ class PagesController extends Controller
         }else{
 
             foreach ($categories as $category) {
-                $galleryIds = $category->galleries->pluck('id')->toArray();
+                if ($category->id == $id) {
+                    $galleryIds = $category->galleries->pluck('id')->toArray();
 
-                $data = [];
-                $images = [];
-                foreach ($galleryIds as $item){
-                    $gallery = Gallery::findOrFail($item);
-                    foreach ($gallery->images as $img){
-                        $images[] = $img->url;
+//                $data = [];
+                    $images = [];
+                    foreach ($galleryIds as $item) {
+                        $gallery = Gallery::findOrFail($item);
+                        foreach ($gallery->images as $img) {
+                            $images[$gallery->id][] = $img->url;
+                        }
+
+                        $result[$gallery->id] =
+                            [
+                                'data' => [
+                                    'row_0' => $gallery->data[App::currentLocale()][0]['row'],
+                                    'row_1' => $gallery->data[App::currentLocale()][1]['row'],
+                                    'row_2' => $gallery->data[App::currentLocale()][2]['row'],
+                                    'row_3' => $gallery->data[App::currentLocale()][3]['row'],
+                                    'row_4' => $gallery->data[App::currentLocale()][4]['row'],
+                                ],
+                                'gallery' => $images,
+                                'thumbnail' => $gallery->thumbnailUrl,
+                                'name' => $category->name[App::currentLocale()],
+                                'id' => $category->id,
+                                'description' => $category->description[App::currentLocale()],
+                            ];
                     }
 
-                    $data = [
-                        'data' => [
-                            'row_0' => $gallery->data[App::currentLocale()][0]['row'],
-                            'row_1' => $gallery->data[App::currentLocale()][1]['row'],
-                            'row_2' => $gallery->data[App::currentLocale()][2]['row'],
-                            'row_3' => $gallery->data[App::currentLocale()][3]['row'],
-                            'row_4' => $gallery->data[App::currentLocale()][4]['row'],
-                        ],
-                        'gallery' => $images,
-                        'thumbnail' => $gallery->thumbnailUrl,
-                    ];
-                }
+//                if (!empty($galleryIds)) {
+////                    $result[] = [
+////                        'name' => $category->name[App::currentLocale()],
+////                        'id' => $category->id,
+////                        'description' => $category->description[App::currentLocale()],
+////                        'galleries_id' => $galleryIds,
+////                        'gallery' => $data
+////                    ];
+//                    $result[] =  $data;
+//                }
 
-                if (!empty($galleryIds)) {
-                    $result[] = [
-                        'name' => $category->name[App::currentLocale()],
-                        'id' => $category->id,
-                        'description' => $category->description[App::currentLocale()],
-                        'galleries_id' => $galleryIds,
-                        'gallery' => $data
-                    ];
                 }
-
             }
             return response()->json($result);
         }
