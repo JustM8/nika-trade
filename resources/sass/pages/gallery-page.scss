@@ -156,6 +156,14 @@
         &__swiper {
             margin-top: 40px;
             position: relative;
+            height: 400px;
+
+            .swiper-slide {
+                img {
+                    object-fit: cover;
+                    height: 100%;
+                }
+            }
         }
         &__info-shop {
             position: absolute;
