@@ -94,7 +94,7 @@ class PagesController extends Controller
                                     'row_3' => $gallery->data[App::currentLocale()][3]['row'],
                                     'row_4' => $gallery->data[App::currentLocale()][4]['row'],
                                 ],
-                                'gallery' => $images,
+                                'gallery' => $images[$gallery->id],
                                 'thumbnail' => $gallery->thumbnailUrl,
                                 'name' => $category->name[App::currentLocale()],
                                 'id' => $category->id,
