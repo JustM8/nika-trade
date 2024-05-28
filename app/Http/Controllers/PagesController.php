@@ -77,15 +77,19 @@ class PagesController extends Controller
                 if ($category->id == $id) {
                     $galleryIds = $category->galleries->pluck('id')->toArray();
 
-//                $data = [];
                     $images = [];
+                    $result = [
+                        'name' => $category->name[App::currentLocale()],
+                        'id' => $category->id,
+                        'description' => $category->description[App::currentLocale()],
+                    ];
                     foreach ($galleryIds as $item) {
                         $gallery = Gallery::findOrFail($item);
                         foreach ($gallery->images as $img) {
                             $images[$gallery->id][] = $img->url;
                         }
 
-                        $result[$gallery->id] =
+                        $result['galleries'][] =
                             [
                                 'data' => [
                                     'row_0' => $gallery->data[App::currentLocale()][0]['row'],
@@ -93,25 +97,10 @@ class PagesController extends Controller
                                     'row_2' => $gallery->data[App::currentLocale()][2]['row'],
                                     'row_3' => $gallery->data[App::currentLocale()][3]['row'],
                                     'row_4' => $gallery->data[App::currentLocale()][4]['row'],
-                                ],
-                                'gallery' => $images[$gallery->id],
-                                'thumbnail' => $gallery->thumbnailUrl,
-                                'name' => $category->name[App::currentLocale()],
-                                'id' => $category->id,
-                                'description' => $category->description[App::currentLocale()],
+                                    ],
+                                    'gallery' => $images[$gallery->id],
                             ];
                     }
-
-//                if (!empty($galleryIds)) {
-////                    $result[] = [
-////                        'name' => $category->name[App::currentLocale()],
-////                        'id' => $category->id,
-////                        'description' => $category->description[App::currentLocale()],
-////                        'galleries_id' => $galleryIds,
-////                        'gallery' => $data
-////                    ];
-//                    $result[] =  $data;
-//                }
 
                 }
             }
