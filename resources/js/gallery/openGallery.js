@@ -25,7 +25,9 @@ const handleOpenGallery = async (event) => {
         const { data } = await getItemById(id);
 
         const galleries = data.galleries;
-        console.log(galleries);
+        console.log(data);
+
+        slidersContainerRef.innerHTML = "";
 
         galleries.forEach((galleryData, index) => {
             const galleryHTML = galleryView({
