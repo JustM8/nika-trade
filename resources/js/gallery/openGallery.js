@@ -24,44 +24,46 @@ const handleOpenGallery = async (event) => {
     try {
         const { data } = await getItemById(id);
 
-        console.log(data);
+        const galleries = data.galleries;
+        console.log(galleries);
 
-        const gallery = galleryView({
-            row_0: data.gallery.data.row_0,
-            row_1: data.gallery.data.row_1,
-            row_2: data.gallery.data.row_2,
-            row_3: data.gallery.data.row_3,
-            row_4: data.gallery.data.row_4,
-            gallery: data.gallery.gallery,
-        });
-
-        slidersContainerRef.innerHTML = "";
-
-        slidersContainerRef.insertAdjacentHTML("beforeend", gallery);
-
-        setTimeout(() => {
-            const swiperContainer =
-                slidersContainerRef.querySelector(".tabs__swiper");
-            if (!swiperContainer) {
-                console.error("Swiper container not found");
-                return;
-            }
-
-            new Swiper(swiperContainer, {
-                slidesPerView: 1,
-                spaceBetween: 0,
-                loop: false,
-                speed: 1200,
-                navigation: {
-                    prevEl: swiperContainer.querySelector(
-                        ".tabs__swiper-button-prev"
-                    ),
-                    nextEl: swiperContainer.querySelector(
-                        ".tabs__swiper-button-next"
-                    ),
-                },
+        galleries.forEach((galleryData, index) => {
+            const galleryHTML = galleryView({
+                row_0: galleryData.data.row_0,
+                row_1: galleryData.data.row_1,
+                row_2: galleryData.data.row_2,
+                row_3: galleryData.data.row_3,
+                row_4: galleryData.data.row_4,
+                gallery: galleryData.gallery,
             });
-        }, 0);
+
+            slidersContainerRef.insertAdjacentHTML("beforeend", galleryHTML);
+
+            // Initialize Swiper for each gallery
+            const swiperContainer = slidersContainerRef.querySelector(
+                `.tabs__swiper:nth-child(${index + 1})`
+            );
+            if (swiperContainer) {
+                new Swiper(swiperContainer, {
+                    slidesPerView: 1,
+                    spaceBetween: 0,
+                    loop: false,
+                    speed: 1200,
+                    navigation: {
+                        prevEl: swiperContainer.querySelector(
+                            ".tabs__swiper-button-prev"
+                        ),
+                        nextEl: swiperContainer.querySelector(
+                            ".tabs__swiper-button-next"
+                        ),
+                    },
+                });
+            } else {
+                console.error(
+                    `Swiper container not found for gallery ${index}`
+                );
+            }
+        });
 
         const title = titleView(data.name, data.description);
 

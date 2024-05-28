@@ -20,7 +20,7 @@ const data = {
     },
 };
 
-const isDev = window.location.href.match("http://127.0.0.1:8000/");
+const isDev = window.location.href.match("http://127.0.0.1:8000/huhuh");
 const baseUrl = "/category-with-galleries";
 export const getItemById = (id) => {
     console.log("Requested id:", id); // Log the id parameter
