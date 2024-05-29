@@ -5,6 +5,9 @@ use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
 
+use Illuminate\Support\Facades\Cookie;
+use Illuminate\Support\Str;
+
 class CartController extends Controller
 {
     public function index()
@@ -14,8 +17,11 @@ class CartController extends Controller
 
     public function add(Request $request, Product $product)
     {
+        $cartId = $request->cookie('cart_id') ?: Str::random(10);
+        Cookie::queue('cart_id', $cartId, 60 * 24 * 7);
+
         if($product->parent_id != null) {
-            Cart::instance('cart')->add(
+            Cart::instance($cartId)->add(
                 $product->id,
                 $product->title,
                 $request->product_count,
@@ -32,7 +38,8 @@ class CartController extends Controller
 
     public function remove(Request $request)
     {
-        Cart::instance('cart')->remove($request->rowId);
+        $cartId = $request->cookie('cart_id');
+        Cart::instance($cartId)->remove($request->rowId);
 
         notify()->success("Product was removed", position: "topRight");
 
@@ -41,13 +48,14 @@ class CartController extends Controller
 
     public function countUpdate(Request $request, Product $product)
     {
+        $cartId = $request->cookie('cart_id');
         if($product->parent_id != null) {
             if ($product->in_stock < $request->product_count) {
                 notify()->error("Max count of current product is {$product->in_stock}", position: "topRight");
                 return redirect()->back();
             }
 
-            Cart::instance('cart')->update(
+            Cart::instance($cartId)->update(
                 $request->rowId,
                 $request->product_count
             );

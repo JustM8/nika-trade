@@ -9,6 +9,8 @@ use App\Models\User;
 use App\Repositories\Contracts\OrderRepositoryContract;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Http\Request;
+
 
 class OrderRepository implements OrderRepositoryContract
 {
@@ -77,7 +79,9 @@ class OrderRepository implements OrderRepositoryContract
 
     protected function addProductsToOrder(Order $order)
     {
-        Cart::instance('cart')->content()->groupBy('id')->each( function ($item) use ($order){
+        $request = request();
+        $cartId = $request->cookie('cart_id');
+        Cart::instance($cartId)->content()->groupBy('id')->each( function ($item) use ($order){
             $cartItem  = $item->first();
 //            dd($cartItem);
             $order->products()->attach(

@@ -32,11 +32,11 @@ class OrdersController extends Controller
     public function create(CreateOrderRequest $request)
     {
 
-
+        $cartId = $request->cookie('cart_id');
         try {
             DB::beginTransaction();
 
-            $total = Cart::instance('cart')->total(2, '.', '');
+            $total = Cart::instance($cartId)->total(2, '.', '');
             $request = $request->validated();
 
             $order = $this->repository->create($request, $total);
@@ -47,7 +47,7 @@ class OrdersController extends Controller
                 $redirectUrl = route('thankYou', ['orderId' => $order->id]);
 
                 // Повертаємо JSON-відповідь разом із URL для переходу
-                Cart::instance('cart')->destroy();
+                Cart::instance($cartId)->destroy();
 //                auth()->logout();
 
                 return response()->json([

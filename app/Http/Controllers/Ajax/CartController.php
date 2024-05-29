@@ -6,7 +6,11 @@ use App\Http\Controllers\Controller;
 use App\Models\Product;
 use Gloudemans\Shoppingcart\Facades\Cart;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Cookie;
 use Illuminate\Support\Facades\View;
+use Illuminate\Support\Str;
+
+
 
 class CartController extends Controller
 {
@@ -15,12 +19,15 @@ class CartController extends Controller
         return view('cart/index', ['title' => __('cart.Title')]);
     }
 
-    public function add(Product $product)
+    public function add(Request $request, Product $product)
     {
-        $filtered = Cart::instance('cart')->content()->where('id', $product->id)->first();
+        $cartId = $request->cookie('cart_id') ?: Str::random(10);
+        Cookie::queue('cart_id', $cartId, 60 * 24 * 7);
+
+        $filtered = Cart::instance($cartId)->content()->where('id', $product->id)->first();
 
         if (!$filtered) {
-            Cart::instance('cart')->add(
+            Cart::instance($cartId)->add(
                 $product->id,
                 $product->title,
                 1,
@@ -33,33 +40,27 @@ class CartController extends Controller
         else{
             return response()->json(['message' => 'Product count at the same level']);
         }
-//        notify()->success("Product was added to the cart", position: "topRight");
-//        return redirect()->back();
     }
 
     public function remove(Request $request)
     {
-
-        Cart::instance('cart')->remove($request->rowId);
-
+        $cartId = $request->cookie('cart_id');
+        Cart::instance($cartId)->remove($request->rowId);
         notify()->success("Product was removed", position: "topRight");
-
         return response()->json(['message'=>'Product delete']);
-//        return redirect()->back();
     }
 
     public function countUpdate(Request $request, Product $product)
     {
         $count = $request->count;
-//        dd($request->count,$request->rowId);
+        $cartId = $request->cookie('cart_id');
+
         if ($product->in_stock < $request->product_count) {
-//            notify()->error("Max count of current product is {$product->in_stock}", position: "topRight");
-//            return redirect()->back();
             return response()->json(['message'=>"Max count of current product is {$product->in_stock}"]);
         }
 
         if (is_numeric($count) && is_int((int)$count) && (int)$count > 0) {
-            Cart::instance('cart')->update(
+            Cart::instance($cartId)->update(
                 $request->rowId,
                 $count
             );
@@ -67,16 +68,15 @@ class CartController extends Controller
         }else{
             return response()->json(['message' => 'Product count at the same level']);
         }
-//        notify()->success("Product count was updated", position: "topRight");
 
-//        return redirect()->back();
     }
 
-    public function getCardPopup()
+    public function getCardPopup(Request $request)
     {
-        if(Cart::instance('cart')->count() > 0) {
-            (Cart::instance('cart')->content()->count() > 0)? $count = Cart::instance('cart')->content()->count(): $count = 0;
-            $row = Cart::instance('cart')->content();
+        $cartId = $request->cookie('cart_id');
+        if(Cart::instance($cartId)->count() > 0) {
+            (Cart::instance($cartId)->content()->count() > 0)? $count = Cart::instance('cart')->content()->count(): $count = 0;
+            $row = Cart::instance($cartId)->content();
             $html = View::make('cart.parts.cart_popup', compact('row'))->render();
             return response()->json(['html' => $html, 'total'=>Cart::total(), 'count'=>$count]);
         }else

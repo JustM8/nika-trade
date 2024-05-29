@@ -13,17 +13,18 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'Date' => 'Дата',
     'Gallery' => 'Галерея',
     'Title' => 'Галерея',
     'All galleries' => 'Усі галереї',
     'Create gallery' => 'Створити галерею',
-    'row_0' => 'Об\'єкт',
+    'row_0' => 'Товари',
     'row_1' => 'Адреса',
     'row_2' => 'Рік',
     'row_3' => 'Система',
-    'row_4' => 'Товари',
+    'row_4' => 'Об\'єкт',
     'Thumbnail' => 'Зображення',
-    'Create Gallery' => 'Створити Галерею',
+    'Categories' => 'Категорії',
+    'Create' => 'Створити Галерею',
     'Edit Gallery' => 'Редагувати Галерею',
-
 ];

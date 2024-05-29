@@ -16,8 +16,9 @@
             <span class="cart-page-card-title text-m text-balck-100">Товари в кошику:</span>
                     <div class="cart-page-card-content">
                         <div class="cart-list" id="cart-popup">
-                            @if(Cart::instance('cart')->count() > 0)
-                                @each('cart.parts.product_view', Cart::instance('cart')->content(), 'row')
+                            @php($cart_id = Cookie::get('cart_id'))
+                            @if(Cart::instance($cart_id)->count() > 0)
+                                @each('cart.parts.product_view', Cart::instance($cart_id)->content(), 'row')
 
                             @endif
                         </div>

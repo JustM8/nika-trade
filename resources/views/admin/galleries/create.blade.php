@@ -11,7 +11,7 @@
                         <form method="POST" action="{{ route('admin.galleries.store') }}" enctype="multipart/form-data">
                             @csrf
                             <div class="form-group row">
-                                <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
+                                <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('gallery.Date') }}</label>
                                 <div class="col-md-6">
                                     <input id="date"
                                            type="date"
@@ -61,7 +61,7 @@
 
                             <div class="form-group row">
                                 <label for="category"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Categories') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('gallery.Categories') }}</label>
                                 <div class="col-md-6">
                                     <select name="category[]"
                                             id="category"
@@ -85,7 +85,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('Images') }}</label>
+                                <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('gallery.Gallery') }}</label>
                                 <div class="col-md-6">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -100,7 +100,7 @@
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">{{ __('Store') }}</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('gallery.Create') }}</button>
                                 </div>
                             </div>
                         </form>
