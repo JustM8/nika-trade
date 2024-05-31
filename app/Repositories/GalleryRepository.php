@@ -84,8 +84,6 @@ class GalleryRepository implements GalleryRepositoryContract
             }
 
             $data['data'] = $descriptionContent;
-            $categoryIds = $data['category'];
-
             $gallery->update($data);
             $gallery->categories()->sync($request->input('category'));
             ImageRepository::attach($gallery, 'images',$request->images ?? []);

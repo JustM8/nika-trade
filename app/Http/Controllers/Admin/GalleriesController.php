@@ -8,6 +8,8 @@ use App\Http\Requests\UpdateGalleryRequest;
 use App\Models\Category;
 use App\Models\Gallery;
 use App\Repositories\GalleryRepository;
+use Carbon\Carbon;
+use Illuminate\Http\Request;
 
 class GalleriesController extends Controller
 {
@@ -15,16 +17,23 @@ class GalleriesController extends Controller
     {
     }
 
-    public function index()
+    public function index(Request $request)
     {
-        $galleries = Gallery::all();
+        $query = Gallery::with('categories');
+
+        if ($request->has('category')) {
+            $query = $this->filterByCategory($query, $request->input('category'));
+        }
+        $galleries = $query->paginate(50)->appends(request()->query());
+//        $galleries = Gallery::all();
         return view('admin/galleries/index',['title'=>__('gallery.Title')],compact('galleries'));
     }
 
     public function create()
     {
+        $today = Carbon::today()->toDateString();
         $categories = Category::nonRootCategories()->get();
-        return view('admin/galleries/create',['title'=>__('gallery.Title')],compact('categories'));
+        return view('admin/galleries/create',['title'=>__('gallery.Title')],compact('categories','today'));
     }
 
     public function store(CreateGalleryRequest $request)
@@ -54,5 +63,12 @@ class GalleriesController extends Controller
     {
         $gallery->delete();
         return redirect()->back();
+    }
+
+    protected function filterByCategory($query, $category)
+    {
+        return $query->whereHas('categories', function ($q) use ($category) {
+            $q->where('categories.id', $category);
+        });
     }
 }

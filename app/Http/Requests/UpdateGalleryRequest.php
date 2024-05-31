@@ -25,7 +25,7 @@ class UpdateGalleryRequest extends FormRequest
     {
         return [
             'data' => ['nullable'],
-            'thumbnail' => ['image:jpeg,png,jpg'],
+//            'thumbnail' => ['image:jpeg,png,jpg'],
             'images.*' => ['image:jpeg,png,jpg'],
             'date' => ['nullable', 'date'],
             'category' => ['required', 'array'],

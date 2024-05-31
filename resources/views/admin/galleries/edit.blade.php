@@ -54,22 +54,23 @@
                                 </div>
                             </div>
 
-                            <div class="form-group row">
-                                <label for="thumbnail"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('gallery.Thumbnail') }}</label>
-                                <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="mb-3">
-                                            <input class="form-control" type="file" name="thumbnail" id="thumbnail">
-                                        </div>
-                                        <div class="col-md-12">
-                                            @if(Storage::has($gallery->thumbnail) && !empty($gallery->thumbnail))
-                                                <img src="{{ $gallery->thumbnailUrl}}" class="img-fluid img-thumbnail" id="thumbnail-preview" alt="">
-                                            @endif
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+{{--                            <div class="form-group row">--}}
+{{--                                <label for="thumbnail"--}}
+{{--                                       class="col-md-4 col-form-label text-md-right">{{ __('gallery.Thumbnail') }}</label>--}}
+{{--                                <div class="col-md-6">--}}
+{{--                                    <div class="row">--}}
+{{--                                        <div class="mb-3">--}}
+{{--                                            <input class="form-control" type="file" name="thumbnail" id="thumbnail">--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-12">--}}
+{{--                                            @if(Storage::has($gallery->thumbnail) && !empty($gallery->thumbnail))--}}
+{{--                                                <img src="{{ $gallery->thumbnailUrl}}" class="img-fluid img-thumbnail" id="thumbnail-preview" alt="">--}}
+{{--                                            @endif--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
+
                             <div class="form-group row">
                                 <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('product.Images') }}</label>
                                 <div class="col-md-6">

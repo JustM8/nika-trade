@@ -35,17 +35,17 @@ class Gallery extends Model
     }
 
 
-    public function setThumbnailAttribute($image)
-    {
-        if(!empty($this->attributes['thumbnail'])){
-            FileStorageService::remove($this->attributes['thumbnail']);
-        }
-
-        $this->attributes['thumbnail'] = FileStorageService::upload($image);
-    }
-
-    public function thumbnailUrl(): Attribute
-    {
-        return new Attribute(get: fn() => Storage::url($this->attributes['thumbnail']));
-    }
+//    public function setThumbnailAttribute($image)
+//    {
+//        if(!empty($this->attributes['thumbnail'])){
+//            FileStorageService::remove($this->attributes['thumbnail']);
+//        }
+//
+//        $this->attributes['thumbnail'] = FileStorageService::upload($image);
+//    }
+//
+//    public function thumbnailUrl(): Attribute
+//    {
+//        return new Attribute(get: fn() => Storage::url($this->attributes['thumbnail']));
+//    }
 }

@@ -42,9 +42,9 @@
                             <td class="text-center" scope="col">{{ $product->SKU }}</td>
                             <td class="text-center" scope="col">
                                 @if(!empty($product->category))
-                                    @include('categories.parts.category_view', ['category' => $product->category])
+                                    @include('categories.parts.category_view', ['category' => $product->category,'type'=>'products'])
                                 @else
-                                    @include('categories.parts.categories_view', ['category' => $product->categories])
+                                    @include('categories.parts.categories_view', ['category' => $product->categories,'type'=>'products'])
                                 @endif
                             </td>
                             <td class="text-center" scope="col">{{ $product->price }}</td>

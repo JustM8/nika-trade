@@ -18,15 +18,28 @@
                     <thead>
                     <tr>
                         <th class="text-center" scope="col">ID</th>
-                        <th class="text-center" scope="col">Image</th>
+                        <th class="text-center" scope="col">Create Date</th>
+                        <th class="text-center" scope="col">Year</th>
+                        <th class="text-center" scope="col">Object</th>
+                        <th class="text-center" scope="col">Categories</th>
                         <th class="text-center" scope="col">Actions</th>
+                        <th class="text-center" scope="col"><a href="{{ route('admin.galleries.index') }}" class=" btn btn-outline-dark">{{__('galleries.All')}}</a></th>
                     </tr>
                     </thead>
                     <tbody>
                     @foreach($galleries as $gallery)
                         <tr>
                             <td class="text-center" scope="col">{{ $gallery->id }}</td>
-                            <td class="text-center" scope="col"><img src="{{ $gallery->thumbnailUrl }}" width="100" height="100" alt=""></td>
+                            <td class="text-center" scope="col">{{ $gallery->date }}</td>
+                            <td class="text-center" scope="col">{{ $gallery->data[App::currentLocale()][2]['row'] }}</td>
+                            <td class="text-center" scope="col">{{ $gallery->data[App::currentLocale()][4]['row'] }}</td>
+                            <td class="text-center" scope="col">
+                                @if(!empty($gallery->category))
+                                    @include('categories.parts.category_view', ['category' => $gallery->category,'type'=>'galleries'])
+                                @else
+                                    @include('categories.parts.categories_view', ['category' => $gallery->categories,'type'=>'galleries'])
+                                @endif
+                            </td>
                             <td class="text-center" scope="col">
                                 <a href="{{ route('admin.galleries.edit', $gallery) }}" class="btn btn-info form-control">Edit</a>
                                 <form action="{{ route('admin.galleries.destroy', $gallery) }}" method="POST">
