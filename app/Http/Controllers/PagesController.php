@@ -70,7 +70,7 @@ class PagesController extends Controller
                 }
 
             }
-           return  $result;
+            return  $result;
         }else{
 
             foreach ($categories as $category) {
@@ -78,6 +78,7 @@ class PagesController extends Controller
                     $galleryIds = $category->galleries->pluck('id')->toArray();
 
                     $images = [];
+                    $rows = [];
                     $result = [
                         'name' => $category->name[App::currentLocale()],
                         'id' => $category->id,
@@ -88,17 +89,17 @@ class PagesController extends Controller
                         foreach ($gallery->images as $img) {
                             $images[$gallery->id][] = $img->url;
                         }
+                        foreach ($gallery->data[App::currentLocale()] as $key=>$item){
+                            $rows['row_'.$key] = '';
+                            if($item['row'] != null) {
+                                $rows['row_'.$key] = $item['row'];
+                            }
+                        }
 
                         $result['galleries'][] =
                             [
-                                'data' => [
-                                    'row_0' => $gallery->data[App::currentLocale()][0]['row'],
-                                    'row_1' => $gallery->data[App::currentLocale()][1]['row'],
-                                    'row_2' => $gallery->data[App::currentLocale()][2]['row'],
-                                    'row_3' => $gallery->data[App::currentLocale()][3]['row'],
-                                    'row_4' => $gallery->data[App::currentLocale()][4]['row'],
-                                    ],
-                                    'gallery' => $images[$gallery->id],
+                                'data' => $rows,
+                                'gallery' => $images[$gallery->id],
                             ];
                     }
 

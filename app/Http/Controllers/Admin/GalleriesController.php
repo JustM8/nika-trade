@@ -24,7 +24,7 @@ class GalleriesController extends Controller
         if ($request->has('category')) {
             $query = $this->filterByCategory($query, $request->input('category'));
         }
-        $galleries = $query->paginate(50)->appends(request()->query());
+        $galleries = $query->orderBy('date', 'asc')->paginate(50)->appends(request()->query());
 //        $galleries = Gallery::all();
         return view('admin/galleries/index',['title'=>__('gallery.Title')],compact('galleries'));
     }
