@@ -10,7 +10,7 @@ export const galleryView = ({
     const slides = gallery
         .map(
             (image, index) => `
-        <div class="swiper-slide" data-swiper-slide-index="${index}">
+        <div class="swiper-slide" data-swiper-slide-index="${index}" style="background-image: url(${image})">
             <img src="${image}">
         </div>
     `
@@ -20,8 +20,8 @@ export const galleryView = ({
     return `
     <div class="tabs__swiper">
         <div class="tabs__info-shop">
-            <div class="tabs__info-shop-name">${row_0}</div>
-            <div class="tabs__info-shop-item"> ${row_4}</div>
+            <div class="tabs__info-shop-name">${row_4}</div>
+            <div class="tabs__info-shop-item"> ${row_0}</div>
             <div class="tabs__info-shop-item"> <span>Адреса: </span>${row_1}</div>
             <div class="tabs__info-shop-item"> <span>Рік: </span>${row_2}</div>
             <div class="tabs__info-shop-item"> <span>Система: </span>${row_3}</div>
