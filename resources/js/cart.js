@@ -146,25 +146,3 @@ function updateCartPopup() {
         },
     });
 }
-
-// $(document).on("click", "[data-btn-submit]", function (e) {
-//     e.preventDefault();
-
-//     let $btn = $(this);
-
-//     $.ajax({
-//         url: $btn.data("action"),
-//         type: "POST",
-//         dataType: "json",
-//         headers: {
-//             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
-//         },
-//         success: function (data) {
-//             console.log('request', data)
-
-//         },
-//         error: function (data) {
-//             console.log("Error:", data);
-//         },
-//     });
-// });

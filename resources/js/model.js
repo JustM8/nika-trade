@@ -52,8 +52,6 @@ function load(file, scale) {
                 if (node.isMesh) {
                     const material = node.material;
 
-                    console.log(material);
-
                     // Check if textures are loaded correctly
                     if (material.map) {
                         console.log("Texture:", material.map.image);
@@ -86,7 +84,6 @@ function addDirectionalLights(scene) {
         const light = new THREE.DirectionalLight(0xffffff, 2);
         light.position.copy(dir.position);
         scene.add(light);
-        console.log(`Added directional light positioned to the ${dir.name}.`);
     }
 }
 

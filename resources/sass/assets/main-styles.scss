@@ -3,7 +3,7 @@
     margin: 0 auto;
 
     @include tabletLarge {
-        padding: 0 100px;
+        padding: 0 50px;
     }
 
     @include tablet {
@@ -114,7 +114,7 @@ section {
     padding: 150px 173px 0 173px;
 
     @include tabletLarge {
-        padding: 100px 100px 0 100px;
+        padding: 100px 50px 0 50px;
     }
 
     @include tablet {
@@ -130,7 +130,7 @@ section {
     &-container {
         padding: 192px 173px 50px 173px;
         @include tabletLarge {
-            padding: 212px 100px 50px 100px;
+            padding: 212px 50px 50px 50px;
         }
 
         @include tablet {

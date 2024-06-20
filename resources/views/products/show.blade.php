@@ -231,7 +231,7 @@
 
 @endsection
 @push('footer-scripts')
-    @vite([ 'resources/js/model.js','resources/js/cart.js', 'resources/js/cartPage.js', 'resources/js/common.js', 'resources/js/product-page.js', ])
+    @vite([ 'resources/js/model.js','resources/js/cart.js', 'resources/js/common.js', 'resources/js/product-page.js', ])
 
     <!-- @vite([ 'resources/js/nikaModel.build.js','resources/js/cart.js', 'resources/js/cartPage.js', 'resources/js/common.js', 'resources/js/product-page.js', ]) -->
     <!-- <script>

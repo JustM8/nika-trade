@@ -7,7 +7,7 @@
         justify-content: space-between;
         gap: 20px;
 
-        @include mobile {
+        @include tablet {
             flex-direction: column;
         }
     }
@@ -15,7 +15,7 @@
     &-btn-mobile-wrap {
         display: none;
 
-        @include mobile {
+        @include tablet {
             display: block;
         }
     }
@@ -39,15 +39,15 @@
 
         @include tablet {
             width: 40%;
+            display: none;
         }
 
         @include mobile {
             width: 100%;
-            display: none;
         }
 
         &.active {
-            @include mobile {
+            @include tablet {
                 display: block;
             }
         }
@@ -150,8 +150,11 @@
             width: 76%;
         }
 
-        @include mobile {
+        @include tablet {
             width: 100%;
+        }
+
+        @include mobile {
             flex-direction: column;
             margin-bottom: 80px;
         }

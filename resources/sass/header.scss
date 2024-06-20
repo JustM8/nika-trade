@@ -1,358 +1,360 @@
 .header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background: $bg;
-  z-index: 1000;
-  transition: all ease-in-out 0.4s;
-
-
-  &.bg-header {
-    background: $bg;
-
-    @include tabletLarge {
-      height: 60px;
-    }
-
-    .header-top {
-      height: 0px;
-      opacity: 0;
-    }
-  }
-
-  &.on {
-    background: $bg;
-
-    .header-number__link-mobile {
-      background: $mc1;
-
-    }
-
-    .header-toggle-menu__icon {
-      background: $mc1;
-    }
-
-    #header-toggle-menu.on span {
-      background: transparent;
-    }
-  }
-  &-inner {
-    display: flex;
-    flex-direction: column;
-    background: $bg;
-
-  }
-  &-top {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    height: 68px;
-    opacity: 1;
-    transition: all ease-in-out 0.4s;
-    
-  }
-  &-logo-wrap {
-    display: flex;
-    justify-content: flex-start;
-    align-items: center;
-    
-  }
-  &-logo {
-    padding: 10px;
-    background: $redPrim;
-
-    svg {
-      width: 88px;
-      height: 42px;
-    }
-    
-  }
-  &-logo-text {
-    color: $bc;
-    margin-left: 30px;
-    width: 45%;
-  }
-  &-location {
-    display: flex;
-    align-items: center;
-    
-  }
-  &-location__city {
-    margin-right: 50px;
-    position: relative;
-
-    &::after {
-      content: url(../images/map-pin.svg);
-      display: block;
-      position: absolute;
-      top: 50%;
-      transform: translate(100%, -50%);
-      right: -20px;
-      width: 24px;
-      height: 24px;
-    }
-    select {
-      margin-left: 10px;
-      padding-left: 15px;
-      position: relative;
-      border: none;
-      background: $bg;
-      -webkit-appearance: none;
-      appearance: none;
-
-      background-image: url(../images/arrow-small.svg);
-      background-repeat: no-repeat;
-      background-position-x: 0;
-      background-position-y: 7px;
-    }
-
-    
-  }
-  &-location__city-text {
-    
-  }
-  &-location__city-current {
-    
-  }
-  &-location__details {
-    width: 245px;
-    
-  }
-  &-bottom {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 40px 0;
-
-    @include tablet {
-      padding: 16px 0;
-    }
-    
-  }
-  &-list-wrap {
-    
-  }
-  &-list {
-    display: flex;
-    justify-content: space-between;
-    gap: 32px;
-    
-  }
-  &-list-item {
-    
-  }
-  &-list-link {
-    color: $bc;
-    font-weight: 700;
-    text-decoration: none;
-
-    @include tabletLarge {
-      font-weight: 600;
-    }
-    
-  }
-  &-group-wrap {
-    
-  }
-  &-lang-wrap {
-    position: relative;
-    height: 30px;
-    overflow: hidden;
-    width: 40px;
-    transition: all ease-in-out 0.4s;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    overflow: hidden;
-    transition: height 0.4s ease, margin-top 0.4s ease;
-    flex-shrink: 0;
-    cursor: pointer;
-
-    @include mobile {
-      height: var(--roundContainer60);
-      width: var(--roundContainer60);
-      background: var(--yellow);
-      border-radius: 100px;
-    }
-    &::after {
-      content: url('../images/arrow-small.svg');
-      display: block;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 5px;
-      height: 100%;
-      width: 6px;
-    }
-
-    &:hover {
-      overflow: visible;
-      .header-lang {
-        height: 50px;
-      }
-      @include mobile {
-        height: 80px;
-
-      }
-    
-    }
-
-  }
-  &-lang {
-    position: absolute;
+    position: fixed;
     top: 0;
-
-    @include mobile {
-      top: 15px;
-    }
-  }
-  &-lang__item{
-    a {
-      text-decoration: none;
-
-      @include tabletLarge {
-        font-weight: 600;
-      }
-    }
-
-    @include mobile {
-      margin-bottom: 10px;
-    }
-
-  }
-
-  &-right-wrap {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    gap: 40px;
-
-    @include tablet {
-      display: none;
-    }
-
-    &--mobile {
-      display: none;
-
-      @include tablet {
-        display: flex;
-      }
-
-    }
-  }
-
-
-  &-call-wrap {
-    position: relative;
-    height: 30px;
-    overflow: hidden;
-    width: 186px;
+    left: 0;
+    width: 100%;
+    background: $bg;
+    z-index: 1000;
     transition: all ease-in-out 0.4s;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: flex-start;
-    overflow: hidden;
-    transition: height 0.4s ease, margin-top 0.4s ease;
-    flex-shrink: 0;
-    cursor: pointer;
-    @include mobile {
-      height: var(--roundContainer60);
-      width: var(--roundContainer60);
-      background: var(--yellow);
-      border-radius: 100px;
-    }
-    &::after {
-      content: url('../images/arrow-small.svg');
-      display: block;
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      right: 5px;
-      width: 6px;
-      height: 100%;
-    }
 
-    &:hover {
-     overflow: visible;
-      .header-number-list {
-        height: fit-content;
+    &.bg-header {
         background: $bg;
-      }
-      @include mobile {
-        height: 80px;
 
-      }
-    }
-    
-  }
-  &-number-list {
-    position: absolute;
-    top: 0;
-    height: 30px;
-    padding: 0 10px;
+        @include tabletLarge {
+            height: 60px;
+        }
 
-
-    @include mobile {
-      top: 15px;
-    }
-    
-  }
-
-  // &-number-list__item {
-  //   background: $bg;
-  // }
-
-  &-number-list__item-link {
-    text-decoration: none;
-
-    @include tabletLarge {
-      font-weight: 600;
+        .header-top {
+            height: 0px;
+            opacity: 0;
+        }
     }
 
-  }
+    &.on {
+        background: $bg;
 
-  &-number__link {
-    
-  }
+        .header-number__link-mobile {
+            background: $mc1;
+        }
 
-  &-callback {
-    svg {
-      width: 24px;
-      height: 24px;
-      fill: none;
+        .header-toggle-menu__icon {
+            background: $mc1;
+        }
+
+        #header-toggle-menu.on span {
+            background: transparent;
+        }
+    }
+    &-inner {
+        display: flex;
+        flex-direction: column;
+        background: $bg;
+    }
+    &-top {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        height: 68px;
+        opacity: 1;
+        transition: all ease-in-out 0.4s;
+    }
+    &-logo-wrap {
+        display: flex;
+        justify-content: flex-start;
+        align-items: center;
+    }
+    &-logo {
+        padding: 10px;
+        background: $redPrim;
+
+        svg {
+            width: 88px;
+            height: 42px;
+        }
+    }
+    &-logo-text {
+        color: $bc;
+        margin-left: 30px;
+        width: 45%;
+    }
+    &-location {
+        display: flex;
+        align-items: center;
+
+        @include tablet {
+            display: none;
+        }
+    }
+    &-location__city {
+        margin-right: 50px;
+        position: relative;
+
+        &::after {
+            content: url(../images/map-pin.svg);
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translate(100%, -50%);
+            right: -20px;
+            width: 24px;
+            height: 24px;
+        }
+        select {
+            margin-left: 10px;
+            padding-left: 15px;
+            position: relative;
+            border: none;
+            background: $bg;
+            -webkit-appearance: none;
+            appearance: none;
+
+            background-image: url(../images/arrow-small.svg);
+            background-repeat: no-repeat;
+            background-position-x: 0;
+            background-position-y: 7px;
+        }
+    }
+    &-location__city-text {
+    }
+    &-location__city-current {
+    }
+    &-location__details {
+        width: 245px;
+    }
+    &-bottom {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 40px 0;
+
+        @include tabletLarge {
+            padding: 20px 0;
+        }
+
+        @include tablet {
+            padding: 16px 0;
+        }
+    }
+    &-list-wrap {
+    }
+    &-list {
+        display: flex;
+        justify-content: space-between;
+        gap: 32px;
+
+        @include tabletLarge {
+            gap: 20px;
+        }
+    }
+    &-list-item {
+    }
+    &-list-link {
+        color: $bc;
+        font-weight: 700;
+        text-decoration: none;
+
+        @include tabletLarge {
+            font-weight: 600;
+        }
+    }
+    &-lang-wrap {
+        position: relative;
+        height: 30px;
+        overflow: hidden;
+        width: 40px;
+        transition: all ease-in-out 0.4s;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        overflow: hidden;
+        transition: height 0.4s ease, margin-top 0.4s ease;
+        flex-shrink: 0;
+        cursor: pointer;
+
+        &.active {
+        }
+        &::after {
+            content: url("../images/arrow-small.svg");
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 5px;
+            height: 100%;
+            width: 6px;
+        }
+
+        @include from(1366px) {
+            &:hover {
+                overflow: visible;
+                .header-lang {
+                    height: 50px;
+                }
+                @include mobile {
+                    height: 80px;
+                }
+            }
+        }
+    }
+    &-lang {
+        position: absolute;
+        top: 0;
+
+        @include tablet {
+            pointer-events: none;
+        }
+
+        @include mobile {
+            top: 15px;
+        }
+    }
+    &-lang__item {
+        a {
+            text-decoration: none;
+
+            @include tabletLarge {
+                font-weight: 600;
+            }
+        }
+
+        @include mobile {
+            margin-bottom: 10px;
+        }
     }
 
-  }
+    &-right-wrap {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 40px;
 
-  &-cart{
-    position: relative;
-    display: block;
-    text-decoration: none;
-    svg {
-      height: 24px;
-      width: 24px;
-      fill: none;
-      stroke: var(--black-100);
-      stroke-width: 2px;
+        @include tablet {
+            display: none;
+        }
+
+        &--mobile {
+            display: none;
+
+            @include tablet {
+                display: flex;
+            }
+        }
     }
 
-  }
+    &-number-wrap {
+        position: relative;
+        height: 30px;
+        overflow: hidden;
+        width: 186px;
+        transition: all ease-in-out 0.4s;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: flex-start;
+        overflow: hidden;
+        transition: height 0.4s ease, margin-top 0.4s ease;
+        flex-shrink: 0;
+        cursor: pointer;
+        @include tablet {
+            width: 30px;
+        }
+        &::after {
+            content: url("../images/arrow-small.svg");
+            display: block;
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            right: 5px;
+            width: 6px;
+            height: 100%;
 
-  &-cart-amount {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-decoration: none;
-    background: var(--black-100);
-    height: 20px;
-    width: 20px;
-    border-radius: 50%;
-    position: absolute;
-    top: 0;
-    right: 0;
-    transform: translate(50%, -50%);
-  }
+            @include tablet {
+                display: none;
+            }
+        }
+
+        &:hover {
+            overflow: visible;
+            .header-number-list {
+                height: fit-content;
+                background: $bg;
+            }
+            @include mobile {
+                height: 80px;
+            }
+        }
+    }
+
+    &-number-svg-wrap {
+        display: none;
+        @include tablet {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 100%;
+            height: 100%;
+            position: relative;
+        }
+    }
+    &-number-list {
+        position: absolute;
+        top: 0;
+        height: 30px;
+        padding: 0 10px;
+
+        @include tablet {
+            width: 186px;
+            top: auto;
+            bottom: 0;
+            left: 50%;
+            transform: translate(-50%, 100%);
+            display: none;
+        }
+
+        &.active {
+            display: block;
+        }
+    }
+
+    // &-number-list__item {
+    //   background: $bg;
+    // }
+
+    &-number-list__item-link {
+        text-decoration: none;
+
+        @include tabletLarge {
+            font-weight: 600;
+        }
+    }
+
+    &-number__link {
+    }
+
+    &-callback {
+        svg {
+            width: 24px;
+            height: 24px;
+            fill: none;
+        }
+    }
+
+    &-cart {
+        position: relative;
+        display: block;
+        text-decoration: none;
+        svg {
+            height: 24px;
+            width: 24px;
+            fill: none;
+            stroke: var(--black-100);
+            stroke-width: 2px;
+        }
+    }
+
+    &-cart-amount {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-decoration: none;
+        background: var(--black-100);
+        height: 20px;
+        width: 20px;
+        border-radius: 50%;
+        position: absolute;
+        top: 0;
+        right: 0;
+        transform: translate(50%, -50%);
+    }
 }

@@ -6,11 +6,11 @@
     }
 
     @include tablet {
-        padding: 190px 32px 50px 32px;
+        padding: 190px 0 50px 0;
     }
 
     @include mobile {
-        padding: 114px 16px 50px 16px;
+        padding: 114px 0 50px 0;
     }
 
     &:has([data-title="torhove-obladnannia"]) {
@@ -101,11 +101,19 @@
         @include tabletLarge {
             padding: 20px;
         }
+
+        @include tablet {
+            padding: 16px;
+        }
     }
 
     &-main-inner {
         display: flex;
         gap: 20px;
+
+        @include tablet {
+            flex-direction: column;
+        }
     }
 
     &-item-wrap {
@@ -119,6 +127,7 @@
 
         @include tablet {
             width: 100%;
+            flex-direction: column;
         }
     }
 
@@ -130,27 +139,46 @@
         @include tabletLarge {
             width: calc(50% - 10px);
         }
+
+        @include tablet {
+            width: 100%;
+            margin-bottom: 20px;
+            height: 55vh;
+        }
     }
 
     &-item-img {
         width: 100%;
         margin-bottom: 35px;
         height: 450px;
+
+        @include tablet {
+            height: 50vh;
+            margin-bottom: 20px;
+        }
         #nikaModel {
             height: 450px;
+            @include tablet {
+                height: 50vh;
+            }
         }
     }
 
     &-image {
         display: block;
         width: 100%;
-        object-fit: cover;
+        height: 450px;
+        object-fit: contain;
         opacity: 1;
         visibility: visible;
         pointer-events: all;
         position: absolute;
         top: 0;
         bottom: 0;
+
+        @include tablet {
+            height: 80%;
+        }
         &.hidden {
             opacity: 0;
             visibility: 0;
@@ -234,6 +262,10 @@
         @include tabletLarge {
             width: calc(50% - 10px);
         }
+
+        @include tablet {
+            width: 100%;
+        }
     }
 
     &-item-info {
@@ -242,12 +274,23 @@
         flex-direction: column;
         border: 1px solid var(--text-footer);
         background: var(--background);
+
+        @include tablet {
+            padding: 0;
+            flex-direction: row;
+        }
     }
 
     &-item-info__title-row {
         display: flex;
         justify-content: space-between;
         margin-bottom: 6px;
+
+        @include tablet {
+            margin-bottom: 0;
+            flex-direction: column;
+            width: 35%;
+        }
         span {
             text-transform: uppercase;
             font-weight: 600;
@@ -260,6 +303,15 @@
         @include tabletLarge {
             width: 14%;
         }
+
+        @include tablet {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid $border;
+        }
     }
 
     &-item-info__title-row-name {
@@ -267,6 +319,15 @@
 
         @include tabletLarge {
             width: 37%;
+        }
+
+        @include tablet {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid $border;
         }
     }
 
@@ -276,6 +337,14 @@
         @include tabletLarge {
             width: 15%;
         }
+        @include tablet {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid $border;
+        }
     }
 
     &-item-info__title-row-quantity {
@@ -284,6 +353,14 @@
         @include tabletLarge {
             width: 18%;
         }
+        @include tablet {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            padding: 16px;
+            border-bottom: 1px solid $border;
+        }
     }
 
     &-list {
@@ -291,6 +368,7 @@
 
         @include tablet {
             margin-bottom: 12px;
+            width: 70%;
         }
 
         &:last-child {
@@ -304,6 +382,11 @@
         align-items: center;
         margin-bottom: 8px;
 
+        @include tablet {
+            flex-direction: column;
+            margin-bottom: 0;
+        }
+
         &:last-child {
             margin-bottom: 0;
         }
@@ -315,12 +398,27 @@
         @include tabletLarge {
             width: 18%;
         }
+        @include tablet {
+            width: 100%;
+            height: 50px;
+            display: flex;
+            align-items: center;
+
+            border-bottom: 1px solid $border;
+        }
     }
 
     &-item-info__row-code {
         width: 10%;
         @include tabletLarge {
             width: 14%;
+        }
+        @include tablet {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid $border;
         }
     }
 
@@ -330,6 +428,13 @@
         @include tabletLarge {
             width: 37%;
         }
+        @include tablet {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid $border;
+        }
     }
 
     &-item-info__row-price {
@@ -337,6 +442,13 @@
 
         @include tabletLarge {
             width: 15%;
+        }
+        @include tablet {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid $border;
         }
     }
 
@@ -347,6 +459,13 @@
 
         @include tabletLarge {
             width: 18%;
+        }
+        @include tablet {
+            width: 100%;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            border-bottom: 1px solid $border;
         }
     }
 
@@ -421,6 +540,12 @@
         @include tabletLarge {
             width: 18%;
         }
+
+        @include tablet {
+            width: 100%;
+            height: 50px;
+        }
+
         svg {
             pointer-events: none;
             width: 16px;
@@ -461,6 +586,14 @@
 
     &-info-wrap {
         margin-top: 75px;
+
+        @include tablet {
+            margin-top: 40px;
+        }
+
+        @include mobile {
+            margin-top: 20px;
+        }
     }
 
     &-info-switch {
@@ -501,6 +634,10 @@
         position: relative;
         transform: translateY(-1px);
         z-index: 1;
+
+        @include tablet {
+            padding: 20px;
+        }
     }
 
     &-info {

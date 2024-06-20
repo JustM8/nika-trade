@@ -27,6 +27,7 @@
 
         @include tablet {
             flex-direction: column;
+            padding: 20px;
         }
 
         &:last-child {
@@ -97,6 +98,10 @@
         border: 1px solid var(--text-footer);
         background: var(--background);
         display: block;
+
+        @include tablet {
+            padding: 20px;
+        }
         &.hidden {
             display: none;
         }

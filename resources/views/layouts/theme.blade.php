@@ -152,7 +152,13 @@
           </div>
 
           <div class="header-right-wrap header-right-wrap--mobile">
-            <div class="header-call-wrap">
+            <div class="header-number-wrap">
+              <div class="header-number-svg-wrap">
+                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
+                  <path d="M3.26645 7.43645L3.00972 7.69317L3.17437 8.01675C4.66275 10.9418 7.05952 13.3276 9.982 14.825L10.3061 14.991L10.5636 14.7336L12.7636 12.5336C12.899 12.3981 13.099 12.3551 13.2678 12.413L13.2678 12.413L13.2732 12.4148C14.4436 12.8014 15.7066 13.01 17 13.01C17.2739 13.01 17.5 13.2361 17.5 13.51V17C17.5 17.2739 17.2739 17.5 17 17.5C7.88614 17.5 0.5 10.1139 0.5 1C0.5 0.726142 0.726142 0.5 1 0.5H4.5C4.77386 0.5 5 0.726142 5 1C5 2.30213 5.20815 3.55368 5.5939 4.7228C5.6492 4.90217 5.6082 5.09469 5.46645 5.23645L3.26645 7.43645Z" fill="#242424" stroke="#242424"/>
+                </svg>
+
+              </div>
               <ul class="header-number-list">
                 <li class="header-number-list__item">
                   <a class="header-number-list__item-link text-18 text-black" href="tel:+38(044)4966997">+38(044) 496 69 97</a>
@@ -218,17 +224,31 @@
         <div class="header-bottom">
           <div class="header-list-wrap">
             <ul class="header-list">
-              <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/')}}">Головна</a></li>
-              <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/')}}#about">Про компанію</a></li>
-              <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/gallery') }}">Галерея</a></li>
-              <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/catalog/torhove-obladnannia') }}">Каталог</a></li>
-              <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/services') }}">Інформація для замовника</a></li>
-              <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/news') }}">Новини</a></li>
-              <li class="header-list-item"><a class="header-list-link text-s" href="{{ url('/contacts') }}">Контакти</a></li>
+              <li class="header-list-item">
+                <a class="header-list-link text-s" href="{{ url('/')}}">Головна</a>
+              </li>
+              <li class="header-list-item">
+                <a class="header-list-link text-s" href="{{ url('/')}}#about">Про компанію</a>
+              </li>
+              <li class="header-list-item">
+                <a class="header-list-link text-s" href="{{ url('/gallery') }}">Галерея</a>
+              </li>
+              <li class="header-list-item">
+                <a class="header-list-link text-s" href="{{ url('/catalog/torhove-obladnannia') }}">Каталог</a>
+              </li>
+              <li class="header-list-item">
+                <a class="header-list-link text-s" href="{{ url('/services') }}">Інформація для замовника</a>
+              </li>
+              <li class="header-list-item">
+                <a class="header-list-link text-s" href="{{ url('/news') }}">Новини</a>
+              </li>
+              <li class="header-list-item">
+                <a class="header-list-link text-s" href="{{ url('/contacts') }}">Контакти</a>
+              </li>
             </ul>
           </div>
           <div class="header-right-wrap">
-            <div class="header-call-wrap">
+            <div class="header-number-wrap">
               <ul class="header-number-list">
                 <li class="header-number-list__item">
                   <a class="header-number-list__item-link text-18 text-black" href="tel:+38(044)4966997">+38(044) 496 69 97</a>

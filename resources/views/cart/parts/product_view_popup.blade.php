@@ -20,7 +20,7 @@
                     <form action="{{ route('ajax.cart.count.update', $row->id) }}" data-route="{{ route('ajax.cart.count.update', $row->id) }}" data-row-id="{{$row->rowId}}" method="POST">
                         @csrf
                         <input type="hidden" value="{{ $row->rowId }}" name="rowId">
-                        <input type="number"
+                        <input type="text"
                             min="1"
                             value="{{ $row->qty }}"
                             max="{{ $row->model->in_stock }}"

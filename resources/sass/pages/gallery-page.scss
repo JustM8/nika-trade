@@ -133,6 +133,11 @@
             padding: 40px;
             border: 1px solid $border;
             background: $wc;
+
+            @include tablet {
+                padding: 20px;
+                flex-direction: column;
+            }
             div {
                 flex: 1 0 0;
                 align-self: stretch;
@@ -157,6 +162,10 @@
             margin-top: 40px;
             position: relative;
             height: 80vh;
+            @include tablet {
+                display: flex;
+                flex-direction: column-reverse;
+            }
 
             .swiper-slide {
                 background-position: center;
@@ -197,6 +206,11 @@
             line-height: 140%;
             color: $bc2;
             background-color: $wc;
+            @include tablet {
+                width: 100%;
+                padding: 15px;
+                position: relative;
+            }
         }
         &__info-shop-name {
             padding-bottom: 20px;
@@ -222,6 +236,11 @@
             bottom: 20px;
             background: $wc;
             cursor: pointer;
+
+            @include tablet {
+                bottom: auto;
+                top: 50vh;
+            }
         }
         &__swiper-button-prev {
             left: 20px;
