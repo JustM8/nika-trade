@@ -25,7 +25,7 @@
                         <button class="catalog-single-btn-mobile btn">
                             <svg class="icon--equipment-btn" role="presentation">
                                 <use xlink:href="#icon-equipment-btn"></use>
-                            </svg><span>Обладнання</span>
+                            </svg><span>{{ __('show.Обладнання') }}</span>
                         </button>
                     </div>
                     <div class="catalog-single-filters-wrap">
@@ -110,7 +110,7 @@
                         <button class="catalog-single-btn-mobile btn">
                             <svg class="icon--equipment-btn" role="presentation">
                                 <use xlink:href="#icon-equipment-btn"></use>
-                            </svg><span>Обладнання</span>
+                            </svg><span>{{ __('show.Обладнання') }}</span>
                         </button>
                     </div>
                     <div class="catalog-single-filters-wrap">

@@ -29,7 +29,7 @@
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true" v-pre="">
-                                Lang
+                                {{ __('admin.Lang') }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" data-bs-popper="static">
                                 <a class="dropdown-item @if(App::currentLocale()=='ua'){{'active'}}@endif" href="{{ url('/locale/ua') }}">
@@ -83,15 +83,15 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ __('service.Service') }}
+                                  {{ __('admin.Service') }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('admin.services.index') }}">
-                                    {{ __('service.All services') }}
+                                     {{ __('admin.All services') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('admin.services.create') }}">
-                                    {{ __('service.Create service') }}
+                                     {{ __('admin.Create service') }}
                                 </a>
                             </div>
                         </li>
@@ -111,15 +111,15 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ __('News') }}
+                                {{ __('admin.News') }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('admin.news.index') }}">
-                                    {{ __('All news') }}
+                                    {{ __('admin.All news') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('admin.news.create') }}">
-                                    {{ __('Create new') }}
+                                    {{ __('admin.Create new') }}
                                 </a>
                             </div>
                         </li>
@@ -139,15 +139,15 @@
                         </li>
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                {{ __('Categories') }}
+                                {{ __('admin.Categories') }}
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
                                 <a class="dropdown-item" href="{{ route('admin.categories.index', request()->query()) }}">
-                                    {{ __('All categories') }}
+                                    {{ __('admin.All categories') }}
                                 </a>
                                 <a class="dropdown-item" href="{{ route('admin.categories.create', request()->query()) }}">
-                                    {{ __('Create category') }}
+                                    {{ __('admin.Create category') }}
                                 </a>
                             </div>
                         </li>
@@ -162,11 +162,11 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a href="{{ url('/') }}" class="dropdown-item">{{ __('Back to website') }}</a>
+                                <a href="{{ url('/') }}" class="dropdown-item">{{ __('admin.Back to website') }}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
-                                    {{ __('Logout') }}
+                                    {{ __('admin.Logout') }}
                                 </a>
 
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">

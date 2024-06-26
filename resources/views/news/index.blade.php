@@ -11,7 +11,7 @@
                         <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">Новини</a></li>
                     </ul>
                 </div> -->
-                <h2 class="page-title text-title">Новини</h2>
+                <h2 class="page-title text-title">{{ __('index.Новини') }}</h2>
             </div>
             <div class="news-page-list" id="news-container">
 
@@ -24,7 +24,7 @@
                             <div class="news-page-item-intro">
                                 <h2 class="news-page-item__title text-24">{{$new->title[App::currentLocale()]}}</h2>
                                 <p class="news-page-item__text text-14">{!! $new->description['description_top'][App::currentLocale()]!!}</p>
-                                <a class="news-page-item__btn btn" href="{{ route('news.show', $new->slug) }}">Читати новину</a>
+                                <a class="news-page-item__btn btn" href="{{ route('news.show', $new->slug) }}">{{ __('index.Читати новину') }}</a>
                             </div>
                             <div class="news-page-item-date">
                                 <span class="news-page-item-date__day text-14">{{$d[2]}}</span>
@@ -38,7 +38,7 @@
                     </div>
                 @endforeach
             </div>
-                        <button class="news-page-item__btn btn" id="load-more-btn" data-route="{{ route('load-more-news') }}">Ще новини</button>
+                        <button class="news-page-item__btn btn" id="load-more-btn" data-route="{{ route('load-more-news') }}">{{ __('index.Ще новини') }}</button>
         </div>
     </section>
 @endsection

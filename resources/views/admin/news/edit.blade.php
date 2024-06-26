@@ -6,7 +6,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <br>
-                <h3 class="text-center">{{ __('Update news') }}</h3>
+                <h3 class="text-center">{{ __('news.Update news') }}</h3>
                 <hr>
             </div>
             <div class="col-md-12">
@@ -25,7 +25,7 @@
                     @csrf
                     @method('PUT')
                     <div class="form-group row">
-                        <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Slug') }}</label>
+                        <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('news.Slug') }}</label>
                         <div class="col-md-6">
                             <input id="title"
                                    type="text"
@@ -38,7 +38,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
+                        <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('news.Date') }}</label>
                         <div class="col-md-6">
                             <input id="date"
                                    type="date"
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
+                        <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('news.Title') }}</label>
                         <div class="col-md-6">
                             <input id="title"
                                    type="text"
@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="subtitle_1" class="col-md-4 col-form-label text-md-right">{{ __('Subtitle 1') }}</label>
+                        <label for="subtitle_1" class="col-md-4 col-form-label text-md-right">{{ __('news.Subtitle 1') }}</label>
                         <div class="col-md-6">
                             <input id="subtitle_1"
                                    type="text"
@@ -80,7 +80,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="subtitle_2" class="col-md-4 col-form-label text-md-right">{{ __('Subtitle 2') }}</label>
+                        <label for="subtitle_2" class="col-md-4 col-form-label text-md-right">{{ __('news.Subtitle 2') }}</label>
                         <div class="col-md-6">
                             <input id="subtitle_2"
                                    type="text"
@@ -94,7 +94,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="priority" class="col-md-4 col-form-label text-md-right">{{ __('Priority') }}</label>
+                        <label for="priority" class="col-md-4 col-form-label text-md-right">{{ __('news.Priority') }}</label>
                         <div class="col-md-6">
                             <input id="priority"
                                    type="number"
@@ -109,7 +109,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="video" class="col-md-4 col-form-label text-md-right">{{ __('Video(url)') }}</label>
+                        <label for="video" class="col-md-4 col-form-label text-md-right">{{ __('news.Video(url)') }}</label>
                         <div class="col-md-6">
                             <input id="video"
                                    type="text"
@@ -123,7 +123,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="description_top" class="col-md-4 col-form-label text-md-right">{{ __('Description top') }}</label>
+                        <label for="description_top" class="col-md-4 col-form-label text-md-right">{{ __('news.Description top') }}</label>
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <textarea name="description_top" id="description_top" class="form-control  @error('description_top') is-invalid @enderror" placeholder="Leave a comment here" id="description_top" style="height: 250px">
@@ -133,7 +133,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="description_bottom" class="col-md-4 col-form-label text-md-right">{{ __('Description bottom') }}</label>
+                        <label for="description_bottom" class="col-md-4 col-form-label text-md-right">{{ __('news.Description bottom') }}</label>
                         <div class="col-md-6">
                             <div class="form-floating">
                                 <textarea name="description_bottom" id="description_bottom" class="form-control  @error('description_bottom') is-invalid @enderror" placeholder="Leave a comment here" id="description_bottom" style="height: 250px">
@@ -143,7 +143,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="thumbnail" class="col-md-4 col-form-label text-md-right">{{ __('Thumbnail') }}</label>
+                        <label for="thumbnail" class="col-md-4 col-form-label text-md-right">{{ __('news.Thumbnail') }}</label>
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-3">
@@ -157,7 +157,7 @@
                     </div>
                     <div class="form-group row">
                         <div class="col-md-10 text-right">
-                            <input type="submit" class="btn btn-info" value="Update">
+                            <input type="submit" class="btn btn-info" value="{{ __('news.Update')}}">
                         </div>
                     </div>
 
@@ -166,7 +166,7 @@
 
                 <div class="form-group row">
                     <div class="col-md-10 text-right">
-                        <a href="{{ route('admin.news.index') }}" class="btn btn-outline-dark">{{__('Cancel')}}</a>
+                        <a href="{{ route('admin.news.index') }}" class="btn btn-outline-dark">{{ __('news.Cancel')}}</a>
                     </div>
                 </div>
                 </form>

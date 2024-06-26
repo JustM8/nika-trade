@@ -4,7 +4,7 @@
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <br>
-                <h3 class="text-center">{{ __('Create product') }}</h3>
+                <h3 class="text-center">{{ __('product.Create product') }}</h3>
                 <hr>
             </div>
             <div class="col-md-12">
@@ -23,7 +23,7 @@
                 <form action="{{ route('admin.products.store', request()->query()) }}" method="POST" enctype="multipart/form-data">
                     @csrf
                     <div class="form-group row">
-                        <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Title') }}</label>
+                        <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('product.Title') }}</label>
                         <div class="col-md-6">
                             <input id="title"
                                    type="text"
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('Slug') }}</label>
+                        <label for="title" class="col-md-4 col-form-label text-md-right">{{ __('product.Slug') }}</label>
                         <div class="col-md-6">
                             <input id="title"
                                    type="text"
@@ -74,7 +74,7 @@
                     </div>
                     <div class="form-group row">
                         <label for="category"
-                               class="col-md-4 col-form-label text-md-right">{{ __('Categories') }}</label>
+                               class="col-md-4 col-form-label text-md-right">{{ __('product.Categories') }}</label>
                         <div class="col-md-6">
                             <select name="category[]"
                                     id="category"
@@ -88,12 +88,12 @@
                     </div>
                     <div class="form-group row mb-3">
                         <label for="category"
-                               class="col-md-4 col-form-label text-md-right">{{ __('Parent products') }}</label>
+                               class="col-md-4 col-form-label text-md-right">{{ __('product.Parent products') }}</label>
                         <div class="col-md-6">
                             <select id="category"
                                     class="form-control @error('parent_id') is-invalid @enderror"
                                     name="parent_id">
-                                <option value="">No parent</option>
+                                <option value="">{{ __('product.No parent') }}</option>
                                 @foreach($products as $child)
                                     <option value="{{$child->id}}">{{$child->title[App::currentLocale()]}}</option>
                                 @endforeach
@@ -102,7 +102,7 @@
                     </div>
 {{--                    sku--}}
                     <div class="form-group row">
-                        <label for="SKU" class="col-md-4 col-form-label text-md-right">{{ __('SKU') }}</label>
+                        <label for="SKU" class="col-md-4 col-form-label text-md-right">{{ __('product.SKU') }}</label>
                         <div class="col-md-6">
                             <input id="SKU"
                                    type="text"
@@ -116,7 +116,7 @@
                     </div>
 {{--                    price--}}
                     <div class="form-group row">
-                        <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('Price') }}</label>
+                        <label for="price" class="col-md-4 col-form-label text-md-right">{{ __('product.Price') }}</label>
                         <div class="col-md-6">
                             <input id="price"
                                    type="text"
@@ -130,7 +130,7 @@
                     </div>
 {{--                    discount--}}
                     <div class="form-group row">
-                        <label for="discount" class="col-md-4 col-form-label text-md-right">{{ __('Discount') }}</label>
+                        <label for="discount" class="col-md-4 col-form-label text-md-right">{{ __('product.Discount') }}</label>
                         <div class="col-md-6">
                             <input id="discount"
                                    type="text"
@@ -145,7 +145,7 @@
 {{--                    in stock--}}
                     <div class="form-group row"  style="display: none;">
                         <label for="in_stock"
-                               class="col-md-4 col-form-label text-md-right">{{ __('In Stock (Quantity)') }}</label>
+                               class="col-md-4 col-form-label text-md-right">{{ __('product.In Stock (Quantity)') }}</label>
                         <div class="col-md-6">
                             <input id="in_stock"
                                    type="number"
@@ -160,7 +160,7 @@
 {{--                    decsription--}}
                     <div class="form-group row">
                         <label for="description"
-                               class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+                               class="col-md-4 col-form-label text-md-right">{{ __('product.Description') }}</label>
                         <div class="col-md-6">
                             <textarea name="description"
                                       class="form-control"
@@ -171,7 +171,7 @@
                     </div>
 {{--                    --}}
                     <div class="form-group row">
-                        <label for="recommended_id" class="col-md-4 col-form-label text-md-right">{{ __('Recommended product') }}</label>
+                        <label for="recommended_id" class="col-md-4 col-form-label text-md-right">{{ __('product.Recommended product') }}</label>
                         <div class="col-md-6">
                             <select class="form-select" name="recommended_id[]" id="recommended_id" multiple>
 
@@ -185,7 +185,7 @@
 {{--img--}}
                     <div class="form-group row">
                         <label for="thumbnail"
-                               class="col-md-4 col-form-label text-md-right">{{ __('Thumbnail') }}</label>
+                               class="col-md-4 col-form-label text-md-right">{{ __('product.Thumbnail') }}</label>
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
@@ -200,7 +200,7 @@
 {{--                    obj_model--}}
                     <div class="form-group row">
                         <label for="thumbnail"
-                               class="col-md-4 col-form-label text-md-right">{{ __('obj_model') }}</label>
+                               class="col-md-4 col-form-label text-md-right">{{ __('product.obj_model') }}</label>
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
@@ -215,7 +215,7 @@
                     {{--                    obj_model 2--}}
                     <div class="form-group row">
                         <label for="thumbnail"
-                               class="col-md-4 col-form-label text-md-right">{{ __('obj_model_2') }}</label>
+                               class="col-md-4 col-form-label text-md-right">{{ __('product.obj_model_2') }}</label>
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
@@ -244,7 +244,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('Images') }}</label>
+                        <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('product.Images') }}</label>
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
@@ -259,7 +259,7 @@
 
                     <div class="form-group row">
                         <div class="col-md-10 text-right">
-                            <input type="submit" class="btn btn-info" value="Create">
+                            <input type="submit" class="btn btn-info" value="{{ __('product.Create') }}">
                         </div>
                     </div>
                 </form>

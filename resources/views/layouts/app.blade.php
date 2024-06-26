@@ -35,7 +35,7 @@
                     <ul class="navbar-nav me-auto">
                         <li class="nav-item dropdown">
                             <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="true" v-pre="">
-                                Lang
+                                {{ __('app.Lang') }}
                             </a>
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown" data-bs-popper="static">
                                 <a class="dropdown-item @if(App::currentLocale()=='ua'){{'active'}}@endif" href="{{ url('/locale/ua') }}">

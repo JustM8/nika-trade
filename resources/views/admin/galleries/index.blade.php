@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <h3 class="text-center">{{ __('Galleries') }}</h3>
+                <h3 class="text-center">{{ __('index.Galleries') }}</h3>
             </div>
             <div class="col-md-12">
                 @if (session('status'))
@@ -17,13 +17,13 @@
                 <table class="table align-self-center">
                     <thead>
                     <tr>
-                        <th class="text-center" scope="col">ID</th>
-                        <th class="text-center" scope="col">Create Date</th>
-                        <th class="text-center" scope="col">Year</th>
-                        <th class="text-center" scope="col">Object</th>
-                        <th class="text-center" scope="col">Categories</th>
-                        <th class="text-center" scope="col">Actions</th>
-                        <th class="text-center" scope="col"><a href="{{ route('admin.galleries.index') }}" class=" btn btn-outline-dark">{{__('galleries.All')}}</a></th>
+                        <th class="text-center" scope="col">{{ __('index.ID') }}</th>
+                        <th class="text-center" scope="col">{{ __('index.Create Date') }}</th>
+                        <th class="text-center" scope="col">{{ __('index.Year') }}</th>
+                        <th class="text-center" scope="col">{{ __('index.Object') }}</th>
+                        <th class="text-center" scope="col">{{ __('index.Categories') }}</th>
+                        <th class="text-center" scope="col">{{ __('index.Actions') }}</th>
+                        <th class="text-center" scope="col"><a href="{{ route('admin.galleries.index') }}" class=" btn btn-outline-dark">{{__('index.All')}}</a></th>
                     </tr>
                     </thead>
                     <tbody>
@@ -41,11 +41,11 @@
                                 @endif
                             </td>
                             <td class="text-center" scope="col">
-                                <a href="{{ route('admin.galleries.edit', $gallery) }}" class="btn btn-info form-control">Edit</a>
+                                <a href="{{ route('admin.galleries.edit', $gallery) }}" class="btn btn-info form-control">{{ __('index.Edit') }}</a>
                                 <form action="{{ route('admin.galleries.destroy', $gallery) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" class="btn btn-danger form-control" value="Remove">
+                                    <input type="submit" class="btn btn-danger form-control" value="{{ __('index.Remove') }}">
                                 </form>
                             </td>
                         </tr>

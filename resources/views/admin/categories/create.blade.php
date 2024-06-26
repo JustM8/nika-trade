@@ -5,14 +5,14 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Create Category') }}</div>
+                    <div class="card-header">{{ __('category.Create Category') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.categories.store',request()->query()) }}" enctype="multipart/form-data">
                             @csrf
 
                             <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('category.Name') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ old('name') }}" required>
@@ -26,7 +26,7 @@
 
                             </div>
                             <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Slug') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('category.Slug') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" value="{{ old('slug') }}" required>
@@ -41,12 +41,12 @@
                             </div>
                             <div class="form-group row mb-3">
                                 <label for="category"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Parent Categories') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('category.Parent Categories') }}</label>
                                 <div class="col-md-6">
                                     <select id="category"
                                             class="form-control @error('category') is-invalid @enderror"
                                             name="parent_id">
-                                        <option value="">No parent</option>
+                                        <option value="">{{ __('category.No parent') }}</option>
                                         @foreach($parents as $child)
                                                 <option value="{{ $child['id'] }}">{{ $child['name'][App::currentLocale()] }}</option>
                                         @endforeach
@@ -56,7 +56,7 @@
 
                             <div class="form-group row">
                                 <label for="post_title"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('post_title') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('category.post_title') }}</label>
                                 <div class="col-md-6">
                             <textarea name="post_title"
                                       class="form-control @error('post_title') is-invalid @enderror"
@@ -68,7 +68,7 @@
 
                             <div class="form-group row">
                                 <label for="description"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('category.Description') }}</label>
                                 <div class="col-md-6">
                             <textarea name="description"
                                       class="form-control @error('description') is-invalid @enderror"
@@ -80,7 +80,7 @@
 
                             <div class="form-group row">
                                 <label for="description"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Description Left') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('category.Description Left') }}</label>
                                 <div class="col-md-6">
                             <textarea name="description_l"
                                       class="form-control @error('description_l') is-invalid @enderror"
@@ -91,7 +91,7 @@
                             </div>
                             <div class="form-group row">
                                 <label for="description"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Description Right') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('category.Description Right') }}</label>
                                 <div class="col-md-6">
                             <textarea name="description_r"
                                       class="form-control @error('description_r') is-invalid @enderror"
@@ -102,7 +102,7 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="thumbnail" class="col-md-4 col-form-label text-md-right">{{ __('Thumbnail') }}</label>
+                                <label for="thumbnail" class="col-md-4 col-form-label text-md-right">{{ __('category.Thumbnail') }}</label>
                                 <div class="col-md-6">
                                     <div class="row">
                                         <div class="col-md-3">
@@ -118,7 +118,7 @@
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">{{ __('Store') }}</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('category.Store') }}</button>
                                 </div>
                             </div>
                         </form>

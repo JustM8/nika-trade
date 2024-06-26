@@ -11,8 +11,8 @@
                             @csrf
                             @method('PUT')
 {{--                            <div class="images-wrapper"></div>--}}
-                            <h5>Відділ продажів:</h5>
-                            <h6>КИЇВ (ГОЛОВНИЙ ОФІС)</h6>
+                            <h5>{{ __('main.Відділ продажів:') }}</h5>
+                            <h6>{{ __('main.КИЇВ (ГОЛОВНИЙ ОФІС)') }}</h6>
                             <div class="form-group row">
                                 <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('main.number') }}</label>
                                 <div class="col-md-6">
@@ -40,7 +40,7 @@
                             </div>
 
                             <hr>
-                            <h6>ДНІПРО (ПРЕДСТАВНИЦТВО)</h6>
+                            <h6>{{ __('main.ДНІПРО (ПРЕДСТАВНИЦТВО)') }}</h6>
                             <div class="form-group row">
                                 <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('main.number') }}</label>
                                 <div class="col-md-6">
@@ -69,7 +69,7 @@
 
 
                             <hr>
-                            <h5>Соцмережі:</h5>
+                            <h5>{{ __('main.Соцмережі:') }}</h5>
                             <div class="form-group row">
                                 <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('main.telegram') }}</label>
                                 <div class="col-md-6">
@@ -99,7 +99,7 @@
                             <hr>
 
                             <div class="form-group row">
-                                <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('Images') }}</label>
+                                <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('main.Images') }}</label>
                                 <div class="col-md-6">
                                     <div class="row">
                                         <div class="col-md-12">

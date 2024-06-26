@@ -25,7 +25,7 @@
                 </div>
                 <div class="text-muted">
                     @if ($product->price !== $product->end_price)
-                        <span class="text-muted old-price">{{ $product->price }} грн</span>
+                        <span class="text-muted old-price">{{ $product->price }} {{ __('product_view.грн') }}</span>
                     @endif
                     <span class="text-muted">{{ $product->end_price }}$</span>
                 </div>

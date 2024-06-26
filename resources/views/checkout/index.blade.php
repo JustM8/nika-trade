@@ -4,7 +4,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <h3 class="text-center">{{ __('Checkout') }}</h3>
+                <h3 class="text-center">{{ __('index.Checkout') }}</h3>
                 @if ($errors->any())
                     {{ implode('', $errors->all('<div>:message</div>')) }}
                 @endif
@@ -13,28 +13,28 @@
                 <form id="order-form" action="{{ route('order.create') }}" method="POST">
                     @csrf
                     <div class="form-group row">
-                        <label for="company_name" class="col-md-4 col-form-label text-md-right">{{ __('Company name') }}</label>
+                        <label for="company_name" class="col-md-4 col-form-label text-md-right">{{ __('index.Company name') }}</label>
                         <div class="col-md-6">
                             <input id="company_name" type="text" class="form-control @error('company_name') is-invalid @enderror" name="company_name" value="{{ old('company_name') }}" autofocus>
                         </div>
                     </div>
 
                     <div class="form-group row">
-                        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('Name') }}</label>
+                        <label for="name" class="col-md-4 col-form-label text-md-right">{{ __('index.Name') }}</label>
                         <div class="col-md-6">
                             <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ Auth()->user()->name }}" autocomplete="name" autofocus>
                         </div>
                     </div>
 
 {{--                    <div class="form-group row">--}}
-{{--                        <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('Surname') }}</label>--}}
+{{--                        <label for="surname" class="col-md-4 col-form-label text-md-right">{{ __('index.Surname') }}</label>--}}
 {{--                        <div class="col-md-6">--}}
 {{--                            <input id="surname" type="text" class="form-control @error('surname') is-invalid @enderror" name="surname" value="{{ Auth()->user()->surname }}" autocomplete="surname" autofocus>--}}
 {{--                        </div>--}}
 {{--                    </div>--}}
 
                     <div class="form-group row">
-                        <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('E-Mail Address') }}</label>
+                        <label for="email" class="col-md-4 col-form-label text-md-right">{{ __('index.E-Mail Address') }}</label>
 
                         <div class="col-md-6">
                             <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ Auth()->user()->email }}" autocomplete="email">
@@ -42,7 +42,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('Phone Number') }}</label>
+                        <label for="phone" class="col-md-4 col-form-label text-md-right">{{ __('index.Phone Number') }}</label>
 
                         <div class="col-md-6">
                             <input id="phone" type="tel" class="form-control @error('phone') is-invalid @enderror" name="phone" value="{{ Auth()->user()->phone }}">
@@ -50,7 +50,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="phone_delivery" class="col-md-4 col-form-label text-md-right">{{ __('Phone Delivery') }}</label>
+                        <label for="phone_delivery" class="col-md-4 col-form-label text-md-right">{{ __('index.Phone Delivery') }}</label>
 
                         <div class="col-md-6">
                             <input id="phone_delivery" type="tel" class="form-control @error('phone_delivery') is-invalid @enderror" name="phone_delivery" value="{{ old('phone_delivery') }}">
@@ -58,7 +58,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('City') }}</label>
+                        <label for="city" class="col-md-4 col-form-label text-md-right">{{ __('index.City') }}</label>
 
                         <div class="col-md-6">
                             <input id="city" type="text" class="form-control @error('city') is-invalid @enderror" name="city" value="{{ old('city') }}">
@@ -66,7 +66,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('Address') }}</label>
+                        <label for="address" class="col-md-4 col-form-label text-md-right">{{ __('index.Address') }}</label>
 
                         <div class="col-md-6">
                             <input id="address" type="text" class="form-control @error('address') is-invalid @enderror" name="address" value="{{ old('address') }}">
@@ -74,7 +74,7 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="comment" class="col-md-4 col-form-label text-md-right">{{ __('Comment') }}</label>
+                        <label for="comment" class="col-md-4 col-form-label text-md-right">{{ __('index.Comment') }}</label>
 
                         <div class="col-md-6">
                             <textarea id="comment" type="text" class="form-control @error('comment') is-invalid @enderror" name="comment">{{old('comment')}}</textarea>
@@ -82,36 +82,36 @@
                     </div>
 
                     <div class="form-group row">
-                        <label for="delivery_type" class="col-md-4 col-form-label text-md-right">{{ __('Delivery type') }}</label>
+                        <label for="delivery_type" class="col-md-4 col-form-label text-md-right">{{ __('index.Delivery type') }}</label>
                         <div class="col-md-6">
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="delivery_type" id="delivery_type_1" value="1" checked>
                                 <label class="form-check-label" for="delivery_type_1">
-                                    Самовивіз
+                                    {{ __('index.Самовивіз') }}
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="delivery_type" id="delivery_type_2"  value="2">
                                 <label class="form-check-label" for="delivery_type_2">
-                                    Доставка в офіс Київ
+                                    {{ __('index.Доставка в офіс Київ') }}
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="delivery_type" id="delivery_type_3"  value="3">
                                 <label class="form-check-label" for="delivery_type_3">
-                                    Доставка в офіс Дніпро
+                                    {{ __('index.Доставка в офіс Дніпро') }}
                                 </label>
                             </div>
                             <div class="form-check">
                                 <input class="form-check-input" type="radio" name="delivery_type" id="delivery_type_4"  value="4">
                                 <label class="form-check-label" for="delivery_type_4">
-                                    Доставка перевізником (по Україні)
+                                    {{ __('index.Доставка перевізником (по Україні)') }}
                                 </label>
                             </div>
                         </div>
                     </div>
 
-                    <button type="submit">Make order</button>
+                    <button type="submit">{{ __('index.Make order') }}</button>
                 </form>
             </div>
             <div class="col-md-4">
@@ -119,10 +119,10 @@
                     <thead>
                     <tr>
                         <th></th>
-                        <th>Product</th>
-                        <th>Qty</th>
-                        <th>Price</th>
-                        <th>Subtotal</th>
+                        <th>{{ __('index.Product') }}</th>
+                        <th>{{ __('index.Qty') }}</th>
+                        <th>{{ __('index.Price') }}</th>
+                        <th>{{ __('index.Subtotal') }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -146,17 +146,17 @@
                     <tbody>
                     <tr>
                         <td colspan="2">&nbsp</td>
-                        <td>Subtotal</td>
+                        <td>{{ __('index.Subtotal') }}</td>
                         <td>{{ Cart::subtotal() }}</td>
                     </tr>
                     <tr>
                         <td colspan="2">&nbsp</td>
-                        <td>Tax</td>
+                        <td>{{ __('index.Tax') }}</td>
                         <td>{{ Cart::tax() }}</td>
                     </tr>
                     <tr>
                         <td colspan="2">&nbsp</td>
-                        <td>Total</td>
+                        <td>{{ __('index.Total') }}</td>
                         <td>{{ Cart::total() }}</td>
                     </tr>
                     </tbody>

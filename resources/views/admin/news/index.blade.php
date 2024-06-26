@@ -10,9 +10,9 @@
                     <thead>
                     <tr>
                         <th class="text-center" scope="col">ID</th>
-                        <th class="text-center" scope="col">Thumbnail</th>
-                        <th class="text-center" scope="col">Slug</th>
-                        <th class="text-center" scope="col">Actions</th>
+                        <th class="text-center" scope="col">{{ __('news.Thumbnail') }}</th>
+                        <th class="text-center" scope="col">{{ __('news.Slug') }}</th>
+                        <th class="text-center" scope="col">{{ __('news.Actions') }}</th>
                     </tr>
                     </thead>
                     <tbody>
@@ -29,11 +29,11 @@
                                 @endif
                             </td>
                             <td class="text-center" scope="col">
-                                <a href="{{ route('admin.news.edit', $new) }}" class="btn btn-info form-control">Edit</a>
+                                <a href="{{ route('admin.news.edit', $new) }}" class="btn btn-info form-control">{{ __('news.Edit') }}</a>
                                 <form action="{{ route('admin.news.destroy', $new) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" class="btn btn-danger form-control" value="Remove">
+                                    <input type="submit" class="btn btn-danger form-control" value="{{ __('news.Remove') }}">
                                 </form>
                             </td>
                         </tr>

@@ -75,17 +75,17 @@
     </section> -->
     <section class="about" id="about">
         <div class="about-wrap section-container">
-            <h2 class="about-title text-title">Про компанію</h2>
+            <h2 class="about-title text-title">{{ __('main.Про компанію') }}</h2>
             <div class="about-list">
-                <p class="about-list-item text-s">Компанія «Ніка» присутня на українському ринку торгового обладнання з 1992 року. Це єдиний організм із власним виробництвом, службою продажів, дизайн-студією, службою доставки й монтажу.</p>
-                <p class="about-list-item text-s">Наші конструкції пройшли перевірку тисячами виконаних замовлень. Вони естетичні й функціональні. Ми здійснюємо індивідуальне проєктування забудови об’єктів, спрямоване на максимальне задоволення потреб клієнта. </p>
-                <p class="about-list-item text-s">Компанія «Ніка» також пропонує широкий асортимент стандартних виробів, які можна використовувати для самостійної забудови торгових зал, виставок та офісів. Основний асортимент представлений на цьому сайті.</p>
+                <p class="about-list-item text-s">{{ __('main.Компанія «Ніка» присутня на українському ринку торгового обладнання з 1992 року. Це єдиний організм із власним виробництвом, службою продажів, дизайн-студією, службою доставки й монтажу.') }}</p>
+                <p class="about-list-item text-s">{{ __('main.Наші конструкції пройшли перевірку тисячами виконаних замовлень. Вони естетичні й функціональні. Ми здійснюємо індивідуальне проєктування забудови об’єктів, спрямоване на максимальне задоволення потреб клієнта.') }} </p>
+                <p class="about-list-item text-s">{{ __('main.Компанія «Ніка» також пропонує широкий асортимент стандартних виробів, які можна використовувати для самостійної забудови торгових зал, виставок та офісів. Основний асортимент представлений на цьому сайті.') }}</p>
             </div>
         </div>
     </section>
     <section class="clients" id="clients">
         <div class="clients-wrap section-container">
-            <h2 class="clients-title text-title">Наші клієнти</h2>
+            <h2 class="clients-title text-title">{{ __('main.Наші клієнти') }}</h2>
             <div class="clients-swiper-wrap">
                 <div class="clients-swiper-button-prev round-btn round-btn--black">
                     <svg class="icon--arrow" role="presentation">
@@ -176,7 +176,7 @@
                         <use xlink:href="#icon-arrow"></use>
                     </svg>
                 </div>
-                <h2 class="news-title text-title">Новини</h2>
+                <h2 class="news-title text-title">{{ __('main.Новини') }}</h2>
                 <div class="news-swiper-button-next round-btn round-btn-next round-btn--black">
                     <svg class="icon--arrow" role="presentation">
                         <use xlink:href="#icon-arrow"></use>
@@ -202,7 +202,7 @@
                     </div>
                     
                 </div>
-                <a class="news-page-item__btn btn" href="{{ url('/news') }}">Ще новини</a>
+                <a class="news-page-item__btn btn" href="{{ url('/news') }}">{{ __('main.Ще новини') }}</a>
             </div>
         </div>
     </section>

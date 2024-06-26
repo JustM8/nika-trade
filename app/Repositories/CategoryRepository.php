@@ -78,21 +78,27 @@ class CategoryRepository implements CategoryRepositoryContract
                     $descriptionContentL[$lang] = $request->description_l;
                     $descriptionContentR[$lang] = $request->description_r;
                 }else{
-                    if(!empty($category->name[$lang])) {
-                        $nameContent[$lang] = $category->name[$lang];
+                    $nameContent[$lang] = $category->name[$lang] ?? '';
+                    $postTitleContent[$lang] = $category->post_title[$lang] ?? '';
+                    $descriptionContent[$lang] = $category->description[$lang] ?? '';
+                    $descriptionContentL[$lang] = $category->description_l[$lang] ?? '';
+                    $descriptionContentR[$lang] = $category->description_r[$lang] ?? '';
+
+                    if (isset($request->post_title[$lang])) {
                         $postTitleContent[$lang] = $request->post_title[$lang];
-                        $descriptionContent[$lang] = $category->description[$lang];
-                        $descriptionContentL[$lang] = $category->description_l[$lang];
-                        $descriptionContentR[$lang] = $category->description_r[$lang];
-                    }else{
-                        $nameContent[$lang] = '';
-                        $postTitleContent[$lang] = '';
-                        $descriptionContent[$lang] = '';
-                        $descriptionContentL[$lang] = '';
-                        $descriptionContentR[$lang] = '';
+                    }
+                    if (isset($request->description[$lang])) {
+                        $descriptionContent[$lang] = $request->description[$lang];
+                    }
+                    if (isset($request->description_l[$lang])) {
+                        $descriptionContentL[$lang] = $request->description_l[$lang];
+                    }
+                    if (isset($request->description_r[$lang])) {
+                        $descriptionContentR[$lang] = $request->description_r[$lang];
                     }
                 }
             }
+
             $data['name'] = $nameContent;
             $data['post_title'] = $postTitleContent;
             $data['description'] = $descriptionContent;

@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('gallery.Create Gallery') }}</div>
+                    <div class="card-header">{{ __('index.Create Gallery') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.galleries.store') }}" enctype="multipart/form-data">
@@ -61,7 +61,7 @@
 
                             <div class="form-group row">
                                 <label for="category"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('gallery.Categories') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('index.Categories') }}</label>
                                 <div class="col-md-6">
                                     <select name="category[]"
                                             id="category"

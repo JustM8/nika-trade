@@ -129,18 +129,18 @@
                 <use xlink:href="#icon-logo"></use>
               </svg>
             </a>
-            <p class="header-logo-text text-14">Виробництво торгового, виставкового обладнання та елементів офісних меблів </p>
+            <p class="header-logo-text text-14">{{ __('theme.Виробництво торгового, виставкового обладнання та елементів офісних меблів') }} </p>
           </div>
           <div class="header-location">
             <div class="header-location__city">
-                <span class="header-location__city-text text-14">Ваше місто </span>
+                <span class="header-location__city-text text-14">{{ __('theme.Ваше місто') }} </span>
                 <select id="cities" class="header-location__city-current text-14">
-                  <option value="kyiv">Київ (головний офіс)</option>
-                  <option value="dnipro">Дніпро (представництво)</option>
+                  <option value="kyiv">{{ __('theme.Київ (головний офіс)') }}</option>
+                  <option value="dnipro">{{ __('theme.Дніпро (представництво)') }}</option>
                 </select>
             </div>
-            <div class="address header-location__details text-14" data-kyiv>вул. Вікентія Хвойки, 15/15, </br> тел. (044) 496-69-97</div>
-            <div class="address header-location__details text-14" data-dnipro>вул. Князя Володимира Великого, 18, </br>  тел. (050) 412-16-00</div>
+            <div class="address header-location__details text-14" data-kyiv>{{ __('theme.вул. Вікентія Хвойки, 15/15,') }} </br> {{ __('theme.тел.') }} (044) 496-69-97</div>
+            <div class="address header-location__details text-14" data-dnipro>{{ __('theme.вул. Князя Володимира Великого, 18,') }} </br>  {{ __('theme.тел.') }} (050) 412-16-00</div>
 {{--              <a class="dropdown-item" href="{{ route('logout') }}"--}}
 {{--                 onclick="event.preventDefault();--}}
 {{--                                                     document.getElementById('logout-form').submit();">--}}
@@ -225,25 +225,25 @@
           <div class="header-list-wrap">
             <ul class="header-list">
               <li class="header-list-item">
-                <a class="header-list-link text-s" href="{{ url('/')}}">Головна</a>
+                <a class="header-list-link text-s" href="{{ url('/')}}">{{ __('theme.Головна') }}</a>
               </li>
               <li class="header-list-item">
-                <a class="header-list-link text-s" href="{{ url('/')}}#about">Про компанію</a>
+                <a class="header-list-link text-s" href="{{ url('/')}}#about">{{ __('theme.Про компанію') }}</a>
               </li>
               <li class="header-list-item">
-                <a class="header-list-link text-s" href="{{ url('/gallery') }}">Галерея</a>
+                <a class="header-list-link text-s" href="{{ url('/gallery') }}">{{ __('theme.Галерея') }}</a>
               </li>
               <li class="header-list-item">
-                <a class="header-list-link text-s" href="{{ url('/catalog/torhove-obladnannia') }}">Каталог</a>
+                <a class="header-list-link text-s" href="{{ url('/catalog/torhove-obladnannia') }}">{{ __('theme.Каталог') }}</a>
               </li>
               <li class="header-list-item">
-                <a class="header-list-link text-s" href="{{ url('/services') }}">Інформація для замовника</a>
+                <a class="header-list-link text-s" href="{{ url('/services') }}">{{ __('theme.Інформація для замовника') }}</a>
               </li>
               <li class="header-list-item">
-                <a class="header-list-link text-s" href="{{ url('/news') }}">Новини</a>
+                <a class="header-list-link text-s" href="{{ url('/news') }}">{{ __('theme.Новини') }}</a>
               </li>
               <li class="header-list-item">
-                <a class="header-list-link text-s" href="{{ url('/contacts') }}">Контакти</a>
+                <a class="header-list-link text-s" href="{{ url('/contacts') }}">{{ __('theme.Контакти') }}</a>
               </li>
             </ul>
           </div>
@@ -309,24 +309,24 @@
                 </button>
             </div>
             <div class="footer-contact">
-              <h3 class="footer-social-title text-24">Відділ продажів:</h3>
+              <h3 class="footer-social-title text-24">{{ __('theme.Відділ продажів:') }}</h3>
               <div class="footer-contact-item">
-                <span class="footer-contact-city text-14-uppercase">Київ (головний офіс)</span>
+                <span class="footer-contact-city text-14-uppercase">{{ __('theme.Київ (головний офіс)') }}</span>
                 <a class="footer-contact-link text-14" href="tel:+380504478965"> +38 (050) 447-89-65</a>
                 <a class="footer-contact-link text-14" href="tel:+380444966997"> +38 (044) 496-69-97</a>
                 <a class="footer-contact-link text-14" href="mailto:nika@nika-trade.net.ua">nika@nika-trade.net.ua </a>
-                <a href="https://www.google.com/maps/place/Nika+Kompani/@50.483946,30.4842861,19z/data=!4m15!1m8!3m7!1s0x40d4cde57573047b:0x1a3061b32cb2b4f9!2sVikentiya+Khvoiky+St,+15%2F15,+Kyiv,+04080!3b1!8m2!3d50.484948!4d30.4836923!16s%2Fg%2F11vjq5l6kh!3m5!1s0x40d4cdeedfd3fdd9:0x90aa8aa341c1490f!8m2!3d50.483637!4d30.484421!16s%2Fg%2F1jgm4vlvg?entry=ttu" target="_blank"  class="footer-contact-address footer-contact-link text-14">Київ, Україна, 04080 вул. Вікентія Хвойки, 15/15</a>
+                <a href="https://www.google.com/maps/place/Nika+Kompani/@50.483946,30.4842861,19z/data=!4m15!1m8!3m7!1s0x40d4cde57573047b:0x1a3061b32cb2b4f9!2sVikentiya+Khvoiky+St,+15%2F15,+Kyiv,+04080!3b1!8m2!3d50.484948!4d30.4836923!16s%2Fg%2F11vjq5l6kh!3m5!1s0x40d4cdeedfd3fdd9:0x90aa8aa341c1490f!8m2!3d50.483637!4d30.484421!16s%2Fg%2F1jgm4vlvg?entry=ttu" target="_blank"  class="footer-contact-address footer-contact-link text-14">{{ __('theme.Київ, Україна, 04080 вул. Вікентія Хвойки, 15/15') }}</a>
               </div>
               <div class="footer-contact-item">
-                <span class="footer-contact-city text-14-uppercase">Дніпро (представництво)</span>
+                <span class="footer-contact-city text-14-uppercase">{{ __('theme.Дніпро (представництво)') }}</span>
                 <a class="footer-contact-link text-14" href="tel:+380562386990"> +38 (056) 238-69-90</a>
                 <a class="footer-contact-link text-14" href="tel:+380504121600"> +38 (050) 412-16-00</a>
                 <a class="footer-contact-link text-14" href="mailto:alexnika.dp@gmail.com">alexnika.dp@gmail.com</a>
-                <a href="https://maps.app.goo.gl/op2b3rmbbiQjuVaT9" target="_blank" class="footer-contact-address footer-contact-link text-14">Дніпро, Україна, 49000 вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх</a>
+                <a href="https://maps.app.goo.gl/op2b3rmbbiQjuVaT9" target="_blank" class="footer-contact-address footer-contact-link text-14">{{ __('theme.Дніпро, Україна, 49000 вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх') }}</a>
               </div>
             </div>
             <div class="footer-social">
-                <h3 class="footer-social-title text-24">Соцмережі:</h3>
+                <h3 class="footer-social-title text-24">{{ __('theme.Соцмережі:') }}</h3>
                 <div class="footer-social-list">
                   <a class="footer-social-list__item text-14" href="#">Telegram</a>
                   <a class="footer-social-list__item text-14" href="#">Viber</a
@@ -336,7 +336,7 @@
             </div>
         </div>
         <div class="footer-bottom">
-            <span class="footer-all-rights text-14">© НІКА Компані усі права захищено</span>
+            <span class="footer-all-rights text-14">© {{ __('theme.НІКА Компані усі права захищено') }}</span>
             <a class="footer-bottom__link" href="https://smarto.agency/?utm_source=referral&amp;amp;utm_medium=giza-wp.smarto.com.ua">
                 <img class="footer-bottom__img" src="{{asset('/assets/images/logo-smart-orange.jpg')}}" alt="Smart Orange">
             </a>
@@ -351,14 +351,14 @@
 <path d="M11 11L1 1M1 11L11 1L1 11Z" stroke="white" stroke-width="2"/>
 </svg>
           </button>
-          <div class="cart-title text-m text-black-100">Додано в кошик</div>
+          <div class="cart-title text-m text-black-100">{{ __('theme.Додано в кошик') }}</div>
           <div class="cart-list">
             <div class="cart-list-item">
               <div class="cart-list-item-img"> <img src="" alt=""></div>
-              <div class="cart-list-item-descr-wrap"> <span class="cart-list-item-descr__name text-24 text-black-100">Стійка</span>
-                <div class="cart-list-item-descr__row"> <span class="cart-list-item-descr__row-size text-14 text-black-100">Розмір товару: </span><span class="cart-list-item-descr__row-size text-14 text-black-100"> </span></div>
+              <div class="cart-list-item-descr-wrap"> <span class="cart-list-item-descr__name text-24 text-black-100">{{ __('theme.Стійка') }}</span>
+                <div class="cart-list-item-descr__row"> <span class="cart-list-item-descr__row-size text-14 text-black-100">{{ __('theme.Розмір товару:') }} </span><span class="cart-list-item-descr__row-size text-14 text-black-100"> </span></div>
                 <div class="cart-list-item-descr__row">
-                  <div class="cart-list-item-descr__row-code text-14 text-black-100">Артикул:<span></span></div>
+                  <div class="cart-list-item-descr__row-code text-14 text-black-100">{{ __('theme.Артикул:') }}<span></span></div>
                   <div class="cart-list-item-descr__row-code text-14 text-black-100"></div>
                 </div>
               </div><span class="cart-list-item-descr__quantity">
@@ -382,11 +382,11 @@
               </button>
             </div>
           </div>
-          <div class="cart-descr"> <span class="cart-descr-title text-14 text-black-100">Ціни вказано з ПДВ за умови самовивозу з виробництва. Діючі ціни можуть не збігатися із вказаними на сайті. Уточнюйте, будь ласка.</span><span class="cart-descr-price text-18 text-black-100"> Разом</span><span class="cart-descr-price-sum text-18 text-black-100"> </span></div>
+          <div class="cart-descr"> <span class="cart-descr-title text-14 text-black-100">{{ __('theme.Ціни вказано з ПДВ за умови самовивозу з виробництва. Діючі ціни можуть не збігатися із вказаними на сайті. Уточнюйте, будь ласка.') }}</span><span class="cart-descr-price text-18 text-black-100"> {{ __('theme.Разом') }}</span><span class="cart-descr-price-sum text-18 text-black-100"> </span></div>
           <div class="cart-buttons-wrap"> <a class="cart-buttons__back" href="">
               <svg class="icon--arrow" role="presentation">
                 <use xlink:href="#icon-arrow"></use>
-              </svg><span class="text-14 text-black-100">Продовжити покупки</span></a><a class="cart-buttons__cart" href="cart-page.html"><span class="text-14 text-white">Перейти у кошик</span>
+              </svg><span class="text-14 text-black-100">{{ __('theme.Продовжити покупки') }}</span></a><a class="cart-buttons__cart" href="cart-page.html"><span class="text-14 text-white">{{ __('theme.Перейти у кошик') }}</span>
               <svg class="icon--cart" role="presentation">
                 <use xlink:href="#icon-cart"></use>
               </svg></a></div>
@@ -398,11 +398,11 @@
     <div class="thank-you-popup overlay">
       <div class="popup">
         <div class="thank-you-popup__text">
-          <h1 class="thank-you-popup__title">Your message was sent successfully</h1>
-          <p class="thank-you-popup__descr text-descr-uppercase">Thank you for your feedback. Wait for a call from our managers.</p>
+          <h1 class="thank-you-popup__title">{{ __('theme.Your message was sent successfully') }}</h1>
+          <p class="thank-you-popup__descr text-descr-uppercase">{{ __('theme.Thank you for your feedback. Wait for a call from our managers.') }}</p>
           <div class="btn-container btn-container-border">
-            <div class="btn-mask">Close</div>
-            <button class="btn thank-you-popup__btn">Close</button>
+            <div class="btn-mask">{{ __('theme.Close') }}</div>
+            <button class="btn thank-you-popup__btn">{{ __('theme.Close') }}</button>
           </div>
         </div>
         <div class="thank-you-popup-icon-wrap">
@@ -418,11 +418,11 @@
 <div class="thank-you-popup overlay">
     <div class="popup">
         <div class="thank-you-popup__text">
-            <h1 class="thank-you-popup__title">Your message was sent successfully</h1>
-            <p class="thank-you-popup__descr text-descr-uppercase">Thank you for your feedback. Wait for a call from our managers.</p>
+            <h1 class="thank-you-popup__title">{{ __('theme.Your message was sent successfully') }}</h1>
+            <p class="thank-you-popup__descr text-descr-uppercase">{{ __('theme.Thank you for your feedback. Wait for a call from our managers.') }}</p>
             <div class="btn-container btn-container-border">
-                <div class="btn-mask">Close</div>
-                <button class="btn thank-you-popup__btn">Close</button>
+                <div class="btn-mask">{{ __('theme.Close') }}</div>
+                <button class="btn thank-you-popup__btn">{{ __('theme.Close') }}</button>
             </div>
         </div>
         <div class="thank-you-popup-icon-wrap">
@@ -439,14 +439,14 @@
       <div class="contact-popup-inner">
         <div class="contact-popup__text-wrap">
           <div class="contact-popup__text">
-            <h1 class="contact-popup__title text-36 text-text">Замовити дзвінок</h1>
-            <p class="contact-popup__descr text-16 text-black">Якщо у вас виникли питання, залиште свій номер і ми передзвонимо вам:</p>
+            <h1 class="contact-popup__title text-36 text-text">{{ __('theme.Замовити дзвінок') }}</h1>
+            <p class="contact-popup__descr text-16 text-black">{{ __('theme.Якщо у вас виникли питання, залиште свій номер і ми передзвонимо вам:') }}</p>
           </div>
         </div>
         <div class="contact-popup-form">
           <form data-contact-popup id="popup-form">
             <div class="contact-popup-form-field form-field-input" data-field-input data-field-name data-status="field--inactive">
-              <input class="contact-popup-form__input" type="text" name="name" placeholder="Ім`я*">
+              <input class="contact-popup-form__input" type="text" name="name" placeholder="{{ __('theme.Ім`я*') }}">
               <div class="contact-popup-input-message text-descr" data-input-message></div>
             </div>
             <div class="contact-popup-form-field disabled form-field-input" data-field-input data-field-phone data-status="field--inactive">
@@ -454,7 +454,7 @@
               <div class="contact-popup-input-message text-descr" data-input-message></div>
             </div>
             <div class="btn-container">
-              <button class="contact-popup__btn btn" type="submit" data-btn-submit><span data-btn-submit-text>Надіслати</span></button>
+              <button class="contact-popup__btn btn" type="submit" data-btn-submit><span data-btn-submit-text>{{ __('theme.Надіслати') }}</span></button>
             </div>
           </form>
         </div>

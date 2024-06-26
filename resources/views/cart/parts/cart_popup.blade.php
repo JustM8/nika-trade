@@ -10,7 +10,7 @@
                 <span class="cart-list-item-descr__row-size text-14 text-black-100"></span>
             </div>
             <div class="cart-list-item-descr__row">
-                <div class="cart-list-item-descr__row-code text-14 text-black-100">Артикул:<span></span> </div>
+                <div class="cart-list-item-descr__row-code text-14 text-black-100">{{ __('cart_popup.Артикул:') }}<span></span> </div>
                 @foreach ($item->options as $key=>$option)
                     @if($key == 'SKU')
                     <div class="cart-list-item-descr__row-code text-14 text-black-100">{{ $option }}</div>

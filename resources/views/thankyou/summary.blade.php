@@ -26,40 +26,40 @@
                         <li class="breadcrumbs-item__current--color breadcrumbs-item">Замовлення # {{ $order->id }}</li>
                     </ul>
                 </div> -->
-                <h2 class="page-title text-title">Дякуємо за ваше замовлення</h2>
+                <h2 class="page-title text-title">{{ __('summary.Дякуємо за ваше замовлення') }}</h2>
             </div>
             <div class="thank-page-main">
                 <div class="thank-page-content">
                     <div class="thank-page__title-wrap">
-                        <span class="thank-page__title text-m text-black-100">Найближчим часом з вами зв’яжуться наші менеджери для уточнень деталей замовлення!</span>
+                        <span class="thank-page__title text-m text-black-100">{{ __('summary.Найближчим часом з вами зв`яжуться наші менеджери для уточнень деталей замовлення!') }}</span>
                     </div>
                     <div class="cart-page-card-content">
                         <div class="thank-page-list__title-wrap">
-                            <span class="thank-page-list__title text-24 text-black-100">Спосіб доставки:</span>
+                            <span class="thank-page-list__title text-24 text-black-100">{{ __('summary.Спосіб доставки:') }}</span>
                         </div>
                         <div class="cart-page-delivery-options">
                             <div class="cart-page-delivery-options-list">
                                 <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 1 ? ' active' : '' }}">
                                     <div class="thank-page-page-delivery-options-item--type">
                                         <input type="checkbox" name="delivery_type" id="Mikhailivka" disabled  {{ $order->delivery_type == 1 ? 'checked' : '' }}>
-                                        <span class="text-14 text-black-100">Самовивіз - Михайлівка-Рубежівка (виробнича база)</span>
+                                        <span class="text-14 text-black-100">{{ __('summary.Самовивіз - Михайлівка-Рубежівка (виробнича база)') }}</span>
                                         <a class="cart-page-delivery-options-item-pin" href="https://maps.app.goo.gl/1Hcv3tzDJFkP5yTAA" target="_blank">
                                             <svg class="icon--cart-map" role="presentation">
                                                 <use xlink:href="#icon-cart-map"></use>
                                             </svg>
-                                            <span class="text-14 text-black">вул. Шкільна,30</span>
+                                            <span class="text-14 text-black">{{ __('summary.вул. Шкільна,30') }}</span>
                                         </a>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Замовник: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Замовник:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->company_name }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Контактний номер: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Контактний номер:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->phone }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Електронна пошта: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Електронна пошта:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->email }}</span>
                                     </div>
                                 </div>
@@ -68,120 +68,120 @@
                                         <label for="Khvoiky">
                                             <input type="checkbox" name="delivery_type" id="Khvoiky" disabled  {{ $order->delivery_type == 2 ? 'checked' : '' }}>
                                         </label>
-                                        <span class="text-14 text-black--100">Доставка в офіс м. Київ</span>
+                                        <span class="text-14 text-black--100">{{ __('summary.Доставка в офіс м. Київ') }}</span>
                                         <a class="cart-page-delivery-options-item-pin" href="https://maps.app.goo.gl/g35oTvRxtNgf3Sy76" target="_blank">
                                             <svg class="icon--cart-map" role="presentation">
                                                 <use xlink:href="#icon-cart-map"></use>
                                             </svg>
-                                            <span class="text-14 text-black">вул. Новоконстянтинівська, 15/15</span>
+                                            <span class="text-14 text-black">{{ __('summary.вул. Новоконстянтинівська, 15/15') }}</span>
                                         </a>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Замовник: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Замовник:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->company_name }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Контактний номер: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Контактний номер:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->phone }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Електронна пошта: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Електронна пошта:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->email }}</span>
                                     </div>
                                 </div>
                                 <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 3 ? ' active' : '' }}">
                                     <div class="thank-page-page-delivery-options-item--type">
                                         <input type="checkbox" name="delivery_type" id="Plekhanova" disabled  {{ $order->delivery_type == 3 ? 'checked' : '' }}>
-                                        <span class="text-14 text-black--100">Доставка в офіс м. Дніпро</span>
+                                        <span class="text-14 text-black--100">{{ __('summary.Доставка в офіс м. Дніпро') }}</span>
                                         <a class="cart-page-delivery-options-item-pin" href="https://goo.gl/maps/LQsipjuHV9Rnqnev6" target="_blank">
                                             <svg class="icon--cart-map" role="presentation">
                                                 <use xlink:href="#icon-cart-map"></use>
                                             </svg>
-                                            <span class="text-14 text-black">вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх</span>
+                                            <span class="text-14 text-black">{{ __('summary.вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх') }}</span>
                                         </a>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Замовник: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Замовник:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->company_name }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Контактний номер: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Контактний номер:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->phone }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Електронна пошта: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Електронна пошта:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->email }}</span>
                                     </div>
                                 </div>
                                 <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 4 ? ' active' : '' }}">
                                     <div class="thank-page-page-delivery-options-item--type">
                                         <input type="checkbox" name="delivery_type" id="PostalDelivery" disabled {{ $order->delivery_type == 4 ? 'checked' : '' }}>
-                                        <span class="text-14 text-black--100">Доставка перевізником (по Україні)</span>
+                                        <span class="text-14 text-black--100">{{ __('summary.Доставка перевізником (по Україні)') }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Замовник: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Замовник:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->company_name }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Контактний номер: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Контактний номер:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->phone }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Електронна пошта: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Електронна пошта:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->email }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Отримувач: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Отримувач:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->name }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Номер телефону: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Номер телефону:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->phone_delivery }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Місто: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Місто:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->city }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Адреса: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Адреса:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->address }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Перевізник: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Перевізник:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->delivery_info['carrier'] }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Відділення: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Відділення:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->delivery_info['branch_number'] }}</span>
                                     </div>
                                 </div>
                                 <div class="cart-page-delivery-options-item thank-page-page-delivery-options-item {{ $order->delivery_type == 5 ? ' active' : '' }}">
                                     <div class="thank-page-page-delivery-options-item--type">
                                         <input type="checkbox" name="delivery_type" id="Kyiv" disabled {{ $order->delivery_type == 5 ? 'checked' : '' }}>
-                                        <span class="text-14 text-black--100">Доставка по Києву (послуги вантажників не надаються)</span>
+                                        <span class="text-14 text-black--100">{{ __('summary.Доставка по Києву (послуги вантажників не надаються)') }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Замовник: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Замовник:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->company_name }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Контактний номер: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Контактний номер:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->phone }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Електронна пошта: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Електронна пошта:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->email }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Отримувач: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Отримувач:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->name }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Номер телефону: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Номер телефону:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->phone_delivery }}</span>
                                     </div>
                                     <div class="thank-page-page-delivery-options-item--details">
-                                        <span class="text-14 text-black--100"> Адреса: </span>
+                                        <span class="text-14 text-black--100"> {{ __('summary.Адреса:') }} </span>
                                         <span class="text-14 text-black--100">{{ $order->address }}</span>
                                     </div>
                                 </div>
@@ -190,36 +190,36 @@
                     </div>
                     <div class="thank-page-list-wrap">
                         <div class="thank-page-list__title-wrap">
-                            <span class="thank-page-list__title text-24 text-black-100">Інформація про замовлення:</span>
+                            <span class="thank-page-list__title text-24 text-black-100">{{ __('summary.Інформація про замовлення:') }}</span>
                         </div>
                             @foreach($order->products as $product)
                         <div class="thank-page-list-item">
                             <div class="thank-page-list-item-row">
-                                <span class="thank-page-list-item__key text-14 text-black"> Товар: </span>
+                                <span class="thank-page-list-item__key text-14 text-black"> {{ __('summary.Товар:') }} </span>
                                 <span class="thank-page-list-item__value text-14 text-black">{{$product->title[App::currentLocale()]}}</span>
                             </div>
                             <div class="thank-page-list-item-row">
-                                <span class="thank-page-list-item__key text-14 text-black">Кількість товару: </span>
+                                <span class="thank-page-list-item__key text-14 text-black">{{ __('summary.Кількість товару:') }} </span>
                                 <span class="thank-page-list-item__value text-14 text-black">{{$product->pivot->quantity}}</span>
                             </div>
                             <div class="thank-page-list-item-row">
-                                <span class="thank-page-list-item__key text-14 text-black">Артикул:<span></span> </span>
+                                <span class="thank-page-list-item__key text-14 text-black">{{ __('summary.Артикул:') }}<span></span> </span>
                                 <span class="thank-page-list-item__value text-14 text-black">{{$product->SKU}}</span>
                             </div>
                             <div class="thank-page-list-item-row">
-                                <span class="thank-page-list-item__key text-14 text-black">Ціна товару: </span>
+                                <span class="thank-page-list-item__key text-14 text-black">{{ __('summary.Ціна товару:') }} </span>
                                 <span class="thank-page-list-item__value text-14 text-black">{{$product->pivot->single_price}}</span>
                             </div>
                         </div>
                             @endforeach
                         <div class="thank-page-list-item thank-page-list-item-details">
                             <div class="thank-page-list-item-row">
-                                <span class="thank-page-list-item__key text-14 text-black">Номер замовлення: </span>
+                                <span class="thank-page-list-item__key text-14 text-black">{{ __('summary.Номер замовлення:') }} </span>
                                 <span class="thank-page-list-item__value text-14 text-black">{{ $order->id }}</span>
                             </div>
                             <div class="thank-page-list-item-row">
-                                <span class="thank-page-list-item__key text-14 text-black">Усього до сплати: </span>
-                                <span class="thank-page-list-item__value text-14 text-black">{{ $order->total }} грн.</span>
+                                <span class="thank-page-list-item__key text-14 text-black">{{ __('summary.Усього до сплати:') }} </span>
+                                <span class="thank-page-list-item__value text-14 text-black">{{ $order->total }} {{ __('summary.грн.') }}</span>
                             </div>
                         </div>
                     </div>

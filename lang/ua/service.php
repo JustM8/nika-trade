@@ -14,17 +14,18 @@ return [
     |
     */
 
-    'ok' => 'Добре',
-    'Title' => 'Сервіси',
-    'Service' => 'Сервіси',
-    'All services' => 'Усі сервіси',
-    'Create service' => 'Створити сервіси',
-    'Create Service' => 'Створити сервіс',
-    'Thumbnail' => 'Зображення',
-    'designer' => 'Виїзд дизайнера',
-    'title' => 'Заголовок',
-    'post title' => 'Під заголовок',
-    'description' => 'Опис сервісу',
-    'designer price' => 'Ціна виїзду',
-
+	'Create Service' => 'Створити сервіс',
+	'title' => 'Заголовок',
+	'post title' => 'Назва публікації',
+	'description' => 'Опис',
+	'designer' => 'Дизайнер',
+	'designer price' => 'Дизайнерська ціна',
+	'Thumbnail' => 'Мініатюра',
+	'Store' => 'Магазин',
+	'Image' => 'Зображення',
+	'Actions' => 'Дії',
+	'Edit' => 'Редагувати',
+	'Remove' => 'Видалити',
+	'Services' => 'Сервіси',
+	'' => '',
 ];

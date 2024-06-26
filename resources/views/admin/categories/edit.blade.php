@@ -5,7 +5,7 @@
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="card">
-                    <div class="card-header">{{ __('Edit Category') }}</div>
+                    <div class="card-header">{{ __('category.Edit Category') }}</div>
 
                     <div class="card-body">
                         <form method="POST" action="{{ route('admin.categories.update', array_merge(['category' => $category], request()->query())) }}"  enctype="multipart/form-data">
@@ -13,7 +13,7 @@
                             @method('PUT')
 
                             <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('category.Name') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('name') is-invalid @enderror" name="name" value="{{ @$category->name[App::currentLocale()] }}" required>
@@ -26,7 +26,7 @@
                                 </div>
                             </div>
                             <div class="row mb-3">
-                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Slug') }}</label>
+                                <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('category.Slug') }}</label>
 
                                 <div class="col-md-6">
                                     <input id="name" type="text" class="form-control @error('slug') is-invalid @enderror" name="slug" value="{{ $category->slug }}" required>
@@ -40,12 +40,12 @@
                             </div>
                             <div class="form-group row mb-3">
                                 <label for="category"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Parent Categories') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('category.Parent Categories') }}</label>
                                 <div class="col-md-6">
                                     <select id="category"
                                             class="form-control @error('category') is-invalid @enderror"
                                             name="parent_id"
-                                    ><option value="">No parent</option>
+                                    ><option value="">{{ __('category.No parent') }}</option>
                                         @foreach($parents as $child)
                                           @if($child['id'] != $category->id)
                                                 <option value="{{ $child['id'] }}"
@@ -58,10 +58,10 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="post_title" class="col-md-4 col-form-label text-md-right">{{ __('post_title') }}</label>
+                                <label for="post_title" class="col-md-4 col-form-label text-md-right">{{ __('category.post_title') }}</label>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                <textarea name="post_title" id="post_title" class="form-control  @error('post_title') is-invalid @enderror" placeholder="Leave a comment here" id="post_title" style="height: 250px">
+                                <textarea name="post_title" id="post_title" class="form-control  @error('post_title') is-invalid @enderror" placeholder="{{ __('category.Leave a comment here') }}" id="post_title" style="height: 250px">
                                     @if(!empty($category->post_title))
                                         {{$category->post_title[App::currentLocale()]}}
                                     @endif
@@ -71,10 +71,10 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description') }}</label>
+                                <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('category.Description') }}</label>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                <textarea name="description" id="description" class="form-control  @error('description') is-invalid @enderror" placeholder="Leave a comment here" id="description" style="height: 250px">
+                                <textarea name="description" id="description" class="form-control  @error('description') is-invalid @enderror" placeholder="{{ __('category.Leave a comment here') }}" id="description" style="height: 250px">
                                     @if(!empty($category->description))
                                         {{$category->description[App::currentLocale()]}}
                                     @endif
@@ -84,10 +84,10 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description Left') }}</label>
+                                <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('category.Description Left') }}</label>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                <textarea name="description_l" id="description_l" class="form-control  @error('description_l') is-invalid @enderror" placeholder="Leave a comment here" id="description_l" style="height: 250px">
+                                <textarea name="description_l" id="description_l" class="form-control  @error('description_l') is-invalid @enderror" placeholder="{{ __('category.Leave a comment here') }}" id="description_l" style="height: 250px">
                                     @if(!empty($category->description_l))
                                         {{$category->description_l[App::currentLocale()]}}
                                     @endif
@@ -97,10 +97,10 @@
                             </div>
 
                             <div class="form-group row">
-                                <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('Description Right') }}</label>
+                                <label for="description" class="col-md-4 col-form-label text-md-right">{{ __('category.Description Right') }}</label>
                                 <div class="col-md-6">
                                     <div class="form-floating">
-                                <textarea name="description_r" id="description_r" class="form-control  @error('description_r') is-invalid @enderror" placeholder="Leave a comment here" id="description_r" style="height: 250px">
+                                <textarea name="description_r" id="description_r" class="form-control  @error('description_r') is-invalid @enderror" placeholder="{{ __('category.Leave a comment here') }}" id="description_r" style="height: 250px">
                                     @if(!empty($category->description_r))
                                         {{$category->description_r[App::currentLocale()]}}
                                     @endif
@@ -111,7 +111,7 @@
 
                             <div class="form-group row">
                                 <label for="thumbnail"
-                                       class="col-md-4 col-form-label text-md-right">{{ __('Thumbnail') }}</label>
+                                       class="col-md-4 col-form-label text-md-right">{{ __('category.Thumbnail') }}</label>
                                 <div class="col-md-6">
                                     <div class="row">
                                         <div class="col-md-6">
@@ -131,7 +131,7 @@
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('category.Update') }}</button>
                                 </div>
                             </div>
 

@@ -13,7 +13,7 @@
                             @method('PUT')
 
                             <div class="form-group row">
-                                <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('Date') }}</label>
+                                <label for="date" class="col-md-4 col-form-label text-md-right">{{ __('gallery.Date') }}</label>
                                 <div class="col-md-6">
                                     <input id="date"
                                            type="date"
@@ -97,7 +97,7 @@
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">{{ __('Update') }}</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('index.Update') }}</button>
                                 </div>
                             </div>
 

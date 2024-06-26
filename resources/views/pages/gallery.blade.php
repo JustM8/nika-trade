@@ -7,12 +7,12 @@
         <div class="page-intro">
           <div class="page-breadcrumbs">
             <ul class="breadcrumbs">
-              <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="index.html">Homepage</a></li>
-              <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">gallery</a></li>
-              <li class="breadcrumbs-item__current--color breadcrumbs-item">Gallery</li>
+              <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="index.html">{{ __('gallery.Homepage') }}</a></li>
+              <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">{{ __('gallery.gallery') }}</a></li>
+              <li class="breadcrumbs-item__current--color breadcrumbs-item">{{ __('gallery.Gallery') }}</li>
             </ul>
           </div>
-          <h2 class="page-title text-title">Галерея</h2>
+          <h2 class="page-title text-title">{{ __('gallery.Галерея') }}</h2>
         </div>
         <div class="tabs">
           <div class="tabs__list" role="tablist" aria-label="products">
@@ -22,8 +22,8 @@
           </div>
           <div class="tabs__panel" role="tabpanel" aria-labelledby="0">
             <div class="tabs__info">
-              <div class="tabs__name">Система “Універсал”</div>
-              <div class="tabs__description">L-стійка висотою 2420 мм — це конструкція з труби, що має 60х30 мм в перетині й складається із зварених між собою вертикальної стійки з двома рядами перфорованих прорізів по всій висоті та нижньої горизонтальної балки з регульованими опорами. Прорізи використовуються для встановлення різноманітного навісного обладнання: полиць, кронштейнів-вішалок, штанг, гачків, панелей та ін. Стійку можна закріпити до стіни за допомогою спеціальних кронштейнів У 117.</div>
+              <div class="tabs__name">{{ __('gallery.Система “Універсал”') }}</div>
+              <div class="tabs__description">{{ __('gallery.L-стійка висотою 2420 мм — це конструкція з труби, що має 60х30 мм в перетині й складається із зварених між собою вертикальної стійки з двома рядами перфорованих прорізів по всій висоті та нижньої горизонтальної балки з регульованими опорами. Прорізи використовуються для встановлення різноманітного навісного обладнання: полиць, кронштейнів-вішалок, штанг, гачків, панелей та ін. Стійку можна закріпити до стіни за допомогою спеціальних кронштейнів У 117.') }}</div>
             </div>
             <div class="tabs__wrapper-sliders">
 

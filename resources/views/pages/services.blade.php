@@ -12,7 +12,7 @@
                         </li>
                     </ul>
                 </div> -->
-                <h2 class="page-title text-title">Інформація для замовника</h2>
+                <h2 class="page-title text-title">{{ __('services.Інформація для замовника') }}</h2>
             </div>
             <div class="services-list">
 {{--                start item--}}
@@ -43,9 +43,9 @@
                                 <use xlink:href="#icon-alert"></use>
                             </svg>
                             <span class="services-item__alert-text text-14">
-                                Виїзд дизайнера по м. Києву на об'єкт:
+                                {{ __('services.Виїзд дизайнера по м. Києву на об`єкт:') }}
                             </span>
-                            <span class="services-item__alert-text--red text-14">{{$item->data[App::currentLocale()]['designer_price']}} грн.</span>
+                            <span class="services-item__alert-text--red text-14">{{$item->data[App::currentLocale()]['designer_price']}} {{ __('services.грн.') }}</span>
                         </div>
                         @endif
                     </div>
