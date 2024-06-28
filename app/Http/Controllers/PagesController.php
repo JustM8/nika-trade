@@ -59,18 +59,20 @@ class PagesController extends Controller
         if($id == 0) {
 
             foreach ($categories as $category) {
+                $parent = $category->findRootParent()->slug;
                 $galleryIds = $category->galleries->pluck('id')->toArray();
                 if (!empty($galleryIds)) {
                     $result[] = [
                         'name' => $category->name[App::currentLocale()],
                         'id' => $category->id,
+                        'parent' => $parent,
                         'description' => $category->description[App::currentLocale()],
                         'galleries_id' => $galleryIds,
                     ];
                 }
 
             }
-            return  $result;
+           return  $result;
         }else{
 
             foreach ($categories as $category) {
@@ -99,7 +101,9 @@ class PagesController extends Controller
                         $result['galleries'][] =
                             [
                                 'data' => $rows,
+                                'name' => $category->name[App::currentLocale()],
                                 'gallery' => $images[$gallery->id],
+
                             ];
                     }
 

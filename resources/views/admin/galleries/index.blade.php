@@ -28,11 +28,26 @@
                     </thead>
                     <tbody>
                     @foreach($galleries as $gallery)
+{{--                        @dd($gallery);--}}
                         <tr>
                             <td class="text-center" scope="col">{{ $gallery->id }}</td>
                             <td class="text-center" scope="col">{{ $gallery->date }}</td>
-                            <td class="text-center" scope="col">{{ $gallery->data[App::currentLocale()][2]['row'] }}</td>
-                            <td class="text-center" scope="col">{{ $gallery->data[App::currentLocale()][4]['row'] }}</td>
+                            <td class="text-center" scope="col">
+                                @php
+                                    $row2 = $gallery->data[App::currentLocale()][2]['row'];
+                                @endphp
+                                @if(is_string($row2))
+                                    {{ $row2 }}
+                                @endif
+                            </td>
+                            <td class="text-center" scope="col">
+                                @php
+                                    $row4 = $gallery->data[App::currentLocale()][4]['row'];
+                                @endphp
+                                @if(is_string($row4))
+                                    {{ $row4 }}
+                                @endif
+                            </td>
                             <td class="text-center" scope="col">
                                 @if(!empty($gallery->category))
                                     @include('categories.parts.category_view', ['category' => $gallery->category,'type'=>'galleries'])

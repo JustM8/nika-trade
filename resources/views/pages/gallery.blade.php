@@ -17,7 +17,7 @@
         <div class="tabs">
           <div class="tabs__list" role="tablist" aria-label="products">
               @foreach ($page['data'] as $cat)
-                 <button role="tab" data-id="{{$cat['id']}}" data-tab>{{$cat['name']}}</button>
+                 <button role="tab" data-id="{{$cat['id']}}" data-tab="{{$cat['parent']}}">{{$cat['name']}}</button>
               @endforeach
           </div>
           <div class="tabs__panel" role="tabpanel" aria-labelledby="0">

@@ -53,7 +53,20 @@
                             <div class="form-group row">
                                 <label for="designer_price"  class="col-md-4 col-form-label text-md-right">{{ __('service.designer price') }}</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="designer_price" placeholder="{{ __('service.designer price') }}" name="data[fields][designer_price]" value="{{$service->data[App::currentLocale()]['designer_price'] }}">
+                                    @php
+                                        $designer_price = $service->data[App::currentLocale()]['designer_price'];
+                                    @endphp
+                                    <input
+                                            type="text"
+                                            class="form-control"
+                                            id="designer_price"
+                                            placeholder="{{ __('service.designer price') }}"
+                                            name="data[fields][designer_price]"
+                                            value="
+                                                @if(is_string($designer_price))
+                                                    {{ $designer_price }}
+                                                @endif"
+                                    >
                                 </div>
                             </div>
 
@@ -78,7 +91,7 @@
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">{{ __('Store') }}</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('service.Зберегти') }}</button>
                                 </div>
                             </div>
                         </form>

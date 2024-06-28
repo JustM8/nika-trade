@@ -28,12 +28,18 @@
                             </div>
 
                             @foreach($gallery->data[App::currentLocale()] as $key=>$item)
-                            <div class="form-group row">
-                                <label for="row_{{$key+1}}"  class="col-md-4 col-form-label text-md-right">{{ __('gallery.row_'.$key) }}</label>
-                                <div class="col-md-6">
-                                    <input type="text" class="form-control" id="row_{{$key+1}}" placeholder="{{ __('gallery.row_'.$key) }}" name="data[fields][{{$key}}][row]" value="{{$item['row']}}">
+                                @php
+                                    $val = $item['row'];
+
+                                @endphp
+                                <div class="form-group row">
+                                    <label for="row_{{$key+1}}"  class="col-md-4 col-form-label text-md-right">{{ __('gallery.row_'.$key) }}</label>
+                                    <div class="col-md-6">
+                                        <input type="text" class="form-control" id="row_{{$key+1}}" placeholder="{{ __('gallery.row_'.$key) }}" name="data[fields][{{$key}}][row]" value=" @if(is_string($val))
+                                    {{ $val }}
+                                @endif">
+                                    </div>
                                 </div>
-                            </div>
                             @endforeach
 
                             <div class="form-group row">
@@ -47,29 +53,29 @@
                                     >
                                         @foreach($categories as $category)
                                             <option value="{{ $category->id }}"
-                                                {{ in_array($category->id, $gallery->categories->pluck('id')->toArray()) ? 'selected' : '' }}
+                                                    {{ in_array($category->id, $gallery->categories->pluck('id')->toArray()) ? 'selected' : '' }}
                                             >{{ $category->name[App::currentLocale()] }}</option>
                                         @endforeach
                                     </select>
                                 </div>
                             </div>
 
-{{--                            <div class="form-group row">--}}
-{{--                                <label for="thumbnail"--}}
-{{--                                       class="col-md-4 col-form-label text-md-right">{{ __('gallery.Thumbnail') }}</label>--}}
-{{--                                <div class="col-md-6">--}}
-{{--                                    <div class="row">--}}
-{{--                                        <div class="mb-3">--}}
-{{--                                            <input class="form-control" type="file" name="thumbnail" id="thumbnail">--}}
-{{--                                        </div>--}}
-{{--                                        <div class="col-md-12">--}}
-{{--                                            @if(Storage::has($gallery->thumbnail) && !empty($gallery->thumbnail))--}}
-{{--                                                <img src="{{ $gallery->thumbnailUrl}}" class="img-fluid img-thumbnail" id="thumbnail-preview" alt="">--}}
-{{--                                            @endif--}}
-{{--                                        </div>--}}
-{{--                                    </div>--}}
-{{--                                </div>--}}
-{{--                            </div>--}}
+                            {{--                            <div class="form-group row">--}}
+                            {{--                                <label for="thumbnail"--}}
+                            {{--                                       class="col-md-4 col-form-label text-md-right">{{ __('gallery.Thumbnail') }}</label>--}}
+                            {{--                                <div class="col-md-6">--}}
+                            {{--                                    <div class="row">--}}
+                            {{--                                        <div class="mb-3">--}}
+                            {{--                                            <input class="form-control" type="file" name="thumbnail" id="thumbnail">--}}
+                            {{--                                        </div>--}}
+                            {{--                                        <div class="col-md-12">--}}
+                            {{--                                            @if(Storage::has($gallery->thumbnail) && !empty($gallery->thumbnail))--}}
+                            {{--                                                <img src="{{ $gallery->thumbnailUrl}}" class="img-fluid img-thumbnail" id="thumbnail-preview" alt="">--}}
+                            {{--                                            @endif--}}
+                            {{--                                        </div>--}}
+                            {{--                                    </div>--}}
+                            {{--                                </div>--}}
+                            {{--                            </div>--}}
 
                             <div class="form-group row">
                                 <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('product.Images') }}</label>
