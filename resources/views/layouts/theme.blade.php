@@ -124,7 +124,7 @@
     <div class="header-inner container">
         <div class="header-top">
           <div class="header-logo-wrap">
-            <a class="header-logo" href="index.html">
+            <a class="header-logo" href="/">
               <svg class="icon--logo" role="presentation">
                 <use xlink:href="#icon-logo"></use>
               </svg>

@@ -92,6 +92,28 @@
                     rgba(182, 0, 186, 0.2) -18.53%,
                     rgba(243, 0, 176, 0.16) 100%
                 );
+
+                &[data-tab="torhove-obladnannia"] {
+                    background: radial-gradient(
+                        197.11% 141.42% at 0% 100%,
+                        #b600ba 0%,
+                        rgba(243, 0, 176, 0.8) 100%
+                    );
+                }
+                &[data-tab="vystavkove-obladnannia"] {
+                    background: radial-gradient(
+                        195.27% 141.42% at 0% 100%,
+                        #4865ff 0%,
+                        rgba(120, 56, 142, 0.8) 100%
+                    );
+                }
+                &[data-tab="furnitura"] {
+                    background: radial-gradient(
+                        197.06% 141.38% at 0.07% 100%,
+                        #49b5fe 0%,
+                        rgba(25, 152, 152, 0.8) 100%
+                    );
+                }
             }
             button:hover {
                 color: $wc;
