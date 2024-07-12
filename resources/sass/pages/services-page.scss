@@ -26,8 +26,20 @@
         display: flex;
         align-items: center;
         justify-content: space-between;
+
+        &.active {
+            .services-item__title-arrow {
+                svg {
+                    transform: translateY(0) rotate(0deg);
+                }
+            }
+        }
     }
     &-item__title {
+        @include tablet {
+            text-align: left;
+            width: 70%;
+        }
     }
 
     &-item__title-arrow {

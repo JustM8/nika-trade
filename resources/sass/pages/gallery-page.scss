@@ -189,6 +189,12 @@
                 flex-direction: column-reverse;
             }
 
+            .swiper-wrapper {
+                @include tablet {
+                    order: 3;
+                }
+            }
+
             .swiper-slide {
                 background-position: center;
                 background-size: cover;
@@ -232,6 +238,8 @@
                 width: 100%;
                 padding: 15px;
                 position: relative;
+                order: 1;
+                transform: translateY(-75px);
             }
         }
         &__info-shop-name {
@@ -252,23 +260,42 @@
                 margin-bottom: 0;
             }
         }
-        &__swiper-button {
+        &__swiper-button-wrap {
             position: absolute;
             z-index: 10;
             bottom: 20px;
+            left: 20px;
+            display: flex;
+            gap: 20px;
+
+            @include tablet {
+                position: relative;
+                bottom: 0;
+                left: auto;
+                transform: translateY(-100%);
+                order: 2;
+                // background: $wc;
+                padding: 20px;
+            }
+        }
+        &__swiper-button {
             background: $wc;
             cursor: pointer;
 
-            @include tablet {
-                bottom: auto;
-                top: 50vh;
+            &:hover {
+                svg {
+                    stroke: var(--black);
+                }
             }
+
+            // @include tablet {
+            //     bottom: auto;
+            //     top: 50vh;
+            // }
         }
         &__swiper-button-prev {
-            left: 20px;
         }
         &__swiper-button-next {
-            left: 90px;
         }
     }
 }

@@ -10,7 +10,7 @@
     <meta name="format-detection" content="address=no">
     <meta name="format-detection" content="email=no">
     <meta content="notranslate" name="google">
-{{--    <link rel="icon" type="image/png" sizes="16x16" href="../static/favicon.ico">--}}
+    <link rel="icon" type="image/png" sizes="16x16" href="{{asset('assets/images/favicon.jpg')}}">
     <script>document.documentElement.className = "js"; var supportsCssVars = function() { var e, t = document.createElement("style"); return t.innerHTML = "root: { --tmp-var: bold; }", document.head.appendChild(t), e = !!(window.CSS && window.CSS.supports && window.CSS.supports("font-weight", "var(--tmp-var)")), t.parentNode.removeChild(t), e;}; supportsCssVars() || alert("Please view this demo in a modern browser that supports CSS Variables."); </script>
     <title>{{ @$title.' - '.config('app.name', 'Laravel') }}</title>
     <meta name="description" content="">
@@ -337,7 +337,7 @@
         </div>
         <div class="footer-bottom">
             <span class="footer-all-rights text-14">© {{ __('theme.НІКА Компані усі права захищено') }}</span>
-            <a class="footer-bottom__link" href="https://smarto.agency/?utm_source=referral&amp;amp;utm_medium=giza-wp.smarto.com.ua">
+            <a class="footer-bottom__link" href="https://smarto.agency/?utm_source=referral&amp;amp;utm_medium=giza-wp.smarto.com.ua" target="_blank">
                 <img class="footer-bottom__img" src="{{asset('/assets/images/logo-smart-orange.jpg')}}" alt="Smart Orange">
             </a>
         </div>
