@@ -21,9 +21,6 @@
 
         @include tablet {
             flex-direction: column;
-        }
-
-        @include mobile {
             width: 100%;
         }
     }
