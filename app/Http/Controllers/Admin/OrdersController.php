@@ -15,7 +15,7 @@ class OrdersController extends Controller
 
     public function index(Request $request)
     {
-        $orders = Order::paginate(10);
+        $orders = Order::orderBy('created_at', 'DESC')->paginate(10);
 //        dd($orders);
         return view('admin.orders.index', ['title' => __('order.Orders')], compact('orders'));
     }

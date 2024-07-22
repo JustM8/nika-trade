@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <h3 class="text-center">{{ __('main.Services') }}</h3>
+                <h3 class="text-center">{{ __('main.Editing') }}</h3>
             </div>
             <div class="col-md-12">
                 @if (session('status'))
@@ -28,11 +28,11 @@
 {{--                            <td class="text-center" scope="col"><img src="{{ $page->thumbnailUrl }}" width="100" height="100" alt=""></td>--}}
                             <td class="text-center" scope="col">
                                 <a href="{{ route('admin.main.edit', ['mainPage' => $page]) }}" class="btn btn-info form-control">{{ __('main.Edit') }}</a>
-                                <form action="{{ route('admin.main.destroy', $page) }}" method="POST">
-                                    @csrf
-                                    @method('DELETE')
-                                    <input type="submit" class="btn btn-danger form-control" value="Remove">
-                                </form>
+{{--                                <form action="{{ route('admin.main.destroy', $page) }}" method="POST">--}}
+{{--                                    @csrf--}}
+{{--                                    @method('DELETE')--}}
+{{--                                    <input type="submit" class="btn btn-danger form-control" value="Remove">--}}
+{{--                                </form>--}}
                             </td>
                         </tr>
                     @endforeach

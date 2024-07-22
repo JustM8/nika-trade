@@ -17,11 +17,17 @@
                                     <input type="text" class="form-control" id="title" placeholder="{{ __('main.number') }}" name="data[fields][0][0][row]">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('main.number') }} 2</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="title" placeholder="{{ __('main.number') }} 2" name="data[fields][0][1][row]">
+                                </div>
+                            </div>
 
                             <div class="form-group row">
                                 <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('main.email') }}</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="title" placeholder="{{ __('main.email') }}" name="data[fields][0][1][row]">
+                                    <input type="text" class="form-control" id="title" placeholder="{{ __('main.email') }}" name="data[fields][0][2][row]">
                                 </div>
                             </div>
 
@@ -29,11 +35,17 @@
                                 <label for="post_title"
                                        class="col-md-4 col-form-label text-md-right">{{ __('main.address') }}</label>
                                 <div class="col-md-6">
-                                <textarea name="data[fields][0][2][row]"
+                                <textarea name="data[fields][0][3][row]"
                                           class="form-control"
                                           id="post_title"
                                           cols="20"
                                           rows="5"></textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('main.url') }}</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="title" placeholder="{{ __('main.url') }}" name="data[fields][0][4][row]">
                                 </div>
                             </div>
 
@@ -45,11 +57,17 @@
                                     <input type="text" class="form-control" id="title" placeholder="{{ __('main.number') }}" name="data[fields][1][0][row]">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('main.number') }} 2</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="title" placeholder="{{ __('main.number') }} 2" name="data[fields][1][1][row]">
+                                </div>
+                            </div>
 
                             <div class="form-group row">
                                 <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('main.email') }}</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="title" placeholder="{{ __('main.email') }}" name="data[fields][1][1][row]">
+                                    <input type="text" class="form-control" id="title" placeholder="{{ __('main.email') }}" name="data[fields][1][2][row]">
                                 </div>
                             </div>
 
@@ -57,14 +75,19 @@
                                 <label for="post_title"
                                        class="col-md-4 col-form-label text-md-right">{{ __('main.address') }}</label>
                                 <div class="col-md-6">
-                                <textarea name="data[fields][1][2][row]"
+                                <textarea name="data[fields][1][3][row]"
                                           class="form-control"
                                           id="post_title"
                                           cols="20"
                                           rows="5"></textarea>
                                 </div>
                             </div>
-
+                            <div class="form-group row">
+                                <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('main.url') }}</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="title" placeholder="{{ __('main.url') }}" name="data[fields][1][4][row]">
+                                </div>
+                            </div>
 
 <hr>
                             <h5>{{ __('main.Соцмережі:') }}</h5>
@@ -97,24 +120,24 @@
                             </div>
 <hr>
 
-                            <div class="images-wrapper"></div>
-                            <div class="form-group row">
-                                <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('Images') }}</label>
-                                <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="col-md-6">
-                                        </div>
-                                        <div class="col-md-6">
-                                            <input class="form-control" type="file" name="images[]" id="images" multiple>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+{{--                            <div class="images-wrapper"></div>--}}
+{{--                            <div class="form-group row">--}}
+{{--                                <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('Images') }}</label>--}}
+{{--                                <div class="col-md-6">--}}
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-6">--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-6">--}}
+{{--                                            <input class="form-control" type="file" name="images[]" id="images" multiple>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">{{ __('Store') }}</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('main.Save') }}</button>
                                 </div>
                             </div>
                         </form>
@@ -125,5 +148,5 @@
     </div>
 @endsection
 @push('footer-scripts')
-    @vite(['resources/js/images-preview-slider.js'])
+{{--    @vite(['resources/js/images-preview-slider.js'])--}}
 @endpush

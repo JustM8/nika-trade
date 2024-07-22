@@ -10,8 +10,7 @@ class DashboardController extends Controller
 {
     public function __invoke()
     {
-//        $orders = Order::with('order_product')
-//            ->where('order_id','id');
+        $orders = Order::orderBy('created_at', 'DESC')->paginate(50);
 //        dd($orders);
         return view('admin/dashboard/index',['title'=>'dashboard.Title']);
     }

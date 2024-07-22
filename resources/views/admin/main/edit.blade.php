@@ -19,11 +19,17 @@
                                     <input type="text" class="form-control" id="title" placeholder="{{ __('main.number') }}" name="data[fields][0][0][row]" value="{{$mainPage->data[App::currentLocale()]['fields'][0][0]['row']}}">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('main.number') }}</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="title" placeholder="{{ __('main.number') }}" name="data[fields][0][1][row]" value="{{$mainPage->data[App::currentLocale()]['fields'][0][1]['row']}}">
+                                </div>
+                            </div>
 
                             <div class="form-group row">
                                 <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('main.email') }}</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="title" placeholder="{{ __('main.email') }}" name="data[fields][0][1][row]"  value="{{$mainPage->data[App::currentLocale()]['fields'][0][1]['row']}}">
+                                    <input type="text" class="form-control" id="title" placeholder="{{ __('main.email') }}" name="data[fields][0][2][row]"  value="{{$mainPage->data[App::currentLocale()]['fields'][0][2]['row']}}">
                                 </div>
                             </div>
 
@@ -31,11 +37,17 @@
                                 <label for="post_title"
                                        class="col-md-4 col-form-label text-md-right">{{ __('main.address') }}</label>
                                 <div class="col-md-6">
-                                <textarea name="data[fields][0][2][row]"
+                                <textarea name="data[fields][0][3][row]"
                                           class="form-control"
                                           id="post_title"
                                           cols="20"
-                                          rows="5">{{$mainPage->data[App::currentLocale()]['fields'][0][2]['row']}}</textarea>
+                                          rows="5">{{$mainPage->data[App::currentLocale()]['fields'][0][3]['row']}}</textarea>
+                                </div>
+                            </div>
+                            <div class="form-group row">
+                                <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('main.url') }}</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="title" placeholder="{{ __('main.url') }}" name="data[fields][0][4][row]"  value="{{$mainPage->data[App::currentLocale()]['fields'][0][4]['row']}}">
                                 </div>
                             </div>
 
@@ -47,11 +59,17 @@
                                     <input type="text" class="form-control" id="title" placeholder="{{ __('main.number') }}" name="data[fields][1][0][row]"  value="{{$mainPage->data[App::currentLocale()]['fields'][1][0]['row']}}">
                                 </div>
                             </div>
+                            <div class="form-group row">
+                                <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('main.number') }} 2</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="title" placeholder="{{ __('main.number') }} 2" name="data[fields][1][1][row]"  value="{{$mainPage->data[App::currentLocale()]['fields'][1][1]['row']}}">
+                                </div>
+                            </div>
 
                             <div class="form-group row">
                                 <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('main.email') }}</label>
                                 <div class="col-md-6">
-                                    <input type="text" class="form-control" id="title" placeholder="{{ __('main.email') }}" name="data[fields][1][1][row]"  value="{{$mainPage->data[App::currentLocale()]['fields'][1][1]['row']}}">
+                                    <input type="text" class="form-control" id="title" placeholder="{{ __('main.email') }}" name="data[fields][1][2][row]"  value="{{$mainPage->data[App::currentLocale()]['fields'][1][2]['row']}}">
                                 </div>
                             </div>
 
@@ -59,14 +77,19 @@
                                 <label for="post_title"
                                        class="col-md-4 col-form-label text-md-right">{{ __('main.address') }}</label>
                                 <div class="col-md-6">
-                                <textarea name="data[fields][1][2][row]"
+                                <textarea name="data[fields][1][3][row]"
                                           class="form-control"
                                           id="post_title"
                                           cols="20"
-                                          rows="5">{{$mainPage->data[App::currentLocale()]['fields'][1][2]['row']}}</textarea>
+                                          rows="5">{{$mainPage->data[App::currentLocale()]['fields'][1][3]['row']}}</textarea>
                                 </div>
                             </div>
-
+                            <div class="form-group row">
+                                <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('main.url') }}</label>
+                                <div class="col-md-6">
+                                    <input type="text" class="form-control" id="title" placeholder="{{ __('main.url') }}" name="data[fields][1][4][row]"  value="{{$mainPage->data[App::currentLocale()]['fields'][1][4]['row']}}">
+                                </div>
+                            </div>
 
                             <hr>
                             <h5>{{ __('main.Соцмережі:') }}</h5>
@@ -98,45 +121,45 @@
                             </div>
                             <hr>
 
-                            <div class="form-group row">
-                                <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('main.Images') }}</label>
-                                <div class="col-md-6">
-                                    <div class="row">
-                                        <div class="col-md-12">
-                                            <div class="row images-wrapper">
-                                                @foreach($mainPage->images as $key=>$image)
-                                                    @if(Storage::has($image->path))
-                                                        <div class="col-sm-12 d-flex justify-content-center align-items-center">
-                                                                <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('service.title') }}</label>
-                                                                <div class="col-md-6">
-                                                                    <input type="text"
-                                                                           class="form-control"
-                                                                           id="title"
-                                                                           placeholder="{{ __('service.title') }}"
-                                                                           name="data[slider][{{$key}}][row]"
-                                                                           value="{{$mainPage->data[App::currentLocale()]['slider'][$key]['row'] }}">
-                                                                </div>
-                                                            <img src="{{ $image->url }}" class="card-img-top" style="max-width: 80%; margin: 0 auto; display: block;">
-                                                            <a data-route="{{ route('ajax.images.delete', $image->id) }}"
-                                                               class="btn btn-danger remove-product-image">x</a>
+{{--                            <div class="form-group row">--}}
+{{--                                <label for="images" class="col-md-4 col-form-label text-md-right">{{ __('main.Images') }}</label>--}}
+{{--                                <div class="col-md-6">--}}
+{{--                                    <div class="row">--}}
+{{--                                        <div class="col-md-12">--}}
+{{--                                            <div class="row images-wrapper">--}}
+{{--                                                @foreach($mainPage->images as $key=>$image)--}}
+{{--                                                    @if(Storage::has($image->path))--}}
+{{--                                                        <div class="col-sm-12 d-flex justify-content-center align-items-center">--}}
+{{--                                                                <label for="title"  class="col-md-4 col-form-label text-md-right">{{ __('service.title') }}</label>--}}
+{{--                                                                <div class="col-md-6">--}}
+{{--                                                                    <input type="text"--}}
+{{--                                                                           class="form-control"--}}
+{{--                                                                           id="title"--}}
+{{--                                                                           placeholder="{{ __('service.title') }}"--}}
+{{--                                                                           name="data[slider][{{$key}}][row]"--}}
+{{--                                                                           value="{{$mainPage->data[App::currentLocale()]['slider'][$key]['row'] }}">--}}
+{{--                                                                </div>--}}
+{{--                                                            <img src="{{ $image->url }}" class="card-img-top" style="max-width: 80%; margin: 0 auto; display: block;">--}}
+{{--                                                            <a data-route="{{ route('ajax.images.delete', $image->id) }}"--}}
+{{--                                                               class="btn btn-danger remove-product-image">x</a>--}}
 
-                                                        </div>
-                                                    @endif
+{{--                                                        </div>--}}
+{{--                                                    @endif--}}
 
-                                                @endforeach
-                                            </div>
-                                        </div>
-                                        <div class="col-md-12">
-                                            <input type="file" name="images[]" id="images" multiple>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
+{{--                                                @endforeach--}}
+{{--                                            </div>--}}
+{{--                                        </div>--}}
+{{--                                        <div class="col-md-12">--}}
+{{--                                            <input type="file" name="images[]" id="images" multiple>--}}
+{{--                                        </div>--}}
+{{--                                    </div>--}}
+{{--                                </div>--}}
+{{--                            </div>--}}
 
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">{{ __('Store') }}</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('main.Update') }}</button>
                                 </div>
                             </div>
                         </form>
@@ -147,5 +170,5 @@
     </div>
 @endsection
 @push('footer-scripts')
-    @vite(['resources/js/images-preview-slider.js', 'resources/js/images-actions-slider.js'])
+{{--    @vite(['resources/js/images-preview-slider.js', 'resources/js/images-actions-slider.js'])--}}
 @endpush

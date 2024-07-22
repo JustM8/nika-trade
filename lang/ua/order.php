@@ -18,6 +18,7 @@ return array (
     'comment' => 'Коментар',
     'comment_color' => 'Коментар що до кольору',
     'orderInfo' => 'Інформація про замовлення',
-    'orderReturnBtn' => 'Інформація про замовлення',
+    'orderReturnBtn' => 'До списку замовлень',
+    'Data' => 'Дата',
 
 );

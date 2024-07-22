@@ -29,5 +29,9 @@ return array (
   'Actions' => 'Дії',
   'Edit' => 'Редагувати',
 'Services' => 'Сервіси',
+'url' => 'Gmap Адреса',
+'Update' => 'Оновити',
+'Save' => 'Зберегти',
+'Editing' => 'Редагування',
 
 );

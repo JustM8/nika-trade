@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Category;
+use App\Models\MainPage;
 use App\Models\Product;
 use Illuminate\Support\Facades\App;
 use App\Models\News;
@@ -13,6 +14,7 @@ class MainController extends Controller
 {
     public function index()
     {
+        $mainPage = MainPage::all();
         $news = News::query()
             ->orderByRaw('ISNULL(priority), priority asc')
             ->orderBy('date', 'desc')
@@ -20,6 +22,6 @@ class MainController extends Controller
             ->get();
         $rootCategories = Category::rootCategories()->get();
 //        dd($rootCategories);
-        return view('main',['title'=>__('main.Main')],compact('news', 'rootCategories'));
+        return view('main',['title'=>__('main.Main')],compact('news', 'rootCategories','mainPage'));
     }
 }

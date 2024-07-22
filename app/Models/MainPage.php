@@ -20,8 +20,8 @@ class MainPage extends Model
         'data' => 'array',
     ];
 
-    public function images()
-    {
-        return $this->morphMany(Image::class, 'imageable');
-    }
+//    public function images()
+//    {
+//        return $this->morphMany(Image::class, 'imageable');
+//    }
 }

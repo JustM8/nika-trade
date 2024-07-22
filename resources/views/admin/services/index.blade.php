@@ -17,6 +17,7 @@
                     <thead>
                     <tr>
                         <th class="text-center" scope="col">ID</th>
+                        <th class="text-center" scope="col">{{ __('service.Title') }}</th>
                         <th class="text-center" scope="col">{{ __('service.Image') }}</th>
                         <th class="text-center" scope="col">{{ __('service.Actions') }}</th>
                     </tr>
@@ -25,6 +26,7 @@
                     @foreach($services as $service)
                         <tr>
                             <td class="text-center" scope="col">{{ $service->id }}</td>
+                            <td class="text-center" scope="col">{{ $service->data[App::currentLocale()]['title'] }}</td>
                             <td class="text-center" scope="col"><img src="{{ $service->thumbnailUrl }}" width="100" height="100" alt=""></td>
                             <td class="text-center" scope="col">
                                 <a href="{{ route('admin.services.edit', $service) }}" class="btn btn-info form-control">{{ __('service.Edit') }}</a>

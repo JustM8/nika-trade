@@ -121,25 +121,6 @@
                 <a href="/admin/orders" class="btn btn-primary">{{ __('order.orderReturnBtn') }}</a>
             </div>
         </div>
-{{--@dd($order);--}}
-{{--
-"id" => 1
-    "status_id" => 1
-    "company_name" => "Company name 0304"
-    "phone" => "0304111111111"
-    "email" => "sm0304@sm.com"
-    "delivery_type" => 1
-    "name" => null
-    "phone_delivery" => null
-    "city" => null
-    "address" => null
-    "delivery_info" => "{"carrier": null, "branch_number": null}"
-    "comment" => null
-    "total" => 1608.0
-    "created_at" => "2024-04-03 10:14:59"
-    "updated_at" => "2024-04-03 10:14:59"
-    "comment_color" => null
 
---}}
     </div>
 @endsection

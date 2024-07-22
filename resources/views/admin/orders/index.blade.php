@@ -24,6 +24,7 @@
                     <thead>
                     <tr>
                         <th class="text-center" scope="col">{{ __('order.ID') }}</th>
+                        <th class="text-center" scope="col">{{ __('order.Data') }}</th>
                         <th class="text-center" scope="col">{{ __('order.company_name') }}</th>
                         <th class="text-center" scope="col">{{ __('order.Total') }}</th>
                     </tr>
@@ -32,6 +33,7 @@
                     @foreach($orders as $key=>$order)
                         <tr @if($key%2==0) class="table-secondary product-table-sec" @endif>
                             <td class="text-center" scope="col">{{ $order->id }}</td>
+                            <td class="text-center" scope="col">{{ $order->created_at }}</td>
                             <td class="text-center" scope="col">{{ $order->company_name }}</td>
                             <td class="text-center" scope="col">{{ $order->total }}</td>
                             <td class="text-center" scope="col">

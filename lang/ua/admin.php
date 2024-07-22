@@ -15,7 +15,7 @@ return [
     */
 
     'Lang' => 'Мова',
-	'Service' => 'Сервіс',
+	'Service' => 'Сервіси',
 	'All services' => 'Всі сервіси',
 	'Create service' => 'Створити сервіс',
 	'News' => 'Новини',

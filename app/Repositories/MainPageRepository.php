@@ -40,18 +40,18 @@ class MainPageRepository implements MainPageRepositoryContract
 
             foreach ($langs as $lang){
                 if($lang == $locale) {
-                    $descriptionContent[$lang]['slider'] = $data['data']['slider'];
+//                    $descriptionContent[$lang]['slider'] = $data['data']['slider'];
                     $descriptionContent[$lang]['fields'] = $data['data']['fields'];
                 }else{
-                    $descriptionContent[$lang]['slider'] = $this->clearValues($data['data']['slider']);
+//                    $descriptionContent[$lang]['slider'] = $this->clearValues($data['data']['slider']);
                     $descriptionContent[$lang]['fields'] = $this->clearValues($data['data']['fields']);
                 }
             }
-            $images = $data['images'] ?? [];
+//dd($descriptionContent);
+//            $images = $data['images'] ?? [];
             $data['data'] = $descriptionContent;
-
             $mainPage = MainPage::create($data);
-            ImageRepository::attach($mainPage, 'images',$images);
+//            ImageRepository::attach($mainPage, 'images',$images);
 
             DB::commit();
 
@@ -73,31 +73,12 @@ class MainPageRepository implements MainPageRepositoryContract
             $langs = config('app.available_locales');
 
             // Очищення даних перед оновленням
-
-
             $descriptionContent = [];
-
-//            foreach ($langs as $lang) {
-//                if ($lang == $locale) {
-//                    $descriptionContent[$lang]['slider'] = $data['data']['slider'];
-//                    $descriptionContent[$lang]['fields'] = $data['data']['fields'];
-////                    $descriptionContent[$lang] = array_values($data['data']);
-//                } else {
-//                    if (!empty($mainPage->data[$lang])) {
-//                        // Обрізаємо "en" і "ru" до довжини "ua"
-//                        $descriptionContent[$lang]['slider'] = $this->trimToLength($mainPage->data[$lang], count($data['data']['slider']));
-//                        $descriptionContent[$lang]['fields'] = $this->trimToLength($mainPage->data[$lang], count($data['data']['fields']));
-//                    } else {
-//                        $descriptionContent[$lang]['slider'] = $this->clearValues($data['data']['slider']);
-//                        $descriptionContent[$lang]['fields'] = $this->clearValues($data['data']['fields']);
-//                    }
-//                }
-//            }
 
             foreach ($langs as $lang){
                 if($lang == $locale) {
                     $descriptionContent[$lang]['fields'] = $data['data']['fields'];
-                    $descriptionContent[$lang]['slider'] = $data['data']['slider'];
+//                    $descriptionContent[$lang]['slider'] = $data['data']['slider'];
                 }else{
                     if(!empty($mainPage->data[$lang])) {
                         $descriptionContent[$lang] = $mainPage->data[$lang];
@@ -106,11 +87,10 @@ class MainPageRepository implements MainPageRepositoryContract
                     }
                 }
             }
-//dd($data);
+
             $data['data'] = $descriptionContent;
             $mainPage->update($data);
-
-            ImageRepository::attach($mainPage, 'images',$request->images ?? []);
+//            ImageRepository::attach($mainPage, 'images',$request->images ?? []);
 
             DB::commit();
 

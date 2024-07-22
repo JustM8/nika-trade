@@ -25,7 +25,7 @@ class UpdateMainPageRequest extends FormRequest
     {
         return [
             'data' => ['nullable'],
-            'images.*' => ['image:jpeg,png,jpg'],
+//            'images.*' => ['image:jpeg,png,jpg'],
         ];
     }
 }

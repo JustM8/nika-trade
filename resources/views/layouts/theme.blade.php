@@ -319,26 +319,26 @@
               <h3 class="footer-social-title text-24">{{ __('theme.Відділ продажів:') }}</h3>
               <div class="footer-contact-item">
                 <span class="footer-contact-city text-14-uppercase">{{ __('theme.Київ (головний офіс)') }}</span>
-                <a class="footer-contact-link text-14" href="tel:+380504478965"> +38 (050) 447-89-65</a>
-                <a class="footer-contact-link text-14" href="tel:+380444966997"> +38 (044) 496-69-97</a>
-                <a class="footer-contact-link text-14" href="mailto:nika@nika-trade.net.ua">nika@nika-trade.net.ua </a>
-                <a href="https://www.google.com/maps/place/Nika+Kompani/@50.483946,30.4842861,19z/data=!4m15!1m8!3m7!1s0x40d4cde57573047b:0x1a3061b32cb2b4f9!2sVikentiya+Khvoiky+St,+15%2F15,+Kyiv,+04080!3b1!8m2!3d50.484948!4d30.4836923!16s%2Fg%2F11vjq5l6kh!3m5!1s0x40d4cdeedfd3fdd9:0x90aa8aa341c1490f!8m2!3d50.483637!4d30.484421!16s%2Fg%2F1jgm4vlvg?entry=ttu" target="_blank"  class="footer-contact-address footer-contact-link text-14">{{ __('theme.Київ, Україна, 04080 вул. Вікентія Хвойки, 15/15') }}</a>
+                <a class="footer-contact-link text-14" href="tel:{{str_replace([' ','-','(',')'],'',$mainPage[0]->data[App::currentLocale()]['fields'][0][0]['row'])}}"> {{$mainPage[0]->data[App::currentLocale()]['fields'][0][0]['row']}}</a>
+                <a class="footer-contact-link text-14" href="tel:{{str_replace([' ','-','(',')'],'',$mainPage[0]->data[App::currentLocale()]['fields'][0][1]['row'])}}"> {{$mainPage[0]->data[App::currentLocale()]['fields'][0][1]['row']}}</a>
+                <a class="footer-contact-link text-14" href="mailto:{{$mainPage[0]->data[App::currentLocale()]['fields'][0][2]['row']}}">{{$mainPage[0]->data[App::currentLocale()]['fields'][0][2]['row']}}</a>
+                <a href="{{$mainPage[0]->data[App::currentLocale()]['fields'][0][4]['row']}}" target="_blank"  class="footer-contact-address footer-contact-link text-14">{{$mainPage[0]->data[App::currentLocale()]['fields'][0][3]['row']}}</a>
               </div>
               <div class="footer-contact-item">
                 <span class="footer-contact-city text-14-uppercase">{{ __('theme.Дніпро (представництво)') }}</span>
-                <a class="footer-contact-link text-14" href="tel:+380562386990"> +38 (056) 238-69-90</a>
-                <a class="footer-contact-link text-14" href="tel:+380504121600"> +38 (050) 412-16-00</a>
-                <a class="footer-contact-link text-14" href="mailto:alexnika.dp@gmail.com">alexnika.dp@gmail.com</a>
-                <a href="https://maps.app.goo.gl/op2b3rmbbiQjuVaT9" target="_blank" class="footer-contact-address footer-contact-link text-14">{{ __('theme.Дніпро, Україна, 49000 вул. Князя Володимира Великого (кол. Плеханова), 18, 1 поверх') }}</a>
+                <a class="footer-contact-link text-14" href="tel:{{str_replace([' ','-','(',')'],'',$mainPage[0]->data[App::currentLocale()]['fields'][1][0]['row'])}}"> {{$mainPage[0]->data[App::currentLocale()]['fields'][1][0]['row']}}</a>
+                <a class="footer-contact-link text-14" href="tel:{{str_replace([' ','-','(',')'],'',$mainPage[0]->data[App::currentLocale()]['fields'][1][1]['row'])}}"> {{$mainPage[0]->data[App::currentLocale()]['fields'][1][1]['row']}}</a>
+                <a class="footer-contact-link text-14" href="mailto:{{$mainPage[0]->data[App::currentLocale()]['fields'][1][2]['row']}}">{{$mainPage[0]->data[App::currentLocale()]['fields'][1][2]['row']}}</a>
+                <a href="{{$mainPage[0]->data[App::currentLocale()]['fields'][1][4]['row']}}" target="_blank" class="footer-contact-address footer-contact-link text-14">{{$mainPage[0]->data[App::currentLocale()]['fields'][1][3]['row']}}</a>
               </div>
             </div>
             <div class="footer-social">
                 <h3 class="footer-social-title text-24">{{ __('theme.Соцмережі:') }}</h3>
                 <div class="footer-social-list">
-                  <a class="footer-social-list__item text-14" href="#">Telegram</a>
-                  <a class="footer-social-list__item text-14" href="#">Viber</a
-                  ><a class="footer-social-list__item text-14" href="#">Instagram</a>
-                  <a class="footer-social-list__item text-14" href="#">Facebook</a>
+                  <a class="footer-social-list__item text-14" href="{{$mainPage[0]->data[App::currentLocale()]['fields']['social']['telegram']}}">Telegram</a>
+                  <a class="footer-social-list__item text-14" href="{{$mainPage[0]->data[App::currentLocale()]['fields']['social']['telegram']}}">Viber</a>
+                  <a class="footer-social-list__item text-14" href="{{$mainPage[0]->data[App::currentLocale()]['fields']['social']['telegram']}}">Instagram</a>
+                  <a class="footer-social-list__item text-14" href="{{$mainPage[0]->data[App::currentLocale()]['fields']['social']['telegram']}}">Facebook</a>
                 </div>
             </div>
         </div>
@@ -468,6 +468,7 @@
         <div class="close-popup btn-small close-form"></div>
       </div>
     </div>
+
 @stack('footer-scripts')
 </body>
 </html>
