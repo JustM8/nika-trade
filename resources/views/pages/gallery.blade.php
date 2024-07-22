@@ -5,13 +5,13 @@
 <section class="gallery page-container">
       <div class="gallery-wrap">
         <div class="page-intro">
-          <div class="page-breadcrumbs">
+          <!-- <div class="page-breadcrumbs">
             <ul class="breadcrumbs">
               <li class="breadcrumbs-item"><a class="breadcrumbs-item__link breadcrumbs-item__link-home" href="index.html">{{ __('gallery.Homepage') }}</a></li>
               <li class="breadcrumbs-item"><a class="breadcrumbs-item__link" href="#">{{ __('gallery.gallery') }}</a></li>
               <li class="breadcrumbs-item__current--color breadcrumbs-item">{{ __('gallery.Gallery') }}</li>
             </ul>
-          </div>
+          </div> -->
           <h2 class="page-title text-title">{{ __('gallery.Галерея') }}</h2>
         </div>
         <div class="tabs">

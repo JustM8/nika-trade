@@ -29,15 +29,17 @@ export const galleryView = ({
         <div class="swiper-wrapper">
             ${slides}
         </div>
-        <div class="tabs__swiper-button tabs__swiper-button-prev round-btn round-btn--black">
-            <svg class="icon--arrow" role="presentation">
-                <use xlink:href="#icon-arrow"></use>
-            </svg>
-        </div>
-        <div class="tabs__swiper-button tabs__swiper-button-next round-btn round-btn-next round-btn--black">
-            <svg class="icon--arrow" role="presentation">
-                <use xlink:href="#icon-arrow"></use>
-            </svg>
+        <div class="tabs__swiper-button-wrap">
+            <div class="tabs__swiper-button tabs__swiper-button-prev round-btn round-btn--black">
+                <svg class="icon--arrow" role="presentation">
+                    <use xlink:href="#icon-arrow"></use>
+                </svg>
+            </div>
+            <div class="tabs__swiper-button tabs__swiper-button-next round-btn round-btn-next round-btn--black">
+                <svg class="icon--arrow" role="presentation">
+                    <use xlink:href="#icon-arrow"></use>
+                </svg>
+            </div>
         </div>
     </div>
     `;

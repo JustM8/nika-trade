@@ -92,6 +92,28 @@
                     rgba(182, 0, 186, 0.2) -18.53%,
                     rgba(243, 0, 176, 0.16) 100%
                 );
+
+                &[data-tab="torhove-obladnannia"] {
+                    background: radial-gradient(
+                        197.11% 141.42% at 0% 100%,
+                        #b600ba 0%,
+                        rgba(243, 0, 176, 0.8) 100%
+                    );
+                }
+                &[data-tab="vystavkove-obladnannia"] {
+                    background: radial-gradient(
+                        195.27% 141.42% at 0% 100%,
+                        #4865ff 0%,
+                        rgba(120, 56, 142, 0.8) 100%
+                    );
+                }
+                &[data-tab="furnitura"] {
+                    background: radial-gradient(
+                        197.06% 141.38% at 0.07% 100%,
+                        #49b5fe 0%,
+                        rgba(25, 152, 152, 0.8) 100%
+                    );
+                }
             }
             button:hover {
                 color: $wc;
@@ -167,6 +189,12 @@
                 flex-direction: column-reverse;
             }
 
+            .swiper-wrapper {
+                @include tablet {
+                    order: 3;
+                }
+            }
+
             .swiper-slide {
                 background-position: center;
                 background-size: cover;
@@ -210,6 +238,8 @@
                 width: 100%;
                 padding: 15px;
                 position: relative;
+                order: 1;
+                transform: translateY(-75px);
             }
         }
         &__info-shop-name {
@@ -230,23 +260,42 @@
                 margin-bottom: 0;
             }
         }
-        &__swiper-button {
+        &__swiper-button-wrap {
             position: absolute;
             z-index: 10;
             bottom: 20px;
+            left: 20px;
+            display: flex;
+            gap: 20px;
+
+            @include tablet {
+                position: relative;
+                bottom: 0;
+                left: auto;
+                transform: translateY(-100%);
+                order: 2;
+                // background: $wc;
+                padding: 20px;
+            }
+        }
+        &__swiper-button {
             background: $wc;
             cursor: pointer;
 
-            @include tablet {
-                bottom: auto;
-                top: 50vh;
+            &:hover {
+                svg {
+                    stroke: var(--black);
+                }
             }
+
+            // @include tablet {
+            //     bottom: auto;
+            //     top: 50vh;
+            // }
         }
         &__swiper-button-prev {
-            left: 20px;
         }
         &__swiper-button-next {
-            left: 90px;
         }
     }
 }
