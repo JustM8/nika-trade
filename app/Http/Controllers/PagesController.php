@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Category;
 use App\Models\Gallery;
+use App\Models\MainPage;
 use App\Models\Page;
 use App\Models\Service;
 use Illuminate\Http\Request;
@@ -15,6 +16,7 @@ class PagesController extends Controller
 {
     public function show($slug)
     {
+        $mainPage = MainPage::all();
         $pages = [
             'contacts' => [
                 'title' => 'Контакти',
@@ -41,7 +43,7 @@ class PagesController extends Controller
 
         if (array_key_exists($slug, $pages)) {
             $page = $pages[$slug];
-            return view('pages.'.$slug,['title'=>$page['title']],compact('page'));
+            return view('pages.'.$slug,['title'=>$page['title']],compact('page','mainPage'));
         } else {
             abort(404);
         }

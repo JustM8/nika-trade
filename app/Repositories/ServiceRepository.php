@@ -6,6 +6,7 @@ use App\Http\Requests\CreateServiceRequest;
 use App\Http\Requests\UpdateServiceRequest;
 use App\Models\Service;
 use App\Repositories\Contracts\ServiceRepositoryContract;
+use App\Services\FileStorageService;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\DB;
 
@@ -90,9 +91,10 @@ class ServiceRepository implements ServiceRepositoryContract
                     }
                 }
             }
-
             $data['data'] = $descriptionContent;
             $service->update($data);
+
+
 
             DB::commit();
 

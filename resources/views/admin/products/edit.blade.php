@@ -289,8 +289,15 @@
                                 <input type="submit" class="btn btn-info" value="{{ __('product.Update product') }}">
                             </div>
                         </div>
-                    </div>
+
                 </form>
+            <form>
+                <div class="form-group row">
+                    <div class="col-md-10 text-right">
+                        <a href="{{ route('admin.products.index') }}" class="btn btn-outline-dark">{{ __('products.Cancel')}}</a>
+                    </div>
+                </div>
+            </form>
             </div>
         </div>
     </div>

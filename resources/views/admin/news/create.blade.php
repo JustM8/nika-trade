@@ -161,7 +161,7 @@
                         </div>
                     </div>
                     <div class="form-group row">
-                        <label for="thumbnail" class="col-md-4 col-form-label text-md-right">{{ __('news.Thumbnail') }}</label> 
+                        <label for="thumbnail" class="col-md-4 col-form-label text-md-right">{{ __('news.Thumbnail') }}</label>
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-3">
@@ -177,6 +177,13 @@
                     <div class="form-group row">
                         <div class="col-md-10 text-right">
                             <input type="submit" class="btn btn-success" value="{{ __('news.Create') }}">
+                        </div>
+                    </div>
+                </form>
+                <form>
+                    <div class="form-group row">
+                        <div class="col-md-10 text-right">
+                            <a href="{{ route('admin.news.index') }}" class="btn btn-outline-dark">{{ __('news.Cancel')}}</a>
                         </div>
                     </div>
                 </form>

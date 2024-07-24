@@ -104,6 +104,13 @@
                                 </div>
                             </div>
                         </form>
+                        <form>
+                            <div class="form-group row">
+                                <div class="col-md-10 text-right">
+                                    <a href="{{ route('admin.galleries.index') }}" class="btn btn-outline-dark">{{ __('gallery.Cancel')}}</a>
+                                </div>
+                            </div>
+                        </form>
                     </div>
                 </div>
             </div>

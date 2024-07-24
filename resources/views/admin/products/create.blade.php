@@ -263,6 +263,13 @@
                         </div>
                     </div>
                 </form>
+                <form>
+                    <div class="form-group row">
+                        <div class="col-md-10 text-right">
+                            <a href="{{ route('admin.products.index') }}" class="btn btn-outline-dark">{{ __('products.Cancel')}}</a>
+                        </div>
+                    </div>
+                </form>
             </div>
         </div>
     </div>

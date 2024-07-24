@@ -28,8 +28,10 @@ class ServicesController extends Controller
     public function store(CreateServiceRequest $request)
     {
         if($this->repository->create($request)){
+            notify()->success("успішно створений","Сервіс");
             return redirect()->route('admin.services.index');
         }else{
+            notify()->warning("не створений","Сервіс");
             return redirect()->back()->withInput();
         }
     }
@@ -42,14 +44,18 @@ class ServicesController extends Controller
     public function update(UpdateServiceRequest $request, Service $service)
     {
         if($this->repository->update($service,$request)){
+            notify()->success("успішно оновлений","Сервіс");
             return redirect()->route('admin.services.index');
         }
+        notify()->warning("не оновлений","Сервіс");
         return redirect()->back()->withInput();
+
     }
 
     public function destroy(Service $service)
     {
         $service->delete();
+        notify()->success("успішно видалено","Сервіс");
         return redirect()->back();
     }
 }
