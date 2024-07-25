@@ -33,6 +33,7 @@ class NewsController extends Controller
     public function store(CreateNewsRequest $request)
     {
         if($this->repository->create($request)){
+            notify()->success("успішно створено","Новину");
             return redirect()->route('admin.news.index');
         }else{
             return redirect()->back()->withInput();
@@ -47,14 +48,17 @@ class NewsController extends Controller
     public function update(UpdateNewsRequest $request, News $news)
     {
         if($this->repository->update($news,$request)){
+            notify()->success("успішно оновлено","Новину");
             return redirect()->route('admin.news.index');
         }
+        notify()->warning("не оновлено","Новину");
         return redirect()->back()->withInput();
     }
 
     public function destroy(News $news)
     {
         $news->delete();
+        notify()->success("успішно видалено","Новину");
         return redirect()->route('admin.news.index');
     }
 }

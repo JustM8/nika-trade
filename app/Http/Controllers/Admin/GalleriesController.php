@@ -38,9 +38,12 @@ class GalleriesController extends Controller
 
     public function store(CreateGalleryRequest $request)
     {
+
         if($this->repository->create($request)){
+            notify()->success("успішно створено","Галерею");
             return redirect()->route('admin.galleries.index');
         }else{
+            notify()->warning("не створено","Галерею");
             return redirect()->back()->withInput();
         }
     }
@@ -54,14 +57,17 @@ class GalleriesController extends Controller
     public function update(UpdateGalleryRequest $request, Gallery $gallery)
     {
         if($this->repository->update($gallery,$request)){
+            notify()->success("успішно оновлено","Галерею");
             return redirect()->route('admin.galleries.index');
         }
+        notify()->warning("не оновлено","Галерею");
         return redirect()->back()->withInput();
     }
 
     public function destroy(Gallery $gallery)
     {
         $gallery->delete();
+        notify()->success("успішно видалено","Галерею");
         return redirect()->back();
     }
 

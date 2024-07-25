@@ -46,8 +46,10 @@ class MainPageController extends Controller
     public function update(UpdateMainPageRequest $request, MainPage $mainPage)
     {
         if($this->repository->update($mainPage,$request)){
+            notify()->success("успішно оновлено","Контакти");
             return redirect()->route('admin.main.index');
         }
+        notify()->warning("не оновлено","Контакти");
         return redirect()->back()->withInput();
     }
 

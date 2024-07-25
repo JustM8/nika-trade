@@ -71,6 +71,7 @@ class ProductsController extends Controller
     {
         if($this->repository->update($product,$request)){
 //            return redirect()->route('admin.products.index');
+            notify()->success("успішно оновлено","Продукт");
             return redirect()->route('admin.products.index', request()->query());
         }else{
             return redirect()->back()->withInput();
@@ -80,6 +81,7 @@ class ProductsController extends Controller
     public function store(CreateProductRequest $request)
     {
         if($this->repository->create($request)){
+            notify()->success("успішно створено","Продукт");
             return redirect()->route('admin.products.index', request()->query());
         }else{
             return redirect()->back()->withInput();
@@ -89,6 +91,7 @@ class ProductsController extends Controller
     public function destroy(Product $product)
     {
         $product->delete();
+        notify()->success("успішно видалено","Продукт");
         return redirect()->route('admin.products.index');
     }
 }

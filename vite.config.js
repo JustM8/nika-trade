@@ -37,6 +37,7 @@ export default defineConfig({
                 "resources/js/common.js",
                 "resources/js/model.js",
                 "resources/js/adminNews.js",
+                "resources/js/delete.js",
             ],
             refresh: true,
         }),

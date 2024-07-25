@@ -42,6 +42,7 @@ class CategoriesController extends Controller
     public function store(CreateCategoryRequest $request)
     {
         if($this->repository->create($request)){
+            notify()->success("успішно створено","Категорію");
             return redirect()->route('admin.categories.index');
         }else{
             return redirect()->back()->withInput();
@@ -71,6 +72,7 @@ class CategoriesController extends Controller
     {
 
         if($this->repository->update($category,$request)){
+            notify()->success("успішно оновлено","Категорію");
             return redirect()->route('admin.categories.index',request()->query());
         }
         return redirect()->back()->withInput();
@@ -85,6 +87,7 @@ class CategoriesController extends Controller
     public function destroy(Category $category)
     {
         $category->delete();
+        notify()->success("успішно видалено","Категорію");
         return redirect()->back();
     }
 }

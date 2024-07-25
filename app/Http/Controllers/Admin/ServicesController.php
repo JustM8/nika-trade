@@ -52,10 +52,19 @@ class ServicesController extends Controller
 
     }
 
+//    public function destroy(Service $service)
+//    {
+//        $service->delete();
+//        notify()->success("успішно видалено","Сервіс");
+//        return redirect()->back();
+//    }
     public function destroy(Service $service)
     {
         $service->delete();
-        notify()->success("успішно видалено","Сервіс");
-        return redirect()->back();
+        return response()->json([
+            'status' => 'success',
+            'message' => 'Сервіс успішно видалено'
+        ]);
     }
 }
+
