@@ -16,7 +16,9 @@ class ServicesController extends Controller
 
     public function index()
     {
-        $services = Service::all();
+        $services = Service::query()
+            ->orderBy('created_at', 'desc')
+            ->get();
         return view('admin/services/index',['title'=>__('service.Title')],compact('services'));
     }
 
@@ -60,11 +62,19 @@ class ServicesController extends Controller
 //    }
     public function destroy(Service $service)
     {
-        $service->delete();
-        return response()->json([
-            'status' => 'success',
-            'message' => 'Сервіс успішно видалено'
-        ]);
+        try {
+            $service->delete();
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Сервіс успішно видалено'
+            ], 200); // 200 OK
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Сталася помилка при видаленні сервісу'
+            ], 500); // 500 Internal Server Error
+        }
     }
+
 }
 

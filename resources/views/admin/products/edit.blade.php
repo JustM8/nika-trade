@@ -304,12 +304,6 @@
 @endsection
 
 @push('footer-scripts')
-    @vite(['resources/js/images-preview.js', 'resources/js/images-actions.js', 'resources/js/select.js', 'resources/js/model.js' ])
-    <!-- <script>
-        window.addEventListener('DOMContentLoaded',function(evt){
-            window.obj3d(document.querySelector('[data-object-container]'), "{{ $product->objmodelUrl  }}");
-        });
-        console.log(document.querySelector('[data-object-container]'));
-    </script> -->
+    @vite(['resources/js/images-preview.js', 'resources/js/images-actions.js', 'resources/js/select.js', 'resources/js/model.js' , 'resources/js/summernote.js'])
 @endpush
 

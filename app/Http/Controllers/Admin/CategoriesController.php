@@ -19,7 +19,7 @@ class CategoriesController extends Controller
     {
         $categories = Category::withCount('products')->paginate(10)->appends(request()->query());
 
-        return view('admin/categories/index', compact('categories'));
+        return view('admin/categories/index',['title'=>__('categories.Title')], compact('categories'));
     }
 
     /**
@@ -78,16 +78,19 @@ class CategoriesController extends Controller
         return redirect()->back()->withInput();
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param Category $category
-     * @return \Illuminate\Http\RedirectResponse
-     */
     public function destroy(Category $category)
     {
-        $category->delete();
-        notify()->success("успішно видалено","Категорію");
-        return redirect()->back();
+        try {
+            $category->delete();
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Категорію успішно видалено'
+            ], 200); // 200 OK
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Сталася помилка при видаленні категорії'
+            ], 500); // 500 Internal Server Error
+        }
     }
 }

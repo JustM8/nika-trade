@@ -4,7 +4,7 @@ import 'summernote';
 import 'summernote/dist/summernote-lite.min.js';
 
 
-    $('#description_top, #description_bottom').summernote({
+    $('#description_top, #description_bottom, #post_title, #description, #description_l, #description_r').summernote({
         tabsize: 2,
         height: 250,
         toolbar: [

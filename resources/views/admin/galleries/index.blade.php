@@ -60,7 +60,7 @@
                                 <form action="{{ route('admin.galleries.destroy', $gallery) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" class="btn btn-danger form-control" value="{{ __('index.Remove') }}">
+                                    <button type="button" class="btn btn-danger form-control" onclick="confirmDelete(this)">{{ __('index.Remove') }}</button>
                                 </form>
                             </td>
                         </tr>
@@ -72,3 +72,6 @@
         </div>
     </div>
 @endsection
+@push('footer-scripts')
+    @vite(['resources/js/delete.js'])
+@endpush

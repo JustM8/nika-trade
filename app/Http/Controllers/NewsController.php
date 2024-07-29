@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\MainPage;
 use Illuminate\Http\Request;
 use App\Models\News;
 use Illuminate\Support\Facades\App;
@@ -15,13 +16,14 @@ class NewsController extends Controller
      */
     public function index()
     {
+        $mainPage = MainPage::all();
         $news = News::query()
             ->orderByRaw('ISNULL(priority), priority asc')
             ->orderBy('date', 'desc')
             ->take(5)
             ->get();
 //        $news = News::latest('date')->orderBy('priority')->take(5)->get();
-        return view('news.index',['title'=>__('news.Title')], compact('news'));
+        return view('news.index',['title'=>__('news.Title')], compact('news','mainPage'));
     }
     /**
      * Display the specified resource.
@@ -32,6 +34,7 @@ class NewsController extends Controller
     public function show($show)
     {
         $news = News::where('slug','=',$show)->first();
+        $mainPage = MainPage::all();
 
         $dataTime = explode(' ',$news->created_at);
         $date = explode('-',$dataTime[0]);
@@ -54,7 +57,7 @@ class NewsController extends Controller
         }
 //        dd($otherNews);
 
-        return view('news.show',['title'=>$news->title[App::currentLocale()]],compact('news','otherNews'));
+        return view('news.show',['title'=>$news->title[App::currentLocale()]],compact('news','otherNews','mainPage'));
     }
 
     public function monthName($month):string

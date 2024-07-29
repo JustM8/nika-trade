@@ -49,7 +49,7 @@ class NewsController extends Controller
     {
         if($this->repository->update($news,$request)){
             notify()->success("успішно оновлено","Новину");
-            return redirect()->route('admin.news.index');
+            return redirect()->route('admin.news.edit', $news->id);
         }
         notify()->warning("не оновлено","Новину");
         return redirect()->back()->withInput();
@@ -57,8 +57,17 @@ class NewsController extends Controller
 
     public function destroy(News $news)
     {
-        $news->delete();
-        notify()->success("успішно видалено","Новину");
-        return redirect()->route('admin.news.index');
+        try {
+            $news->delete();
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Новину успішно видалено'
+            ], 200); // 200 OK
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Сталася помилка при видаленні новини'
+            ], 500); // 500 Internal Server Error
+        }
     }
 }

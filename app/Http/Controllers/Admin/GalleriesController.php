@@ -24,7 +24,7 @@ class GalleriesController extends Controller
         if ($request->has('category')) {
             $query = $this->filterByCategory($query, $request->input('category'));
         }
-        $galleries = $query->orderBy('date', 'asc')->paginate(50)->appends(request()->query());
+        $galleries = $query->orderBy('date', 'desc')->paginate(50)->appends(request()->query());
 //        $galleries = Gallery::all();
         return view('admin/galleries/index',['title'=>__('gallery.Title')],compact('galleries'));
     }
@@ -66,9 +66,18 @@ class GalleriesController extends Controller
 
     public function destroy(Gallery $gallery)
     {
-        $gallery->delete();
-        notify()->success("успішно видалено","Галерею");
-        return redirect()->back();
+        try {
+            $gallery->delete();
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Галерею успішно видалено'
+            ], 200); // 200 OK
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Сталася помилка при видаленні галереї'
+            ], 500); // 500 Internal Server Error
+        }
     }
 
     protected function filterByCategory($query, $category)

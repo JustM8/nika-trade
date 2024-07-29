@@ -53,7 +53,7 @@
                                 <form action="{{ route('admin.products.destroy', $product) }}" method="POST">
                                     @csrf
                                     @method('DELETE')
-                                    <input type="submit" class="btn btn-danger form-control" value="{{ __('product.Remove') }}">
+                                    <button type="button" class="btn btn-danger form-control" onclick="confirmDelete(this)">{{ __('product.Remove') }}</button>
                                 </form>
                                 {{--                                    <a href="{{ route('products.show', $product) }}" class="btn btn-outline-success form-control">View</a>--}}
                             </td>
@@ -66,3 +66,6 @@
         </div>
     </div>
 @endsection
+@push('footer-scripts')
+    @vite(['resources/js/delete.js'])
+@endpush

@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 
 use App\Models\Category;
+use App\Models\MainPage;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -13,6 +14,7 @@ class ProductsController extends Controller
 {
     public function show(Product $product)
     {
+        $mainPage = MainPage::all();
         $childrens = $product->children;
         $breadcrumbs = array_reverse($product->breadcrumbs);
         $recommendedProducts = $product->recommendedProducts;
@@ -28,7 +30,7 @@ class ProductsController extends Controller
 
         return view('products.show',
             ['title'=>__('catalog.Title').' - '.$product->title[App::currentLocale()]],
-            compact('product','recommendedProducts','childrens','categorySlug','breadcrumbs','rootParent','currentCategorySlug','currentCategoryId','menu')
+            compact('product','recommendedProducts','childrens','categorySlug','breadcrumbs','rootParent','currentCategorySlug','currentCategoryId','menu','mainPage')
         );
     }
 

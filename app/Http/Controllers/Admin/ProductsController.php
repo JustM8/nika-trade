@@ -90,8 +90,17 @@ class ProductsController extends Controller
 
     public function destroy(Product $product)
     {
-        $product->delete();
-        notify()->success("успішно видалено","Продукт");
-        return redirect()->route('admin.products.index');
+        try {
+            $product->delete();
+            return response()->json([
+                'status' => 'success',
+                'message' => 'Продукт успішно видалено'
+            ], 200); // 200 OK
+        } catch (\Exception $e) {
+            return response()->json([
+                'status' => 'error',
+                'message' => 'Сталася помилка при видаленні продукту'
+            ], 500); // 500 Internal Server Error
+        }
     }
 }

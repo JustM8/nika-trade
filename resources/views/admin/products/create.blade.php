@@ -275,6 +275,6 @@
     </div>
 @endsection
 @push('footer-scripts')
-    @vite(['resources/js/images-preview.js', 'resources/js/select.js'])
+    @vite(['resources/js/images-preview.js', 'resources/js/select.js', 'resources/js/summernote.js'])
 @endpush
 

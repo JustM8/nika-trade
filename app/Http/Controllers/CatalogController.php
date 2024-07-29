@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\MainPage;
 use App\Models\Product;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -19,7 +20,7 @@ class CatalogController extends Controller
 
     public function show($slug)
     {
-
+        $mainPage = MainPage::all();
         $category = Category::where('slug','=',$slug)->first();
         $childrens = $this->getChildCategories($category->id);
         $childrensOfChildrens = [];
@@ -60,7 +61,7 @@ class CatalogController extends Controller
         Session::put('current_category_id', $category->id);
 
 
-        return view('catalog.show',['title'=>__('catalog.Title').' - '.$category->name[App::currentLocale()]], compact('category','childrens','childrensOfChildrens','menu','products','rootParent','breadcrumbs'));
+        return view('catalog.show',['title'=>__('catalog.Title').' - '.$category->name[App::currentLocale()]], compact('category','childrens','childrensOfChildrens','menu','products','rootParent','breadcrumbs','mainPage'));
     }
 
     public function getChildCategories($parentId)
