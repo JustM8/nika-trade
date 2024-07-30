@@ -7,6 +7,7 @@
                 <div class="card">
                     <div class="card-header">{{ __('Admin Dashboard') }}</div>
 
+                    <img class="single-news-item__img" src="/assets/images/dashboard/Frame 482042.png" alt="">
                     <div class="card-body">
                         @if (session('status'))
                             <div class="alert alert-success" role="alert">

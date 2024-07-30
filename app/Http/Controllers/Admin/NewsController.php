@@ -21,6 +21,7 @@ class NewsController extends Controller
             ->orderByRaw('ISNULL(priority), priority asc')
             ->orderBy('date', 'desc')
             ->get();
+
         return view('admin/news/index',['title'=>__('news.Title')],compact('news'));
     }
 

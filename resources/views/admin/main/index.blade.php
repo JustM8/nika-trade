@@ -3,7 +3,7 @@
     <div class="container">
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <h3 class="text-center">{{ __('main.Editing') }}</h3>
+                <h3 class="text-center">{{ __('main.Editing') }} Головної</h3>
             </div>
             <div class="col-md-12">
                 @if (session('status'))
@@ -16,7 +16,7 @@
                 <table class="table align-self-center">
                     <thead>
                     <tr>
-                        <th class="text-center" scope="col">ID</th>
+                        <th class="text-center" scope="col">Блок</th>
 {{--                        <th class="text-center" scope="col">{{ __('main.Image') }}</th>--}}
                         <th class="text-center" scope="col">{{ __('main.Actions') }}</th>
                     </tr>
@@ -24,7 +24,7 @@
                     <tbody>
                     @foreach($mainPage as $page)
                         <tr>
-                            <td class="text-center" scope="col">{{ $page->id }}</td>
+                            <td class="text-center" scope="col">Контакти</td>
 {{--                            <td class="text-center" scope="col"><img src="{{ $page->thumbnailUrl }}" width="100" height="100" alt=""></td>--}}
                             <td class="text-center" scope="col">
                                 <a href="{{ route('admin.main.edit', ['mainPage' => $page]) }}" class="btn btn-info form-control">{{ __('main.Edit') }}</a>

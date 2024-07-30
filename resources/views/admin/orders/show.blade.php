@@ -49,35 +49,49 @@
                         @break;
                     @endswitch
                 </div>
+                @if(!empty($order->phone_delivery))
                 <div class="form-group row" style="display: flex; flex-wrap: nowrap; justify-content: space-evenly;">
                     <p>{{ __('order.phone_delivery') }}</p>
                     <p>{{$order->phone_delivery}}</p>
                 </div>
+                @endif
+                @if(!empty($order->city))
                 <div class="form-group row" style="display: flex; flex-wrap: nowrap; justify-content: space-evenly;">
                     <p>{{ __('order.city') }}</p>
                     <p>{{$order->city}}</p>
                 </div>
+                @endif
+                @if(!empty($order->address))
                 <div class="form-group row" style="display: flex; flex-wrap: nowrap; justify-content: space-evenly;">
                     <p>{{ __('order.address') }}</p>
                     <p>{{$order->address}}</p>
                 </div>
+                @endif
+                @if(!empty($order->delivery_info['carrier']))
                 <div class="form-group row" style="display: flex; flex-wrap: nowrap; justify-content: space-evenly;">
                     <p>{{ __('order.carrier') }}</p>
                     <p>{{$order->delivery_info['carrier']}}</p>
                 </div>
+                @endif
+                @if(!empty($order->delivery_info['branch_number']))
                 <div class="form-group row" style="display: flex; flex-wrap: nowrap; justify-content: space-evenly;">
                     <p>{{ __('order.branch_number') }}</p>
                     <p>{{$order->delivery_info['branch_number']}}</p>
                 </div>
+                @endif
+                @if(!empty($order->comment))
 
                 <div class="form-group row" style="display: flex; flex-wrap: nowrap; justify-content: space-evenly;">
                     <p>{{ __('order.comment') }}</p>
                     <p>{{$order->comment}}</p>
                 </div>
+                @endif
+                @if(!empty($order->comment_color))
                 <div class="form-group row" style="display: flex; flex-wrap: nowrap; justify-content: space-evenly;">
                     <p>{{ __('order.comment_color') }}</p>
                     <p>{{$order->comment_color}}</p>
                 </div>
+                @endif
             </div>
             <hr>
             <div class="thank-page-list-wrap">

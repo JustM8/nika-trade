@@ -32,6 +32,7 @@
                             <td class="text-center" scope="col">{{$new->date}}</td>
                             <td class="text-center" scope="col">
                                 <a href="{{ route('admin.news.edit', $new) }}" class="btn btn-info form-control">{{ __('news.Edit') }}</a>
+                                <a href="{{ route('news.show', $new->slug) }}" class="btn btn-primary form-control">{{ __('news.Check') }}</a>
                                 <form action="{{ route('admin.news.destroy', $new) }}" method="POST">
                                     @csrf
                                     @method('DELETE')

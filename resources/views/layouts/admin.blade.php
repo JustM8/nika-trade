@@ -144,7 +144,7 @@
                             </a>
 
                             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                <a href="{{ url('/') }}" class="dropdown-item">{{ __('admin.Back to website') }}</a>
+                                <a href="{{ url('/') }}" target="blank" class="dropdown-item">{{ __('admin.Back to website') }}</a>
                                 <a class="dropdown-item" href="{{ route('logout') }}"
                                    onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">
