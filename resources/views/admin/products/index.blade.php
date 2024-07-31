@@ -10,7 +10,11 @@
         </nav>
         <div class="row justify-content-center">
             <div class="col-md-12">
-                <h3 class="text-center">{{ __('product.Products') }}</h3>
+                <h3 class="text-center">{{ __('product.Products') }}
+                    @if(!empty($_GET['category']))
+                        - {{$selectedCategoryData->name[App::currentLocale()]}}
+                    @endif
+                </h3>
             </div>
             <div class="col-md-12">
                 @if (session('status'))
@@ -29,7 +33,9 @@
                         <th class="text-center" scope="col">{{ __('product.SKU') }}</th>
                         <th class="text-center" scope="col">{{ __('product.categories') }}</th>
                         <th class="text-center" scope="col">{{ __('product.price') }}</th>
-                        <th class="text-center" scope="col"><a href="{{ route('admin.products.index') }}" class=" btn btn-outline-dark">{{__('product.All')}}</a></th>
+                        <th class="text-center" scope="col">
+
+                        </th>
                     </tr>
                     </thead>
                     <tbody>

@@ -8,6 +8,7 @@ use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 use App\Repositories\CategoryRepository;
+use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
 class CategoriesController extends Controller
@@ -15,11 +16,22 @@ class CategoriesController extends Controller
     public function __construct(protected CategoryRepository $repository)
     {
     }
-    public function index()
+    public function index(Request $request)
     {
-        $categories = Category::withCount('products')->paginate(10)->appends(request()->query());
+        $query = Category::withCount('products');
+
+        if ($request->has('search')) {
+            $query = $this->searchByName($query, $request->input('search'));
+        }
+
+        $categories = $query->paginate(10)->appends(request()->query());
 
         return view('admin/categories/index',['title'=>__('categories.Title')], compact('categories'));
+    }
+
+    protected function searchByName($query, $searchTerm)
+    {
+        return $query->where('name', 'LIKE', "%$searchTerm%");
     }
 
     /**

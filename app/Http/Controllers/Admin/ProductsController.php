@@ -10,6 +10,7 @@ use App\Http\Requests\StoreProductRequest;
 use App\Http\Requests\UpdateProductRequest;
 use App\Repositories\ProductRepository;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\App;
 
 class ProductsController extends Controller
 {
@@ -20,21 +21,33 @@ class ProductsController extends Controller
     public function index(Request $request)
     {
         $query = Product::with('categories');
+        $selectedCategory = null;
+        $selectedCategoryData = null;
 
         if ($request->has('category')) {
-            $query = $this->filterByCategory($query, $request->input('category'));
+            $selectedCategory = $request->input('category');
+            $query = $this->filterByCategory($query, $selectedCategory);
         }
 
         if ($request->has('search')) {
             $query = $this->searchBySku($query, $request->input('search'));
         }
-//        dd($query);
-        // Додайте інші фільтри, якщо потрібно
 
+        // Отримуємо продукти з обраними фільтрами
         $products = $query->paginate(50)->appends(request()->query());
-//        dd($products);
 
-        return view('admin.products.index', ['title' => __('product.Products')], compact('products'));
+        // Знаходимо першу відповідну категорію серед продуктів, якщо категорія була обрана
+        if ($selectedCategory) {
+            foreach ($products as $product) {
+                $selectedCategoryData = $product->categories->firstWhere('id', $selectedCategory);
+                if ($selectedCategoryData) {
+                    notify()->success("по ".$selectedCategoryData->name[App::currentLocale()],"Відсортовано");
+                    break;
+                }
+            }
+        }
+
+        return view('admin.products.index', ['title' => __('product.Products')], compact('products','selectedCategoryData'));
     }
 
     protected function filterByCategory($query, $category)

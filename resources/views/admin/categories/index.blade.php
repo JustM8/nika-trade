@@ -1,6 +1,13 @@
 @extends('layouts.admin')
 @section('content')
     <div class="container">
+        <nav class="navbar navbar-light bg-light rounded product-navbar">
+            <form action="{{ route('admin.categories.index') }}" method="GET" class="form-inline product-navbar__search-form">
+                <input class="form-control mr-sm-3" type="text" name="search" value="{{ request('search') }}" placeholder="Введіть назву">
+                <button type="submit" class="btn btn-outline-success my-2 my-sm-0">Шукати</button>
+            </form>
+            <a href="{{ route('admin.categories.index') }}" class="btn btn-outline-dark">{{__('index.All')}}</a>
+        </nav>
         <div class="row justify-content-center">
             <div class="col-md-12">
                 <h3 class="text-center">{{ __('index.Categories') }}</h3>
