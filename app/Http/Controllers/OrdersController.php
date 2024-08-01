@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\CreateOrderRequest;
+use App\Models\MainPage;
 use App\Models\Order;
 use App\Models\Product;
 use App\Models\User;
@@ -70,11 +71,11 @@ class OrdersController extends Controller
 
     public function thankYou(string $orderId)
     {
-
+        $mainPage = MainPage::all();
 //        Cart::instance('cart')->destroy();
         $order = Order::with(['user','products'])->where('id',$orderId)->firstOrFail();
 
-        return view('thankyou/summary',['title'=>__('thankyou.Title')], compact('order'));
+        return view('thankyou/summary',['title'=>__('thankyou.Title')], compact('order','mainPage'));
     }
 
     public function mailSend($order)
