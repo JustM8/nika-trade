@@ -184,7 +184,4 @@
 
 @push('footer-scripts')
     @vite(['resources/js/cart.js', 'resources/js/common.js', 'resources/js/cartPage.js'])
-    <!-- <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script> -->
-    <!-- <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script> -->
-    <!-- <script defer src="{{asset('/assets/scripts/cartPage.bundle.js')}}"></script> -->
 @endpush

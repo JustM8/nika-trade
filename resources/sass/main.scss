@@ -28,3 +28,6 @@
 //@import 'pages/contact';
 //@import 'pages/home';
 @import "./assets/templates"; // main style
+
+@import "../../node_modules/quill/dist/quill.core.css";
+@import "../../node_modules/quill/dist/quill.snow.css";

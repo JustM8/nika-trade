@@ -27,14 +27,14 @@
                         </div>
                     </div>
 
-                    <div class="services-item__img-wrap">
+                    <!-- <div class="services-item__img-wrap">
                         @if(Storage::has($item->thumbnail) && !empty($item->thumbnail))
                             <img src="{{ $item->thumbnailUrl}}" class="services-item__img" id="thumbnail-preview" alt="">
                         @endif
                         <div class="services-item__img-descr-wrap">
                             <p class="services-item__img-descr text-s">{{$item->data[App::currentLocale()]['post_title']}}</p>
                         </div>
-                    </div>
+                    </div> -->
                     <div class="services-item__descr-wrap">
                         {!! $item->data[App::currentLocale()]['description'] !!}
                         @if($item->data[App::currentLocale()]['designer'] == true)
