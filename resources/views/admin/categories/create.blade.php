@@ -106,7 +106,7 @@
                                 <div class="col-md-6">
                                     <div class="row">
                                         <div class="col-md-3">
-                                            <img src="#" id="thumbnail-preview" alt="">
+                                            <img src="#" id="thumbnail-preview" alt="" class="w-100">
                                         </div>
                                         <div class="mb-3">
                                             <input  class="form-control" type="file" name="thumbnail" id="thumbnail">
@@ -118,7 +118,7 @@
 
                             <div class="row mb-0">
                                 <div class="col-md-8 offset-md-4">
-                                    <button type="submit" class="btn btn-primary">{{ __('category.Зберегти') }}</button>
+                                    <button type="submit" class="btn btn-primary">{{ __('category.') }}</button>
                                 </div>
                             </div>
                         </form>

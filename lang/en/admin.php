@@ -15,5 +15,20 @@ return [
     */
 
     'Lang' => 'Lang',
+	'Service' => 'Service',
+	'All services' => 'All services',
+	'Create service' => 'Create service',
+	'News' => 'News',
+	'All news' => 'All news',
+	'Create new' => 'Create new',
+	'Categories' => 'Categories',
+	'All categories' => 'All categories',
+	'Create category' => 'Create category',
+	'Back to website' => 'Back to website',
+	'Logout' => 'Logout',
+	'Showing' => 'Showing',
+	'to' => 'to',
+	'of' => 'of',
+	'results' => 'results',
 
 ];

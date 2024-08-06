@@ -26,6 +26,10 @@ return [
 	'Create category' => 'Створити категорію',
 	'Back to website' => 'Повернутися на сайт',
 	'Logout' => 'Вийти',
+	'Showing' => 'Показ',
+	'to' => 'до',
+	'of' => 'з',
+	'results' => 'результатів',
 
 
 ];

@@ -189,7 +189,7 @@
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <img src="#" id="thumbnail-preview" alt="">
+                                    <img src="#" id="thumbnail-preview" alt=""  class="w-100">
                                 </div>
                                 <div class="col-md-6">
                                     <input class="form-control" type="file" name="thumbnail" id="thumbnail">
@@ -204,7 +204,7 @@
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <img src="#" id="obj_model-preview" alt="">
+                                    <img src="#" id="obj_model-preview" alt="" class="w-100">
                                 </div>
                                 <div class="col-md-6">
                                     <input class="form-control" type="file" name="obj_model" id="obj_model">
@@ -266,7 +266,7 @@
                 <form>
                     <div class="form-group row">
                         <div class="col-md-10 text-right">
-                            <a href="{{ route('admin.products.index') }}" class="btn btn-outline-dark">{{ __('products.Cancel')}}</a>
+                            <a href="{{ route('admin.products.index') }}" class="btn btn-outline-dark">{{ __('product.Cancel')}}</a>
                         </div>
                     </div>
                 </form>

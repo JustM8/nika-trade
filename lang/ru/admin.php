@@ -15,5 +15,20 @@ return [
     */
 
     'Lang' => 'Язык',
+	'Service' => 'Сервисы',
+	'All services' => 'Все сервисы',
+	'Create service' => 'Создать сервис',
+	'News' => 'Новости',
+	'All news' => 'Все новости',
+	'Create new' => 'Создать новость',
+	'Categories' => 'Категории',
+	'All categories' => 'Все категории',
+	'Create category' => 'Создать категорию',
+	'Back to website' => 'Вернуться на сайт',
+	'Logout' => 'Выйти',
+	'Showing' => 'Показ',
+	'to' => 'до',
+	'of' => 'из',
+	'results' => 'результатов',
 
 ];

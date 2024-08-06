@@ -147,7 +147,7 @@
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <img src="{{ $news->thumbnailUrl  }}" id="thumbnail-preview" alt="">
+                                    <img src="{{ $news->thumbnailUrl  }}" id="thumbnail-preview" alt="" class="w-100">
                                 </div>
                                 <div class="mb-3">
                                     <input  class="form-control" type="file" name="thumbnail" id="thumbnail">

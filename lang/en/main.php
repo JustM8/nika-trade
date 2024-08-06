@@ -31,4 +31,9 @@ return array (
    'Actions' => 'Actions',
     'Edit' => 'Edit',
 	'Services' => 'Services',
+	'Cancel' => 'Cancel',
+	'url' => 'Gmap url',
+'Update' => 'Update',
+'Save' => 'Save',
+'Editing' => 'Editing',
 );

@@ -68,7 +68,7 @@
                                 <div class="col-md-6">
                                     <input  class="form-control" type="file" name="thumbnail" id="thumbnail">
                                     <div class="row">
-                                        <img src="#" id="thumbnail-preview" alt="">
+                                        <img src="#" id="thumbnail-preview" alt="" class="w-100">
                                     </div>
                                 </div>
                             </div>

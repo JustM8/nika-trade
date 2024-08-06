@@ -3,7 +3,7 @@ import laravel from "laravel-vite-plugin";
 import inject from "@rollup/plugin-inject";
 import commonjs from "@rollup/plugin-commonjs";
 import nodeResolve from "@rollup/plugin-node-resolve";
-import babel from "@rollup/plugin-babel";
+// import babel from "@rollup/plugin-babel";
 import legacy from "@vitejs/plugin-legacy";
 
 export default defineConfig({
@@ -20,10 +20,6 @@ export default defineConfig({
                     sourceMap: true,
                     requireReturnsDefault: "auto",
                     transformMixedEsModules: true,
-                }),
-                babel({
-                    babelHelpers: "bundled",
-                    presets: ["@babel/preset-env"],
                 }),
                 inject({
                     $: "jquery", // Ensure jQuery is globally available

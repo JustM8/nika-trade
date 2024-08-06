@@ -117,7 +117,7 @@
                                         <div class="col-md-6">
                                             @if(!empty($category->thumbnail))
                                                 @if(Storage::has($category->thumbnail))
-                                                <img src="{{ $category->thumbnailUrl}}" id="thumbnail-preview" alt="">
+                                                <img src="{{ $category->thumbnailUrl}}" id="thumbnail-preview" alt="" class="w-100">
                                                 @endif
                                             @endif
                                         </div>

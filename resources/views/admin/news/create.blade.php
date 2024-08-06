@@ -1,7 +1,6 @@
 @extends('layouts.admin')
 @section('title') {{' - Admin - Create News'}} @endsection
 @section('content')
-    {{ App::currentLocale() }}
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <div class="container">
         <div class="row justify-content-center">
@@ -165,7 +164,7 @@
                         <div class="col-md-6">
                             <div class="row">
                                 <div class="col-md-3">
-                                    <img src="#" id="thumbnail-preview" alt="">
+                                    <img src="#" id="thumbnail-preview" alt="" class="w-100">
                                 </div>
                                 <div class="mb-3">
                                     <input  class="form-control" type="file" name="thumbnail" id="thumbnail">
@@ -266,5 +265,5 @@
 
 @endsection
 @push('footer-scripts')
-    @vite(['resources/js/images-preview.js', 'resources/js/summernote.js', 'resources/js/edit.js'])
+    @vite(['resources/js/images-preview.js', 'resources/js/summernote.js'])
 @endpush

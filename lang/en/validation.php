@@ -140,6 +140,9 @@ return [
     'uploaded' => 'The :attribute failed to upload.',
     'url' => 'The :attribute must be a valid URL.',
     'uuid' => 'The :attribute must be a valid UUID.',
+    
+
+
 
     /*
     |--------------------------------------------------------------------------
@@ -155,6 +158,12 @@ return [
     'custom' => [
         'attribute-name' => [
             'rule-name' => 'custom-message',
+        ],
+        'pdf' => [
+            'mimes' => 'The PDF must be a file of type: pdf.',
+        ],
+        'images.*' => [
+            'image' => 'Each image must be of type: jpeg, png, jpg.',
         ],
     ],
 

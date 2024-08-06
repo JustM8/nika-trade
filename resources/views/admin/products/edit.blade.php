@@ -294,7 +294,7 @@
             <form>
                 <div class="form-group row">
                     <div class="col-md-10 text-right">
-                        <a href="{{ route('admin.products.index') }}" class="btn btn-outline-dark">{{ __('products.Cancel')}}</a>
+                        <a href="{{ route('admin.products.index') }}" class="btn btn-outline-dark">{{ __('product.Cancel')}}</a>
                     </div>
                 </div>
             </form>

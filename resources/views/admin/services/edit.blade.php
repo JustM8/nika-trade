@@ -81,7 +81,7 @@
                                         </div>
                                         <div class="col-md-12">
                                             @if(Storage::has($service->thumbnail) && !empty($service->thumbnail))
-                                                <img src="{{ $service->thumbnailUrl}}" class="img-fluid img-thumbnail" id="thumbnail-preview" alt="">
+                                                <img src="{{ $service->thumbnailUrl}}" class="img-fluid img-thumbnail" id="thumbnail-preview" alt="" class="w-100">
                                             @endif
                                         </div>
                                     </div>

@@ -27,4 +27,5 @@ return [
 	'Edit' => 'Edit',
 	'Remove' => 'Remove',
 	'Services' => 'Services',
+	
 ];
