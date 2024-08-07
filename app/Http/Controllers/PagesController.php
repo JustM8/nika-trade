@@ -45,7 +45,7 @@ class PagesController extends Controller
             $page = $pages[$slug];
             return view('pages.'.$slug,['title'=>$page['title']],compact('page','mainPage'));
         } else {
-            abort(404);
+            return response()->view('errors.404', compact('mainPage'), 404);
         }
     }
 

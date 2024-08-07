@@ -24,7 +24,7 @@ class OrderRepository implements OrderRepositoryContract
 //        $user = User::where('email', $request['email'])
 //            ->orWhere('phone', $request['phone'])
 //            ->first();
-
+       $request['phone'] = $this->cleanPhoneNumber($request['phone']);
        if($request['delivery_type'] != 5){
                 unset($request['nameKyiv'],$request['phoneKyiv'],$request['addressKyiv']);
         }else{
@@ -100,6 +100,8 @@ class OrderRepository implements OrderRepositoryContract
 
         });
     }
-
-
+    public function cleanPhoneNumber($phoneNumber) {
+        $cleanedNumber = preg_replace('/\D/', '', $phoneNumber);
+        return $cleanedNumber;
+    }
 }
