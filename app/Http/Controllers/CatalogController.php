@@ -15,7 +15,7 @@ class CatalogController extends Controller
     public function index()
     {
         $rootCategories = Category::rootCategories()->get();
-        return view('catalog.index',['title'=>__('catalog.Title')], compact('rootCategories'));
+        return view('catalog.index',['title'=>__('catalog.page_title')], compact('rootCategories'));
     }
 
     public function show($slug)
@@ -61,7 +61,7 @@ class CatalogController extends Controller
         Session::put('current_category_id', $category->id);
 
 
-        return view('catalog.show',['title'=>__('catalog.Title').' - '.$category->name[App::currentLocale()]], compact('category','childrens','childrensOfChildrens','menu','products','rootParent','breadcrumbs','mainPage'));
+        return view('catalog.show',['title'=>__('catalog.page_title').' - '.$category->name[App::currentLocale()]], compact('category','childrens','childrensOfChildrens','menu','products','rootParent','breadcrumbs','mainPage'));
     }
 
     public function getChildCategories($parentId)

@@ -15,6 +15,9 @@ return [
     */
 
 	'Create Service' => 'Создать сервис',
+	'page_title' => 'Сервисы',
+'page_title_edit' => 'Редагувати сервисы',
+'page_title_create' => 'Створити сервисы',
 	'title' => 'Заголовок',
 	'post title' => 'Название публикации',
 	'description' => 'Описание',
@@ -32,4 +35,5 @@ return [
 	'Edit' => 'Редактировать',
 	'Remove' => 'Удалить',
 	'Check' => 'Просмотреть',
+	'Date' => 'Дата',
 ];

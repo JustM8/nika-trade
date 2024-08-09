@@ -29,7 +29,7 @@ class ProductsController extends Controller
         $currentCategoryId = Session::get('current_category_id');
 
         return view('products.show',
-            ['title'=>__('catalog.Title').' - '.$product->title[App::currentLocale()]],
+            ['title'=>__('catalog.page_title').' - '.$product->title[App::currentLocale()]],
             compact('product','recommendedProducts','childrens','categorySlug','breadcrumbs','rootParent','currentCategorySlug','currentCategoryId','menu','mainPage')
         );
     }

@@ -13,6 +13,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'page_title' => 'Галерея',
+	'page_title_edit' => 'Редактировать голерею',
+	'page_title_create' => 'Создать галерею',
     'Date' => 'Дата',
     'Gallery' => 'Галерея',
     'Title' => 'Галерея',

@@ -12,6 +12,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+	'page_title' => 'Главная',
 
     'Новини' => 'Новости',
 	'Читати новину' => 'Читать новость',

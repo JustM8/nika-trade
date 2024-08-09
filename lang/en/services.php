@@ -13,7 +13,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
+    'page_title' => 'Services',
+	'page_title_edit' => 'Edit services',
+	'page_title_create' => 'Create services',
     'ok' => 'Okay',
     'Title' => 'Services',
     'Service' => 'Services',

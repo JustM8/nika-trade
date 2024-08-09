@@ -13,7 +13,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-        
+    'page_title' => 'Категории',
+	'page_title_edit' => 'Редактировать категории',
+	'page_title_create' => 'Создать категорию',
     'Create Category' => 'Создать категорию',
     'Name' => 'Имя',
     'Slug' => 'Название',

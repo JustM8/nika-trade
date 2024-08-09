@@ -1,6 +1,9 @@
 <?php
 
 return array (
+  'page_title' => 'Главная',
+	'page_title_edit' => 'Редактировать главную',
+	'page_title_create' => 'Создать главную',
   'Main' => 'Главная',
   'Main page' => 'Раздел по главной странице',
   'Main page create' => 'Создать запись для главной страницы',

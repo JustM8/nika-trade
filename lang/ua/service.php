@@ -13,7 +13,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
+'page_title' => 'Сервіси',
+'page_title_edit' => 'Редагувати сервіси',
+'page_title_create' => 'Створити сервіси',
 	'Create Service' => 'Створити сервіс',
 	'title' => 'Заголовок',
 	'post title' => 'Назва публікації',
@@ -36,5 +38,6 @@ return [
 	'Edit' => 'Редагувати',
 	'Remove' => 'Видалити',
 	'Check' => 'Переглянути',
+	'Date' => 'Дата',
 	'' => '',
 ];

@@ -75,7 +75,7 @@ class OrdersController extends Controller
 //        Cart::instance('cart')->destroy();
         $order = Order::with(['user','products'])->where('id',$orderId)->firstOrFail();
 
-        return view('thankyou/summary',['title'=>__('thankyou.Title')], compact('order','mainPage'));
+        return view('thankyou/summary',['title'=>__('thankyou.page_title')], compact('order','mainPage'));
     }
 
     public function mailSend($order)

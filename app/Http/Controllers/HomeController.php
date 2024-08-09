@@ -36,6 +36,6 @@ class HomeController extends Controller
 //        }
 
 
-        return view('home', ['title'=>__('home.Title')], compact('products', 'categories'));
+        return view('home', ['title'=>__('home.page_title')], compact('products', 'categories'));
     }
 }

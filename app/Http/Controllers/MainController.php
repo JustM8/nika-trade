@@ -22,6 +22,6 @@ class MainController extends Controller
             ->get();
         $rootCategories = Category::rootCategories()->get();
 //        dd($rootCategories);
-        return view('main',['title'=>__('main.Main')],compact('news', 'rootCategories','mainPage'));
+        return view('main',['title'=>__('main.page_title')],compact('news', 'rootCategories','mainPage'));
     }
 }

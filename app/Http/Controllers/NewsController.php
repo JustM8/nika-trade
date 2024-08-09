@@ -23,7 +23,7 @@ class NewsController extends Controller
             ->take(5)
             ->get();
 //        $news = News::latest('date')->orderBy('priority')->take(5)->get();
-        return view('news.index',['title'=>__('news.Title')], compact('news','mainPage'));
+        return view('news.index',['title'=>__('news.page_title')], compact('news','mainPage'));
     }
     /**
      * Display the specified resource.

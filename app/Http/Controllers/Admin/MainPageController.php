@@ -20,12 +20,12 @@ class MainPageController extends Controller
     public function index()
     {
         $mainPage = MainPage::all();
-        return view('admin/main/index',['title'=>__('mainPage.Title')], compact('mainPage'));
+        return view('admin/main/index',['title'=>__('mainPage.page_title')], compact('mainPage'));
     }
 
     public function create()
     {
-        return view('admin/main/create',['title'=>__('mainPage.Title')]);
+        return view('admin/main/create',['title'=>__('mainPage.page_title_create')]);
     }
 
     public function store(CreateMainPageRequest $request)
@@ -40,7 +40,7 @@ class MainPageController extends Controller
     public function edit(MainPage $mainPage)
     {
 //        dd($mainPage->images);
-        return view('admin/main/edit',['title'=>__('service.Title')], compact('mainPage'));
+        return view('admin/main/edit',['title'=>__('service.page_title_edit')], compact('mainPage'));
     }
 
     public function update(UpdateMainPageRequest $request, MainPage $mainPage)

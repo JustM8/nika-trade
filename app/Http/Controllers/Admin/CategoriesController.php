@@ -26,7 +26,7 @@ class CategoriesController extends Controller
 
         $categories = $query->paginate(10)->appends(request()->query());
 
-        return view('admin/categories/index',['title'=>__('categories.Title')], compact('categories'));
+        return view('admin/categories/index',['title'=>__('category.page_title')], compact('categories'));
     }
 
     protected function searchByName($query, $searchTerm)
@@ -42,7 +42,7 @@ class CategoriesController extends Controller
     public function create( Category $category)
     {
         $parents = Category::all()->except($category->id);
-        return view('admin/categories/create', compact('parents'));
+        return view('admin/categories/create',['title'=>__('category.page_title_create')], compact('parents'));
     }
 
     /**

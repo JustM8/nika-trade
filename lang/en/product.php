@@ -13,7 +13,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
+    'page_title' => 'Products',
+    'page_title_edit' => 'Edit product',
+    'page_title_create' => 'Create product',
     'Products' => 'List of products',
     'm Products' => 'Products',
     'All products' => 'All products',

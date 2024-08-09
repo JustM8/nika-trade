@@ -13,6 +13,8 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'page_title' => 'Контакты',
+
 'Контакти' => 'Контакты',
 'м. Київ' => 'г. Киев',
 '(головний офіс)' => '(главный офис)',

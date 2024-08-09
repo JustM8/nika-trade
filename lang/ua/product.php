@@ -15,6 +15,9 @@ return [
     */
 
     'Products' => 'Список продуктів',
+    'page_title' => 'Продукти',
+    'page_title_edit' => 'Редагувати продукти',
+    'page_title_create' => 'Створити продукт',
     'm Products' => 'Продукти',
     'All products' => 'Всі продукти',
     'Create product' => 'Створити продукт',

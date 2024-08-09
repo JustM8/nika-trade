@@ -1,7 +1,9 @@
 <?php
 
 return array (
-
+    'page_title' => 'Новости',
+	'page_title_edit' => 'Редактировать новость',
+	'page_title_create' => 'Создать новость',
 'Create news' => 'Создать новость',
 'Slug' => 'Название',
 'Date' => 'Дата',

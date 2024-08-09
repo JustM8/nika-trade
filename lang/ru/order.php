@@ -1,6 +1,10 @@
 <?php
 
 return array (
+
+    'page_title' => 'Заказы',
+	'page_title_edit' => 'Редактировать заказы',
+	'page_title_create' => 'Создать заказ',
     'Orders' => 'Заказ',
     'OrderList' => 'Список заказов',
     'ID' => 'Номер заказа',

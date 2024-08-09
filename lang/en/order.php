@@ -1,6 +1,7 @@
 <?php
 
 return array (
+    'page_title' => 'Orders',
     'Orders' => 'Orders',
     'OrderList' => 'Order List',
     'ID' => 'Order number',

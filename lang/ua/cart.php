@@ -13,6 +13,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'page_title' => 'Кошик',
 
     'Title' => 'Кошик',
     'empty' => '<h2>Не знайдено доданих товарів</h2>',

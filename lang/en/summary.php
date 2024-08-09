@@ -13,7 +13,7 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
+    'page_title' => 'Thank you for your order',
 'Дякуємо за ваше замовлення' => 'Thank you for your order',
 'Найближчим часом з вами зв`яжуться наші менеджери для уточнень деталей замовлення!' => 'In the near future, our managers will contact you to clarify the details of the order!',
 'Спосіб доставки:' => 'Delivery method:',

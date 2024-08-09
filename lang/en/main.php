@@ -1,6 +1,8 @@
 <?php
 
 return array (
+  'page_title' => 'Main',
+
   'Main' => 'Main',
   'Create Main Page Data' => 'Create data for the main page',
   'Images' => 'Images',

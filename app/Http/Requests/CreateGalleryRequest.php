@@ -183,7 +183,6 @@ class CreateGalleryRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string'],
             'data' => ['nullable'],
 //            'thumbnail' => ['image:jpeg,png,jpg'],
             'images.*' => ['image:jpeg,png,jpg'],

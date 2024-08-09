@@ -3,6 +3,9 @@
 return array (
 
 'Create news' => 'Створити новину',
+'page_title' => 'Новини',
+'page_title_edit' => 'Редагувати новину',
+'page_title_create' => 'Створити новину',
 'Slug' => 'Назва',
 'Date' => 'Дата',
 'Title' => 'Заголовок',

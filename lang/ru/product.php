@@ -14,6 +14,10 @@ return [
     |
     */
 
+    'page_title' => 'Продукти',
+	'page_title_edit' => 'Редактировать продукт',
+	'page_title_create' => 'Создать продукт',
+
     'Products' => 'Список продуктов',
     'm Products' => 'Продукты',
     'All products' => 'Все продукты',

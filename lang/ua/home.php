@@ -13,6 +13,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+    'page_title' => 'Головна',
+    'page_title_edit' => 'Редагувати головну',
+    'page_title_create' => 'Створити головну',
 
     'logged_in' => 'Ви авторизувались!',
 

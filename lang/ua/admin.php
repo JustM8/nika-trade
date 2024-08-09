@@ -19,6 +19,8 @@ return [
 	'All services' => 'Всі сервіси',
 	'Create service' => 'Створити сервіс',
 	'News' => 'Новини',
+	'page_title' => 'Адмін панель',
+    'page_title_edit' => 'Редагувати адмін панель',
 	'All news' => 'Всі новини',
 	'Create new' => 'Створити новину',
 	'Categories' => 'Категорії',

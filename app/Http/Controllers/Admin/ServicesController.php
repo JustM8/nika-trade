@@ -19,12 +19,12 @@ class ServicesController extends Controller
         $services = Service::query()
             ->orderBy('created_at', 'desc')
             ->get();
-        return view('admin/services/index',['title'=>__('service.Title')],compact('services'));
+        return view('admin/services/index',['title'=>__('service.page_title')],compact('services'));
     }
 
     public function create()
     {
-        return view('admin/services/create',['title'=>__('service.Title')]);
+        return view('admin/services/create',['title'=>__('service.page_title_create')]);
     }
 
     public function store(CreateServiceRequest $request)
@@ -40,7 +40,7 @@ class ServicesController extends Controller
 
     public function edit(Service $service)
     {
-        return view('admin/services/edit',['title'=>__('service.Title')], compact('service'));
+        return view('admin/services/edit',['title'=>__('service.page_title_edit')], compact('service'));
     }
 
     public function update(UpdateServiceRequest $request, Service $service)

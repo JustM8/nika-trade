@@ -17,11 +17,11 @@ class OrdersController extends Controller
     {
         $orders = Order::orderBy('created_at', 'DESC')->paginate(10);
 //        dd($orders);
-        return view('admin.orders.index', ['title' => __('order.Orders')], compact('orders'));
+        return view('admin.orders.index', ['title' => __('order.page_title')], compact('orders'));
     }
 
     public function show(Order $order)
     {
-        return view('admin.orders.show', ['title' => __('order.Orders')], compact('order'));
+        return view('admin.orders.show', ['title' => __('order.page_title')], compact('order'));
     }
 }

@@ -47,7 +47,7 @@ class ProductsController extends Controller
             }
         }
 
-        return view('admin.products.index', ['title' => __('product.Products')], compact('products','selectedCategoryData'));
+        return view('admin.products.index', ['title' => __('product.page_title')], compact('products','selectedCategoryData'));
     }
 
     protected function filterByCategory($query, $category)
@@ -66,7 +66,7 @@ class ProductsController extends Controller
     {
         $categories = Category::nonRootCategories()->get();
         $products = Product::all();
-        return view('admin/products/create', compact('categories','products'));
+        return view('admin/products/create', ['title'=>__('product.page_title_create')], compact('categories','products'));
     }
 
     public function edit(Product $product)
@@ -77,7 +77,7 @@ class ProductsController extends Controller
         $recommendedProducts = $product->recommendedProducts;
         $parents = Product::all()->except($product->id);
 //dd($parents);
-        return view('admin/products/edit',['title'=>__('product.editTitle')], compact('product','categories','recommendedProducts','products','parents'));
+        return view('admin/products/edit',['title'=>__('product.page_title_edit')], compact('product','categories','recommendedProducts','products','parents'));
     }
 
     public function update(UpdateProductRequest $request,Product $product )

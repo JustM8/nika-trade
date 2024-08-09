@@ -13,6 +13,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
+	'page_title' => 'Admin panel',
+	'page_title_edit' => 'Edit admin panel',
+	'page_title_create' => 'Create admin panel',
 
     'Lang' => 'Lang',
 	'Service' => 'Service',

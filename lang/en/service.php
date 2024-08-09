@@ -14,6 +14,10 @@ return [
     |
     */
 
+	'page_title' => 'Sevrices',
+	'page_title_edit' => 'Edit services',
+	'page_title_create' => 'Create services',
+
 	'Create Service' => 'Create Service',
 	'title' => 'title',
 	'post title' => 'post title',
@@ -27,5 +31,6 @@ return [
 	'Edit' => 'Edit',
 	'Remove' => 'Remove',
 	'Services' => 'Services',
+	'Date' => 'Date',
 	
 ];

@@ -12,7 +12,7 @@ class DashboardController extends Controller
     {
         $orders = Order::orderBy('created_at', 'DESC')->paginate(50);
 //        dd($orders);
-        return view('admin/dashboard/index',['title'=>'dashboard.Title']);
+        return view('admin/dashboard/index',['title'=>'dashboard.page_title']);
     }
 
 }

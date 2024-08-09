@@ -16,6 +16,9 @@ return [
 
     'ok' => 'Добре',
     'Title' => 'Сервіси',
+    'page_title' => 'Сервіси',
+    'page_title_edit' => 'Редагувати сервіси',
+    'page_title_create' => 'Створити сервіси',
     'Service' => 'Сервіси',
     'All services' => 'Усі сервіси',
     'Create service' => 'Створити сервіси',

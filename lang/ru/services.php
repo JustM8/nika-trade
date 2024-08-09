@@ -13,7 +13,9 @@ return [
     | these language lines according to your application's requirements.
     |
     */
-
+    'page_title' => 'Сервисы',
+	'page_title_edit' => 'Редактировать сервисы',
+	'page_title_create' => 'Создать сервисы',
     'ok' => 'Хорошо',
     'Title' => 'Сервисы',
     'Service' => 'Сервисы',
