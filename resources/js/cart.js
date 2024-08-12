@@ -45,7 +45,7 @@ closeBtnRef.addEventListener("click", () => {
 
 $(document).on("click", ".cart-list-item-delete__input", function (e) {
     e.preventDefault();
-    let $form = $(this).closest("form"); // Find the parent form
+    let $form = $(this).closest("form");
 
     $.ajax({
         url: $form.data("route"),
@@ -56,7 +56,6 @@ $(document).on("click", ".cart-list-item-delete__input", function (e) {
         },
         success: function (data) {
             updateCartPopup();
-            // Handle success, if needed
         },
         error: function (data) {
             console.log("Error:", data);
@@ -66,8 +65,6 @@ $(document).on("click", ".cart-list-item-delete__input", function (e) {
 
 function updateQuantity($input) {
     let $btn = $input;
-
-    console.log($btn.val(), $btn.parent().data("row-id"));
 
     if ($btn.val() !== undefined && $btn.val() !== null && $btn.val() !== 0) {
         $.ajax({
@@ -80,7 +77,6 @@ function updateQuantity($input) {
             },
             success: function (data) {
                 updateCartPopup();
-                console.log("data", data);
             },
             error: function (data) {
                 console.log("Error:", data);
@@ -94,29 +90,56 @@ function updateQuantity($input) {
 function incrementQuantity($input) {
     let currentValue = parseInt($input.val()) || 0;
     $input.val(currentValue + 1);
-    updateQuantity($input);
 }
 
 function decrementQuantity($input) {
     let currentValue = parseInt($input.val()) || 0;
     if (currentValue > 0) {
         $input.val(currentValue - 1);
-        updateQuantity($input);
     }
 }
 
-// Bind keyup and mouseup events to inputs
-$(document).on("keyup", 'input[type="number"]', function () {
-    updateQuantity($(this));
-});
+$(document)
+    .on("keydown", 'input[type="text"]', function (e) {
+        if (e.which === 13) {
+            e.preventDefault();
+            const $input = $(this);
+            const value = $input.val().replace(/[^0-9]/g, "");
+            $input.val(value);
+            updateQuantity($input);
+        } else if (
+            e.which === 8 ||
+            e.which === 46 ||
+            (e.which >= 48 && e.which <= 57)
+        ) {
+        } else {
+            e.preventDefault();
+        }
+    })
+    .on("input change", 'input[type="text"]', function () {
+        const $input = $(this);
+        let value = $input.val().replace(/[^0-9]/g, "");
+        $input.val(value);
+    })
+    .on("blur", 'input[type="text"]', function () {
+        const $input = $(this);
+        const value = $input.val();
+        if (value !== $input.data("previous-value")) {
+            $input.data("previous-value", value);
+            updateQuantity($input);
+        }
+    })
+    .each(function () {
+        $(this).data("previous-value", $(this).val());
+    });
 
-// Handle increment and decrement buttons
 $(document).on("click", ".cart-increment-btn", function (e) {
     e.preventDefault();
     let $input = $(this)
         .closest(".cart-list-item-descr__quantity-container")
         .find(".cart-list-item-descr__quantity-container__input-value");
     incrementQuantity($input);
+    updateQuantity($input);
 });
 
 $(document).on("click", ".cart-decrement-btn", function (e) {
@@ -125,18 +148,22 @@ $(document).on("click", ".cart-decrement-btn", function (e) {
         .closest(".cart-list-item-descr__quantity-container")
         .find(".cart-list-item-descr__quantity-container__input-value");
     decrementQuantity($input);
+    updateQuantity($input);
+});
+
+$(document).on("submit", "form", function (e) {
+    e.preventDefault();
 });
 
 function updateCartPopup() {
     $.ajax({
         url: "/ajax/cart/popup",
-        type: "get", // Змінено метод на POST, якщо ви хочете передати дані на сервер
+        type: "GET",
         dataType: "json",
         headers: {
             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
         },
         success: function (data) {
-            // Оновіть вміст popup з отриманим HTML
             document.querySelector("#cart-popup").innerHTML = data.html;
             document.querySelector("#cart-total").innerHTML = data.total;
             document.querySelector("#cart-amount").innerHTML = data.count;
