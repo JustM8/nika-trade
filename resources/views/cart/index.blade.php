@@ -16,11 +16,11 @@
             <span class="cart-page-card-title text-m text-balck-100">{{ __('index.Товари в кошику:') }}</span>
                     <div class="cart-page-card-content">
                         <div class="cart-list" id="cart-popup">
-                            @php($cart_id = Cookie::get('cart_id'))
+                            @php($cart_id = session()->get('cart_id'))
                             @if(Cart::instance($cart_id)->count() > 0)
                                 @each('cart.parts.product_view', Cart::instance($cart_id)->content(), 'row')
-
                             @endif
+
                         </div>
                         <div class="cart-descr"> <span class="cart-descr-title text-14 text-black-100">{{ __('index.Ціни вказано з ПДВ за умови самовивозу з виробництва. Діючі ціни можуть не збігатися із вказаними на сайті. Уточнюйте, будь ласка.') }}</span>
                             <span class="cart-descr-price text-18 text-black-100"> {{ __('index.Разом') }}</span>

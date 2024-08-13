@@ -21,10 +21,7 @@ class OrdersController extends Controller
     public function __construct(protected OrderRepository $repository)
     {
     }
-//    public function __invoke(Request $request)
-//    {
-//        dd($request);
-//    }
+
     public function index(Request $request)
     {
 
@@ -32,51 +29,65 @@ class OrdersController extends Controller
 
     public function create(CreateOrderRequest $request)
     {
+        $cartId = $request->session()->get('cart_id');
 
-        $cartId = $request->cookie('cart_id');
         try {
             DB::beginTransaction();
 
-            $total = Cart::instance($cartId)->total(2, '.', '');
-            $request = $request->validated();
+            // Отримуємо поточний вміст кошика
+            $cartContent = Cart::instance($cartId)->content();
 
-            $order = $this->repository->create($request, $total);
-            $mail = $this->mailSend($order);
+            // Перевірка наявності товарів у кошику
+            if ($cartContent->isEmpty()) {
+                return response()->json(['error' => 'Кошик порожній.'], 422);
+            }
+
+            // Загальна вартість замовлення
+            $total = Cart::instance($cartId)->total(2, '.', '');
+
+            // Валідація запиту
+            $validatedRequest = $request->validated();
+
+            // Створення замовлення
+            $order = $this->repository->create($validatedRequest, $total);
+
+            // Надсилання електронної пошти
+            $this->mailSend($order);
 
             DB::commit();
-            if(isset($order->id)){
+
+            // Перевірка, чи замовлення успішно створено
+            if (isset($order->id)) {
                 $redirectUrl = route('thankYou', ['orderId' => $order->id]);
 
-                // Повертаємо JSON-відповідь разом із URL для переходу
+                // Очищення кошика
                 Cart::instance($cartId)->destroy();
-//                auth()->logout();
+                $request->session()->forget('cart_id');
 
                 return response()->json([
                     'message' => 'Замовлення успішно створено.',
                     'order' => $order,
                     'redirect_url' => $redirectUrl,
                 ]);
-
-//              return  redirect()->route('thankYou',['orderId'=>$order->id]);
-//                $this->thankYou($order->id);
             }
-//            return response()->json($order);
 
         } catch (\Exception $exception) {
             DB::rollBack();
-            logs()->warning($exception);
+            logs()->warning($exception->getMessage());
             return response()->json(['error' => $exception->getMessage()], 422);
         }
     }
 
+
     public function thankYou(string $orderId)
     {
         $mainPage = MainPage::all();
-//        Cart::instance('cart')->destroy();
-        $order = Order::with(['user','products'])->where('id',$orderId)->firstOrFail();
+        // Завантаження замовлення разом з користувачем та продуктами
+        $order = Order::with(['products'])->findOrFail($orderId);
 
-        return view('thankyou/summary',['title'=>__('thankyou.page_title')], compact('order','mainPage'));
+        return view('thankyou/summary', ['title' => __('thankyou.page_title')], compact('order', 'mainPage'));
     }
+
 
     public function mailSend($order)
     {
@@ -142,7 +153,8 @@ class OrdersController extends Controller
         $message .= '</body></html>';
 
         // Налаштування електронного листа
-        $to = 'nika@nika-trade.net.ua, gav.sqrt@gmail.com';
+        //nika@nika-trade.net.ua,
+        $to = 'gav.sqrt@gmail.com';
         $subject = 'Замовлення';
         $headers = "From: nika-trade.com.ua\r\n";
         $headers .= "MIME-Version: 1.0\r\n";

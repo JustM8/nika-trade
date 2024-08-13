@@ -21,8 +21,11 @@ class CartController extends Controller
 
     public function add(Request $request, Product $product)
     {
-        $cartId = $request->cookie('cart_id') ?: Str::random(10);
-        Cookie::queue('cart_id', $cartId, 60 * 24 * 7);
+        if (!$request->session()->has('cart_id')) {
+            $cartId = Str::random(10);
+            $request->session()->put('cart_id', $cartId);
+        }
+        $cartId = $request->session()->get('cart_id');
 
         $filtered = Cart::instance($cartId)->content()->where('id', $product->id)->first();
 
@@ -44,7 +47,7 @@ class CartController extends Controller
 
     public function remove(Request $request)
     {
-        $cartId = $request->cookie('cart_id');
+        $cartId = $request->session()->get('cart_id');
         Cart::instance($cartId)->remove($request->rowId);
         notify()->success("Product was removed", position: "topRight");
         return response()->json(['message'=>'Product delete']);
@@ -53,7 +56,7 @@ class CartController extends Controller
     public function countUpdate(Request $request, Product $product)
     {
         $count = $request->count;
-        $cartId = $request->cookie('cart_id');
+        $cartId = $request->session()->get('cart_id');
 
         if ($product->in_stock < $request->product_count) {
             return response()->json(['message'=>"Max count of current product is {$product->in_stock}"]);
@@ -73,7 +76,7 @@ class CartController extends Controller
 
     public function getCardPopup(Request $request)
     {
-        $cartId = $request->cookie('cart_id');
+        $cartId = $request->session()->get('cart_id');
         if(Cart::instance($cartId)->count() > 0) {
             (Cart::instance($cartId)->content()->count() > 0)? $count = Cart::instance('cart')->content()->count(): $count = 0;
             $row = Cart::instance($cartId)->content();

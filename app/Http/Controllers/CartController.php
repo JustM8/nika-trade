@@ -19,8 +19,12 @@ class CartController extends Controller
 
     public function add(Request $request, Product $product)
     {
-        $cartId = $request->cookie('cart_id') ?: Str::random(10);
-        Cookie::queue('cart_id', $cartId, 60 * 24 * 7);
+        if (!$request->session()->has('cart_id')) {
+            $cartId = Str::random(10);
+            $request->session()->put('cart_id', $cartId);
+        }
+
+        $cartId = $request->session()->get('cart_id');
 
         if($product->parent_id != null) {
             Cart::instance($cartId)->add(
@@ -40,7 +44,7 @@ class CartController extends Controller
 
     public function remove(Request $request)
     {
-        $cartId = $request->cookie('cart_id');
+        $cartId = $request->session()->get('cart_id');
         Cart::instance($cartId)->remove($request->rowId);
 
         notify()->success("Product was removed", position: "topRight");
@@ -50,7 +54,7 @@ class CartController extends Controller
 
     public function countUpdate(Request $request, Product $product)
     {
-        $cartId = $request->cookie('cart_id');
+        $cartId = $request->session()->get('cart_id');
         if($product->parent_id != null) {
             if ($product->in_stock < $request->product_count) {
                 notify()->error("Max count of current product is {$product->in_stock}", position: "topRight");

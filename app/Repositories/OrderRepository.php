@@ -5,6 +5,7 @@ namespace App\Repositories;
 use App\Helpers\Adapters\TransactionAdapter;
 use App\Models\Order;
 use App\Models\OrderStatus;
+use App\Models\Product;
 use App\Models\User;
 use App\Repositories\Contracts\OrderRepositoryContract;
 use Gloudemans\Shoppingcart\Facades\Cart;
@@ -62,44 +63,63 @@ class OrderRepository implements OrderRepositoryContract
         return  $order;
     }
 
-//    public function setTransaction(string $vendorOrderId, TransactionAdapter $adapter): Order
-//    {
-//        $order = Order::where('vendor_order_id', $vendorOrderId)->firstOrFail();
-//        $transaction = $order->transaction()->create((array) $adapter);
-//
-//        if($adapter->status === self::ORDER_STATUSES['completed']){
-//            $order->update([
-//                'status_id' => OrderStatus::paidStatus()->firstOrFail()?->id,
-//                'transaction_id' => $transaction->id
-//            ]);
-//        }
-//
-//        return $order;
-//    }
 
     protected function addProductsToOrder(Order $order)
     {
         $request = request();
-        $cartId = $request->cookie('cart_id');
-        Cart::instance($cartId)->content()->groupBy('id')->each( function ($item) use ($order){
-            $cartItem  = $item->first();
-//            dd($cartItem);
+        $cartId = $request->session()->get('cart_id');
+
+        // Перевірка наявності cart_id в сесії
+        if (!$cartId) {
+            // Логування або помилка
+            logs()->warning('Cart ID is not set in session.');
+            return;
+        }
+
+        $cartContent = Cart::instance($cartId)->content();
+
+        // Перевірка, чи кошик не порожній
+        if ($cartContent->isEmpty()) {
+            // Логування або помилка
+            logs()->warning('Cart is empty.');
+            return;
+        }
+
+        $cartContent->groupBy('id')->each(function ($item) use ($order) {
+            $cartItem = $item->first();
+
+            // Перевірка наявності моделі товару
+            if (!$cartItem->model) {
+                // Логування або помилка
+                logs()->warning("Cart item does not have an associated model. Item ID: {$cartItem->id}");
+                return;
+            }
+
+            // Перевірка наявності товару в базі даних
+            $product = Product::find($cartItem->model->id);
+
+            if (!$product) {
+                // Логування або помилка
+                logs()->warning("Product not found in the database. Product ID: {$cartItem->model->id}");
+                return;
+            }
+
             $order->products()->attach(
-                $cartItem->model,//product if ->model
+                $product, // продукт
                 [
                     'quantity' => $cartItem->qty,
-                    'single_price' => $cartItem->model->endPrice
+                    'single_price' => $product->endPrice
                 ]
             );
-            //коментуємо обробку кількості товарів і видалення кількості замовленого (товари виробляються під ключ)
-//            $inStock = $cartItem->model->in_stock - $cartItem->qty;
-//
-//            if(!$cartItem->model->update(['in_stock' => $inStock])){
-//                throw new \Exception("Smth went wrong with product (id={$cartItem->model->id}) in_stock update");
-//            }
-
         });
+
+        // Очищення кошика після успішного додавання товарів
+        Cart::instance($cartId)->destroy();
+
+        // Видалення cart_id з сесії
+        $request->session()->forget('cart_id');
     }
+
     public function cleanPhoneNumber($phoneNumber) {
         $cleanedNumber = preg_replace('/\D/', '', $phoneNumber);
         return $cleanedNumber;

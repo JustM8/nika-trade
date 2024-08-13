@@ -1,4 +1,4 @@
-import "bootstrap";
+import "./bootstrap";
 
 const popupFactory = (ref) => ({
     open() {
@@ -17,7 +17,7 @@ const cartPopup = popupFactory(document.querySelector(".cart-overlay"));
 
 $(document).on("click", ".add-to-cart", function (e) {
     e.preventDefault();
-
+   
     let $btn = $(this);
 
     $.ajax({
@@ -113,23 +113,19 @@ $(document).on("keyup", 'input[type="number"]', function () {
 // Handle increment and decrement buttons
 $(document).on("click", ".cart-increment-btn", function (e) {
     e.preventDefault();
-    let $input = $(this)
-        .closest(".cart-list-item-descr__quantity-container")
-        .find(".cart-list-item-descr__quantity-container__input-value");
+    let $input = $(this).closest(".cart-list-item-descr__quantity-container").find(".cart-list-item-descr__quantity-container__input-value");
     incrementQuantity($input);
 });
 
 $(document).on("click", ".cart-decrement-btn", function (e) {
     e.preventDefault();
-    let $input = $(this)
-        .closest(".cart-list-item-descr__quantity-container")
-        .find(".cart-list-item-descr__quantity-container__input-value");
+    let $input = $(this).closest(".cart-list-item-descr__quantity-container").find(".cart-list-item-descr__quantity-container__input-value");
     decrementQuantity($input);
 });
 
 function updateCartPopup() {
     $.ajax({
-        url: "/ajax/cart/popup",
+        url: '/ajax/cart/popup',
         type: "get", // Змінено метод на POST, якщо ви хочете передати дані на сервер
         dataType: "json",
         headers: {
@@ -137,12 +133,35 @@ function updateCartPopup() {
         },
         success: function (data) {
             // Оновіть вміст popup з отриманим HTML
-            document.querySelector("#cart-popup").innerHTML = data.html;
-            document.querySelector("#cart-total").innerHTML = data.total;
-            document.querySelector("#cart-amount").innerHTML = data.count;
+            document.querySelector('#cart-popup').innerHTML = data.html;
+            document.querySelector('#cart-total').innerHTML = data.total;
+            document.querySelector('#cart-amount').innerHTML = data.count;
         },
         error: function (data) {
             console.log("Error:", data);
         },
     });
 }
+
+
+// $(document).on("click", "[data-btn-submit]", function (e) {
+//     e.preventDefault();
+   
+//     let $btn = $(this);
+
+//     $.ajax({
+//         url: $btn.data("action"),
+//         type: "POST",
+//         dataType: "json",
+//         headers: {
+//             "X-CSRF-TOKEN": $('meta[name="csrf-token"]').attr("content"),
+//         },
+//         success: function (data) {
+//             console.log('request', data)
+            
+//         },
+//         error: function (data) {
+//             console.log("Error:", data);
+//         },
+//     });
+// });
