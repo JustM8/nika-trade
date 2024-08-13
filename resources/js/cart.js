@@ -100,35 +100,47 @@ function decrementQuantity($input) {
 }
 
 $(document)
-    .on("keydown", 'input[type="text"]', function (e) {
-        if (e.which === 13) {
-            e.preventDefault();
+    .on(
+        "keydown",
+        'input[type="text"].cart-list-item-descr__quantity-container__input-value',
+        function (e) {
+            if (e.which === 13) {
+                e.preventDefault();
+                const $input = $(this);
+                const value = $input.val().replace(/[^0-9]/g, "");
+                $input.val(value);
+                updateQuantity($input);
+            } else if (
+                e.which === 8 ||
+                e.which === 46 ||
+                (e.which >= 48 && e.which <= 57)
+            ) {
+            } else {
+                e.preventDefault();
+            }
+        }
+    )
+    .on(
+        "input change",
+        'input[type="text"].cart-list-item-descr__quantity-container__input-value',
+        function () {
             const $input = $(this);
-            const value = $input.val().replace(/[^0-9]/g, "");
+            let value = $input.val().replace(/[^0-9]/g, "");
             $input.val(value);
-            updateQuantity($input);
-        } else if (
-            e.which === 8 ||
-            e.which === 46 ||
-            (e.which >= 48 && e.which <= 57)
-        ) {
-        } else {
-            e.preventDefault();
         }
-    })
-    .on("input change", 'input[type="text"]', function () {
-        const $input = $(this);
-        let value = $input.val().replace(/[^0-9]/g, "");
-        $input.val(value);
-    })
-    .on("blur", 'input[type="text"]', function () {
-        const $input = $(this);
-        const value = $input.val();
-        if (value !== $input.data("previous-value")) {
-            $input.data("previous-value", value);
-            updateQuantity($input);
+    )
+    .on(
+        "blur",
+        'input[type="text"].cart-list-item-descr__quantity-container__input-value',
+        function () {
+            const $input = $(this);
+            const value = $input.val();
+            if (value !== $input.data("previous-value")) {
+                $input.data("previous-value", value);
+                updateQuantity($input);
+            }
         }
-    })
+    )
     .each(function () {
         $(this).data("previous-value", $(this).val());
     });
