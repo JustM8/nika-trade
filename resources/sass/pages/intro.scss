@@ -1,14 +1,19 @@
 .intro {
     &-main-screen {
+        width: 100%;
+        height: 100%;
 
     }
     &-swiper-wrap {
         position: relative;
-        height: 100vh;
+        height: fit-content;
+       
 
     }
     &-swiper {
-        height: inherit;
+        height: 100%;
+        width: 100%;
+        position: absolute;
 
     }
     &-swiper-slide {

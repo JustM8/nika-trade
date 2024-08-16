@@ -1,12 +1,10 @@
 .homepage-catalog {
     &-list-wrap {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
+        position: relative;
         z-index: 10;
         width: 100%;
         padding-top: 272px;
+        padding-bottom: 30px;
 
         @include tabletLarge {
             padding-top: 172px;

@@ -141,11 +141,15 @@ class OrdersController extends Controller
             if (is_array($value)) {
                 $message .= "<ul>";
                 foreach ($value as $innerKey => $innerValue) {
-                    $message .= "<li><strong>".$innerKey." : </strong>".$innerValue."</li>";
+                    if (!empty($innerValue)) { // Check if $innerValue is not empty
+                        $message .= "<li><strong>" . $innerKey . " : </strong>" . $innerValue . "</li>";
+                    }
                 }
                 $message .= "</ul>";
             } else {
-                $message .= "<p><strong>".$key." : </strong>".$value."</p>";
+                if (!empty($value)) { // Check if $value is not empty
+                    $message .= "<p><strong>" . $key . " : </strong>" . $value . "</p>";
+                }
             }
         }
 
@@ -154,7 +158,12 @@ class OrdersController extends Controller
 
         // Налаштування електронного листа
         //nika@nika-trade.net.ua,
-        $to = 'gav.sqrt@gmail.com';
+        $recipients = [
+            'gav.sqrt@gmail.com',
+            'imsashasho@gmail.com'
+        ];
+        $to = implode(', ', $recipients);
+        // $to = 'nika@nika-trade.net.ua, gav.sqrt@gmail.com, alexandrabondarrr@gmail.com, medvedevdmitriy990@gmail.com, imsashasho@gmail.com';
         $subject = 'Замовлення';
         $headers = "From: nika-trade.com.ua\r\n";
         $headers .= "MIME-Version: 1.0\r\n";

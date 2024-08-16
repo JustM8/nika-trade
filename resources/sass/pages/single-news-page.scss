@@ -1,11 +1,24 @@
 .single-news {
     &-item-wrap {
+        position: relative;
         display: flex;
         background: $wc;
         border: 1px solid $border;
         padding: 60px 133px;
         gap: 194px;
         margin-bottom: 100px;
+
+        @include tablet {
+            padding: 30px 32px;
+            margin-bottom: 60px;
+            gap: 0;
+           
+        }
+
+        @include mobile {
+            padding: 16px;
+            margin-bottom: 30px;
+        }
     }
     &-item {
     }
@@ -39,6 +52,17 @@
         color: $textLightGrey;
         display: flex;
         gap: 4px;
+
+        @include tablet  {
+            position: absolute;
+            top: 15px;
+            right: 30px;
+        }
+
+        @include mobile {
+            top: 10px;
+            left: 16px;
+        }
     }
     &__subtitle {
         text-align: center;

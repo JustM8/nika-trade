@@ -93,6 +93,12 @@
                     rgba(243, 0, 176, 0.16) 100%
                 );
 
+                @include tablet {
+                    padding: 8px 10px;
+                    font-size: 11px;
+                    color: #fff;
+                }
+
                 &[data-tab="torhove-obladnannia"] {
                     background: radial-gradient(
                         197.11% 141.42% at 0% 100%,

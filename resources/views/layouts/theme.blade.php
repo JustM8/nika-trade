@@ -158,63 +158,16 @@
 {{--              </form>--}}
           </div>
 
-          <div class="header-right-wrap header-right-wrap--mobile">
-            <div class="header-number-wrap">
-              <div class="header-number-svg-wrap">
-                <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 18 18" fill="none">
-                  <path d="M3.26645 7.43645L3.00972 7.69317L3.17437 8.01675C4.66275 10.9418 7.05952 13.3276 9.982 14.825L10.3061 14.991L10.5636 14.7336L12.7636 12.5336C12.899 12.3981 13.099 12.3551 13.2678 12.413L13.2678 12.413L13.2732 12.4148C14.4436 12.8014 15.7066 13.01 17 13.01C17.2739 13.01 17.5 13.2361 17.5 13.51V17C17.5 17.2739 17.2739 17.5 17 17.5C7.88614 17.5 0.5 10.1139 0.5 1C0.5 0.726142 0.726142 0.5 1 0.5H4.5C4.77386 0.5 5 0.726142 5 1C5 2.30213 5.20815 3.55368 5.5939 4.7228C5.6492 4.90217 5.6082 5.09469 5.46645 5.23645L3.26645 7.43645Z" fill="#242424" stroke="#242424"/>
+         
+          <div class="header-right--mobile">
+            <button class="header-call--mobile" data-open-mobile-call>
+                <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M6.97873 10.4646L6.72662 10.7167L6.88831 11.0344C8.34995 13.907 10.7037 16.2499 13.5736 17.7204L13.8919 17.8834L14.1448 17.6306L16.3052 15.4701C16.4382 15.3371 16.6347 15.2949 16.8005 15.3517L16.8004 15.3517L16.8057 15.3535C17.9551 15.7332 19.1954 15.938 20.4656 15.938C20.7345 15.938 20.9566 16.1601 20.9566 16.429V19.8563C20.9566 20.1253 20.7345 20.3473 20.4656 20.3473C11.5154 20.3473 4.26198 13.0939 4.26198 4.14375C4.26198 3.87481 4.48406 3.65273 4.753 3.65273H8.19013C8.45906 3.65273 8.68115 3.87481 8.68115 4.14375C8.68115 5.42249 8.88555 6.65155 9.26438 7.79967C9.31868 7.97582 9.27842 8.16488 9.13921 8.30409L6.97873 10.4646Z" fill="#242424" stroke="#242424" stroke-width="0.982036"/>
                 </svg>
-
-              </div>
-              <ul class="header-number-list">
-                <li class="header-number-list__item">
-                  <a class="header-number-list__item-link text-18 text-black" href="tel:+38(044)4966997">+38(044) 496 69 97</a>
-                </li>
-                <li class="header-number-list__item">
-                  <a class="header-number-list__item-link text-18 text-black" href="tel:+38(050)4478965">+38(050) 447 89 65</a>
-                </li>
-                <li class="header-number-list__item">
-                  <a class="header-number-list__item-link text-18 text-black" href="tel:+38(050)3872065">+38(050) 387 20 65</a>
-                </li>
-                <li class="header-number-list__item">
-                  <a class="header-number-list__item-link text-18 text-black" href="tel:+38(067)4101014">+38(067) 410 10 14</a>
-                </li>
-              </ul>
-            </div>
-            <div class="header-lang-wrap">
-              <ul class="lang header-lang">
-                  @php
-                      $languages = config('app.available_locales');
-                      $currentLocale = App::currentLocale();
-                      $dump = [];
-                        // Знаходимо ключ поточної мови в масиві
-                        $key = array_search($currentLocale, $languages);
-                        // Перевірка, чи поточна мова є у списку
-                        if ($key !== false) {
-                          // Видаляємо поточну мову з масиву
-                          $dump = $languages[$key];
-                          unset($languages[$key]);
-                        }
-                        // Додаємо поточну мову на початок масиву
-                        $languages = [$currentLocale => $dump] + $languages;
-                  @endphp
-
-                      @foreach ($languages as $name => $code)
-                          <li class="header-lang__item @if(App::currentLocale()==$code){{'header-lang__item--active'}}@endif" data-animate-links>
-                              <a class="text-18 text-black" href="{{ url('/locale/'.$code)}}">{{strtoupper($code)}}</a>
-                          </li>
-                      @endforeach
-              </ul>
-            </div>
-            <div class="header-callback-wrap">
-              <a class="header-callback" href="mailto: nika@nika-trade.net.ua">
-                <svg class="icon--mail" role="presentation">
-                  <use xlink:href="#icon-mail"></use>
-                </svg>
-              </a>
-            </div>
-            <div class="header-cart-wrap">
-              <a class="header-cart" href="{{url('/cart')}}">
+            </button>
+            
+           
+              <a class="header-cart header-cart--mobile" href="{{url('/cart')}}">
                 <svg class="icon--cart" role="presentation">
                   <use xlink:href="#icon-cart"></use>
                 </svg>
@@ -225,7 +178,20 @@
                           0
                     @endif</div>
               </a>
-            </div>
+              <button class="header-burger--mobile" header-burger--mobile>
+                <div class="header-burger-inner">
+                  <span class="header-burger-line"></span>
+                  <span class="header-burger-line"></span>
+                  <span class="header-burger-line"></span>
+
+                </div>
+                
+
+            </button>
+            
+
+
+
           </div>
         </div>
         <div class="header-bottom">
@@ -273,6 +239,21 @@
             </div>
             <div class="header-lang-wrap">
               <ul class="lang header-lang">
+              @php
+                      $languages = config('app.available_locales');
+                      $currentLocale = App::currentLocale();
+                      $dump = [];
+                        // Знаходимо ключ поточної мови в масиві
+                        $key = array_search($currentLocale, $languages);
+                        // Перевірка, чи поточна мова є у списку
+                        if ($key !== false) {
+                          // Видаляємо поточну мову з масиву
+                          $dump = $languages[$key];
+                          unset($languages[$key]);
+                        }
+                        // Додаємо поточну мову на початок масиву
+                        $languages = [$currentLocale => $dump] + $languages;
+                  @endphp
                   @foreach ($languages as $name => $code)
                       <li class="header-lang__item @if(App::currentLocale()==$code){{'header-lang__item--active'}}@endif" data-animate-links>
                           <a class="text-18 text-black" href="{{ url('/locale/'.$code)}}">{{strtoupper($code)}}</a>
@@ -302,6 +283,72 @@
             </div>
           </div>
         </div>
+    </div>
+    <div class="header-menu--mobile">
+        <div class="header-menu-inner">
+          <div class="header-menu-top">
+            <div class="header-menu-lang-list">
+              @foreach ($languages as $name => $code)
+                <a href="{{ url('/locale/'.$code)}}" class="header-menu-lang-item @if(App::currentLocale()==$code){{'header-lang__item--active'}}@endif">
+                  <span>{{strtoupper($code)}}</span>
+                </a>
+              @endforeach
+            </div>
+            <div class="header-menu-close-btn-wrap">
+              <button class="header-menu-close-btn" data-close-menu>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.06067" width="18" height="1.5" rx="0.75" transform="rotate(45 1.06067 0)" fill="white"/>
+                  <rect y="12.7279" width="18" height="1.5" rx="0.75" transform="rotate(-45 0 12.7279)" fill="white"/>
+                </svg>
+              </button>
+            </div>
+          </div>
+          <div class="header-menu-nav">
+            <ul class="header-menu-nav-list">
+                <li class="header-menu-nav-list-item">
+                  <a class="header-menu-nav-list-link" href="{{ url('/')}}">{{ __('theme.Головна') }}</a>
+                </li>
+                <li class="header-menu-nav-list-item">
+                  <a class="header-menu-nav-list-link" href="{{ url('/')}}#about">{{ __('theme.Про компанію') }}</a>
+                </li>
+                <li class="header-menu-nav-list-item">
+                  <a class="header-menu-nav-list-link" href="{{ url('/gallery') }}">{{ __('theme.Галерея') }}</a>
+                </li>
+                <li class="header-menu-nav-list-item">
+                  <a class="header-menu-nav-list-link" href="{{ url('/catalog/torhove-obladnannia') }}">{{ __('theme.Каталог') }}</a>
+                </li>
+                <li class="header-menu-nav-list-item">
+                  <a class="header-menu-nav-list-link" href="{{ url('/services') }}">{{ __('theme.Інформація для замовника') }}</a>
+                </li>
+                <li class="header-menu-nav-list-item">
+                  <a class="header-menu-nav-list-link" href="{{ url('/news') }}">{{ __('theme.Новини') }}</a>
+                </li>
+                <li class="header-menu-nav-list-item">
+                  <a class="header-menu-nav-list-link" href="{{ url('/contacts') }}">{{ __('theme.Контакти') }}</a>
+                </li>
+              </ul>
+          </div>
+        </div>
+
+
+    </div>
+    <div class="header-menu-calls--mobile">
+      <div class="header-menu-calls-inner">
+        <div class="header-menu-calls-close-btn-wrap">
+              <button class="header-menu-close-btn" data-close-calls>
+                <svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <rect x="1.06067" width="18" height="1.5" rx="0.75" transform="rotate(45 1.06067 0)" fill="white"/>
+                  <rect y="12.7279" width="18" height="1.5" rx="0.75" transform="rotate(-45 0 12.7279)" fill="white"/>
+                </svg>
+              </button>
+        </div>   
+        <div class="header-menu-calls-list"> 
+          <a class="header-menu-calls-link" href="tel:+38(044)4966997">+38(044) 496 69 97</a>
+          <a class="header-menu-calls-link" href="tel:+38(050)4478965">+(38050) 447 89 65</a>     
+          <a class="header-menu-calls-link" href="tel:+(38050)3872065">+(38050) 387 20 65</a>
+          <a class="header-menu-calls-link" href="tel:+(38067)4101014">+(38067) 410 10 14</a>
+        </div>
+      </div>
     </div>
 </header>
 @yield('content')

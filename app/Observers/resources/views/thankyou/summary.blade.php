@@ -16,6 +16,7 @@
         </div>
     </div>
     <section class="thank-page page-container">
+
         <div class="thank-page-wrap">
             <div class="page-intro">
                 <div class="page-breadcrumbs">
@@ -79,7 +80,4 @@
 @push('footer-scripts')
     <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
     <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
-    <script defer src="{{asset('/assets/scripts/libs.js')}}"></script>
-    <script defer src="{{asset('/assets/scripts/thankYouPAge.bundle.js')}}"></script>
-
 @endpush

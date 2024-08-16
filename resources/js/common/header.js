@@ -5,10 +5,13 @@ import { contactPopup } from "./contactPopup";
 
 {
     const headerRef = document.querySelector(".header");
-    //   const menuRef = document.getElementById('menu');
-    //   const toggleBtnRef = document.getElementById('header-toggle-menu');
-    const phoneBtnRef = document.querySelector(".header-number-svg-wrap");
-    const phoneListRef = document.querySelector(".header-number-list");
+   
+    const phoneBtnRef = document.querySelector(".header-call--mobile");
+    const callsListRef =document.querySelector('.header-menu-calls--mobile')
+    const closeCallsRef = document.querySelector('[data-close-calls]')
+    const headerBurgerRef = document.querySelector("[header-burger--mobile]")
+    const menuMobRef = document.querySelector('.header-menu--mobile')
+    const closeMenuRef = document.querySelector('[data-close-menu]')
     const langBtnRef = document.querySelector(".header-lang-wrap");
 
     gsap.registerPlugin(ScrollTrigger);
@@ -28,18 +31,20 @@ import { contactPopup } from "./contactPopup";
         }
     }
 
-    //   const toggleMenu = () => {
-    //     toggleBtnRef.classList.toggle('on');
-    //     headerRef.classList.toggle('on');
-    //   };
-
-    //   toggleBtnRef.addEventListener('click', toggleMenu);
     const togglePhoneMob = () => {
-        phoneListRef.classList.toggle("active");
+        callsListRef.classList.toggle("active");
         headerRef.classList.toggle("active");
     };
 
     phoneBtnRef.addEventListener("click", togglePhoneMob);
+    closeCallsRef.addEventListener("click", togglePhoneMob);
+
+    const toggleMenuMob = () => {
+        headerBurgerRef.classList.toggle("active");
+        menuMobRef.classList.toggle("active");
+    };
+    headerBurgerRef.addEventListener('click', toggleMenuMob)
+    closeMenuRef.addEventListener('click', toggleMenuMob)
 
     const toggleLangMob = () => {
         langBtnRef.classList.toggle("active");

@@ -19,4 +19,15 @@ const newsSwiper = new Swiper(".contacts-page-list-swiper", {
         nextEl: ".contacts-page-list-item-content-column-swiper-nav__next",
         prevEl: ".contacts-page-list-item-content-column-swiper-nav__prev",
     },
+    breakpoints: {
+        320: {
+            slidesPerView: 2,
+            spaceBetween: 20
+          },
+          // when window width is >= 480px
+          1366: {
+            slidesPerView: 4,
+            spaceBetween: 40
+          },
+    }
 });

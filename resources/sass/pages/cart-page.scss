@@ -144,6 +144,10 @@
         gap: 8px;
         margin-bottom: 12px;
 
+        @include tablet {
+            flex-wrap: wrap;
+        }
+
         &.disabled {
             span {
                 color: var(--black);

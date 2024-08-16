@@ -149,6 +149,8 @@ section {
         align-items: center;
         margin: 0 -173px 40px -173px;
 
+        
+
         &[data-category="torhove-obladnannia"] {
             background-image: url("../../assets/images/background.jpg");
             background-repeat: no-repeat;
@@ -231,6 +233,14 @@ section {
 
         @include tabletLarge {
             margin: 0 -100px 40px -100px;
+        }
+
+        @include tablet {
+            margin: 0 -50px 40px -50px;;
+        }
+
+        @include mobile {
+            margin: 0 -20px 40px -20px;;
         }
     }
 

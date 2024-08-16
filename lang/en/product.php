@@ -64,6 +64,8 @@ return [
     'Edit' => 'Edit',
     'Remove' => 'Remove',
     'Services' => 'Services',
-  	'' => '',
+  	'Введіть SKU' => 'Enter SKU',
+    'Шукати' => 'Search',
+
 
 ];

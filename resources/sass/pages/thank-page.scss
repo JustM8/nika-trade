@@ -11,14 +11,26 @@
         @include tabletLarge {
             padding: 40px;
         }
+
+        @include tablet {
+            padding: 20px;
+            flex-direction: column;
+        }
     }
 
     &__title-wrap {
         width: 50%;
+
+        @include tablet {
+            width: 100%;
+        }
     }
 
     &-list-wrap {
         width: 50%;
+        @include tablet {
+            width: 100%;
+        }
     }
 
     &-list__title-wrap {
