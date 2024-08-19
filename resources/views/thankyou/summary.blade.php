@@ -229,9 +229,5 @@
     </section>
 @endsection
 @push('footer-scripts')
-    <script defer src="{{asset('/assets/scripts/vendors.bundle.js')}}"></script>
-    <script defer src="{{asset('/assets/scripts/index.bundle.js')}}"></script>
-    <script defer src="{{asset('/assets/scripts/libs.js')}}"></script>
-{{--    <script defer src="{{asset('/assets/scripts/thankYouPAge.bundle.js')}}"></script>--}}
-
+    @vite(['resources/js/common.js'])
 @endpush

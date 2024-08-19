@@ -21,7 +21,7 @@
                     <h2 class="page-title text-title"><?=$category['name'][App::currentLocale()]?></h2>
                 </div>
                 <div class="catalog-single-main">
-                    <div class="catalog-single-btn-mobile-wrap active">
+                    <div class="catalog-single-btn-mobile-wrap">
                         <button class="catalog-single-btn-mobile btn">
                             <svg class="icon--equipment-btn" role="presentation">
                                 <use xlink:href="#icon-equipment-btn"></use>
@@ -113,7 +113,7 @@
                             </svg><span>{{ __('show.Обладнання') }}</span>
                         </button>
                     </div>
-                    <div class="catalog-single-filters-wrap">
+                    <div class="catalog-single-filters-wrap active">
                         @foreach($menu as $item)
                             <div class="catalog-single-filter">
 

@@ -265,6 +265,7 @@
 
         @include tablet {
             width: 100%;
+            gap: 20px;
         }
     }
 
@@ -278,7 +279,15 @@
         @include tablet {
             padding: 0;
             flex-direction: row;
+            
         }
+    }
+
+    &-item-info--desktop {
+        @include tablet {
+            display: none;
+        }
+
     }
 
     &-item-info__title-row {

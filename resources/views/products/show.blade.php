@@ -70,28 +70,13 @@
                             </div>
                         </div>
                         <div class="product-page-item-info-wrap">
-                            <div class="product-page-item-info">
+                            <div class="product-page-item-info product-page-item-info--desktop">
                                 <div class="product-page-item-info__title-row">
                                     <span class="product-page-item-info__title-row-code text-14 text-black">{{ __('show.Артикул:') }} <span></span> </span>
                                     <span class="product-page-item-info__title-row-name text-14 text-black">{{ __('show.Назва:') }}</span>
                                     <span class="product-page-item-info__title-row-price text-14 text-black">{{ __('show.Ціна:') }}</span>
                                     <!-- <span class="product-page-item-info__title-row-quantity text-14 text-black">Кількість:</span> -->
                                     <span class="product-page-item-info__title-row-blank"></span></div>
-                                {{--                            <div class="product-page-list">--}}
-                                {{--                                <div class="product-page-item-info__row">--}}
-                                {{--                                    <span class="product-page-item-info__row-code text-14 text-black">{{ $product->SKU }}</span>--}}
-                                {{--                                    <span class="product-page-item-info__row-name text-14 text-black">{{ $product->title[App::currentLocale()] }}</span>--}}
-                                {{--                                    <span class="product-page-item-info__row-price text-14 text-black">{{ $product->price }} {{ __('show.грн') }}</span>--}}
-                                {{--                                    <div class="product-page-item-info__row-btn">--}}
-                                {{--                                        <a data-route="{{ route('cart.add', $product) }}" type="submit" class="product-page-item-info__row-btn-link add-to-cart">--}}
-                                {{--                                            <svg class="icon--cart" role="presentation">--}}
-                                {{--                                                <use xlink:href="#icon-cart"></use>--}}
-                                {{--                                            </svg>--}}
-                                {{--                                            <span class="text-14 text-white">{{ __('show.Купити') }}</span>--}}
-                                {{--                                        </a>--}}
-                                {{--                                    </div>--}}
-                                {{--                                </div>--}}
-                                {{--                            </div>--}}
                                 @foreach($childrens as $item)
                                     <div class="product-page-list">
                                         <div class="product-page-item-info__row">
@@ -110,7 +95,35 @@
                                     </div>
                                 @endforeach
                             </div>
-                            <!-- <a class="product-page-item-btn text-14 text-black-100" href="">Завантажити каталог продукції</a> -->
+                            @foreach($childrens as $item)
+
+                            <div class="product-page-item-info product-page-item-info--mobile">
+                                <div class="product-page-item-info__title-row">
+                                    <span class="product-page-item-info__title-row-code text-14 text-black">{{ __('show.Артикул:') }} <span></span> </span>
+                                    <span class="product-page-item-info__title-row-name text-14 text-black">{{ __('show.Назва:') }}</span>
+                                    <span class="product-page-item-info__title-row-price text-14 text-black">{{ __('show.Ціна:') }}</span>
+                                    <!-- <span class="product-page-item-info__title-row-quantity text-14 text-black">Кількість:</span> -->
+                                    <span class="product-page-item-info__title-row-blank"></span></div>
+                                
+                                    <div class="product-page-list">
+                                        <div class="product-page-item-info__row">
+                                            <span class="product-page-item-info__row-code text-14 text-black">{{ $item->SKU }}</span>
+                                            <span class="product-page-item-info__row-name text-14 text-black">{{ $item->title[App::currentLocale()] }}</span>
+                                            <span class="product-page-item-info__row-price text-14 text-black">{{ $item->price }} {{ __('show.грн') }}</span>
+                                            <div class="product-page-item-info__row-btn">
+                                                <a data-route="{{ route('cart.add', $item) }}" type="submit" class="product-page-item-info__row-btn-link add-to-cart">
+                                                    <svg class="icon--cart" role="presentation">
+                                                        <use xlink:href="#icon-cart"></use>
+                                                    </svg>
+                                                    <span class="text-14 text-white">{{ __('show.Купити') }}</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                
+                            </div>
+                            @endforeach
+
                             <div class="product-page-item-options">
                                 <span class="text-12 text-black">{{ __('show.Cтандартні кольори:') }} </span>
                                 <span class="text-12 text-black">{{ __('show.- Метал: сріблястий металік(RAL 7149 SPX)') }}</span>

@@ -133,8 +133,19 @@
         }
 
         @include tabletLarge {
-            font-size: 14px;
+            font-size: 14px;           
         }
+        @include tablet {
+            font-size: 13px;
+        }
+        @include mobile {
+            font-size: 12px;
+        }
+
+        &[placeholder]{
+            text-overflow:ellipsis;
+        }
+        
     }
 
     &-delivery-options-item {
@@ -156,6 +167,14 @@
 
         span {
             color: var(--black-100);
+
+            @include tablet {
+                width: 75%;
+                text-wrap: nowrap;
+                font-size: 13px;
+            }
+
+           
         }
     }
 
@@ -172,6 +191,12 @@
             width: 12px;
             height: 14px;
         }
+        span {
+            @include tablet {
+                width: 94%;
+                text-wrap: wrap;
+            }
+        }
     }
 
     &-delivery-options-city {
@@ -181,6 +206,10 @@
         gap: 8px;
         margin-bottom: 12px;
         margin-top: 12px;
+
+        @include tablet {
+            flex-wrap: wrap;
+        }
 
         &.disabled {
             p {

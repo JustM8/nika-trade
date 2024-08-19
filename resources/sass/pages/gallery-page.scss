@@ -99,6 +99,10 @@
                     color: #fff;
                 }
 
+                @include mobile {
+                    width: 48%;
+                }
+
                 &[data-tab="torhove-obladnannia"] {
                     background: radial-gradient(
                         197.11% 141.42% at 0% 100%,
