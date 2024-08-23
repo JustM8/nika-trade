@@ -1,7 +1,7 @@
 import * as yup from "yup";
 import i18next from "i18next";
-import FormMonster from "./form";
-import SexyInput from "./input";
+import FormMonster from "./form-contacts";
+import SexyInput from "./input-contact";
 import { successPopup } from "./successPopup";
 
 export const contactForm = (formRef, onSuccess) => {
@@ -36,7 +36,7 @@ export const contactForm = (formRef, onSuccess) => {
                     rule: yup
                         .string()
                         .required(i18next.t("required"))
-                        .min(12, i18next.t("field_too_short", { cnt: 19 - 7 })),
+                        .min(13, i18next.t("field_too_short", { cnt: 19 - 7 })),
 
                     defaultMessage: i18next.t("phone"),
                     valid: false,

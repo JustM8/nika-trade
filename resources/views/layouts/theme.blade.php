@@ -201,7 +201,7 @@
                 <a class="header-list-link text-s" href="{{ url('/')}}">{{ __('theme.Головна') }}</a>
               </li>
               <li class="header-list-item">
-                <a class="header-list-link text-s" href="{{ url('/')}}#about">{{ __('theme.Про компанію') }}</a>
+                <a class="header-list-link text-s" href="{{ url('/')}}/#about">{{ __('theme.Про компанію') }}</a>
               </li>
               <li class="header-list-item">
                 <a class="header-list-link text-s" href="{{ url('/gallery') }}">{{ __('theme.Галерея') }}</a>
@@ -309,7 +309,7 @@
                   <a class="header-menu-nav-list-link" href="{{ url('/')}}">{{ __('theme.Головна') }}</a>
                 </li>
                 <li class="header-menu-nav-list-item">
-                  <a class="header-menu-nav-list-link" href="{{ url('/')}}#about">{{ __('theme.Про компанію') }}</a>
+                  <a class="header-menu-nav-list-link" href="{{ url('/')}}/#about">{{ __('theme.Про компанію') }}</a>
                 </li>
                 <li class="header-menu-nav-list-item">
                   <a class="header-menu-nav-list-link" href="{{ url('/gallery') }}">{{ __('theme.Галерея') }}</a>
@@ -504,7 +504,7 @@
               <div class="contact-popup-input-message text-descr" data-input-message></div>
             </div>
             <div class="contact-popup-form-field disabled form-field-input" data-field-input data-field-phone data-status="field--inactive">
-              <input class="contact-popup-form__input" type="text" name="phone">
+              <input class="contact-popup-form__input" type="text" name="phone" placeholder="Телефон">
               <div class="contact-popup-input-message text-descr" data-input-message></div>
             </div>
             <div class="btn-container">

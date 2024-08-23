@@ -333,7 +333,7 @@
               <div class="contact-popup-input-message text-descr" data-input-message></div>
             </div>
             <div class="contact-popup-form-field disabled form-field-input" data-field-input data-field-phone data-status="field--inactive">
-              <input class="contact-popup-form__input" type="text" name="phone">
+              <input class="contact-popup-form__input" type="text" name="phone" placeholder="Телефон">
               <div class="contact-popup-input-message text-descr" data-input-message></div>
             </div>
             <div class="btn-container">
