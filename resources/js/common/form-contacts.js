@@ -7,7 +7,7 @@ import { langDetect } from "./helpers";
 
 
 const sendForm = async data => {
-    const response = await axios.post("/contacts/create", data);
+    const response = await axios.post("ajax/form/send", data);
     return response.data;
   };
 
