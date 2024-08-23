@@ -1,12 +1,12 @@
-import Lenis from "@studio-freight/lenis";
+import lenis from "./lenisScroll";
 export const popupFactory = (ref) => ({
     open() {
         this.element.classList.add("modal-open");
-        Lenis.stop();
+        lenis.stop();
     },
     close() {
         this.element.classList.remove("modal-open");
-        Lenis.start();
+        lenis.start();
     },
     toggle() {
         this.element.classList.toggleClass("modal-open");

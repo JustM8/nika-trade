@@ -28,6 +28,11 @@
     padding: 60px 150px;
     background: var(--background);
 
+    @include tablet {
+      width: 90%;
+      padding: 60px 20px;
+    }
+
 
 
   }

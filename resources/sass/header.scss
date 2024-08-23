@@ -578,7 +578,7 @@
         transform: translateY(-100%);
         transition: all ease-in-out 0.4s;
 
-        @include mobile {
+        @include tablet {
             display: block;
         }
 

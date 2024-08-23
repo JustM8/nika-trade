@@ -3,7 +3,7 @@ import Swiper from "swiper";
 import { Navigation, Controller, Autoplay } from "swiper/modules";
 
 Swiper.use([Navigation, Controller, Autoplay]);
-const breakpoint = window.matchMedia("(max-width:768px)");
+const breakpoint = window.matchMedia("(max-width:767px)");
 // keep track of swiper instances to destroy later
 let clientsSwiper;
 
@@ -38,16 +38,17 @@ const enableSwiper = function () {
         },
         lazy: true,
         speed: 2000,
-        navigation: {
-            nextEl: ".clients-swiper-button-next",
-            prevEl: ".clients-swiper-button-prev",
-        },
+        
 
         breakpoints: {
-            // when window width is >= 320px
-            768: {
-                slidesPerView: 2,
+           
+            767: {
+                slidesPerView: 3,
                 spaceBetween: 20,
+                navigation: {
+                    nextEl: ".clients-swiper-button-next",
+                    prevEl: ".clients-swiper-button-prev",
+                },
             },
             // when window width is >= 480px
             1366: {
@@ -62,6 +63,5 @@ const enableSwiper = function () {
     });
 };
 
-breakpoint.addListener(breakpointChecker);
 
 breakpointChecker();

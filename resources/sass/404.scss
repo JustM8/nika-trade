@@ -19,9 +19,12 @@
     @include mobile {
         height: 100vh;
         overflow: hidden;
-        justify-content: flex-start;
-        padding-top: 10vh;
+       
+        padding: 10px;
+    
+       
     }
+       
 
     &-intro {
         width: 100%;
@@ -54,16 +57,29 @@
         line-height: 130%; /* 62.4px */
         text-transform: uppercase;
         margin-top: calc(0.17 * var(--unit));
+
+        @include mobile {
+            font-size: 30px;
+        }
     }
 
     &__img {
         width: calc(7 * var(--unit));
+
+        @include tablet {
+            width: 100%;
+        }
     }
 
     &__link-wrap {
         display: flex;
         gap: var(--unit);
         margin-top: calc(0.375 * var(--unit));
+
+        @include mobile {
+            flex-direction: column;
+            gap: calc(0.375 * var(--unit));
+        }
     }
 
     &-btn-wrap {
