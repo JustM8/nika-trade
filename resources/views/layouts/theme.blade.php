@@ -158,15 +158,15 @@
 {{--              </form>--}}
           </div>
 
-         
+
           <div class="header-right--mobile">
             <button class="header-call--mobile" data-open-mobile-call>
                 <svg width="25" height="24" viewBox="0 0 25 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                   <path d="M6.97873 10.4646L6.72662 10.7167L6.88831 11.0344C8.34995 13.907 10.7037 16.2499 13.5736 17.7204L13.8919 17.8834L14.1448 17.6306L16.3052 15.4701C16.4382 15.3371 16.6347 15.2949 16.8005 15.3517L16.8004 15.3517L16.8057 15.3535C17.9551 15.7332 19.1954 15.938 20.4656 15.938C20.7345 15.938 20.9566 16.1601 20.9566 16.429V19.8563C20.9566 20.1253 20.7345 20.3473 20.4656 20.3473C11.5154 20.3473 4.26198 13.0939 4.26198 4.14375C4.26198 3.87481 4.48406 3.65273 4.753 3.65273H8.19013C8.45906 3.65273 8.68115 3.87481 8.68115 4.14375C8.68115 5.42249 8.88555 6.65155 9.26438 7.79967C9.31868 7.97582 9.27842 8.16488 9.13921 8.30409L6.97873 10.4646Z" fill="#242424" stroke="#242424" stroke-width="0.982036"/>
                 </svg>
             </button>
-            
-           
+
+
               <a class="header-cart header-cart--mobile" href="{{url('/cart')}}">
                 <svg class="icon--cart" role="presentation">
                   <use xlink:href="#icon-cart"></use>
@@ -185,10 +185,10 @@
                   <span class="header-burger-line"></span>
 
                 </div>
-                
+
 
             </button>
-            
+
 
 
 
@@ -341,10 +341,10 @@
                   <rect y="12.7279" width="18" height="1.5" rx="0.75" transform="rotate(-45 0 12.7279)" fill="white"/>
                 </svg>
               </button>
-        </div>   
-        <div class="header-menu-calls-list"> 
+        </div>
+        <div class="header-menu-calls-list">
           <a class="header-menu-calls-link" href="tel:+38(044)4966997">+38(044) 496 69 97</a>
-          <a class="header-menu-calls-link" href="tel:+38(050)4478965">+(38050) 447 89 65</a>     
+          <a class="header-menu-calls-link" href="tel:+38(050)4478965">+(38050) 447 89 65</a>
           <a class="header-menu-calls-link" href="tel:+(38050)3872065">+(38050) 387 20 65</a>
           <a class="header-menu-calls-link" href="tel:+(38067)4101014">+(38067) 410 10 14</a>
         </div>
@@ -499,6 +499,7 @@
         </div>
         <div class="contact-popup-form">
           <form data-contact-popup id="popup-form">
+
             <div class="contact-popup-form-field form-field-input" data-field-input data-field-name data-status="field--inactive">
               <input class="contact-popup-form__input" type="text" name="name" placeholder="{{ __('theme.Ім`я*') }}">
               <div class="contact-popup-input-message text-descr" data-input-message></div>

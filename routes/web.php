@@ -104,3 +104,6 @@ Route::get('product/{product:slug}',[App\Http\Controllers\ProductsController::cl
 //pages
 Route::get('/{slug}', [\App\Http\Controllers\PagesController::class,'show'])->name('services');
 Route::get('/category-with-galleries/{id}', [\App\Http\Controllers\PagesController::class, 'getCategoriesWithGalleries']);
+
+//form
+Route::post('ajax/form/send', [\App\Http\Controllers\Ajax\FormController::class, 'send'])->name('ajax.form.send');
