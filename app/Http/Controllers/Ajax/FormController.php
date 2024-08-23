@@ -11,10 +11,10 @@ class FormController extends Controller
     public function send(Request $request)
     {
         // Валідація вхідних даних
-        $request->validate([
-            'name' => 'required|string|max:255',
-            'phone' => 'required|phone|max:255',
-        ]);
+//        $request->validate([
+//            'name' => 'required|string|max:255',
+//            'phone' => 'required|phone|max:255',
+//        ]);
 
         $recipients = [
             'gav.sqrt@gmail.com',
