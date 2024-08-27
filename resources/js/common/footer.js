@@ -1,9 +1,6 @@
-import * as yup from "yup";
-import i18next from "i18next";
+
+
 import { gsap, ScrollTrigger } from "gsap/all";
-import SexyInput from "./input";
-import FormMonster from "./form";
-import { contactPopup } from "./contactPopup";
 
 gsap.registerPlugin(ScrollTrigger);
 

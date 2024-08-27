@@ -36,8 +36,10 @@ class FormController extends Controller
             }
 
             return response()->json([
-                'status' => 'success',
-                'message' => 'Повідомлення відправлено'
+                // 'status' => 'success',
+                // 'message' => 'Повідомлення відправлено'
+                'code_error' => 'send_success',
+                'error' => 0 
             ], 200);
         } catch (\Exception $e) {
             Log::error('Помилка при відправці пошти: ' . $e->getMessage());

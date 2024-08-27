@@ -13,6 +13,7 @@ import { contactPopup } from "./contactPopup";
     const menuMobRef = document.querySelector('.header-menu--mobile')
     const closeMenuRef = document.querySelector('[data-close-menu]')
     const langBtnRef = document.querySelector(".header-lang-wrap");
+    const mobileLinkRef = menuMobRef.querySelector('.header-menu-nav-list-link')
 
     gsap.registerPlugin(ScrollTrigger);
     window.addEventListener("scroll", (evt) => {
@@ -45,6 +46,14 @@ import { contactPopup } from "./contactPopup";
     };
     headerBurgerRef.addEventListener('click', toggleMenuMob)
     closeMenuRef.addEventListener('click', toggleMenuMob)
+
+    menuMobRef.addEventListener('click', e => {
+        const target = e.target
+        if (target.classList.contains('header-menu-nav-list-link')) {
+        
+            menuMobRef.classList.toggle("active");
+        }
+    });
 
     const toggleLangMob = () => {
         langBtnRef.classList.toggle("active");

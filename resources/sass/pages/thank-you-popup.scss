@@ -43,22 +43,36 @@
   }
 
     &__text {
-        width: 50%;
-        padding: 170px 70px;
-        background: $mc1;
+        width: 100%;
+        padding: 50px;
+        background: $background;
         display: flex;
         flex-direction: column;
-        justify-content: space-between;
+        justify-content: center;
+        @include tablet {
+          padding: 30px;
+        }
+        @include mobile {
+          padding: 16px;
+        }
     }
 
     &__title {
       font-style: normal;
       font-weight: 300;
-      font-size: 120px;
+      font-size: 96px;
       line-height: 100%;
       text-transform: uppercase;
       margin-bottom: 20px;
-      color: $mc2;
+      color: $bc;
+
+      @include tablet {
+        font-size: 48px;
+      }
+
+      @include mobile {
+        font-size: 36px;
+      }
     }
 
     &__descr {

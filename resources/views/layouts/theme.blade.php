@@ -454,41 +454,12 @@
         <div class="thank-you-popup__text">
           <h1 class="thank-you-popup__title">{{ __('theme.Your message was sent successfully') }}</h1>
           <p class="thank-you-popup__descr text-descr-uppercase">{{ __('theme.Thank you for your feedback. Wait for a call from our managers.') }}</p>
-          <div class="btn-container btn-container-border">
-            <div class="btn-mask">{{ __('theme.Close') }}</div>
-            <button class="btn thank-you-popup__btn">{{ __('theme.Close') }}</button>
-          </div>
         </div>
-        <div class="thank-you-popup-icon-wrap">
-          <div class="thank-you-popup-icon">
-            <svg class="icon--done" role="presentation">
-              <use xlink:href="#icon-done"></use>
-            </svg>
-          </div>
-        </div>
+        
       </div>
       <div class="close-popup"></div>
     </div>
-<div class="thank-you-popup overlay">
-    <div class="popup">
-        <div class="thank-you-popup__text">
-            <h1 class="thank-you-popup__title">{{ __('theme.Your message was sent successfully') }}</h1>
-            <p class="thank-you-popup__descr text-descr-uppercase">{{ __('theme.Thank you for your feedback. Wait for a call from our managers.') }}</p>
-            <div class="btn-container btn-container-border">
-                <div class="btn-mask">{{ __('theme.Close') }}</div>
-                <button class="btn thank-you-popup__btn">{{ __('theme.Close') }}</button>
-            </div>
-        </div>
-        <div class="thank-you-popup-icon-wrap">
-            <div class="thank-you-popup-icon">
-                <svg class="icon--done" role="presentation">
-                    <use xlink:href="#icon-done"></use>
-                </svg>
-            </div>
-        </div>
-    </div>
-    <div class="close-popup"></div>
-</div>
+
 <div class="contact-popup overlay">
       <div class="contact-popup-inner">
         <div class="contact-popup__text-wrap">
