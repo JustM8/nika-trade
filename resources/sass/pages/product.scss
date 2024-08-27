@@ -290,6 +290,14 @@
 
     }
 
+    &-item-info--mobile {
+        display: none;
+        @include tablet {
+            display: flex;
+        }
+
+    }
+
     &-item-info__title-row {
         display: flex;
         justify-content: space-between;
