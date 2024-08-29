@@ -208,7 +208,7 @@
                             </div>
                             <div class="thank-page-list-item-row">
                                 <span class="thank-page-list-item__key text-14 text-black">{{ __('summary.Ціна товару:') }} </span>
-                                <span class="thank-page-list-item__value text-14 text-black">{{$product->pivot->single_price}}</span>
+                                <span class="thank-page-list-item__value text-14 text-black">{{number_format($product->pivot->single_price, 2, ',', '')}}</span>
                             </div>
                         </div>
                             @endforeach
@@ -219,7 +219,7 @@
                             </div>
                             <div class="thank-page-list-item-row">
                                 <span class="thank-page-list-item__key text-14 text-black">{{ __('summary.Усього до сплати:') }} </span>
-                                <span class="thank-page-list-item__value text-14 text-black">{{ $order->total }} {{ __('summary.грн.') }}</span>
+                                <span class="thank-page-list-item__value text-14 text-black">{{ number_format($order->total, 2, ',', '') }} {{ __('summary.грн.') }}</span>
                             </div>
                         </div>
                     </div>

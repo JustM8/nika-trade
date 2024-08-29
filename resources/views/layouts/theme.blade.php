@@ -19,6 +19,12 @@
 
 </head>
 <body class="home-page" id="id-home-page">
+@php
+    if (!session()->has('cart_id')) {
+        session()->put('cart_id', uniqid());
+    }
+    $cart_id = session()->get('cart_id');
+@endphp
 <!-- START SVG SPRITE-->
 <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0" style="position:absolute">
 
@@ -172,11 +178,12 @@
                   <use xlink:href="#icon-cart"></use>
                 </svg>
                 <div class="header-cart-amount text-10 text-white" id="cart-amount">
-                    @if (Cart::instance('cart')->count() > 0)
-                        {{ Cart::instance('cart')->content()->count() }}
-                        @else
-                          0
-                    @endif</div>
+                    @if($cart_id && Cart::instance($cart_id)->count() > 0)
+                        {{ Cart::instance($cart_id)->count() }}
+                    @else
+                        0
+                    @endif
+                </div>
               </a>
               <button class="header-burger--mobile" header-burger--mobile>
                 <div class="header-burger-inner">
@@ -274,11 +281,12 @@
                   <use xlink:href="#icon-cart"></use>
                 </svg>
                 <div class="header-cart-amount text-10 text-white" id="cart-amount">
-                    @if (Cart::instance('cart')->count() > 0)
-                        {{ Cart::instance('cart')->content()->count() }}
-                        @else
-                          0
-                    @endif</div>
+                    @if($cart_id && Cart::instance($cart_id)->count() > 0)
+                        {{ Cart::instance($cart_id)->count() }}
+                    @else
+                        0
+                    @endif
+                </div>
               </a>
             </div>
           </div>
@@ -455,7 +463,7 @@
           <h1 class="thank-you-popup__title">{{ __('theme.Your message was sent successfully') }}</h1>
           <p class="thank-you-popup__descr text-descr-uppercase">{{ __('theme.Thank you for your feedback. Wait for a call from our managers.') }}</p>
         </div>
-        
+
       </div>
       <div class="close-popup"></div>
     </div>
