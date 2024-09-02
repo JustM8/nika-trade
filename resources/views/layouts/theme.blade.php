@@ -408,7 +408,7 @@
 <div class="cart-overlay">
       <div class="cart-overlay-inner" data-lenis-prevent>
         <div class="cart-wrap">
-          <button class="cart-close"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
+          <button class="cart-close" data-cart-close><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 12 12" fill="none">
 <path d="M1 11L11 1L1 11ZM11 11L1 1L11 11Z" fill="#DD405D"/>
 <path d="M11 11L1 1M1 11L11 1L1 11Z" stroke="white" stroke-width="2"/>
 </svg>
@@ -445,7 +445,7 @@
             </div>
           </div>
           <div class="cart-descr"> <span class="cart-descr-title text-14 text-black-100">{{ __('theme.Ціни вказано з ПДВ за умови самовивозу з виробництва. Діючі ціни можуть не збігатися із вказаними на сайті. Уточнюйте, будь ласка.') }}</span><span class="cart-descr-price text-18 text-black-100"> {{ __('theme.Разом') }}</span><span class="cart-descr-price-sum text-18 text-black-100"> </span></div>
-          <div class="cart-buttons-wrap"> <a class="cart-buttons__back" href="">
+          <div class="cart-buttons-wrap"> <a class="cart-buttons__back" href="" data-cart-close>
               <svg class="icon--arrow" role="presentation">
                 <use xlink:href="#icon-arrow"></use>
               </svg><span class="text-14 text-black-100">{{ __('theme.Продовжити покупки') }}</span></a><a class="cart-buttons__cart" href="cart-page.html"><span class="text-14 text-white">{{ __('theme.Перейти у кошик') }}</span>

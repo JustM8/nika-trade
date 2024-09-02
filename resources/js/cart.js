@@ -37,11 +37,15 @@ $(document).on("click", ".add-to-cart", function (e) {
     });
 });
 
-const closeBtnRef = document.querySelector(".cart-close");
+const closeBtnRef = document.querySelectorAll("[data-cart-close]");
 
-closeBtnRef.addEventListener("click", () => {
-    cartPopup.close();
-});
+closeBtnRef.forEach(el => {
+    el.addEventListener("click", (e) => {
+        e.preventDefault;
+        cartPopup.close();
+    });
+
+})
 
 $(document).on("click", ".cart-list-item-delete__input", function (e) {
     e.preventDefault();
@@ -98,7 +102,6 @@ function decrementQuantity($input) {
         $input.val(currentValue - 1);
     }
 }
-
 $(document)
     .on(
         "keydown",
@@ -111,10 +114,12 @@ $(document)
                 $input.val(value);
                 updateQuantity($input);
             } else if (
-                e.which === 8 ||
-                e.which === 46 ||
-                (e.which >= 48 && e.which <= 57)
+                e.which === 8 ||   // Backspace
+                e.which === 46 ||  // Delete
+                (e.which >= 48 && e.which <= 57) ||  // 0-9 (top row)
+                (e.which >= 96 && e.which <= 105)    // 0-9 (Num Lock)
             ) {
+                // Allow valid keys
             } else {
                 e.preventDefault();
             }
@@ -144,6 +149,7 @@ $(document)
     .each(function () {
         $(this).data("previous-value", $(this).val());
     });
+
 
 $(document).on("click", ".cart-increment-btn", function (e) {
     e.preventDefault();
