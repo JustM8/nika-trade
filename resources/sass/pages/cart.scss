@@ -176,11 +176,12 @@
     }
 
     &-list-item-descr__quantity {
+        position: relative;
         border: 1px solid var(--text-footer);
         padding: 6px 10px;
         width: 101px;
 
-        @include mobile {
+        @include tablet {
             width: 150px;
         }
     }
@@ -227,9 +228,13 @@
         justify-content: space-between;
         align-items: center;
 
-        @include mobile {
+        @include tablet {
             flex-direction: row-reverse;
-            gap: 20px;
+            // gap: 20px;
+            position: absolute;
+            right: 0;
+            height: 100%;
+
         }
     }
 
