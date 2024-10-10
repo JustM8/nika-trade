@@ -39,7 +39,7 @@ class GalleriesController extends Controller
 
     public function store(CreateGalleryRequest $request)
     {
-       
+
         if($this->repository->create($request)){
             notify()->success("успішно створено","Галерею");
             return redirect()->route('admin.galleries.index');

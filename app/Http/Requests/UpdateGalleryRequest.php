@@ -16,7 +16,7 @@ class UpdateGalleryRequest extends FormRequest
     {
         return auth()->check() && auth()->user()->is_admin;
     }
-    
+
 
     public function messages()
     {
@@ -183,7 +183,6 @@ class UpdateGalleryRequest extends FormRequest
     public function rules()
     {
         return [
-            'title' => ['required', 'string'],
             'data' => ['nullable'],
 //            'thumbnail' => ['image:jpeg,png,jpg'],
             'images.*' => ['image:jpeg,png,jpg'],
