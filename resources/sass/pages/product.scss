@@ -501,11 +501,23 @@
         align-items: center;
         justify-content: center;
         padding: 0;
+
+        @include tablet {
+            width: 35px;
+            height: 100%;
+            border: 1px solid $border;
+        }
         svg {
             pointer-events: none;
             display: block;
             width: 100%;
             height: 100%;
+            @include tablet {
+                transform: rotate(90deg);
+                width: 15px;
+                height: 15px;
+
+            }
         }
     }
 
@@ -517,12 +529,24 @@
         align-items: center;
         justify-content: center;
         padding: 0;
+        @include tablet {
+            width: 35px;
+            height: 100%;
+            border: 1px solid $border;
+            border-left: 2px solid $border;
+        }
         svg {
             pointer-events: none;
             display: block;
             width: 100%;
             height: 100%;
             transform: rotate(180deg);
+            @include tablet {
+                transform: rotate(-90deg);
+                width: 15px;
+                height: 15px;
+
+            }
         }
     }
 
