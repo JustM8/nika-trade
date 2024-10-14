@@ -6,76 +6,98 @@ import i18next from "i18next";
 const renderForm = (form, elements) => {
     const elementsParamFn = elements;
     const fieldsKey = Object.keys(elements.fields);
+    
+        switch (form.status) {
+            case "renderErrorValidation":
+                if (elementsParamFn.$btnSubmit) {
+                    elementsParamFn.$btnSubmit.setAttribute("disabled", true);
 
-    switch (form.status) {
-        case "renderErrorValidation":
-            elementsParamFn.$btnSubmit.setAttribute("disabled", true);
-            fieldsKey.forEach((key) => {
-                const field = elementsParamFn.fields[key];
-                if (field.valid) {
+                }
+               
+                fieldsKey.forEach((key) => {
+                    const field = elementsParamFn.fields[key];
+                    if (field.valid) {
+                        field.inputWrapper.showSuccessStyle();
+                        field.inputWrapper.writeMessage("");
+                        if (elementsParamFn.showSuccessMessage) {
+                            field.inputWrapper.writeMessage(field.defaultMessage);
+                        }
+                    } else {
+                        field.inputWrapper.showErrorStyle();
+                        field.inputWrapper.addSelectedStyle();
+                        field.inputWrapper.writeMessage(field.error[0]);
+                    }
+                });
+                break;
+            case "renderSuccessValidation":
+                if (elementsParamFn.$btnSubmit) {
+                    elementsParamFn.$btnSubmit.removeAttribute("disabled");
+
+                }
+               
+    
+                fieldsKey.forEach((key) => {
+                    const field = elementsParamFn.fields[key];
                     field.inputWrapper.showSuccessStyle();
                     field.inputWrapper.writeMessage("");
-                    if (elementsParamFn.showSuccessMessage) {
-                        field.inputWrapper.writeMessage(field.defaultMessage);
-                    }
-                } else {
-                    field.inputWrapper.showErrorStyle();
-                    field.inputWrapper.addSelectedStyle();
-                    field.inputWrapper.writeMessage(field.error[0]);
+                });
+                break;
+    
+            case "loading":
+                fieldsKey.forEach((key) => {
+                    const field = elementsParamFn.fields[key];
+                    field.inputWrapper.showLoadingStyle();
+                });
+                if (elementsParamFn.$btnSubmit) {
+                    elementsParamFn.$btnSubmit.setAttribute("disabled", true);
+                elementsParamFn.$btnSubmit.querySelector(
+                    "[data-btn-submit-text]"
+                ).innerHTML = i18next.t("sending");
+
                 }
-            });
-            break;
-        case "renderSuccessValidation":
-            elementsParamFn.$btnSubmit.removeAttribute("disabled");
+                
+    
+                break;
+            case "successSand":
+                fieldsKey.forEach((key) => {
+                    const field = elementsParamFn.fields[key];
+                    field.inputWrapper.showDefaultStyle();
+                    field.inputWrapper.removeSelectedStyle();
+                });
+                elementsParamFn.$form.reset();
+                if (elementsParamFn.$btnSubmit) {
+                    elementsParamFn.$btnSubmit.setAttribute("disabled", false);
+                elementsParamFn.$btnSubmit.querySelector(
+                    "[data-btn-submit-text]"
+                ).innerHTML = i18next.t("send");
 
-            fieldsKey.forEach((key) => {
-                const field = elementsParamFn.fields[key];
-                field.inputWrapper.showSuccessStyle();
-                field.inputWrapper.writeMessage("");
-            });
-            break;
+                }
+                
+    
+                if (typeof elementsParamFn.successAction === "function") {
+                    elementsParamFn.successAction();
+                }
+                break;
+    
+            case "filling":
+                break;
+            case "failed":
+                if (elementsParamFn.$btnSubmit) {
+                    elementsParamFn.$btnSubmit.removeAttribute("disabled");
+                elementsParamFn.$btnSubmit.querySelector(
+                    "[data-btn-submit-text]"
+                ).innerHTML = i18next.t("send");
 
-        case "loading":
-            fieldsKey.forEach((key) => {
-                const field = elementsParamFn.fields[key];
-                field.inputWrapper.showLoadingStyle();
-            });
+                }
+                
+                break;
+    
+            default:
+                throw Error(`Unknown form status: ${form.status}`);
+        }
 
-            elementsParamFn.$btnSubmit.setAttribute("disabled", true);
-            elementsParamFn.$btnSubmit.querySelector(
-                "[data-btn-submit-text]"
-            ).innerHTML = i18next.t("sending");
 
-            break;
-        case "successSand":
-            fieldsKey.forEach((key) => {
-                const field = elementsParamFn.fields[key];
-                field.inputWrapper.showDefaultStyle();
-                field.inputWrapper.removeSelectedStyle();
-            });
-            elementsParamFn.$form.reset();
-            elementsParamFn.$btnSubmit.setAttribute("disabled", false);
-            elementsParamFn.$btnSubmit.querySelector(
-                "[data-btn-submit-text]"
-            ).innerHTML = i18next.t("send");
-
-            if (typeof elementsParamFn.successAction === "function") {
-                elementsParamFn.successAction();
-            }
-            break;
-
-        case "filling":
-            break;
-        case "failed":
-            elementsParamFn.$btnSubmit.removeAttribute("disabled");
-            elementsParamFn.$btnSubmit.querySelector(
-                "[data-btn-submit-text]"
-            ).innerHTML = i18next.t("send");
-            break;
-
-        default:
-            throw Error(`Unknown form status: ${form.status}`);
-    }
+    
 };
 
 const initView = (state, elementsParamFn) => {

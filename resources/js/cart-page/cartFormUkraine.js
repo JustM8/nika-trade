@@ -16,7 +16,7 @@ export const cartFormUkraine = (formRef, onSuccess) => {
     new FormMonster({
         elements: {
             $form: formRef,
-            $btnSubmit: btnRef,
+            // $btnSubmit: false,
             showSuccessMessage: false,
             successAction: (data) => {
                 onSuccess && onSuccess();

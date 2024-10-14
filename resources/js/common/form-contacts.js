@@ -199,12 +199,20 @@ export default class FormMonster {
   }
 
   listers() {
-    this.elements.$form.addEventListener('submit', this.submitForm(this.watchedState));
-    this.fieldsKey.map(key => {
-      const { input } = this.elements.fields[key].inputWrapper;
-      input.addEventListener('input', this.changeInput(this.watchedState));
-      return null;
-    });
+    if (this.elements.$form.$btnSubmit) {
+      this.elements.$form.addEventListener('submit', this.submitForm(this.watchedState));
+      this.fieldsKey.map(key => {
+        const { input } = this.elements.fields[key].inputWrapper;
+        input.addEventListener('input', this.changeInput(this.watchedState));
+        return null;
+      });
+    }
+    // this.elements.$form.addEventListener('submit', this.submitForm(this.watchedState));
+    // this.fieldsKey.map(key => {
+    //   const { input } = this.elements.fields[key].inputWrapper;
+    //   input.addEventListener('input', this.changeInput(this.watchedState));
+    //   return null;
+    // });
   }
 
   init() {

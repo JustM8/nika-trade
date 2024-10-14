@@ -93,7 +93,6 @@ const lang = langDetect();
     });
 })();
 /*  */
-
 export default class FormMonster {
     constructor(setting) {
         this.elements = setting.elements;
@@ -106,6 +105,7 @@ export default class FormMonster {
             form: setting.elements.fields,
             status: "filling",
         };
+
         this.fieldsKey = Object.keys(this.elements.fields);
         this.watchedState = initView(this.state, this.elements);
 
@@ -117,12 +117,11 @@ export default class FormMonster {
             acc[key] = formData.get(key);
             return acc;
         }, {});
-        /*  */
+
         const shapeObject = this.fieldsKey.reduce((acc, key) => {
             acc[key] = this.elements.fields[key].rule;
             return acc;
         }, {});
-        /*  */
 
         const schema = yup.object().shape(shapeObject);
 
@@ -136,32 +135,28 @@ export default class FormMonster {
 
     changeInput() {
         return (e) => {
-            /*  */
             e.preventDefault();
             this.watchedState.status = "filling";
-            /*  */
             const formData = new FormData(this.elements.$form);
-            /*  */
             const error = this.validate(formData);
-            /*  */
+
             this.fieldsKey.map((key) => {
                 const field = this.elements.fields[key];
                 field.valid = true;
                 field.error = [];
                 return null;
             });
-            /*  */
-            /*  */
+
             if (error) {
                 error.forEach(({ path, message }) => {
                     this.watchedState.form[path].valid = false;
                     this.watchedState.form[path].error.push(message);
-                    return null;
                 });
                 this.watchedState.error = true;
                 this.watchedState.status = "renderErrorValidation";
                 return null;
             }
+
             this.watchedState.error = false;
             this.watchedState.status = "renderSuccessValidation";
             return null;
@@ -170,36 +165,39 @@ export default class FormMonster {
 
     submitForm() {
         return async (e) => {
-            /*  */
             e.preventDefault();
+
+            // Check if form has already been submitted
+            if (this.elements.$form.isSubmitted) {
+                return;
+            }
+
             this.changeInput()(e);
 
-            /*  */
             if (this.watchedState.error === false) {
                 try {
                     this.watchedState.status = "loading";
                     const formData = new FormData(this.elements.$form);
                     formData.append("action", "app");
 
-                    /* eslint-disable-next-line */
-                    const { error, code_error, redirect_url } = await sendForm(
-                        formData
-                    );
+                    console.log(formData);
+
+                    const { error, code_error, redirect_url } = await sendForm(formData);
 
                     if (error === 0 || redirect_url) {
                         this.watchedState.status = "successSand";
 
                         window.dispatchEvent(
                             new CustomEvent("successFormSendFinished", {
-                                detail: {
-                                    redirect_url,
-                                },
+                                detail: { redirect_url },
                             })
                         );
+
+                        // Mark the form as submitted
+                        this.elements.$form.isSubmitted = true;
                         return true;
                     }
 
-                    /* eslint-disable-next-line */
                     this.watchedState.serverError = code_error;
                     this.watchedState.status = "failed";
                 } catch (err) {
@@ -208,26 +206,31 @@ export default class FormMonster {
                     this.watchedState.status = "failed";
                 }
             }
+
             return null;
         };
     }
 
     listers() {
-        this.elements.$form.addEventListener(
-            "submit",
-            this.submitForm(this.watchedState)
-        );
-        this.fieldsKey.map((key) => {
-            const { input } = this.elements.fields[key].inputWrapper;
-            input.addEventListener(
-                "input",
-                this.changeInput(this.watchedState)
+        if (!this.elements.$form.hasEventListener) { // Check if listeners are already attached
+            this.elements.$form.addEventListener(
+                "submit",
+                this.submitForm(this.watchedState)
             );
-            return null;
-        });
+            this.fieldsKey.map((key) => {
+                const { input } = this.elements.fields[key].inputWrapper;
+                input.addEventListener(
+                    "input",
+                    this.changeInput(this.watchedState)
+                );
+                return null;
+            });
+            this.elements.$form.hasEventListener = true; // Flag that listeners are attached
+        }
     }
 
     init() {
+        this.elements.$form.isSubmitted = false; // Reset the submission flag
         this.listers();
     }
 }

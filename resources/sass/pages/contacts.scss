@@ -149,6 +149,11 @@
         align-items: flex-start;
         justify-content: flex-start;
         width: calc(100% - var(--container52));
+
+
+        .contacts-page-list-item-content-details__link {
+            text-wrap: nowrap;
+        }
     }
 
     &-list-item-content-epicentr {

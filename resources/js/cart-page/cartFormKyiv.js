@@ -15,7 +15,7 @@ export const cartFormKyiv = (formRef, onSuccess) => {
     new FormMonster({
         elements: {
             $form: formRef,
-            $btnSubmit: btnRef,
+            // $btnSubmit: false,
             showSuccessMessage: false,
             successAction: () => {
                 onSuccess && onSuccess();
