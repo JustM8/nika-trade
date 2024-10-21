@@ -1,6 +1,6 @@
 import * as yup from "yup";
 import i18next from "i18next";
-import FormMonster from "./form-contacts";
+import FormMonster from "./form-contacts-popup";
 import SexyInput from "./input-contact";
 import { successPopup } from "./successPopup";
 
